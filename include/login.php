@@ -1,21 +1,21 @@
 <?php
 include 'connect.php';
+session_start();
 
 if (isset($_POST['login'])) :
-  $username = $_POST['username'];
-  $password = $_POST['password'];
+  $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+  $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
   // Check in users table
-  $query = "SELECT * FROM account WHERE username = '$username'";
+  $query = "SELECT * FROM tbl_account WHERE username = '$username'";
   $result = mysqli_query($conn, $query);
 
   if (mysqli_num_rows($result) > 0) {
     $user = mysqli_fetch_assoc($result);
     if (password_verify($password, $user['password'])) {
-      session_start();
+ 
       $_SESSION['SESS_FULLNAME']    = $user['username'];
       $_SESSION['SESS_LEVEL']       = $user['access'];
-      session_write_close();
 
       if($user['access'] == 1) {
         echo "Admin";
@@ -33,7 +33,7 @@ if (isset($_POST['login'])) :
         echo "Auditor";
       } 
       else {
-        header('location: ../index.php');
+        echo "Incorrect password.";
       }
       
     } else {
