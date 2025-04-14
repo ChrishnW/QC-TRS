@@ -20,7 +20,7 @@
   <div id="wrapper">
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../pages/index.php">
         <div class="sidebar-brand-icon">
         <img src="../assets/img/logo.png" alt="" class="img-fluid" style="width: 45px;">
         </div>
@@ -34,7 +34,7 @@
         <i class="fa fa-user" aria-hidden="true"></i>
           <span>Manage Account</span></a>
       </li>
-      
+
       <!-- <li class="nav-item">
         <a class="nav-link" href="../pages/dashboard.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
