@@ -1,8 +1,8 @@
 <?php
-$db_host      = 'localhost';
+$db_host      = '192.168.5.220';
 $db_user      = 'root';
-$db_database  = 'test';
-$db_pass      = 'test';
+$db_database  = 'qc_trs';
+$db_pass      = 'p@ssw0rd$$$';
 
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_database);
 $conn->set_charset("utf8mb4");
