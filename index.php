@@ -83,6 +83,30 @@
       </div>
     </div>
   </section>
+<!-- 
+  Bootstrap core JavaScript
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+
+  <!-- Core plugin JavaScript-->
+  <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
+
+  <!-- Custom scripts for all pages-->
+  <!-- <script src="assets/js/sb-admin-2.min.js"></script> -->
+
+  <!-- <script>
+    $(document).on('keypress', function(event) {
+      if (event.which === 13) { // 13 is the Enter key
+        $('#login').click();
+      }
+    });
+  </script> -->
+
+  <!-- <script src="assets/js/script.js"></script> -->
+
+
+
+
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -94,13 +118,13 @@
   <!-- Custom scripts for all pages-->
   <script src="assets/js/sb-admin-2.min.js"></script>
 
-  <!-- <script>
+  <script>
     $(document).on('keypress', function(event) {
       if (event.which === 13) { // 13 is the Enter key
         $('#login').click();
       }
     });
-  </script> -->
+  </script>
 
   <script src="assets/js/script.js"></script>
 </body>

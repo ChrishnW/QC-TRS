@@ -2,12 +2,12 @@ function Login() {
   const credentials = new FormData(document.getElementById('loginDetails'));
   $.ajax({
     method: 'POST',
-    url: 'include/query.php',
+    url: 'include/login.php',
     data: credentials,
     processData: false,
     contentType: false,
     success: function (response) {
-      if (response == "Admin") {
+      if (response == 'Admin') {
         window.location.href = 'pages/admin_dashboard.php';
       } 
       else if (response == "Filer") {
@@ -29,9 +29,9 @@ function Login() {
   });
 }
 
-function Login() {
-  window.location.href = 'pages/index.php';
-}
+// function Login() {
+//   window.location.href = 'pages/index.php';
+// }
 
 $.fn.dataTable.ext.type.order['date-custom-pre'] = function (d) {
   var months = {
