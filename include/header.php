@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Template</title>
+  <title>QC Trouble Report System</title>
 
   <link rel="icon" type="image/png" sizes="32x32" href="#">
 
