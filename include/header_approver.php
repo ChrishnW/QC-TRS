@@ -41,11 +41,11 @@
           <span>Dashboard</span></a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="../pages/approver_dashboard.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Request</span></a>
-      </li>
+      </li> -->
 
       <!-- <hr class="sidebar-divider"> -->
 
