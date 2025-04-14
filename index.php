@@ -12,7 +12,7 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 
-  <title>Template</title>
+  <title>QC Trouble Report System</title>
 
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
 
