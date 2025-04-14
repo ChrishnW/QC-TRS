@@ -12,7 +12,7 @@
 
   <title>QC Trouble Report System</title>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="#">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
 
   <?php include 'link.php'; ?>
 
@@ -29,9 +29,9 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon">
-          <i class="fas fa-question"></i>
+        <img src="../assets/img/logo.png" alt="" class="img-fluid" style="width: 45px;">
         </div>
-        <div class="sidebar-brand-text mx-3">Template</div>
+        <div class="sidebar-brand-text mx-3">QC-TRS</div>
       </a>
 
       <!-- Divider -->
