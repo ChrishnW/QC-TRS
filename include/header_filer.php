@@ -30,9 +30,15 @@
       <hr class="sidebar-divider my-0">
 
       <li class="nav-item">
-        <a class="nav-link" href="../pages/account.php">
-        <i class="fa fa-user" aria-hidden="true"></i>
-          <span>Manage Account</span></a>
+        <a class="nav-link" href="../pages/filer_dashboard.php">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="../pages/filer_dashboard.php">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Request</span></a>
       </li>
       
       <!-- <li class="nav-item">

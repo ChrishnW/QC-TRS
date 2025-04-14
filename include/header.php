@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>QC Trouble Report System</title>
+  <title>QC Trouble Report System | <?php echo ucfirst(basename($_SERVER['PHP_SELF'], '.php')); ?></title>
 
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
 
@@ -35,12 +35,12 @@
           <span>Dashboard</span></a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="../pages/account.php">
         <i class="fa fa-user" aria-hidden="true"></i>
           <span>Manage Account</span></a>
       </li>
-      
+       -->
      <!-- <hr class="sidebar-divider"> -->
 
       <!-- <div class="sidebar-heading">
