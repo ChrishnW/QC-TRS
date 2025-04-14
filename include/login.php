@@ -13,12 +13,29 @@ if (isset($_POST['login'])) :
     $user = mysqli_fetch_assoc($result);
     if (password_verify($password, $user['password'])) {
       session_start();
-      $_SESSION['SESS_USERNAME']    = $username;
-      $_SESSION['SESS_PASSWORD']    = $password;
-      $_SESSION['SESS_FULLNAME']    = $user['fullname'];
-      $_SESSION['SESS_LEVEL']       = $user['level'];
+      $_SESSION['SESS_FULLNAME']    = $user['username'];
+      $_SESSION['SESS_LEVEL']       = $user['access'];
       session_write_close();
-      echo "Success";
+
+      if($user['access'] == 1) {
+        echo "Admin";
+      } 
+      elseif ($user['access'] == 2) {
+        echo "Filer";
+      } 
+      elseif ($user['access'] == 3) {
+        echo "Maker";
+      } 
+      elseif ($user['access'] == 4) {
+        echo "Approver";
+      } 
+      elseif ($user['access'] == 5) {
+        echo "Auditor";
+      } 
+      else {
+        header('location: ../index.php');
+      }
+      
     } else {
       echo "Incorrect password.";
     }
