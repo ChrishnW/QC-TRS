@@ -8,19 +8,19 @@ function Login() {
     contentType: false,
     success: function (response) {
       if (response == "Admin") {
-        window.location.href = 'pages_admin_dashboard.php';
+        window.location.href = 'pages/admin_dashboard.php';
       } 
       else if (response == "Filer") {
-        window.location.href = 'pages_filer_dashboard.php';
+        window.location.href = 'pages/filer_dashboard.php';
       }
       else if (response == "Maker") {
-        window.location.href = 'pages_maker_dashboard.php';
+        window.location.href = 'pages/maker_dashboard.php';
       }
       else if (response == "Approver") {
-        window.location.href = 'pages_approver_dashboard.php';
+        window.location.href = 'pages/approver_dashboard.php';
       }
       else if (response == "Auditor") {
-        window.location.href = 'pages_auditor_dashboard.php';
+        window.location.href = 'pages/auditor_dashboard.php';
       }
       else {
         alert(response);
