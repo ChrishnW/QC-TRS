@@ -30,7 +30,7 @@
       <hr class="sidebar-divider my-0">
 
       <li class="nav-item">
-        <a class="nav-link" href="../pages/account.php">
+        <a class="nav-link" href="../pages/admin_dashboard.php">
         <i class="fa fa-user" aria-hidden="true"></i>
           <span>Manage Account</span></a>
       </li>
