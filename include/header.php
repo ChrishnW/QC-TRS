@@ -30,18 +30,18 @@
       <hr class="sidebar-divider my-0">
 
       <li class="nav-item">
+        <a class="nav-link" href="../pages/index.php">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link" href="../pages/account.php">
         <i class="fa fa-user" aria-hidden="true"></i>
           <span>Manage Account</span></a>
       </li>
-
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="../pages/dashboard.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li> -->
-
-      <!-- <hr class="sidebar-divider"> -->
+      
+     <!-- <hr class="sidebar-divider"> -->
 
       <!-- <div class="sidebar-heading">
         Components
