@@ -1,9 +1,5 @@
-<?php include '../include/header.php'; ?>
-<!-- Begin Page Content -->
+<?php include '../header.php'; ?>
 <div class="container-fluid">
-
-  <!-- Body Contents -->
-
+    <h1>asd</h1>
 </div>
-<!-- /.container-fluid -->
-<?php include '../include/footer.php'; ?>
+<?php include '../../include/footer.php'; ?>

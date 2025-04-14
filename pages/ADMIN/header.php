@@ -14,7 +14,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="#">
 
-  <?php include 'link.php'; ?>
+  <?php include '../include/link.php'; ?>
 
 </head>
 
