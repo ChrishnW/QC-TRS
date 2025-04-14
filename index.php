@@ -41,8 +41,8 @@
                   <form id="loginDetails">
 
                     <div class="d-flex align-items-center mb-3 pb-1">
-                      <img src="" alt="Logo" style="width: 50px;" class="mr-1">
-                      <span class="h4 font-weight-bold mb-0">Template</span>
+                      <img src="assets/img/logo.png" alt="Logo" style="width: 50px;" class="mr-3">
+                      <span class="h4 font-weight-bold mb-0">QC Trouble Report System</span>
                     </div>
 
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
