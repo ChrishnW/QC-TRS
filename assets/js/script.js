@@ -7,9 +7,22 @@ function Login() {
     processData: false,
     contentType: false,
     success: function (response) {
-      if (response == 'Success') {
-        window.location.href = 'dashboard.php';
-      } else {
+      if (response == "Admin") {
+        window.location.href = 'pages/admin_dashboard.php';
+      } 
+      else if (response == "Filer") {
+        window.location.href = 'pages/filer_dashboard.php';
+      }
+      else if (response == "Maker") {
+        window.location.href = 'pages/maker_dashboard.php';
+      }
+      else if (response == "Approver") {
+        window.location.href = 'pages/approver_dashboard.php';
+      }
+      else if (response == "Auditor") {
+        window.location.href = 'pages/auditor_dashboard.php';
+      }
+      else {
         alert(response);
       }
     }
