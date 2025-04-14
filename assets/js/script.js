@@ -1,20 +1,20 @@
-// function Login() {
-//   const credentials = new FormData(document.getElementById('loginDetails'));
-//   $.ajax({
-//     method: 'POST',
-//     url: 'include/query.php',
-//     data: credentials,
-//     processData: false,
-//     contentType: false,
-//     success: function (response) {
-//       if (response == 'Success') {
-//         window.location.href = 'dashboard.php';
-//       } else {
-//         alert(response);
-//       }
-//     }
-//   });
-// }
+function Login() {
+  const credentials = new FormData(document.getElementById('loginDetails'));
+  $.ajax({
+    method: 'POST',
+    url: 'include/query.php',
+    data: credentials,
+    processData: false,
+    contentType: false,
+    success: function (response) {
+      if (response == 'Success') {
+        window.location.href = 'dashboard.php';
+      } else {
+        alert(response);
+      }
+    }
+  });
+}
 
 function Login() {
   window.location.href = 'pages/index.php';

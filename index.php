@@ -42,7 +42,7 @@
 
                     <div class="d-flex align-items-center mb-3 pb-1">
                       <img src="assets/img/logo.png" alt="Logo" style="width: 50px;" class="mr-3">
-                      <span class="h4 font-weight-bold mb-0">QC Trouble Report System</span>
+                      <span class="h4 font-weight-bold mb-0">Trouble Report System</span>
                     </div>
 
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
@@ -94,13 +94,13 @@
   <!-- Custom scripts for all pages-->
   <script src="assets/js/sb-admin-2.min.js"></script>
 
-  <script>
+  <!-- <script>
     $(document).on('keypress', function(event) {
       if (event.which === 13) { // 13 is the Enter key
         $('#login').click();
       }
     });
-  </script>
+  </script> -->
 
   <script src="assets/js/script.js"></script>
 </body>
