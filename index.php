@@ -41,8 +41,8 @@
                   <form id="loginDetails">
 
                     <div class="d-flex align-items-center mb-3 pb-1">
-                      <img src="" alt="Logo" style="width: 50px;" class="mr-1">
-                      <span class="h4 font-weight-bold mb-0">Template</span>
+                      <img src="assets/img/logo.png" alt="Logo" style="width: 50px;" class="mr-3">
+                      <span class="h4 font-weight-bold mb-0">QC Trouble Report System</span>
                     </div>
 
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
@@ -57,14 +57,14 @@
                       <label class="form-label" for="password">Password</label> <i class="small text-danger d-none">- Login or password is invalid.</i>
                     </div>
 
-                    <div class="form-outline mb-4 d-flex justify-content-between align-items-center">
+                    <!-- <div class="form-outline mb-4 d-flex justify-content-between align-items-center">
                       <label class="custom-checkbox mb-0">
                         <input name="dummy" type="checkbox">
                         <span class="checkmark"></span>
                         Remember for 30 days
                       </label>
                       <a href="forgot_password.php" class="small text-muted">Forgot password?</a>
-                    </div>
+                    </div> -->
 
                   </form>
 
