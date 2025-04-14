@@ -52,7 +52,29 @@
                                     </div>
                                 </div>
 
-                                
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="">Quantity <span style="color: red;">*</span></label><br>
+                                        <input type="number" class="form-control" placeholder="Serial Number" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="">Due Date <span style="color: red;">*</span></label><br>
+                                        <input type="date" class="form-control" placeholder="Temp #" required>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="">Image (Good) <span style="color: red;">*</span></label><br>
+                                        <input type="file" class="form-control" placeholder="Serial Number" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="">Image (Not Good) <span style="color: red;">*</span></label><br>
+                                        <input type="file" class="form-control" placeholder="Temp #" required>
+                                    </div>
+                                </div>
 
                                 <div class="row mb-3">
                                     <div class="col-md-6">
