@@ -3,3 +3,4 @@
 <link href="../assets/css/sb-admin-2.min.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css">
 <link href="../assets/css/style.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css">
 <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link href="../vendor/snapappointments/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
