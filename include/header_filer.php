@@ -36,9 +36,9 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="../pages/filer_dashboard.php">
+        <a class="nav-link" href="../pages/filer_request.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Request</span></a>
+          <span>Request Trouble Report</span></a>
       </li>
       
       <!-- <li class="nav-item">
