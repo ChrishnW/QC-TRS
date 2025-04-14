@@ -2,7 +2,7 @@
 $db_host      = 'localhost';
 $db_user      = 'root';
 $db_database  = 'test';
-$db_pass      = '';
+$db_pass      = 'test';
 
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_database);
 $conn->set_charset("utf8mb4");
