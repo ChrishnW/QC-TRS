@@ -33,20 +33,6 @@
     }
   }                  
 
-  // Display Message ..................................................................................
-  // if(isset($_SESSION["message"])){
-  //   $message = $_SESSION["message"];
-
-  //   echo "<script> 
-  //     document.addEventListener('DOMContentLoaded', function () {
-  //       document.getElementById('display_message').innerHTML = '$message'; 
-  //       document.getElementById('popup').style.display = 'block'; 
-  //     }); 
-  //   </script>";
-
-  //   unset($_SESSION["message"]);
-  // }
-
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Add account ....................................................................................
