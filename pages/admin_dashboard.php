@@ -2,6 +2,37 @@
   ob_start();
   include '../include/header_admin.php'; 
 
+  // Get role name ....................................................................................
+  function get_roleName($role) {
+    switch ($role) {
+      case 2:
+        return "Filer";
+      case 3:
+        return "Maker";
+      case 4:
+        return "Line Leader";
+      case 5:
+        return "Department Head";
+      case 6:
+        return "Factory Officer";
+      case 7:
+        return "Chief Operating Officer";
+      default:
+        return "Unknown Role";
+    }
+  }
+  // Get status name ..................................................................................
+  function get_statusName($status) {
+    switch ($status) {
+      case 1:
+        return "Active";
+      case 0:
+        return "Inactive";
+      default:
+        return "Unknown Status";
+    }
+  }                  
+
   // Display Message ..................................................................................
   if(isset($_SESSION["message"])){
     $message = $_SESSION["message"];
@@ -72,12 +103,40 @@
               </tr>
             </thead>
 
-            <tbody id="account_list">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tbody>
+
+              <?php 
+              
+              $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access != 1 ORDER BY id ASC");
+              if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_assoc($result)){
+                  $id = $row['id'];
+                  $name = $row['username'];
+                  $role = $row['access'];
+                  $roleName = get_roleName($role);
+                  $status = $row['status'];
+                  $statusName = get_statusName($status);
+              ?>
+
+              <tr>
+                <td><?php echo $id ?></td>
+                <td><?php echo $name ?></td>
+                <td><?php echo $roleName ?></td>
+                <td><?php echo $statusName ?></td>
+                <td style="table-layout: fixed; width: 15%;">
+                  <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
+                    <input type="hidden" name="id_account" value="<?php echo $id ?>">
+                    <input type="submit" class="edit btn btn-primary mr-1" value="Edit" name="edit_account" disabled>
+                    <input type="submit" class="delete btn btn-danger" value="Delete" name="delete_account" disabled>
+                  </form>
+                </td>
+              </tr>
+
+              <?php 
+                }
+              }
+              ?>
+
             </tbody>
           </table>
         </div>        
