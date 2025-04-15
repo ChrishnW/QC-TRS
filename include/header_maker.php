@@ -36,8 +36,8 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="../pages/account.php">
-        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+        <a class="nav-link" href="../pages/maker_form.php">
+          <i class="fas fa-fw fa fa-file-text" aria-hidden="true"></i>
           <span>Form?</span></a>
       </li>
       
