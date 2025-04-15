@@ -34,18 +34,18 @@
   }                  
 
   // Display Message ..................................................................................
-  if(isset($_SESSION["message"])){
-    $message = $_SESSION["message"];
+  // if(isset($_SESSION["message"])){
+  //   $message = $_SESSION["message"];
 
-    echo "<script> 
-      document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('display_message').innerHTML = '$message'; 
-        document.getElementById('popup').style.display = 'block'; 
-      }); 
-    </script>";
+  //   echo "<script> 
+  //     document.addEventListener('DOMContentLoaded', function () {
+  //       document.getElementById('display_message').innerHTML = '$message'; 
+  //       document.getElementById('popup').style.display = 'block'; 
+  //     }); 
+  //   </script>";
 
-    unset($_SESSION["message"]);
-  }
+  //   unset($_SESSION["message"]);
+  // }
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -71,10 +71,7 @@
       exit;
     }
   
-  
-  
   }
-
 
 ?>
 
@@ -194,10 +191,28 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
+      <?php
+        if(isset($_SESSION["message"])){
+          $message = $_SESSION["message"];
+      
+          echo "<script> 
+            document.addEventListener('DOMContentLoaded', function () {
+              document.getElementById('popup').style.display = 'block'; 
+            }); 
+          </script>";
+
+      ?>
       
       <div class="modal-body my-2">
-        <p class="h5" id="display_message"></p>
+        <p class="h5"> <?php echo $message ?></p>
       </div>
+
+      <?php
+          unset($_SESSION["message"]);
+        }
+      ?>
+
     </div>
   </div>
 </div>
