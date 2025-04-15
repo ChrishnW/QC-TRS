@@ -31,7 +31,7 @@
       default:
         return "Unknown Status";
     }
-  }                  
+  }     
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -150,12 +150,12 @@
         <div class="modal-body">
           <div class="mb-3">
             <label for="" class="form-label">Name <span style="color: red;">*</span></label>
-            <input type="text" name="name" id="" class="form-control" required>
+            <input type="text" name="name" class="form-control" required>
           </div>
 
           <div class="mb-3">
             <label for="role" class="form-label">Role <span style="color: red;">*</span></label>
-            <select name="role" id="" class="form-control" required >
+            <select name="role" class="form-control" required >
                 <option value="" hidden></option>
                 <option value="2">Filer</option>
                 <option value="3">Maker</option>
@@ -179,20 +179,75 @@
 <!-- Pop up for Edit Account -->
 <div class="modal" id="modal_edit_account" tabindex="-1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="content">
-      <div class="modal-header">
-        <h5 class="modal-title">Edit Account</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="close_edit_account()">
+    <div class="modal-content">
+      <div class="modal-header bg-gradient-primary">
+        <h5 class="modal-title text-white">Edit Account</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="close_edit_account()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="close_edit_account()">Close</button>
-      </div>
+      <?php
+        if (isset($_SESSION["account_id"])) {
+          $id = $_SESSION["account_id"];
+          $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id = '$id'");
+          $row = mysqli_fetch_assoc($result);
+          $name = $row['username'];
+          $role = $row['access'];
+          $status = $row['status'];
+
+          $roleName = get_roleName($role);
+          $statusName = get_statusName($status);
+
+          echo "<script> 
+            document.addEventListener('DOMContentLoaded', function () {
+              document.getElementById('modal_edit_account').style.display = 'block'; 
+            });
+          </script>";
+      ?>
+
+      <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" style="width: 100%; max-width: 600px;">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="id" class="form-label">Id</label>
+            <input type="text" name="id" class="form-control" required value="<?php echo $id ?>" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name <span style="color: red;">*</span></label>
+            <input type="text" name="name" class="form-control" required value="<?php echo $name ?>">
+          </div>
+          <div class="mb-3">
+            <label for="role" class="form-label">Role <span style="color: red;">*</span></label>
+            <select name="role" class="form-control" required >
+                <option value="<?php echo $role ?>" hidden><?php echo $roleName ?></option>
+                <option value="2">Filer</option>
+                <option value="3">Maker</option>
+                <option value="4">Line Leader</option>
+                <option value="5">Department Head</option>
+                <option value="6">Factory Officer</option>
+                <option value="7">Chief Operating Officer</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="status" class="form-label">Status <span style="color: red;">*</span></label>
+            <select name="status" class="form-control" required >
+                <option value="<?php echo $status ?>" hidden><?php echo $statusName ?></option>
+                <option value="1">Acive</option>
+                <option value="2">Inactive</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" name="edit_add_account" value="Save" class="btn btn-primary pr-3">
+          <input type="reset" name="reset" value="Cancel" onclick="close_edit_account()" class="btn btn-secondary ml-2">
+        </div>
+      </form>
+
+      <?php 
+          unset($_SESSION["account_id"]);
+        }
+      ?>
+
     </div>
   </div>
 </div>
