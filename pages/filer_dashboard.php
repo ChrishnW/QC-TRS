@@ -1,27 +1,18 @@
 <?php include '../include/header_filer.php'; ?>
 
-<div class="container-fluid">
-    <div id="filer_dashboard" class="filer_dashboard" style="display: block;">
-        <div class="card shadow mb-4">
-            <div class="card-header ">
-                <div class="cold-md-6 float-left">
-                    <a href="#" class="btn btn-primary active" id="btn_ongoing" role="button" aria-pressed="true">Ongoing Trouble Report Request</a>
-                    <a href="#" class="btn btn-primary active" id="btn_finished" role="button" aria-pressed="true">Finished Trouble Report Request</a>
-                </div>  
-            </div>
 
-            <div>
-
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <div class="container-fluid" id="ongoing_trouble_report" style="display: block;">
     <div id="filer_dashboard" class="filer_dashboard" style="display: block;">
         <div class="card shadow mb-4">
-            <div class="card-header py-3.5 pt-4">
+
+            <div class="cold-md-6 float-left m-3">
+                <a href="#" class="btn btn-primary active" onclick="display_ongoing()" role="button" aria-pressed="true">Ongoing Trouble Report Request</a>
+                <a href="#" class="btn btn-primary active" onclick="display_finished()" role="button" aria-pressed="true">Finished Trouble Report Request</a>
+            </div> 
+
+            <div class="card-header py-3.5 pt-1">
                 <h2 class="float-left">Ongoing Trouble Report</h2>            
             </div>
 
@@ -55,7 +46,13 @@
 <div class="container-fluid" id="finished_trouble_report" style="display: none;">
     <div id="filer_dashboard" class="filer_dashboard" style="display: block;">
         <div class="card shadow mb-4">
-            <div class="card-header py-3.5 pt-4">
+
+            <div class="cold-md-6 float-left m-3">
+                <a href="#" class="btn btn-primary active" onclick="display_ongoing()" role="button" aria-pressed="true">Ongoing Trouble Report Request</a>
+                <a href="#" class="btn btn-primary active" onclick="display_finished()" role="button" aria-pressed="true">Finished Trouble Report Request</a>
+            </div> 
+
+            <div class="card-header py-3.5 pt-1">
                 <h2 class="float-left">Finished Trouble Report</h2>
             </div>
 
@@ -95,15 +92,15 @@
         $('#finished_dataTable').DataTable();
     });
 
-    document.getElementById("btn_ongoing").addEventListener("click", function() {
+    function display_ongoing() {
         document.getElementById("ongoing_trouble_report").style.display = "block";
         document.getElementById("finished_trouble_report").style.display = "none";
-    });
+    };
 
-    document.getElementById("btn_finished").addEventListener("click", function() {
+    function display_finished() {
         document.getElementById("ongoing_trouble_report").style.display = "none";
         document.getElementById("finished_trouble_report").style.display = "block";
-    });
+    };
 
 
 
