@@ -10,36 +10,32 @@
 
             <form>
                 <div class="modal-body">
-                    <div>
-                        <div class="card mb-4">
-                            <div class="card-body">      
-                                <div class="col-md-12">
-                                    <label for="">Man <span style="color: red;">*</span></label><br>
-                                    <textarea class="form-control" rows="5" placeholder="Problem Description" required></textarea>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <label for="">Method <span style="color: red;">*</span></label><br>
-                                    <textarea class="form-control" rows="5" placeholder="Problem Description" required></textarea>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <label for="">Material <span style="color: red;">*</span></label><br>
-                                    <textarea class="form-control" rows="5" placeholder="Problem Description" required></textarea>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <label for="">Machine <span style="color: red;">*</span></label><br>
-                                    <textarea class="form-control" rows="5" placeholder="Problem Description" required></textarea>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <label for="">Correction <span style="color: red;">*</span></label><br>
-                                    <textarea class="form-control" rows="5" placeholder="Problem Description" required></textarea>
-                                </div>
-                            </div>
+                    <div>                      
+                        <div class="col-md-12">
+                            <label for="">Man <span style="color: red;">*</span></label><br>
+                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
                         </div>
-                    </div>                
+
+                        <div class="col-md-12">
+                            <label for="">Method <span style="color: red;">*</span></label><br>
+                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="">Material <span style="color: red;">*</span></label><br>
+                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="">Machine <span style="color: red;">*</span></label><br>
+                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="">Correction <span style="color: red;">*</span></label><br>
+                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                        </div>
+                    </div>                            
                 </div> 
 
                 <div class="modal-footer">
@@ -54,41 +50,36 @@
     <div id="maker_form" class="maker_form" style="display: block;">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4">
-                <h2 class="float-left">Reason (4 M's)</h2>
+                <h2 class="float-left">Corrective Action (4 M's)</h2>
                 <br>                         
             </div>
 
             <form>
-                <div class="modal-body">
-                    <div class="card mb-4">
-                        <div class="card-body">      
-                            <h2 class="float-left">Corrective Action (4 M's)</h2>
-                            <div class="col-md-12">
-                                <label for="">Man <span style="color: red;">*</span></label><br>
-                                <textarea class="form-control" rows="5" placeholder="Problem Description" required></textarea>
-                            </div>
+                <div class="modal-body">    
+                    <div class="col-md-12">
+                        <label for="">Man <span style="color: red;">*</span></label><br>
+                        <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                    </div>
 
-                            <div class="col-md-12">
-                                <label for="">Method <span style="color: red;">*</span></label><br>
-                                <textarea class="form-control" rows="5" placeholder="Problem Description" required></textarea>
-                            </div>
+                    <div class="col-md-12">
+                        <label for="">Method <span style="color: red;">*</span></label><br>
+                        <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                    </div>
 
-                            <div class="col-md-12">
-                                <label for="">Material <span style="color: red;">*</span></label><br>
-                                <textarea class="form-control" rows="5" placeholder="Problem Description" required></textarea>
-                            </div>
+                    <div class="col-md-12">
+                        <label for="">Material <span style="color: red;">*</span></label><br>
+                        <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                    </div>
 
-                            <div class="col-md-12">
-                                <label for="">Machine <span style="color: red;">*</span></label><br>
-                                <textarea class="form-control" rows="5" placeholder="Problem Description" required></textarea>
-                            </div>
+                    <div class="col-md-12">
+                        <label for="">Machine <span style="color: red;">*</span></label><br>
+                        <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                    </div>
 
-                            <div class="col-md-12">
-                                <label for="">Remarks <span style="color: red;">*</span></label><br>
-                                <textarea class="form-control" rows="5" placeholder="Problem Description" required></textarea>
-                            </div>
-                        </div>
-                    </div>            
+                    <div class="col-md-12">
+                        <label for="">Remarks <span style="color: red;">*</span></label><br>
+                        <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                    </div>
                 </div> 
 
                 <div class="modal-footer">
