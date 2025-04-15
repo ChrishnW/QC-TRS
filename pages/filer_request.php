@@ -4,14 +4,12 @@
     <div id="account_dashboard" class="account_dashboard" style="display: block;">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4">
-                <div class="col-md-12">
-                    <h5 class="float-left">Request Trouble Report</h1>
-                    <br>
-                </div>                           
+                <h2 class="float-left">Request Trouble Report</h2>
+                <br>                         
             </div>
 
-            <div class="modal-body">
-                <form>
+            <form>
+                <div class="modal-body">
                     <div>
                         <div class="card mb-4">
                             <div class="card-body">
@@ -79,24 +77,24 @@
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="">Trouble Origin (100%) <span style="color: red;">*</span></label><br>
-                                        <input type="text" class="form-control" placeholder="Trouble Origin" required>
+                                        <input type="text" class="form-control" placeholder="Trouble Origin 100" required>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="">Trouble Origin (200%) <span style="color: red;">*</span></label><br>
-                                        <input type="text" class="form-control" placeholder="Trouble Origin" required>
+                                        <label for="">Checked by (200%) <span style="color: red;">*</span></label><br>
+                                        <input type="text" class="form-control" placeholder="Trouble Origin 200" required>
                                     </div>
                                 </div>
                                 
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <label for="">Trouble Finder (QC) <span style="color: red;">*</span></label><br>
-                                        <input type="text" class="form-control" placeholder="Trouble Finder" required>
+                                        <label for="">Found by (QC) <span style="color: red;">*</span></label><br>
+                                        <input type="text" class="form-control" placeholder="Trouble Finder QC" required>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="">Trouble Finder (AI) <span style="color: red;">*</span></label><br>
-                                        <input type="text" class="form-control" placeholder="Trouble Finder" required>
+                                        <label for="">Found by (AI) <span style="color: red;">*</span></label><br>
+                                        <input type="text" class="form-control" placeholder="Trouble Finder AI" required>
                                     </div>
                                 </div>
 
@@ -113,8 +111,13 @@
                             </div>
                         </div>
                     </div>
-                </form>
-            </div> 
+                
+                </div> 
+
+                <div class="modal-footer">
+                    <input type="submit" name="" value="Submit" class="btn btn-primary pr-3">
+                </div>
+            </form>
         </div>
     </div>
 </div>
