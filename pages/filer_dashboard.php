@@ -5,8 +5,8 @@
         <div class="card shadow mb-4">
             <div class="card-header ">
                 <div class="cold-md-6 float-left">
-                    <a href="#" class="btn btn-primary active" role="button" aria-pressed="true">Ongoing Trouble Report Request</a>
-                    <a href="#" class="btn btn-primary active" role="button" aria-pressed="true">Finished Trouble Report Request</a>
+                    <a href="#" class="btn btn-primary active" id="btn_ongoing" role="button" aria-pressed="true">Ongoing Trouble Report Request</a>
+                    <a href="#" class="btn btn-primary active" id="btn_finished" role="button" aria-pressed="true">Finished Trouble Report Request</a>
                 </div>  
             </div>
 
@@ -18,7 +18,7 @@
 </div>
 
 
-<div class="container-fluid">
+<div class="container-fluid" id="ongoing_trouble_report" style="display: block;">
     <div id="filer_dashboard" class="filer_dashboard" style="display: block;">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4">
@@ -27,7 +27,7 @@
 
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class=" table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                    <table class=" table table-bordered table-striped" id="ongoing_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th>ID</th>
@@ -52,7 +52,7 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" id="finished_trouble_report" style="display: none;">
     <div id="filer_dashboard" class="filer_dashboard" style="display: block;">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4">
@@ -61,7 +61,7 @@
 
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class=" table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                    <table class=" table table-bordered table-striped" id="finished_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th>ID</th>
@@ -87,3 +87,25 @@
 </div>
 
 <?php include '../include/footer.php'; ?>
+
+<script>
+
+    $(document).ready(function() {
+        $('#ongoing_dataTable').DataTable();
+        $('#finished_dataTable').DataTable();
+    });
+
+    document.getElementById("btn_ongoing").addEventListener("click", function() {
+        document.getElementById("ongoing_trouble_report").style.display = "block";
+        document.getElementById("finished_trouble_report").style.display = "none";
+    });
+
+    document.getElementById("btn_finished").addEventListener("click", function() {
+        document.getElementById("ongoing_trouble_report").style.display = "none";
+        document.getElementById("finished_trouble_report").style.display = "block";
+    });
+
+
+
+
+</script>
