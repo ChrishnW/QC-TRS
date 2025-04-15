@@ -51,7 +51,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="">Quantity <span style="color: red;">*</span></label><br>
-                                <input type="number" class="form-control" placeholder="Quantity" required>
+                                <input type="number" class="form-control" placeholder="0" required min="0">
                             </div>
 
                             <div class="col-md-6">
