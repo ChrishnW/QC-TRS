@@ -2,7 +2,7 @@
 include 'connect.php';
 session_start();
 
-if (isset($_POST['login'])) :
+if (isset($_POST['username'])) :
   $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
   $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
@@ -35,7 +35,6 @@ if (isset($_POST['login'])) :
       else {
         echo "Incorrect password.";
       }
-      
     } else {
       echo "Incorrect password.";
     }
