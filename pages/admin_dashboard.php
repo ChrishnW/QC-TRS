@@ -56,6 +56,15 @@
       ob_end_flush();
       exit;
     }
+
+    // Edit account ..................................................................................
+    if (isset($_POST['edit_account'])) {
+      $_SESSION["account_id"] = $_POST['id_account'];
+
+      header("Refresh: .3; url = admin_dashboard.php");
+      ob_end_flush();
+      exit;
+    }
   
   }
 
@@ -109,7 +118,7 @@
                 <td style="table-layout: fixed; width: 15%;">
                   <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                     <input type="hidden" name="id_account" value="<?php echo $id ?>">
-                    <input type="submit" class="edit btn btn-primary mr-1" value="Edit" name="edit_account" disabled>
+                    <input type="submit" class="edit btn btn-primary mr-1" value="Edit" name="edit_account">
                     <input type="submit" class="delete btn btn-danger" value="Delete" name="delete_account" disabled>
                   </form>
                 </td>
@@ -132,7 +141,7 @@
     <div class="modal-content">
       <div class="modal-header bg-gradient-primary">
         <h5 class="modal-title text-white">Add Account</h5>
-        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" id="btn_close">
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="close_add_account()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -160,9 +169,30 @@
 
         <div class="modal-footer">
           <input type="submit" name="add_account" value="Save" class="btn btn-primary pr-3">
-          <input type="reset" name="reset" value="Cancel" id="cancel_account" class="btn btn-secondary ml-2">
+          <input type="reset" name="reset" value="Cancel" onclick="close_add_account()" class="btn btn-secondary ml-2">
         </div>
       </form>
+    </div>
+  </div>
+</div>
+
+<!-- Pop up for Edit Account -->
+<div class="modal" id="modal_edit_account" tabindex="-1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="close_edit_account()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="close_edit_account()">Close</button>
+      </div>
     </div>
   </div>
 </div>
@@ -212,6 +242,14 @@
     $('#dataTable').DataTable();
   });
 
+  function close_add_account(){
+    document.getElementById("modal_add_account").style.display = "none";
+  }
+
+  function close_edit_account(){
+    document.getElementById("modal_edit_account").style.display = "none";
+  }
+
   document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById('close_popup').addEventListener('click', function () {
@@ -220,14 +258,6 @@
 
     document.getElementById("btn_add_account").addEventListener("click", function() {
       document.getElementById("modal_add_account").style.display = "block";
-    });
-
-    document.getElementById("btn_close").addEventListener("click", function() {
-      document.getElementById("modal_add_account").style.display = "none";
-    });
-
-    document.getElementById("cancel_account").addEventListener("click", function() {
-      document.getElementById("modal_add_account").style.display = "none";
     });
 
   });
