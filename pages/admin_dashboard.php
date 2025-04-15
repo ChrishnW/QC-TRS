@@ -1,4 +1,37 @@
-<?php include '../include/header_admin.php'; ?>
+<?php 
+  ob_start();
+  include '../include/header_admin.php'; 
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // Add account ....................................................................................
+    if (isset($_POST['add_account'])) {
+      $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+      $role = $_POST['role'];
+      $pass = 12345;
+      $password = password_hash($pass, PASSWORD_DEFAULT);
+      $status = 1;
+
+      $result = mysqli_query($conn, "INSERT INTO tbl_account (username, password, access, status) VALUES ('$name', '$password', '$role', '$status')");
+
+      // if($result){
+      //     $_SESSION["message"] = "Account added successfully.";
+      // }
+      // else{
+      //     $_SESSION["message"] = "Failed to add account.";
+      // }
+
+      header("Refresh: .3; url = admin_dashboard.php");
+      ob_end_flush();
+      exit;
+    }
+  
+  
+  
+  }
+
+
+?>
 
 <!-- Account Dashboard-->
 <div class="container-fluid">
@@ -18,7 +51,7 @@
             <thead class="bg-primary text-white">
               <tr>
                 <th>ID</th>
-                <th>Username</th>
+                <th>Name</th>
                 <th>Role</th>
                 <th>Status</th>
                 <th style="width: 170px;">Actions</th>
@@ -51,13 +84,14 @@
       <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" style="width: 100%; max-width: 600px;">
         <div class="modal-body">
           <div class="mb-3">
-            <label for="" class="form-label">Username <span style="color: red;">*</span></label>
-            <input type="text" name="" id="" class="form-control" required>
+            <label for="" class="form-label">Name <span style="color: red;">*</span></label>
+            <input type="text" name="name" id="" class="form-control" required>
           </div>
 
           <div class="mb-3">
-            <label for="" class="form-label">Role <span style="color: red;">*</span></label>
-            <select name="" id="" class="form-control" required >
+            <label for="role" class="form-label">Role <span style="color: red;">*</span></label>
+            <select name="role" id="" class="form-control" required >
+                <option value="" hidden></option>
                 <option value="2">Filer</option>
                 <option value="3">Maker</option>
                 <option value="4">Line Leader</option>
