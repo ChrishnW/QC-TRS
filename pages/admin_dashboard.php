@@ -19,7 +19,7 @@
               <tr>
                 <th>ID</th>
                 <th>Username</th>
-                <th>Department</th>
+                <th>Role</th>
                 <th>Status</th>
                 <th style="width: 170px;">Actions</th>
               </tr>
@@ -38,5 +38,58 @@
     </div>
 </div>
 
+<div class="modal" id="modal_add_account" tabindex="-1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-gradient-primary">
+        <h5 class="modal-title text-white">Add Account</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" id="btn_close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" style="width: 100%; max-width: 600px;">
+          
+
+        <!-- Insert here label and input tags that is needed for adding new accounts -->
+
+
+      </div>
+
+          <div class="modal-footer">
+            <input type="submit" name="add_account" value="Save" class="btn btn-primary pr-3" disabled>
+            <input type="reset" name="reset" value="Cancel" id="cancel_account" class="btn btn-secondary ml-2">
+          </div>
+
+        </form>
+    </div>
+  </div>
+</div>
+
 
 <?php include '../include/footer.php'; ?>
+
+<script>
+
+  $(document).ready(function() {
+    $('#dataTable').DataTable();
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+
+    document.getElementById("btn_add_account").addEventListener("click", function() {
+      document.getElementById("modal_add_account").style.display = "block";
+    });
+
+    document.getElementById("btn_close").addEventListener("click", function() {
+      document.getElementById("modal_add_account").style.display = "none";
+    });
+
+    document.getElementById("cancel_account").addEventListener("click", function() {
+      document.getElementById("modal_add_account").style.display = "none";
+    });
+
+  });
+
+</script>
