@@ -19,7 +19,7 @@
               <tr>
                 <th>ID</th>
                 <th>Username</th>
-                <th>Department</th>
+                <th>Role</th>
                 <th>Status</th>
                 <th style="width: 170px;">Actions</th>
               </tr>
@@ -71,6 +71,10 @@
 <?php include '../include/footer.php'; ?>
 
 <script>
+
+  $(document).ready(function() {
+    $('#dataTable').DataTable();
+  });
 
   document.addEventListener("DOMContentLoaded", function() {
 
