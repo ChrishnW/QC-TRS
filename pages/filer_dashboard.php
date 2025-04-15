@@ -21,7 +21,7 @@
                                 <th>---</th>
                                 <th>---</th>
                                 <th>---</th>
-                                <th style="width: 170px;">Actions</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,7 +61,7 @@
                                 <th>---</th>
                                 <th>---</th>
                                 <th>---</th>
-                                <th style="width: 170px;">Actions</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
