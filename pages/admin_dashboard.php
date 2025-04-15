@@ -2,6 +2,20 @@
   ob_start();
   include '../include/header_admin.php'; 
 
+  // Display Message ..................................................................................
+  if(isset($_SESSION["message"])){
+    $message = $_SESSION["message"];
+
+    echo "<script> 
+      document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('display_message').innerHTML = '$message'; 
+        document.getElementById('popup').style.display = 'block'; 
+      }); 
+    </script>";
+
+    unset($_SESSION["message"]);
+  }
+
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Add account ....................................................................................
@@ -14,12 +28,12 @@
 
       $result = mysqli_query($conn, "INSERT INTO tbl_account (username, password, access, status) VALUES ('$name', '$password', '$role', '$status')");
 
-      // if($result){
-      //     $_SESSION["message"] = "Account added successfully.";
-      // }
-      // else{
-      //     $_SESSION["message"] = "Failed to add account.";
-      // }
+      if($result){
+          $_SESSION["message"] = "Account added successfully.";
+      }
+      else{
+          $_SESSION["message"] = "Failed to add account.";
+      }
 
       header("Refresh: .3; url = admin_dashboard.php");
       ob_end_flush();
@@ -111,6 +125,24 @@
   </div>
 </div>
 
+<!-- Pop up for Message -->
+<div class="modal" tabindex="-1" id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <h5 class="modal-title text-white">Notification</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" id="close_popup">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body my-2">
+        <p class="h5" id="display_message"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <?php include '../include/footer.php'; ?>
 
@@ -121,6 +153,10 @@
   });
 
   document.addEventListener("DOMContentLoaded", function() {
+
+    document.getElementById('close_popup').addEventListener('click', function () {
+      document.getElementById('popup').style.display = 'none';
+    });
 
     document.getElementById("btn_add_account").addEventListener("click", function() {
       document.getElementById("modal_add_account").style.display = "block";
