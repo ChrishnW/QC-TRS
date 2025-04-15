@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label for="">Temp # <span style="color: red;">*</span></label><br>
+                                <label for="">Temp Number <span style="color: red;">*</span></label><br>
                                 <input type="text" class="form-control" placeholder="Temp Number" required>
                             </div>
                         </div>
