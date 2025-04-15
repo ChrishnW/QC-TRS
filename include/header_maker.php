@@ -30,9 +30,15 @@
       <hr class="sidebar-divider my-0">
 
       <li class="nav-item">
-        <a class="nav-link" href="../pages/account.php">
+        <a class="nav-link" href="../pages/maker_dashboard.php">
         <i class="fa fa-user" aria-hidden="true"></i>
-          <span>Manage Account</span></a>
+          <span>Dashboard</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="../pages/account.php">
+        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+          <span>Form?</span></a>
       </li>
       
       <!-- <li class="nav-item">

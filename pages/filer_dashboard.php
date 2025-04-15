@@ -1,7 +1,7 @@
 <?php include '../include/header_filer.php'; ?>
 
 <div class="container-fluid">
-    <div id="account_dashboard" class="account_dashboard" style="display: block;">
+    <div id="filer_dashboard" class="filer_dashboard" style="display: block;">
         <div class="card shadow mb-4">
             <div class="card-header ">
                 <div class="cold-md-6 float-left">
@@ -19,7 +19,7 @@
 
 
 <div class="container-fluid">
-    <div id="account_dashboard" class="account_dashboard" style="display: block;">
+    <div id="filer_dashboard" class="filer_dashboard" style="display: block;">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Ongoing Trouble Report</h2>            
@@ -53,7 +53,7 @@
 </div>
 
 <div class="container-fluid">
-    <div id="account_dashboard" class="account_dashboard" style="display: block;">
+    <div id="filer_dashboard" class="filer_dashboard" style="display: block;">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Finished Trouble Report</h2>
