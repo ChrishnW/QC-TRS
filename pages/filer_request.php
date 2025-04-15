@@ -87,12 +87,12 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="">Image (Good) <span style="color: red;">*</span></label><br>
-                            <input type="file" class="form-control" placeholder="Image Good" required accept=".jpg,.jpeg,.png,.pdf">
+                            <input type="file" class="form-control" style="height: auto;" placeholder="Upload Image" required accept=".jpg,.jpeg,.png,.pdf">
                         </div>
 
                         <div class="col-md-6">
                             <label for="">Image (Not Good) <span style="color: red;">*</span></label><br>
-                            <input type="file" class="form-control" placeholder="Image Not Good" required accept=".jpg,.jpeg,.png,.pdf">
+                            <input type="file" class="form-control" style="height: auto;" placeholder="Upload Image" required accept=".jpg,.jpeg,.png,.pdf">
                         </div>
                     </div>
 
