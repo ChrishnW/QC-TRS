@@ -105,6 +105,7 @@
                 </div>                
 
                 <div class="modal-footer">
+                    <input type="reset" name="reset" value="Cancel" id="cancel_add_breaktime"  class="btn btn-secondary ml-2">
                     <input type="submit" name="" value="Submit" class="btn btn-primary pr-3">
                 </div>
             </form>
