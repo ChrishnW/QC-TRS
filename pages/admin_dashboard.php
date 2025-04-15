@@ -65,6 +65,27 @@
       ob_end_flush();
       exit;
     }
+
+    // Edit account submit ...........................................................................
+    if (isset($_POST['edit_account_submit'])) {
+      $id = $_POST['id'];
+      $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+      $role = $_POST['role'];
+      $status = $_POST['status'];
+
+      $result = mysqli_query($conn, "UPDATE tbl_account SET username='$name', access='$role', status='$status' WHERE id='$id'");
+
+      if($result){
+          $_SESSION["message"] = "Account updated successfully.";
+      }
+      else{
+          $_SESSION["message"] = "Failed to update account.";
+      }
+
+      header("Refresh: .3; url = admin_dashboard.php");
+      ob_end_flush();
+      exit;
+    }
   
   }
 
@@ -119,7 +140,7 @@
                   <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                     <input type="hidden" name="id_account" value="<?php echo $id ?>">
                     <input type="submit" class="edit btn btn-primary mr-1" value="Edit" name="edit_account">
-                    <input type="submit" class="delete btn btn-danger" value="Delete" name="delete_account" disabled>
+                    <input type="submit" class="delete btn btn-danger" value="Delete" name="delete_account">
                   </form>
                 </td>
               </tr>
@@ -233,12 +254,12 @@
             <select name="status" class="form-control" required >
                 <option value="<?php echo $status ?>" hidden><?php echo $statusName ?></option>
                 <option value="1">Acive</option>
-                <option value="2">Inactive</option>
+                <option value="0">Inactive</option>
             </select>
           </div>
         </div>
         <div class="modal-footer">
-          <input type="submit" name="edit_add_account" value="Save" class="btn btn-primary pr-3">
+          <input type="submit" name="edit_account_submit" value="Save" class="btn btn-primary pr-3">
           <input type="reset" name="reset" value="Cancel" onclick="close_edit_account()" class="btn btn-secondary ml-2">
         </div>
       </form>
