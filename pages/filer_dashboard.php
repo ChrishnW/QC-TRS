@@ -21,8 +21,11 @@
 <div class="container-fluid">
     <div id="account_dashboard" class="account_dashboard" style="display: block;">
         <div class="card shadow mb-4">
+            <div class="card-header py-3.5 pt-4">
+                <h2 class="float-left">Ongoing Trouble Report</h2>            
+            </div>
+
             <div class="card-body">
-            <h2 class="float-left">Ongoing Trouble Report</h2>   
                 <div class="table-responsive">
                     <table class=" table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
@@ -52,8 +55,11 @@
 <div class="container-fluid">
     <div id="account_dashboard" class="account_dashboard" style="display: block;">
         <div class="card shadow mb-4">
-            <div class="card-body">
+            <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Finished Trouble Report</h2>
+            </div>
+
+            <div class="card-body">
                 <div class="table-responsive">
                     <table class=" table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
