@@ -1,10 +1,7 @@
 <?php include '../include/header_filer.php'; ?>
 
-
-
-
 <div class="container-fluid" id="ongoing_trouble_report" style="display: block;">
-    <div id="filer_dashboard" class="filer_dashboard" style="display: block;">
+    <div class="filer_dashboard">
         <div class="card shadow mb-4">
 
             <div class="cold-md-6 float-left m-3">
@@ -44,7 +41,7 @@
 </div>
 
 <div class="container-fluid" id="finished_trouble_report" style="display: none;">
-    <div id="filer_dashboard" class="filer_dashboard" style="display: block;">
+    <div class="filer_dashboard">
         <div class="card shadow mb-4">
 
             <div class="cold-md-6 float-left m-3">
