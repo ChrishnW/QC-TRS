@@ -17,7 +17,7 @@
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="">Date <span style="color: red;">*</span></label><br>
-                                        <input type="date" class="form-control" placeholder="00/00/00" required>
+                                        <input type="date" class="form-control" placeholder="mm/dd/yyyy" required>
                                     </div>
 
                                     <div class="col-md-6">
@@ -46,55 +46,55 @@
 
                                     <div class="col-md-6">
                                         <label for="">Temp # <span style="color: red;">*</span></label><br>
-                                        <input type="text" class="form-control" placeholder="Temp #" required>
+                                        <input type="text" class="form-control" placeholder="Temp Number" required>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="">Quantity <span style="color: red;">*</span></label><br>
-                                        <input type="number" class="form-control" placeholder="Serial Number" required>
+                                        <input type="number" class="form-control" placeholder="Quantity" required>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label for="">Due Date <span style="color: red;">*</span></label><br>
-                                        <input type="date" class="form-control" placeholder="Temp #" required>
+                                        <input type="date" class="form-control" placeholder="mm/dd/yyyy" required>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="">Image (Good) <span style="color: red;">*</span></label><br>
-                                        <input type="file" class="form-control" placeholder="Serial Number" required>
+                                        <input type="file" class="form-control" placeholder="Image Good" required>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label for="">Image (Not Good) <span style="color: red;">*</span></label><br>
-                                        <input type="file" class="form-control" placeholder="Temp #" required>
+                                        <input type="file" class="form-control" placeholder="Image Not Good" required>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="">Trouble Origin (100%) <span style="color: red;">*</span></label><br>
-                                        <input type="text" class="form-control" placeholder="Trouble Origin 100" required>
+                                        <input type="text" class="form-control" placeholder="Trouble Origin (100%)" required>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label for="">Checked by (200%) <span style="color: red;">*</span></label><br>
-                                        <input type="text" class="form-control" placeholder="Trouble Origin 200" required>
+                                        <input type="text" class="form-control" placeholder="Trouble Origin (200%)" required>
                                     </div>
                                 </div>
                                 
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="">Found by (QC) <span style="color: red;">*</span></label><br>
-                                        <input type="text" class="form-control" placeholder="Trouble Finder QC" required>
+                                        <input type="text" class="form-control" placeholder="Trouble Finder (QC)" required>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label for="">Found by (AI) <span style="color: red;">*</span></label><br>
-                                        <input type="text" class="form-control" placeholder="Trouble Finder AI" required>
+                                        <input type="text" class="form-control" placeholder="Trouble Finder (AI)" required>
                                     </div>
                                 </div>
 
