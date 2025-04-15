@@ -57,20 +57,19 @@
 
           <div class="mb-3">
             <label for="" class="form-label">Role <span style="color: red;">*</span></label>
-            <input type="text" name="" id="" class="form-control" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="">Status <span style="color: red;">*</span></label>
             <select name="" id="" class="form-control" required >
-                <option value="1">Active</option>
-                <option value="0">Inactive</option>
+                <option value="2">Filer</option>
+                <option value="3">Maker</option>
+                <option value="4">Line Leader</option>
+                <option value="5">Department Head</option>
+                <option value="6">Factory Officer</option>
+                <option value="7">Chief Operating Officer</option>
             </select>
           </div>
         </div>
 
         <div class="modal-footer">
-          <input type="submit" name="add_account" value="Save" class="btn btn-primary pr-3" disabled>
+          <input type="submit" name="add_account" value="Save" class="btn btn-primary pr-3">
           <input type="reset" name="reset" value="Cancel" id="cancel_account" class="btn btn-secondary ml-2">
         </div>
       </form>
