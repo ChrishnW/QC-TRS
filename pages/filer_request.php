@@ -38,35 +38,25 @@
                         <div class="col-md-6">
                             <label for="">Serial Number <span style="color: red;">*</span></label><br>
                             <input type="text" class="form-control" placeholder="Serial Number" required>
-                        </div>
+                        </div>  
 
                         <div class="col-md-6">
                             <label for="">Temp Number <span style="color: red;">*</span></label><br>
                             <input type="text" class="form-control" placeholder="Temp Number" required>
                         </div>
-                    </div>
+                  </div>
 
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="">Quantity <span style="color: red;">*</span></label><br>
                             <input type="number" class="form-control" placeholder="0" required min="0">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="">Due Date <span style="color: red;">*</span></label><br>
-                            <input type="date" class="form-control" placeholder="mm/dd/yyyy" required>
-                        </div>
+                        </div>                     
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="">Image (Good) <span style="color: red;">*</span></label><br>
-                            <input type="file" class="form-control" placeholder="Image Good" required accept=".jpg,.jpeg,.png,.pdf">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="">Image (Not Good) <span style="color: red;">*</span></label><br>
-                            <input type="file" class="form-control" placeholder="Image Not Good" required accept=".jpg,.jpeg,.png,.pdf">
+                        <div class="col-md-12">
+                            <label for="">Findings <span style="color: red;">*</span></label><br>
+                            <textarea class="form-control" rows="5" placeholder="Problem Description" required></textarea>
                         </div>
                     </div>
 
@@ -92,17 +82,30 @@
                             <label for="">Found by (AI) <span style="color: red;">*</span></label><br>
                             <input type="text" class="form-control" placeholder="Trouble Finder (AI)" required>
                         </div>
+                    </div>                   
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="">Image (Good) <span style="color: red;">*</span></label><br>
+                            <input type="file" class="form-control" style="height: auto;" placeholder="Upload Image" required accept=".jpg,.jpeg,.png,.pdf">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="">Image (Not Good) <span style="color: red;">*</span></label><br>
+                            <input type="file" class="form-control" style="height: auto;" placeholder="Upload Image" required accept=".jpg,.jpeg,.png,.pdf">
+                        </div>
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-md-12">
-                            <label for="">Findings <span style="color: red;">*</span></label><br>
-                            <textarea class="form-control" rows="5" placeholder="Problem Description" required></textarea>
+                        <div class="col-md-6">
+                            <label for="">Due Date <span style="color: red;">*</span></label><br>
+                            <input type="date" class="form-control" placeholder="mm/dd/yyyy" required>
                         </div>
                     </div>
                 </div>                
 
                 <div class="modal-footer">
+                    <input type="reset" name="reset" value="Cancel" id="cancel_add_breaktime"  class="btn btn-secondary ml-2">
                     <input type="submit" name="" value="Submit" class="btn btn-primary pr-3">
                 </div>
             </form>
