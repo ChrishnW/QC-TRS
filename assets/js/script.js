@@ -7,25 +7,21 @@ function Login() {
     processData: false,
     contentType: false,
     success: function (response) {
+
       if (response == 'Admin') {
-        alert(response);
-        // window.location.href = 'pages/admin_dashboard.php';
+        window.location.href = 'pages/admin_dashboard.php';
       } 
       else if (response == 'Filer') {
-        alert(response);
-        // window.location.href = 'pages/filer_dashboard.php';
+        window.location.href = 'pages/filer_dashboard.php';
       }
       else if (response == 'Maker') {
-        alert(response);
-        // window.location.href = 'pages/maker_dashboard.php';
+        window.location.href = 'pages/maker_dashboard.php';
       }
       else if (response == 'Approver') {
-        alert(response);
-        // window.location.href = 'pages/approver_dashboard.php';
+        window.location.href = 'pages/approver_dashboard.php';
       }
       else if (response == 'Auditor') {
-        alert(response);
-        // window.location.href = 'pages/auditor_dashboard.php';
+        window.location.href = 'pages/auditor_dashboard.php';
       }
       else {
         alert(response);
