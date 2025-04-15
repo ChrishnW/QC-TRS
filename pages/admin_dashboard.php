@@ -48,21 +48,32 @@
         </button>
       </div>
 
-      <div class="modal-body">
-        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" style="width: 100%; max-width: 600px;">
-          
-
-        <!-- Insert here label and input tags that is needed for adding new accounts -->
-
-
-      </div>
-
-          <div class="modal-footer">
-            <input type="submit" name="add_account" value="Save" class="btn btn-primary pr-3" disabled>
-            <input type="reset" name="reset" value="Cancel" id="cancel_account" class="btn btn-secondary ml-2">
+      <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" style="width: 100%; max-width: 600px;">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="" class="form-label">Username <span style="color: red;">*</span></label>
+            <input type="text" name="" id="" class="form-control" required>
           </div>
 
-        </form>
+          <div class="mb-3">
+            <label for="" class="form-label">Role <span style="color: red;">*</span></label>
+            <input type="text" name="" id="" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="">Status <span style="color: red;">*</span></label>
+            <select name="" id="" class="form-control" required >
+                <option value="1">Active</option>
+                <option value="0">Inactive</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <input type="submit" name="add_account" value="Save" class="btn btn-primary pr-3" disabled>
+          <input type="reset" name="reset" value="Cancel" id="cancel_account" class="btn btn-secondary ml-2">
+        </div>
+      </form>
     </div>
   </div>
 </div>
