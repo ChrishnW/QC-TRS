@@ -37,7 +37,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="../pages/filer_request.php">
-          <i class="fas fa-fw fa fa-file-text" aria-hidden="true"></i>
+          <i class="fas fa-fw fa fa-file" aria-hidden="true"></i>
           <span>Request Trouble Report</span></a>
       </li>
       
