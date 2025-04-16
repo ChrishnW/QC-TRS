@@ -1,4 +1,76 @@
-<?php include '../include/header_filer.php'; ?>
+<?php 
+include '../include/header_filer.php'; 
+
+
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if(isset($_POST['request_submit'])) {
+        $date = $_POST['date'];
+        $department = $_POST['department'];
+        $model = $_POST['model'];
+        $quantity = $_POST['quantity'];
+        $lot = $_POST['lot'];
+        $serial = $_POST['serial'];
+        $temp = $_POST['temp'];
+        $findings = $_POST['findings'];
+        $origin = $_POST['origin'];
+        $check = $_POST['check'];
+        $found_qc = $_POST['found_qc'];
+        $found_ai = $_POST['found_ai'];
+        $due_date = $_POST['due_date'];
+        $leader = $_POST['leader'];
+        $head = $_POST['head'];
+        $officer = $_POST['officer'];
+        $coo = $_POST['coo'];
+        $status = 0;
+
+        if(isset($_FILES["image_good"]) && $_FILES['image_good']['error'] == 0 && isset($_FILES["image_not_good"]) && $_FILES['image_not_good']['error'] == 0) {
+
+            $image_good_raw = $_FILES["image_good"]["name"];
+            $image_good = str_replace(" ", "_", $image_good_raw);
+            $image_good_path = "IMG/GOOD/" . $image_good;
+            $img_temp_path_good = $_FILES["image_good"]["tmp_name"];
+
+            move_uploaded_file($img_temp_path_good, $image_good_path);
+
+            $image_notgood_raw = $_FILES["image_not_good"]["name"];
+            $image_notgood = str_replace(" ", "_", $image_notgood_raw);
+            $image_notgood_path = "IMG/NOTGOOD/" . $image_notgood;
+            $img_temp_path_notgood = $_FILES["image_not_good"]["tmp_name"];
+
+            move_uploaded_file($img_temp_path_notgood, $image_notgood_path);
+            
+            $result = mysqli_query($conn, "INSERT INTO tbl_request (date, model, lot, serial, temp, findings, origin1, origin2, finder_qc, finder_ai, qty, img_ng, img_g, due_date, dept_id, leader_id, dept_head_id, fac_officer_id, coo_id, status) VALUES ('$date', '$model', '$lot', '$serial', '$temp', '$findings', '$origin', '$check', '$found_qc', '$found_ai', '$quantity', '$image_notgood_path', '$image_good_path', '$due_date', '$department', '$leader', '$head', '$officer', '$coo', '$status')");
+            if($result) {
+                echo "<script>alert('Request submitted successfully.');</script>";
+            } else {
+                echo "<script>alert('Failed to submit request.');</script>";
+            }
+            
+        } else {
+            echo "<script>alert('Failed to upload images.');</script>";
+        }
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
 
 <div class="container-fluid">
     <div id="account_dashboard" class="account_dashboard" style="display: block;">
@@ -8,7 +80,7 @@
                 <br>                         
             </div>
 
-            <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+            <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" enctype="multipart/form-data">
                 <div class="card-body mx-3">
                     <div class="row mb-3">
                         <div class="col-md-6">
@@ -45,8 +117,8 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="quality">Quantity <span style="color: red;">*</span></label><br>
-                            <input type="number" name="quality" id="quality"  class="form-control" required min="0">
+                            <label for="quantity">Quantity <span style="color: red;">*</span></label><br>
+                            <input type="number" name="quantity" id="quantity"  class="form-control" required min="0">
                         </div>   
                     </div>
 
