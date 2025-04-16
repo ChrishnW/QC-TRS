@@ -1,18 +1,153 @@
 <?php include '../include/header_approver.php'; ?>
 
-<div class="container-fluid">   
-    <div class="filer_dashboard">
+<!-- Pending Approvals -->
+<div class="container-fluid" id="pending_reports" style="display: block;">   
+    <div class="pending_dashboard">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4">
-                <h2 class="float-left">Ongoing Trouble Report Request</h2>
-
-                <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
-                    <button id="pendingApproval" type="button" class="btn btn-outline-primary active" onclick="display_ongoing()">Ongoing</button>
-                    <button id="approved" type="button" class="btn btn-outline-primary" onclick="display_finished()">Finished</button>
-                    <button id="finishedBtn" type="button" class="btn btn-outline-primary" onclick="display_finished()">Finished</button>
+                <h2 class="float-left">Pending Approvals</h2>
+                
+                <div class="btn-group float-right pb-2">
+                    <div class="btn-group" role="group" aria-label="Switch Buttons">
+                        <button id="display_pending" type="button" class="btn btn-outline-primary active" onclick="display_pending()">Pending Approval</button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Approved Reports</button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_rejected()">Rejected Reports</button>
+                    </div>
                 </div>
             </div>
 
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped" id="pending_dataTable" width="100%" cellspacing="0">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Date</th>
+                                <th>Department</th>
+                                <th>Approval Level</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic data will populate here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Approved Reports -->
+<div class="container-fluid" id="approved_reports" style="display: none;">   
+    <div class="approved_dashboard">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3.5 pt-4">
+                <h2 class="float-left">Approved Reports</h2>
+               
+                <div class="btn-group float-right pb-2">
+                    <div class="btn-group" role="group" aria-label="Switch Buttons">
+                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending Approval</button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary active" onclick="display_approved()">Approved Reports</button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_rejected()">Rejected Reports</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped" id="approved_dataTable" width="100%" cellspacing="0">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Date</th>
+                                <th>Department</th>
+                                <th>Approval Level</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic data will populate here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Rejected Reports -->
+<div class="container-fluid" id="rejected_reports" style="display: none;">   
+    <div class="rejected_dashboard">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3.5 pt-4">
+                <h2 class="float-left">Rejected Reports</h2>
+
+                <div class="btn-group float-right pb-2">
+                    <div class="btn-group" role="group" aria-label="Switch Buttons">
+                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending Approval</button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Approved Reports</button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary active" onclick="display_rejected()">Rejected Reports</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped" id="rejected_dataTable" width="100%" cellspacing="0">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Date</th>
+                                <th>Department</th>
+                                <th>Approval Level</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic data will populate here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php include '../include/footer.php'; ?>
+
+<script>
+    $(document).ready(function() {
+        // Initialize DataTables for all tables
+        $('#pending_dataTable').DataTable();
+        $('#approved_dataTable').DataTable();
+        $('#rejected_dataTable').DataTable();
+    });
+
+    function display_pending() {
+        document.getElementById("pending_reports").style.display = "block";
+        document.getElementById("approved_reports").style.display = "none";
+        document.getElementById("rejected_reports").style.display = "none";
+        document.getElementById("display_pending").classList.add('active');
+        document.getElementById("display_approved").classList.remove('active');
+        document.getElementById("display_rejected").classList.remove('active');
+    }
+
+    function display_approved() {
+        document.getElementById("pending_reports").style.display = "none";
+        document.getElementById("approved_reports").style.display = "block";
+        document.getElementById("rejected_reports").style.display = "none";
+        document.getElementById("display_pending").classList.remove('active');
+        document.getElementById("display_approved").classList.add('active');
+        document.getElementById("display_rejected").classList.remove('active');
+    }
+
+    function display_rejected() {
+        document.getElementById("pending_reports").style.display = "none";
+        document.getElementById("approved_reports").style.display = "none";
+        document.getElementById("rejected_reports").style.display = "block";
+        document.getElementById("display_pending").classList.remove('active');
+        document.getElementById("display_approved").classList.remove('active');
+        document.getElementById("display_rejected").classList.add('active');
+    }
+</script>
