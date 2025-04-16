@@ -1,4 +1,21 @@
-<?php include '../include/header_maker.php'; ?>
+<?php 
+    include '../include/header_maker.php'; 
+
+    function getApprovalStatus($status) {
+        switch ($status) {
+            case 0:
+                return "Pending";
+            case 1:
+                return "Approved";
+            case 2:
+                return "Rejected";
+            default:
+                return "Unknown";
+        }
+    }
+
+
+?>
 
 <!-- Ongoing Trouble Report -->
 <div class="container-fluid" id="ongoing_trouble_report" style="display: block;">
@@ -33,7 +50,7 @@
                         <tbody>
                             
                             <?php
-                                $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.status=1"); 
+                                $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.status=0"); 
                                 if(mysqli_num_rows($result) > 0) {
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         $request_id = $row['request_id'];
