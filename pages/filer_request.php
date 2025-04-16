@@ -8,16 +8,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(isset($_POST['request_submit'])) {
         $date = $_POST['date'];
         $department = $_POST['department'];
-        $model = $_POST['model'];
-        $quantity = $_POST['quantity'];
-        $lot = $_POST['lot'];
-        $serial = $_POST['serial'];
-        $temp = $_POST['temp'];
-        $findings = $_POST['findings'];
-        $origin = $_POST['origin'];
-        $check = $_POST['check'];
-        $found_qc = $_POST['found_qc'];
-        $found_ai = $_POST['found_ai'];
+        $model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_SPECIAL_CHARS);
+        $quantity = filter_input(INPUT_POST, 'quantity', FILTER_SANITIZE_NUMBER_INT);
+        $lot = filter_input(INPUT_POST, 'lot', FILTER_SANITIZE_NUMBER_INT);
+        $serial = filter_input(INPUT_POST, 'serial', FILTER_SANITIZE_NUMBER_INT);
+        $temp = filter_input(INPUT_POST, 'temp', FILTER_SANITIZE_NUMBER_INT);
+        $findings = filter_input(INPUT_POST, 'findings', FILTER_SANITIZE_SPECIAL_CHARS);
+        $origin = filter_input(INPUT_POST, 'origin', FILTER_SANITIZE_SPECIAL_CHARS);
+        $check = filter_input(INPUT_POST, 'check', FILTER_SANITIZE_SPECIAL_CHARS);
+        $found_qc = filter_input(INPUT_POST, 'found_qc', FILTER_SANITIZE_SPECIAL_CHARS);
+        $found_ai = filter_input(INPUT_POST, 'found_ai', FILTER_SANITIZE_SPECIAL_CHARS);
         $due_date = $_POST['due_date'];
         $leader = $_POST['leader'];
         $head = $_POST['head'];
@@ -44,6 +44,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $result = mysqli_query($conn, "INSERT INTO tbl_request (date, model, lot, serial, temp, findings, origin1, origin2, finder_qc, finder_ai, qty, img_ng, img_g, due_date, dept_id, leader_id, dept_head_id, fac_officer_id, coo_id, status) VALUES ('$date', '$model', '$lot', '$serial', '$temp', '$findings', '$origin', '$check', '$found_qc', '$found_ai', '$quantity', '$image_notgood_path', '$image_good_path', '$due_date', '$department', '$leader', '$head', '$officer', '$coo', '$status')");
 
             if($result) {
+                $last_id = mysqli_insert_id($conn);
+                $approver_status = 0;
+
+                mysqli_query($conn, "INSERT INTO tbl_response (request_id, leader_status, dept_head_status, factory_status, coo_status) VALUES ('$last_id', '$approver_status', '$approver_status', '$approver_status', '$approver_status')");
+                
                 $_SESSION["message"] = "Request submitted successfully.";
             } else {
                 $_SESSION["message"] = "Failed to submit request. Please try again.";
@@ -65,7 +70,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div id="account_dashboard" class="account_dashboard" style="display: block;">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4 bg-primary">
-                <h2 class="float-left text-white">Request Trouble Report</h2>
+                <h2 class="float-left text-white">Trouble Report Form</h2>
                 <br>                         
             </div>
 
@@ -114,17 +119,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="row mb-3">
                     <div class="col-md-4">
                             <label for="lot">Lot Number <span style="color: red;">*</span></label>
-                            <input type="text" name="lot" id="lot" class="form-control" required>
+                            <input type="number" name="lot" id="lot" class="form-control" required>
                         </div>
 
                         <div class="col-md-4">
                             <label for="serial">Serial Number <span style="color: red;">*</span></label><br>
-                            <input type="text" name="serial" id="serial" class="form-control" required>
+                            <input type="number" name="serial" id="serial" class="form-control" required>
                         </div>  
 
                         <div class="col-md-4">
                             <label for="temp">Temp Number <span style="color: red;">*</span></label><br>
-                            <input type="text" name="temp" id="temp" class="form-control" required>
+                            <input type="number" name="temp" id="temp" class="form-control" required>
                         </div>
                     </div>
 
@@ -269,7 +274,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <div class="modal-footer">
                     <input type="submit" name="request_submit" value="Submit" class="btn btn-primary pr-3">
-                    <input type="reset" value="Cancel" class="btn btn-secondary ml-2">
+                    <input type="reset" value="Reset" class="btn btn-secondary ml-2">
                 </div>
             </form>
         </div>
