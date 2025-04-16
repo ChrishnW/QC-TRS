@@ -100,4 +100,49 @@
     </div>
 </div>
 
+<!-- Pop up for Message -->
+<div class="modal" tabindex="-1" id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <h5 class="modal-title text-white">Notification</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" id="close_popup">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <?php
+        if(isset($_SESSION["message"])){
+          $message = $_SESSION["message"];
+      
+          echo "<script> 
+            document.addEventListener('DOMContentLoaded', function () {
+              document.getElementById('popup').style.display = 'block'; 
+            }); 
+          </script>";
+      ?>
+      
+      <div class="modal-body my-2">
+        <p class="h5"> <?php echo $message ?></p>
+      </div>
+
+      <?php
+          unset($_SESSION["message"]);
+        }
+      ?>
+
+    </div>
+  </div>
+</div>
+
 <?php include '../include/footer.php'; ?>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        document.getElementById('close_popup').addEventListener('click', function () {
+        document.getElementById('popup').style.display = 'none';
+        });
+        
+    });
+</script>
