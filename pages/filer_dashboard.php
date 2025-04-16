@@ -5,7 +5,7 @@
     <div class="filer_dashboard">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4">
-                <h2 class="float-left">Ongoing Trouble Report</h2>
+                <h2 class="float-left">Ongoing Trouble Report Request</h2>
 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
                     <button id="ongoingBtn" type="button" class="btn btn-outline-primary active" onclick="display_ongoing()">Ongoing</button>
@@ -45,7 +45,7 @@
     <div class="filer_dashboard">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4">
-                <h2 class="float-left">Finished Trouble Report</h2>
+                <h2 class="float-left">Finished Trouble Report Request</h2>
 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
                     <button id="ongoingBtn" type="button" class="btn btn-outline-primary" onclick="display_ongoing()">Ongoing</button>
