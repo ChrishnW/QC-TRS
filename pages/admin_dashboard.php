@@ -51,7 +51,7 @@
           $_SESSION["message"] = "Failed to add account.";
       }
 
-      header("Refresh: .3; url = admin_dashboard.php");
+      header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
       ob_end_flush();
       exit;
     }
@@ -60,7 +60,7 @@
     if (isset($_POST['edit_account'])) {
       $_SESSION["edit_account_id"] = $_POST['id_account'];
 
-      header("Refresh: .3; url = admin_dashboard.php");
+      header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
       ob_end_flush();
       exit;
     }
@@ -81,7 +81,7 @@
           $_SESSION["message"] = "Failed to update account.";
       }
 
-      header("Refresh: .3; url = admin_dashboard.php");
+      header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
       ob_end_flush();
       exit;
     }
@@ -90,7 +90,7 @@
     if (isset($_POST['delete_account'])) {
       $_SESSION["delete_account_id"] = $_POST['id_account'];
 
-      header("Refresh: .3; url = admin_dashboard.php");
+      header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
       ob_end_flush();
       exit;
     }
@@ -108,7 +108,7 @@
           $_SESSION["message"] = "Failed to delete account.";
       }
 
-      header("Refresh: .3; url = admin_dashboard.php");
+      header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
       ob_end_flush();
       exit;
     }
