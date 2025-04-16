@@ -200,7 +200,7 @@
         <div class="modal-body">
             <div class="container-fluid row mr-1">
                 <div class="card col">
-                    <div class="row align-items-center">
+                    <div class="row align-items-center mt-2">
                         <div class="col-auto">
                             <img src="../assets/img/logo.png" alt="">
                         </div>
@@ -209,7 +209,7 @@
                         </div>
                     </div>
                     <br>
-                    <div class="row align-items-center">
+                    <div class="row align-items-center mb-2">
                         <div class="col-auto">
                             <img src="../assets/img/logo.png" alt="">
                         </div>
@@ -230,7 +230,7 @@
                         <h6>Quantity: </h6>          
                     </div>
 
-                    <div class="card col mt-2 mb-1">
+                    <div class="card col mt-1 mb-1">
                         <h6>Findings: </h6>
                     </div>
 
