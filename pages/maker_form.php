@@ -13,31 +13,31 @@
                     <div class="row mb-3">                    
                         <div class="col-md-6">
                             <label for="">Man <span style="color: red;">*</span></label><br>
-                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                            <textarea class="form-control" rows="5" required></textarea>
                         </div>
 
                         <div class="col-md-6">
                             <label for="">Method <span style="color: red;">*</span></label><br>
-                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                            <textarea class="form-control" rows="5" required></textarea>
                         </div>
                     </div>
 
                     <div class="row mb-3"> 
                         <div class="col-md-6">
                             <label for="">Material <span style="color: red;">*</span></label><br>
-                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                            <textarea class="form-control" rows="5" required></textarea>
                         </div>
 
                         <div class="col-md-6">
                             <label for="">Machine <span style="color: red;">*</span></label><br>
-                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                            <textarea class="form-control" rows="5" required></textarea>
                         </div>
                     </div>
 
                     <div class="row mb-3"> 
                         <div class="col-md-12">
                             <label for="">Correction <span style="color: red;">*</span></label><br>
-                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                            <textarea class="form-control" rows="5" required></textarea>
                         </div>
                     </div>                            
                 </div> 
@@ -63,31 +63,31 @@
                     <div class="row mb-3">                    
                         <div class="col-md-6">
                             <label for="">Man <span style="color: red;">*</span></label><br>
-                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                            <textarea class="form-control" rows="5" required></textarea>
                         </div>
 
                         <div class="col-md-6">
                             <label for="">Method <span style="color: red;">*</span></label><br>
-                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                            <textarea class="form-control" rows="5" required></textarea>
                         </div>
                     </div>
 
                     <div class="row mb-3"> 
                         <div class="col-md-6">
                             <label for="">Material <span style="color: red;">*</span></label><br>
-                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                            <textarea class="form-control" rows="5" required></textarea>
                         </div>
 
                         <div class="col-md-6">
                             <label for="">Machine <span style="color: red;">*</span></label><br>
-                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                            <textarea class="form-control" rows="5" required></textarea>
                         </div>
                     </div>
 
                     <div class="row mb-3"> 
                         <div class="col-md-12">
                             <label for="">Remarks <span style="color: red;">*</span></label><br>
-                            <textarea class="form-control" rows="5" placeholder="Description" required></textarea>
+                            <textarea class="form-control" rows="5" required></textarea>
                         </div>
                     </div> 
                 </div> 
