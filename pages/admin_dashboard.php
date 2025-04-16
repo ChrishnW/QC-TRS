@@ -59,7 +59,7 @@
 
     // Edit account ..................................................................................
     if (isset($_POST['edit_account'])) {
-      $_SESSION["account_id"] = $_POST['id_account'];
+      $_SESSION["edit_account_id"] = $_POST['id_account'];
 
       header("Refresh: .3; url = admin_dashboard.php");
       ob_end_flush();
@@ -81,6 +81,15 @@
       else{
           $_SESSION["message"] = "Failed to update account.";
       }
+
+      header("Refresh: .3; url = admin_dashboard.php");
+      ob_end_flush();
+      exit;
+    }
+
+    // Delete account ..................................................................................
+    if (isset($_POST['delete_account'])) {
+      $_SESSION["delete_account_id"] = $_POST['id_account'];
 
       header("Refresh: .3; url = admin_dashboard.php");
       ob_end_flush();
@@ -157,6 +166,7 @@
     </div>
 </div>
 
+<!-- Pop up for Add Account -->
 <div class="modal" id="modal_add_account" tabindex="-1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -209,8 +219,8 @@
       </div>
 
       <?php
-        if (isset($_SESSION["account_id"])) {
-          $id = $_SESSION["account_id"];
+        if (isset($_SESSION["edit_account_id"])) {
+          $id = $_SESSION["edit_account_id"];
           $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id = '$id'");
           $row = mysqli_fetch_assoc($result);
           $name = $row['username'];
@@ -265,13 +275,56 @@
       </form>
 
       <?php 
-          unset($_SESSION["account_id"]);
+          unset($_SESSION["edit_account_id"]);
         }
       ?>
 
     </div>
   </div>
 </div>
+
+<!-- Pop up for Delete Account -->
+<div class="modal" id="modal_delete_account" tabindex="-1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-gradient-danger">
+        <h5 class="modal-title text-white">Delete Account</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="close_delete_account()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <?php
+        if (isset($_SESSION["delete_account_id"])) {
+          $id = $_SESSION["delete_account_id"];
+
+          echo "<script> 
+            document.addEventListener('DOMContentLoaded', function () {
+              document.getElementById('modal_delete_account').style.display = 'block'; 
+            });
+          </script>";
+      ?>
+
+      <div class="modal-body">
+        <p class="h5">Are you sure you want to delete this account permanently?</p> 
+      </div>
+      <div class="modal-footer">
+        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+          <input type="hidden" name="id" value="<?php echo $id ?>">
+          <input type="submit" name="delte_account_submit" value="Confirm" class="submit btn btn-danger pr-3"> 
+          <a href="#" onclick="close_delete_account()" class="close_popup btn btn-secondary" style="text-decoration: none;">Cancel</a>
+        </form>
+      </div>
+
+      <?php 
+          unset($_SESSION["delete_account_id"]);
+        }
+      ?>
+
+    </div>
+  </div>
+</div>
+    
 
 <!-- Pop up for Message -->
 <div class="modal" tabindex="-1" id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
@@ -293,7 +346,6 @@
               document.getElementById('popup').style.display = 'block'; 
             }); 
           </script>";
-
       ?>
       
       <div class="modal-body my-2">
@@ -309,7 +361,6 @@
   </div>
 </div>
 
-
 <?php include '../include/footer.php'; ?>
 
 <script>
@@ -324,6 +375,10 @@
 
   function close_edit_account(){
     document.getElementById("modal_edit_account").style.display = "none";
+  }
+
+  function close_delete_account(){
+    document.getElementById("modal_delete_account").style.display = "none";
   }
 
   document.addEventListener("DOMContentLoaded", function() {
