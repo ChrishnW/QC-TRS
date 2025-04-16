@@ -62,7 +62,20 @@
                                         $department_head = $row['dept_head_status'];
                                         $factory_officer = $row['factory_status'];
                                         $coo = $row['coo_status'];
+                                        $date = $row['date'];
+                                        $model = $row['model'];
+                                        $department = $row['dept_status'];
+                                        $line_leader = $row['leader_status'];
+                                        $department_head = $row['dept_head_status'];
+                                        $factory_officer = $row['factory_status'];
+                                        $coo = $row['coo_status'];
 
+                                        $department_status = getApprovalStatus($department);
+                                        $line_leader_status = getApprovalStatus($line_leader);
+                                        $department_head_status = getApprovalStatus($department_head);
+                                        $factory_officer_status = getApprovalStatus($factory_officer);
+                                        $coo_status = getApprovalStatus($coo);
+                            ?>
                                         $department_status = getApprovalStatus($department);
                                         $line_leader_status = getApprovalStatus($line_leader);
                                         $department_head_status = getApprovalStatus($department_head);
@@ -90,6 +103,10 @@
                                     </td>
                                 </tr>
 
+                            <?php
+                                    }
+                                }
+                            ?>
                             <?php
                                     }
                                 }
@@ -134,16 +151,52 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            
+                            <?php
+                                $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.status=1"); 
+                                if(mysqli_num_rows($result) > 0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $request_id = $row['request_id'];
+                                        $response_id = $row['id'];
+
+                                        $date = $row['date'];
+                                        $model = $row['model'];
+                                        $department = $row['dept_status'];
+                                        $line_leader = $row['leader_status'];
+                                        $department_head = $row['dept_head_status'];
+                                        $factory_officer = $row['factory_status'];
+                                        $coo = $row['coo_status'];
+
+                                        $department_status = getApprovalStatus($department);
+                                        $line_leader_status = getApprovalStatus($line_leader);
+                                        $department_head_status = getApprovalStatus($department_head);
+                                        $factory_officer_status = getApprovalStatus($factory_officer);
+                                        $coo_status = getApprovalStatus($coo);
+                            ?>
+
+                                <tr>
+                                    <td><?php echo $date ?></td>
+                                    <td><?php echo $model ?></td>
+                                    <td><?php echo $department_status ?></td>
+                                    <td><?php echo $line_leader_status ?></td>
+                                    <td><?php echo $department_head_status ?></td>
+                                    <td><?php echo $factory_officer_status ?></td>
+                                    <td><?php echo $coo_status ?></td>
+                                    <td>
+                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                                            <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
+                                            <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
+                                        
+                                            <input type="submit" name="view" class="btn btn-primary" value="View">
+                                        </form>
+                                    </td>
+                                </tr>
+
+                            <?php
+                                    }
+                                }
+                            ?>
+                        
                         </tbody>
                     </table>
                 </div>
