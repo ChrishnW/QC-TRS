@@ -14,7 +14,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped" id="finished_dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered table-striped" id="ongoing_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th rowspan="2" class="text-center align-middle">Date</th>
