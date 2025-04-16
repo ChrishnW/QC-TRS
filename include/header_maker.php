@@ -24,7 +24,7 @@
         <div class="sidebar-brand-icon">
         <img src="../assets/img/logo.png" alt="" class="img-fluid" style="width: 45px;">
         </div>
-        <div class="sidebar-brand-text mx-2">Maker</div>
+        <div class="sidebar-brand-text mx-2">Trouble Maker</div>
       </a>
 
       <hr class="sidebar-divider my-0">
@@ -37,7 +37,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="../pages/maker_form.php">
-          <i class="fas fa-fw fa fa-file-text" aria-hidden="true"></i>
+          <i class="fas fa-fw fa fa-file" aria-hidden="true"></i>
           <span>Form?</span></a>
       </li>
       
