@@ -18,7 +18,9 @@
 
                         <div class="col-md-6">
                             <label for="">Department <span style="color: red;">*</span></label><br>
-                            <input type="text" class="form-control" required>
+                            <select name="status" class="form-control" required >
+                                <option value="" hidden></option>
+                            </select>
                         </div>
                     </div>
 
@@ -30,7 +32,7 @@
 
                         <div class="col-md-6">
                             <label for="">Quantity <span style="color: red;">*</span></label><br>
-                            <input type="number" class="form-control" placeholder="0" required min="0">
+                            <input type="number" class="form-control" required min="0">
                         </div>   
                     </div>
 
@@ -110,33 +112,25 @@
                         <div class="col-md-6">
                             <label for="">Leader <span style="color: red;">*</span></label><br>
                             <select name="status" class="form-control" required >
-                                <option value="<?php echo $status ?>" hidden><?php echo $statusName ?></option>
-                                <option value="1">Acive</option>
-                                <option value="0">Inactive</option>
+                                <option value="" hidden></option>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="">Department Head <span style="color: red;">*</span></label><br>
                             <select name="status" class="form-control" required >
-                                <option value="<?php echo $status ?>" hidden><?php echo $statusName ?></option>
-                                <option value="1">Acive</option>
-                                <option value="0">Inactive</option>
+                                <option value="" hidden></option>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="">Factory Officer <span style="color: red;">*</span></label><br>
                             <select name="status" class="form-control" required >
-                                <option value="<?php echo $status ?>" hidden><?php echo $statusName ?></option>
-                                <option value="1">Acive</option>
-                                <option value="0">Inactive</option>
+                                <option value="" hidden></option>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="">COO <span style="color: red;">*</span></label><br>
                             <select name="status" class="form-control" required >
-                                <option value="<?php echo $status ?>" hidden><?php echo $statusName ?></option>
-                                <option value="1">Acive</option>
-                                <option value="0">Inactive</option>
+                                <option value="" hidden></option>
                             </select>
                         </div>
                     </div>
