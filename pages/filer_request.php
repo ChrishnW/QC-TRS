@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $last_id = mysqli_insert_id($conn);
                 $approver_status = 0;
 
-                mysqli_query($conn, "INSERT INTO tbl_response (request_id, leader_status, dept_head_status, factory_status, coo_status) VALUES ('$last_id', '$approver_status', '$approver_status', '$approver_status', '$approver_status')");
+                mysqli_query($conn, "INSERT INTO tbl_response (request_id, dept_status, leader_status, dept_head_status, factory_status, coo_status) VALUES ('$last_id', '$approver_status', '$approver_status', '$approver_status', '$approver_status', '$approver_status')");
                 
                 $_SESSION["message"] = "Request submitted successfully.";
             } else {
