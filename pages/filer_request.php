@@ -8,17 +8,17 @@
                 <br>                         
             </div>
 
-            <form>
+            <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                 <div class="card-body mx-3">
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="">Date <span style="color: red;">*</span></label><br>
-                            <input type="date" class="form-control" required>
+                            <label for="date">Date <span style="color: red;">*</span></label><br>
+                            <input type="date" name="date" id="date" class="form-control" required>
                         </div>
 
                         <div class="col-md-6">
-                            <label for="">Department <span style="color: red;">*</span></label><br>
-                            <select name="status" class="form-control" required >
+                            <label for="department">Department <span style="color: red;">*</span></label><br>
+                            <select name="department"  id="department" class="form-control" required >
                                 <option value="" hidden></option>
 
                                 <?php 
@@ -40,30 +40,30 @@
 
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="">Model <span style="color: red;">*</span></label><br>
-                            <input type="text" class="form-control" required>
+                            <label for="model">Model <span style="color: red;">*</span></label><br>
+                            <input type="text" name="model" id="model" class="form-control" required>
                         </div>
 
                         <div class="col-md-6">
-                            <label for="">Quantity <span style="color: red;">*</span></label><br>
-                            <input type="number" class="form-control" required min="0">
+                            <label for="quality">Quantity <span style="color: red;">*</span></label><br>
+                            <input type="number" name="quality" id="quality"  class="form-control" required min="0">
                         </div>   
                     </div>
 
                     <div class="row mb-3">
                     <div class="col-md-4">
-                            <label for="">Lot Number <span style="color: red;">*</span></label>
-                            <input type="text" class="form-control" required>
+                            <label for="lot">Lot Number <span style="color: red;">*</span></label>
+                            <input type="text" name="lot" id="lot" class="form-control" required>
                         </div>
 
                         <div class="col-md-4">
-                            <label for="">Serial Number <span style="color: red;">*</span></label><br>
-                            <input type="text" class="form-control" required>
+                            <label for="serial">Serial Number <span style="color: red;">*</span></label><br>
+                            <input type="text" name="serial" id="serial" class="form-control" required>
                         </div>  
 
                         <div class="col-md-4">
-                            <label for="">Temp Number <span style="color: red;">*</span></label><br>
-                            <input type="text" class="form-control" required>
+                            <label for="temp">Temp Number <span style="color: red;">*</span></label><br>
+                            <input type="text" name="temp" id="temp" class="form-control" required>
                         </div>
                     </div>
 
@@ -71,51 +71,51 @@
 
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <label for="">Findings <span style="color: red;">*</span></label><br>
-                            <textarea class="form-control" rows="5" required></textarea>
+                            <label for="findings">Findings <span style="color: red;">*</span></label><br>
+                            <textarea name="findings" id="findings" class="form-control" rows="5" required></textarea>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="">Trouble Origin (100%) <span style="color: red;">*</span></label><br>
-                            <input type="text" class="form-control" required>
+                            <label for="origin">Trouble Origin (100%) <span style="color: red;">*</span></label><br>
+                            <input type="text" name="origin" id="origin" class="form-control" required>
                         </div>
 
                         <div class="col-md-6">
-                            <label for="">Checked by (200%) <span style="color: red;">*</span></label><br>
-                            <input type="text" class="form-control" required>
+                            <label for="check">Checked by (200%) <span style="color: red;">*</span></label><br>
+                            <input type="text" name="check" id="check" class="form-control" required>
                         </div>
                     </div>
                     
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="">Found by (QC) <span style="color: red;">*</span></label><br>
-                            <input type="text" class="form-control" required>
+                            <label for="found_qc">Found by (QC) <span style="color: red;">*</span></label><br>
+                            <input type="text" name="found_qc" id="found_qc" class="form-control" required>
                         </div>
 
                         <div class="col-md-6">
-                            <label for="">Found by (AI) <span style="color: red;">*</span></label><br>
-                            <input type="text" class="form-control" required>
+                            <label for="found_ai">Found by (AI) <span style="color: red;">*</span></label><br>
+                            <input type="text" name="found_ai" id="found_ai" class="form-control" required>
                         </div>
                     </div>                   
 
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="">Image (Good) <span style="color: red;">*</span></label><br>
-                            <input type="file" class="form-control" style="height: auto;" required accept=".jpg,.jpeg,.png,.pdf">
+                            <label for="image_good">Image (Good) <span style="color: red;">*</span></label><br>
+                            <input type="file" name="image_good" id="image_good" class="form-control" style="height: auto;" required accept=".jpg,.jpeg,.png,.pdf">
                         </div>
 
                         <div class="col-md-6">
-                            <label for="">Image (Not Good) <span style="color: red;">*</span></label><br>
-                            <input type="file" class="form-control" style="height: auto;" required accept=".jpg,.jpeg,.png,.pdf">
+                            <label for="image_not_good">Image (Not Good) <span style="color: red;">*</span></label><br>
+                            <input type="file" name="image_not_good" id="image_not_good" class="form-control" style="height: auto;" required accept=".jpg,.jpeg,.png,.pdf">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="">Due Date <span style="color: red;">*</span></label><br>
-                            <input type="date" class="form-control" required>
+                            <label for="due_date">Due Date <span style="color: red;">*</span></label><br>
+                            <input type="date" name="due_date" id="due_date" class="form-control" required>
                         </div>
                     </div>
 
@@ -124,8 +124,8 @@
                     <h5>Approval</h5>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="">Leader <span style="color: red;">*</span></label><br>
-                            <select name="status" class="form-control" required >
+                            <label for="leader">Leader <span style="color: red;">*</span></label><br>
+                            <select name="leader" id="leader" class="form-control" required >
                                 <option value="" hidden></option>
 
                                 <?php 
@@ -144,8 +144,8 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="">Department Head <span style="color: red;">*</span></label><br>
-                            <select name="status" class="form-control" required >
+                            <label for="head">Department Head <span style="color: red;">*</span></label><br>
+                            <select name="head" id="head" class="form-control" required >
                                 <option value="" hidden></option>
 
                                 <?php 
@@ -164,8 +164,8 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="">Factory Officer <span style="color: red;">*</span></label><br>
-                            <select name="status" class="form-control" required >
+                            <label for="officer">Factory Officer <span style="color: red;">*</span></label><br>
+                            <select name="officer" id="officer" class="form-control" required >
                                 <option value="" hidden></option>
 
                                 <?php 
@@ -184,8 +184,8 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="">Chief Operating Office (COO) <span style="color: red;">*</span></label><br>
-                            <select name="status" class="form-control" required >
+                            <label for="coo">Chief Operating Office (COO) <span style="color: red;">*</span></label><br>
+                            <select name="coo" id="coo" class="form-control" required >
                                 <option value="" hidden></option>
 
                                 <?php 
@@ -207,8 +207,8 @@
 
 
                 <div class="modal-footer">
-                    <input type="reset" name="reset" value="Cancel" id="cancel_add_breaktime"  class="btn btn-secondary ml-2">
-                    <input type="submit" name="" value="Submit" class="btn btn-primary pr-3">
+                    <input type="submit" name="request_submit" value="Submit" class="btn btn-primary pr-3">
+                    <input type="reset" value="Cancel" class="btn btn-secondary ml-2">
                 </div>
             </form>
         </div>
