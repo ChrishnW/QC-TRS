@@ -62,13 +62,6 @@
                                         $department_head = $row['dept_head_status'];
                                         $factory_officer = $row['factory_status'];
                                         $coo = $row['coo_status'];
-                                        $date = $row['date'];
-                                        $model = $row['model'];
-                                        $department = $row['dept_status'];
-                                        $line_leader = $row['leader_status'];
-                                        $department_head = $row['dept_head_status'];
-                                        $factory_officer = $row['factory_status'];
-                                        $coo = $row['coo_status'];
 
                                         $department_status = getApprovalStatus($department);
                                         $line_leader_status = getApprovalStatus($line_leader);
@@ -76,12 +69,7 @@
                                         $factory_officer_status = getApprovalStatus($factory_officer);
                                         $coo_status = getApprovalStatus($coo);
                             ?>
-                                        $department_status = getApprovalStatus($department);
-                                        $line_leader_status = getApprovalStatus($line_leader);
-                                        $department_head_status = getApprovalStatus($department_head);
-                                        $factory_officer_status = getApprovalStatus($factory_officer);
-                                        $coo_status = getApprovalStatus($coo);
-                            ?>
+
 
                                 <tr>
                                     <td class="text-center align-middle"><?php echo $date ?></td>
@@ -103,10 +91,6 @@
                                     </td>
                                 </tr>
 
-                            <?php
-                                    }
-                                }
-                            ?>
                             <?php
                                     }
                                 }
