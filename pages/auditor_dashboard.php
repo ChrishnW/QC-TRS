@@ -1,5 +1,7 @@
 <?php include '../include/header_auditor.php'; ?>
+
 <div class="container-fluid">
-<h1>Auditor</h1>
+    <p>next week na to. </p>
 </div>
+
 <?php include '../include/footer.php'; ?>
