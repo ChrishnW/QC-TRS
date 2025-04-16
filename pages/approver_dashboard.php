@@ -29,7 +29,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Dynamic data will populate here -->
+                          
                         </tbody>
                     </table>
                 </div>
@@ -67,7 +67,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Dynamic data will populate here -->
+                            
                         </tbody>
                     </table>
                 </div>
@@ -105,7 +105,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Dynamic data will populate here -->
+                            
                         </tbody>
                     </table>
                 </div>

@@ -66,11 +66,11 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>ang</td>
+                                <td>hirap</td>
+                                <td>labanan</td>
+                                <td>ng</td>
+                                <td>antok</td>
                             </tr>
                         </tbody>
                     </table>

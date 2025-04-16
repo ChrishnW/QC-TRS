@@ -31,7 +31,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="../pages/maker_dashboard.php">
-        <i class="fa fa-user" aria-hidden="true"></i>
+          <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
 
