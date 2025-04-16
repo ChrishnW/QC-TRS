@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div id="maker_form" class="maker_form" style="display: block;">
         <div class="card shadow mb-4">
-            <div class="card-header py-3.5 pt-4">
+            <div class="card-header bg-primary text-white py-3.5 pt-4">
                 <h2 class="float-left">Reason (4 M's)</h2>
                 <br>                         
             </div>
@@ -53,7 +53,7 @@
 <div class="container-fluid">
     <div id="maker_form" class="maker_form" style="display: block;">
         <div class="card shadow mb-4">
-            <div class="card-header py-3.5 pt-4">
+            <div class="card-header bg-primary text-white py-3.5 pt-4">
                 <h2 class="float-left">Corrective Action (4 M's)</h2>
                 <br>                         
             </div>

@@ -4,12 +4,12 @@
 <div class="container-fluid" id="ongoing_trouble_report" style="display: block;">
     <div class="filer_dashboard">
         <div class="card shadow mb-4">
-            <div class="card-header py-3.5 pt-4">
+            <div class="card-header bg-primary text-white py-3.5 pt-4">
                 <h2 class="float-left">Ongoing Trouble Report</h2>
 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
-                    <button id="ongoingBtn" type="button" class="btn btn-outline-primary active" onclick="display_ongoing()">Ongoing</button>
-                    <button id="finishedBtn" type="button" class="btn btn-outline-primary" onclick="display_finished()">Finished</button>
+                    <button id="ongoingBtn" type="button" class="btn btn-outline-light active" onclick="display_ongoing()">Ongoing</button>
+                    <button id="finishedBtn" type="button" class="btn btn-outline-light" onclick="display_finished()">Finished</button>
                 </div>
             </div>
             <div class="card-body">
@@ -44,12 +44,12 @@
 <div class="container-fluid" id="finished_trouble_report" style="display: none;">
     <div class="filer_dashboard">
         <div class="card shadow mb-4">
-            <div class="card-header py-3.5 pt-4">
+            <div class="card-header bg-primary text-white py-3.5 pt-4">
                 <h2 class="float-left">Finished Trouble Report</h2>
 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
-                    <button id="ongoingBtn" type="button" class="btn btn-outline-primary" onclick="display_ongoing()">Ongoing</button>
-                    <button id="finishedBtn" type="button" class="btn btn-outline-primary active" onclick="display_finished()">Finished</button>
+                    <button id="ongoingBtn" type="button" class="btn btn-outline-light" onclick="display_ongoing()">Ongoing</button>
+                    <button id="finishedBtn" type="button" class="btn btn-outline-light active" onclick="display_finished()">Finished</button>
                 </div>
             </div>
             <div class="card-body">
