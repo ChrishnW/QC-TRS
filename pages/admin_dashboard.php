@@ -95,6 +95,24 @@
       ob_end_flush();
       exit;
     }
+
+    // Delete account submit ...........................................................................
+    if (isset($_POST['delte_account_submit'])) {
+      $id = $_POST['id'];
+
+      $result = mysqli_query($conn, "DELETE FROM tbl_account WHERE id='$id' ");
+
+      if($result){
+          $_SESSION["message"] = "Account deleted successfully.";
+      }
+      else{
+          $_SESSION["message"] = "Failed to delete account.";
+      }
+
+      header("Refresh: .3; url = admin_dashboard.php");
+      ob_end_flush();
+      exit;
+    }
   
   }
 
@@ -221,7 +239,7 @@
       <?php
         if (isset($_SESSION["edit_account_id"])) {
           $id = $_SESSION["edit_account_id"];
-          $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id = '$id'");
+          $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id='$id' ");
           $row = mysqli_fetch_assoc($result);
           $name = $row['username'];
           $role = $row['access'];
