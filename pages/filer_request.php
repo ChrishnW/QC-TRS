@@ -20,6 +20,20 @@
                             <label for="">Department <span style="color: red;">*</span></label><br>
                             <select name="status" class="form-control" required >
                                 <option value="" hidden></option>
+
+                                <?php 
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=3 AND status=1");
+                                    if($result) {    
+                                        while($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+
+                                <?php 
+                                        }
+                                    }
+                                ?>
+
                             </select>
                         </div>
                     </div>
@@ -113,24 +127,80 @@
                             <label for="">Leader <span style="color: red;">*</span></label><br>
                             <select name="status" class="form-control" required >
                                 <option value="" hidden></option>
+
+                                <?php 
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=4 AND status=1");
+                                    if($result) {    
+                                        while($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+
+                                <?php 
+                                        }
+                                    }
+                                ?>
+                                
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="">Department Head <span style="color: red;">*</span></label><br>
                             <select name="status" class="form-control" required >
                                 <option value="" hidden></option>
+
+                                <?php 
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=5 AND status=1");
+                                    if($result) {    
+                                        while($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+
+                                <?php 
+                                        }
+                                    }
+                                ?>
+
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="">Factory Officer <span style="color: red;">*</span></label><br>
                             <select name="status" class="form-control" required >
                                 <option value="" hidden></option>
+
+                                <?php 
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=6 AND status=1");
+                                    if($result) {    
+                                        while($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+
+                                <?php 
+                                        }
+                                    }
+                                ?>
+
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="">COO <span style="color: red;">*</span></label><br>
+                            <label for="">Chief Operating Office (COO) <span style="color: red;">*</span></label><br>
                             <select name="status" class="form-control" required >
                                 <option value="" hidden></option>
+
+                                <?php 
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=7 AND status=1");
+                                    if($result) {    
+                                        while($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+
+                                <?php 
+                                        }
+                                    }
+                                ?>
+
                             </select>
                         </div>
                     </div>
