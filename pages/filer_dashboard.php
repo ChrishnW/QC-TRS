@@ -14,18 +14,27 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped" id="ongoing_dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered table-striped" id="finished_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
                             <tr>
-                                <th>ID</th>
-                                <th>---</th>
-                                <th>---</th>
-                                <th>---</th>
-                                <th>Actions</th>
+                                <th rowspan="2" class="text-center align-middle">Date</th>
+                                <th rowspan="2" class="text-center align-middle">Model</th>
+                                <th rowspan="2" class="text-center align-middle">Department</th>
+                                <th colspan="4" class="text-center align-middle">Approval Status</th>
+                                <th rowspan="2" class="text-center align-middle">Actions</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center align-middle border-top-0">Line Leader</th>
+                                <th class="text-center align-middle border-top-0">Department Head</th>
+                                <th class="text-center align-middle border-top-0">Factory Officer</th>
+                                <th class="text-center align-middle border-top-0">COO</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -57,15 +66,24 @@
                     <table class="table table-bordered table-striped" id="finished_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
                             <tr>
-                                <th>ID</th>
-                                <th>---</th>
-                                <th>---</th>
-                                <th>---</th>
-                                <th>Actions</th>
+                                <th rowspan="2" class="text-center align-middle">Date</th>
+                                <th rowspan="2" class="text-center align-middle">Model</th>
+                                <th rowspan="2" class="text-center align-middle">Department</th>
+                                <th colspan="4" class="text-center align-middle">Approval Status</th>
+                                <th rowspan="2" class="text-center align-middle">Actions</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center align-middle border-top-0">Line Leader</th>
+                                <th class="text-center align-middle border-top-0">Department Head</th>
+                                <th class="text-center align-middle border-top-0">Factory Officer</th>
+                                <th class="text-center align-middle border-top-0">COO</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
