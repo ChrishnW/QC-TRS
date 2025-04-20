@@ -187,6 +187,78 @@
     </div>
 </div>
 
+<!-- View Trouble Report Request Form -->
+<div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: block; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header bg-gradient-primary">
+          <h5 class="modal-title text-white">Ongoing Trouble Report Form</h5>
+        </div>
+
+        <div class="modal-body">
+            <div class="container-fluid row mr-1">
+                <div class="card col">
+                    <div class="row align-items-center mt-2">
+                        <div class="col-auto">
+                            <img src="../assets/img/logo.png" alt="">
+                        </div>
+                        <div class="col text-center">
+                            <h6>Good</h6>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row align-items-center mb-2">
+                        <div class="col-auto">
+                            <img src="../assets/img/logo.png" alt="">
+                        </div>
+                        <div class="col text-center">
+                            <h6>Not Good</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card col">
+                    <div class="card col mt-2 mb-1">
+                        <h6>Date: </h6>                
+                        <h6>Model: </h6>
+                        <h6>Department: </h6>            
+                        <h6>Lot No. </h6>
+                        <h6>Serial No. </h6>
+                        <h6>Temp No. </h6>    
+                        <h6>Quantity: </h6>          
+                    </div>
+
+                    <div class="card col mt-1 mb-1">
+                        <h6>Findings: </h6>
+                    </div>
+
+                    <div class="card col my-1">                 
+                        <h6>Trouble Origin (100%): </h6>
+                        <h6>Checked By (200%): </h6>
+                        <h6>Found by (QC): </h6>
+                        <h6>Found by (AI): </h6>
+                        <h6>Due Date: </h6>
+                    </div>
+
+                    <div class="card col mt-1 mb-2">
+                        <h6>Approval</h6>
+                        <h6>Line Leader: </h6>
+                        <h6>Department Head: </h6>
+                        <h6>Factory Officer: </h6>
+                        <h6>COO: </h6>
+                    </div>
+                </div>
+            </div>         
+            
+        
+        </div>
+
+        <div class="modal-footer">
+            <input type="reset" name="close_view" onclick="closeView()"  value="Close" class="btn btn-secondary ml-2">
+        </div> 
+    </div>    
+</div>
+
 <?php include '../include/footer.php'; ?>
 
 <script>
@@ -207,5 +279,9 @@
         document.getElementById("finished_trouble_report").style.display = "block";
         document.getElementById("finishedBtn").classList.add('active');
         document.getElementById("ongoingBtn").classList.remove('active');
+    }
+
+    function closeView() {
+        document.getElementById("view_ongoing").style.display = "none";
     }
 </script>
