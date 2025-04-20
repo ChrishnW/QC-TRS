@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>QC Trouble Report System | Filer</title>
+  <title>QC - TRS | Filer</title>
 
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
 

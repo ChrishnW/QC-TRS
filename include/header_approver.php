@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>QC Trouble Report System | Approver</title>
+  <title>QC - TRS | Approver</title>
 
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
 

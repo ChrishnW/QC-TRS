@@ -12,9 +12,9 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 
-  <title>QC Trouble Report System</title>
+  <title>QC - Trouble Report System</title>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo.png">
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
