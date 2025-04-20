@@ -84,9 +84,9 @@
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
-                                            <input type="submit" name="view_request" class="btn btn-primary" value="View">
-                                            <input type="submit" name="edit_request" class="btn btn-warning" value="Edit">
-                                            <input type="submit" name="delete_request" class="btn btn-danger" value="Delete">
+                                            <input type="submit" name="view_request" class="btn btn-primary" value="View" disabled>
+                                            <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" disabled>
+                                            <input type="submit" name="delete_request" class="btn btn-danger" value="Delete" disabled>
                                         </form>
                                     </td>
                                 </tr>
