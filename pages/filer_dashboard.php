@@ -194,7 +194,10 @@
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header bg-gradient-primary">
-          <h5 class="modal-title text-white">Ongoing Trouble Report Form</h5>
+            <h5 class="modal-title text-white">Ongoing Trouble Report Form</h5>
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="closeView()">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
 
         <div class="modal-body">
@@ -256,7 +259,7 @@
         </div>
 
         <div class="modal-footer">
-            <input type="reset" name="close_view" onclick="closeView()"  value="Close" class="btn btn-secondary ml-2">
+            <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary ml-2">
         </div> 
     </div>    
 </div>
