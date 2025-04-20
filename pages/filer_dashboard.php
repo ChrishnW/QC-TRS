@@ -190,7 +190,7 @@
 </div>
 
 <!-- View Trouble Report Request Form -->
-<div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: block; background-color: rgba(0, 0, 0, 0.5);">
+<div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: block; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header bg-gradient-primary">
@@ -256,7 +256,7 @@
         </div>
 
         <div class="modal-footer">
-            <input type="reset" name="close_view" id="close_view"  value="Close" class="btn btn-secondary ml-2">
+            <input type="reset" name="close_view" onclick="closeView()"  value="Close" class="btn btn-secondary ml-2">
         </div> 
     </div>    
 </div>
@@ -264,7 +264,7 @@
 <?php include '../include/footer.php'; ?>
 
 <script>
-    view_modal = document.getElementById("view_ongoing");
+    
 
     $(document).ready(function() {
         $('#ongoing_dataTable').DataTable();
@@ -284,4 +284,10 @@
         document.getElementById("finishedBtn").classList.add('active');
         document.getElementById("ongoingBtn").classList.remove('active');
     }
+
+    function closeView() {
+        document.getElementById("view_ongoing").style.display = "none";
+    }
+
+
 </script>
