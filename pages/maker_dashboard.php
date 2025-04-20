@@ -196,8 +196,8 @@
         </div>
 
         <div class="modal-body">
-            <div class="container-fluid row mr-1">
-                <div class="card col">
+            <div class="container-fluid row overflow-auto" >
+                <div class="card col mr-2">
                     <div class="row align-items-center mt-2">
                         <div class="col-auto">
                             <img src="../assets/img/logo.png" alt="">
@@ -217,40 +217,47 @@
                     </div>
                 </div>
 
-                <div class="card col">
-                    <div class="card col mt-2 mb-1">
-                        <h6>Date: </h6>                
-                        <h6>Model: </h6>
-                        <h6>Department: </h6>            
-                        <h6>Lot No. </h6>
-                        <h6>Serial No. </h6>
-                        <h6>Temp No. </h6>    
-                        <h6>Quantity: </h6>          
+                <div class="container-fluid col">
+                    <div class="card col mb-2">
+                        <div class="px-2 pt-2">
+                            <h6>Date: </h6>                
+                            <h6>Model: </h6>
+                            <h6>Department: </h6>            
+                            <h6>Lot No. </h6>
+                            <h6>Serial No. </h6>
+                            <h6>Temp No. </h6>    
+                            <h6>Quantity: </h6>   
+                        </div>
                     </div>
 
-                    <div class="card col mt-1 mb-1">
-                        <h6>Findings: </h6>
+                    <div class="card col mb-2" style="height: 100px;">
+                        <div class="px-2 pt-2">
+                            <h6>Findings: </h6>
+                        </div>
                     </div>
 
-                    <div class="card col my-1">                 
-                        <h6>Trouble Origin (100%): </h6>
-                        <h6>Checked By (200%): </h6>
-                        <h6>Found by (QC): </h6>
-                        <h6>Found by (AI): </h6>
-                        <h6>Due Date: </h6>
+                    <div class="card col mb-2"> 
+                        <div class="px-2 pt-2">     
+                            <h6>Findings: </h6>           
+                            <h6>Trouble Origin (100%): </h6>
+                            <h6>Checked By (200%): </h6>
+                            <h6>Found by (QC): </h6>
+                            <h6>Found by (AI): </h6>
+                            <h6>Due Date: </h6>
+                        </div>
                     </div>
 
-                    <div class="card col mt-1 mb-2">
-                        <h6>Approval</h6>
-                        <h6>Line Leader: </h6>
-                        <h6>Department Head: </h6>
-                        <h6>Factory Officer: </h6>
-                        <h6>COO: </h6>
+                    <div class="card col">
+                        <div class="px-2 pt-2">
+                            <h6>Approval</h6>
+                            <h6>Line Leader: </h6>
+                            <h6>Department Head: </h6>
+                            <h6>Factory Officer: </h6>
+                            <h6>COO: </h6>
+                        </div>
                     </div>
                 </div>
             </div>         
-            
-        
         </div>
 
         <div class="modal-footer">
