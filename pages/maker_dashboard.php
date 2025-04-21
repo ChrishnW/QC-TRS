@@ -14,7 +14,6 @@
         }
     }
 
-
 ?>
 
 <!-- Ongoing Trouble Report -->
@@ -50,7 +49,9 @@
                         <tbody>
                             
                             <?php
-                                $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.status=0"); 
+
+                                $dept_id = $_SESSION['SESS_USERID'];
+                                $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.status=0 AND tbl_request.dept_id='$dept_id'"); 
                                 if(mysqli_num_rows($result) > 0) {
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         $request_id = $row['request_id'];
@@ -135,7 +136,7 @@
                         <tbody>
                             
                             <?php
-                                $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.status=1"); 
+                                $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.status=1 AND tbl_request.dept_id='$dept_id'"); 
                                 if(mysqli_num_rows($result) > 0) {
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         $request_id = $row['request_id'];
@@ -188,7 +189,7 @@
 </div>
 
 <!-- View Ongoing Trouble Report -->
-<div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: block; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
+<div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header bg-gradient-primary">

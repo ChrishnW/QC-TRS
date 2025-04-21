@@ -16,6 +16,7 @@ if (isset($_POST['username'])) :
  
       $_SESSION['SESS_FULLNAME']    = $user['username'];
       $_SESSION['SESS_LEVEL']       = $user['access'];
+      $_SESSION['SESS_USERID']      = $user['id'];
 
       if($user['access'] == 1) {
         echo "Admin";
