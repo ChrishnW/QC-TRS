@@ -261,7 +261,7 @@
                 <div class="card col">
                     <div class="row align-items-center mt-2">
                         <div class="col-auto">
-                            <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png'; ?>" alt="Image is not available">
+                            <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                         </div>
                         <div class="col text-center">
                             <h3><b>Good</b></h3>
@@ -270,7 +270,7 @@
                     <br>
                     <div class="row align-items-center mb-2">
                         <div class="col-auto">
-                            <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png' ?>" alt="Image is not available">
+                            <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                         </div>
                         <div class="col text-center">
                             <h3><b>Not Good</b></h3>

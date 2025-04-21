@@ -203,19 +203,19 @@
                 <div class="card col mr-2">
                     <div class="row align-items-center mt-2">
                         <div class="col-auto">
-                            <img src="../assets/img/logo.png" alt="Good Image" class="img-fluid rounded">
+                            <img src="../assets/img/logo.png" height="300px" width="300px" style="object-fit: contain;" alt="Good Image" class="img-fluid rounded">
                         </div>
                         <div class="col text-center">
-                            <h6>Good</h6>
+                            <h3><b>Good</b></h3>
                         </div>
                     </div>
                     <br>
                     <div class="row align-items-center mb-2">
                         <div class="col-auto">
-                            <img src="../assets/img/logo.png" alt="Not Good Image" class="img-fluid rounded">
+                            <img src="../assets/img/logo.png" height="300px" width="300px" style="object-fit: contain;" alt="Not Good Image" class="img-fluid rounded">
                         </div>
                         <div class="col text-center">
-                            <h6>Not Good</h6>
+                            <h3><b>Not Good</b></h3>
                         </div>
                     </div>
                 </div>
@@ -223,40 +223,40 @@
                 <div class="container-fluid col">
                     <div class="card col mb-2">
                         <div class="px-1 pt-2">
-                            <h6>Date: </h6>                
-                            <h6>Model: </h6>
-                            <h6>Department: </h6>            
-                            <h6>Lot No. </h6>
-                            <h6>Serial No. </h6>
-                            <h6>Temp No. </h6>    
-                            <h6>Quantity: </h6>   
+                            <h6><b>Date: </b></h6>                
+                            <h6><b>Model: </b></h6>
+                            <h6><b>Department: </b></h6>            
+                            <h6><b>Lot No. </b></h6>
+                            <h6><b>Serial No. </b></h6>
+                            <h6><b>Temp No. </b></h6>    
+                            <h6><b>Quantity: </b></h6>   
                         </div>
                     </div>
 
                     <div class="card col mb-2" style="height: 100px;">
                         <div class="px-1 pt-2">
-                            <h6>Findings: </h6>
+                            <h6><b>Findings: </b> </h6>
                         </div>
                     </div>
 
                     <div class="card col mb-2"> 
                         <div class="px-1 pt-2">              
-                            <h6>Trouble Origin (100%): </h6>
-                            <h6>Checked By (200%): </h6>
-                            <h6>Found by (QC): </h6>
-                            <h6>Found by (AI): </h6>
-                            <h6>Due Date: </h6>
+                            <h6><b>Trouble Origin (100%): </b> </h6>
+                            <h6><b>Checked By (200%): </b> </h6>
+                            <h6><b>Found by (QC): </b> </h6>
+                            <h6><b>Found by (AI): </b> </h6>
+                            <h6><b>Due Date: </b> </h6>
                         </div>
                     </div>
 
                     <div class="card col">
                         <div class="px-1 pt-2">
-                            <h6 class="mt-1 mb-n1">Approval</h6>
+                            <h5 class="mt-1 mb-n1"><b>Approval</b></h5>
                             <hr>
-                            <h6>Line Leader: </h6>
-                            <h6>Department Head: </h6>
-                            <h6>Factory Officer: </h6>
-                            <h6>COO: </h6>
+                            <h6><b>Line Leader: </b> </h6>
+                            <h6><b>Department Head: </b> </h6>
+                            <h6><b>Factory Officer: </b> </h6>
+                            <h6><b>COO: </b> </h6>
                         </div>
                     </div>
                 </div>
