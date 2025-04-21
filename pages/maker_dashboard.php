@@ -187,7 +187,7 @@
     </div>
 </div>
 
-<!-- View Trouble Report Request Form -->
+<!-- View Ongoing Trouble Report -->
 <div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: block; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
