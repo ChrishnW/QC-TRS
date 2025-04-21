@@ -14,10 +14,24 @@
         }
     }
 
+    function getUsername($id){
+        global $conn;
+        $account = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_account WHERE id='$id'"));
+        return $account['username'];
+    }
+
     if(isset($_SESSION['request_id']) && isset($_SESSION['response_id'])){
         $request_id = $_SESSION['request_id'];
         $response_id = $_SESSION['response_id'];
         $view_request = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.id='$request_id' AND tbl_response.id='$response_id'"));
+
+        echo "<script>     
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('view_ongoing').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+        });</script>";
+
+        
     }
 
 
@@ -245,7 +259,7 @@
                     <div class="card col mt-2 mb-1">
                         <h6><b>Date: </b> <?php echo $view_request['date'] ?? '' ?></h6>                
                         <h6><b>Model: </b> <?php echo $view_request['model'] ?? '' ?></h6>
-                        <h6><b>Department: </b> <?php echo $view_request['dept_id'] ?? '' ?></h6>            
+                        <h6><b>Department: </b> <?php echo isset($view_request['dept_id']) ? getUsername($view_request['dept_id']) : '' ?></h6>            
                         <h6><b>Lot No. </b> <?php echo $view_request['lot'] ?? '' ?></h6>
                         <h6><b>Serial No. </b> <?php echo $view_request['serial'] ?? '' ?></h6>
                         <h6><b>Temp No. </b> <?php echo $view_request['temp'] ?? '' ?></h6>    
@@ -264,12 +278,12 @@
                         <h6><b>Due Date: </b> <?php echo $view_request['due_date'] ?? '' ?></h6>
                     </div>
 
-                    <div class="card col mt-1 mb-2">
+                    <div class="card col mt-1 mb-2" style="overflow: auto;">
                         <h5><b>Approval</b></h5>
-                        <h6><b>Line Leader: </b> <?php echo $view_request['leader_id'] ?? '' ?></h6>
-                        <h6><b>Department Head: </b> <?php echo $view_request['dept_head_id'] ?? '' ?></h6>
-                        <h6><b>Factory Officer: </b> <?php echo $view_request['fac_officer_id'] ?? '' ?></h6>
-                        <h6><b>COO: </b> <?php echo $view_request['coo_id'] ?? '' ?></h6>
+                        <h6><b>Line Leader: </b> <?php echo isset($view_request['leader_id']) ? getUsername($view_request['leader_id']) : '' ?></h6>
+                        <h6><b>Department Head: </b> <?php echo isset($view_request['dept_head_id']) ? getUsername($view_request['dept_head_id']) : '' ?></h6>
+                        <h6><b>Factory Officer: </b> <?php echo isset($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
+                        <h6><b>COO: </b> <?php echo isset($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
                     </div>
                 </div>
             </div>         
@@ -309,7 +323,8 @@
 
     function closeView() {
         document.getElementById("view_ongoing").style.display = "none";
-    }
+        document.body.style.overflow = 'auto';
 
+    }
 
 </script>
