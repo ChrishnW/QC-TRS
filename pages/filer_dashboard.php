@@ -177,11 +177,11 @@
                     <table class="table table-bordered table-striped" id="finished_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
                             <tr>
-                                <th rowspan="2" class="text-center align-middle">Date</th>
-                                <th rowspan="2" class="text-center align-middle">Model</th>
-                                <th rowspan="2" class="text-center align-middle">Department</th>
-                                <th colspan="4" class="text-center align-middle">Approval Status</th>
-                                <th rowspan="2" class="text-center align-middle">Actions</th>
+                                <th rowspan="2" class="text-center align-middle" style="width: 1%;">Date</th>
+                                <th rowspan="2" class="text-center align-middle" style="width: 1%;">Model</th>
+                                <th rowspan="2" class="text-center align-middle" style="width: 1%;">Department</th>
+                                <th colspan="4" class="text-center align-middle" style="width: 2%;">Approval Status</th>
+                                <th rowspan="2" class="text-center align-middle" style="width: 3%;">Actions</th>
                             </tr>
                             <tr>
                                 <th class="text-center align-middle border-top-0">Line Leader</th>
@@ -215,13 +215,13 @@
                             ?>
 
                                 <tr>
-                                    <td><?php echo $date ?></td>
-                                    <td><?php echo $model ?></td>
-                                    <td><?php echo $department_status ?></td>
-                                    <td><?php echo $line_leader_status ?></td>
-                                    <td><?php echo $department_head_status ?></td>
-                                    <td><?php echo $factory_officer_status ?></td>
-                                    <td><?php echo $coo_status ?></td>
+                                    <td class="text-center align-middle"><?php echo $date ?></td>
+                                    <td class="text-center align-middle"><?php echo $model ?></td>
+                                    <td class="text-center align-middle"><?php echo $department_status ?></td>
+                                    <td class="text-center align-middle"><?php echo $line_leader_status ?></td>
+                                    <td class="text-center align-middle"><?php echo $department_head_status ?></td>
+                                    <td class="text-center align-middle"><?php echo $factory_officer_status ?></td>
+                                    <td class="text-center align-middle"><?php echo $coo_status ?></td>
                                     <td style="table-layout: fixed; width: 8%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
