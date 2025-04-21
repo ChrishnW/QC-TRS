@@ -92,14 +92,14 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped" id="ongoing_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white" style="height: 15px;">
-                            <tr style="font-size: 14px;">
+                            <tr>
                                 <th rowspan="2" class="text-center align-middle" style="width: 1%;">Date</th>
                                 <th rowspan="2" class="text-center align-middle" style="width: 1%;">Model</th>
                                 <th rowspan="2" class="text-center align-middle" style="width: 1%;">Department</th>
                                 <th colspan="4" class="text-center align-middle" style="width: 2%;">Approval Status</th>
                                 <th rowspan="2" class="text-center align-middle" style="width: 3%;">Actions</th>
                             </tr>
-                            <tr style="font-size: 12px;"> 
+                            <tr> 
                                 <th class="text-center align-middle border-top-0">Line Leader</th>
                                 <th class="text-center align-middle border-top-0">Department Head</th>
                                 <th class="text-center align-middle border-top-0">Factory Officer</th>
@@ -137,12 +137,12 @@
                                     <td class="text-center align-middle"><?php echo $department_head_status ?></td>
                                     <td class="text-center align-middle"><?php echo $factory_officer_status ?></td>
                                     <td class="text-center align-middle"><?php echo $coo_status ?></td>
-                                    <td>
-                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                                    <td style="table-layout: fixed; width: 8%;">
+                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
-                                            <input type="submit" name="view_request_ongoing" class="btn btn-primary" value="View" >
+                                            <input type="submit" name="view_request_ongoing" class="btn btn-success" value="View" >
                                         </form>
                                     </td>
                                 </tr>
@@ -222,12 +222,12 @@
                                     <td><?php echo $department_head_status ?></td>
                                     <td><?php echo $factory_officer_status ?></td>
                                     <td><?php echo $coo_status ?></td>
-                                    <td>
-                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                                    <td style="table-layout: fixed; width: 8%;">
+                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
-                                            <input type="submit" name="view_request_finished" class="btn btn-primary" value="View">
+                                            <input type="submit" name="view_request_finished" class="btn btn-success" value="View">
                                         </form>
                                     </td>
                                 </tr>
@@ -256,7 +256,7 @@
             </button>
         </div>
 
-        <div class="modal-body">
+        <div class="modal-body mr-n5">
             <div class="container-fluid row mr-1">
                 <div class="card col mr-2">
                     <div class="row align-items-center mt-2">
