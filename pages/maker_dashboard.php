@@ -80,7 +80,7 @@
                                     <td><?php echo $factory_officer_status ?></td>
                                     <td><?php echo $coo_status ?></td>
                                     <td>
-                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="justify-content-center align-items-center form_table d-flex">
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
@@ -165,7 +165,7 @@
                                     <td><?php echo $factory_officer_status ?></td>
                                     <td><?php echo $coo_status ?></td>
                                     <td>
-                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="justify-content-center align-items-center form_table d-flex">
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
