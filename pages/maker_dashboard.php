@@ -247,20 +247,29 @@
     </div>
 </div>
 
-<!-- View Trouble Report form -->
+<!-- View Trouble Report Request Form -->
 <div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header bg-gradient-primary">
-            <h5 class="modal-title text-white">Ongoing Trouble Report Form</h5>
+            <h5 class="modal-title text-white"></h5>
             <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="closeView()">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
 
         <div class="modal-body mr-n5">
+            <div class="container-fluid">
+                <!-- Reason -->
+                <div class="col ml-n4">
+                    <div class="card text-center my-2">
+                        <h2 class="mt-2"><b>ROOT CAUSE ANALYSIS</b></h2>
+                    </div>
+                </div>
+            </div>
+
             <div class="container-fluid row mr-1">
-                <div class="card col mr-2">
+                <div class="card col mr-2 mt-2">
                     <div class="row align-items-center mt-2">
                         <div class="col-auto">
                             <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
@@ -280,7 +289,7 @@
                     </div>
                 </div>
 
-                <div class="container-fluid col">
+                <div class="container-fluid col mt-2">
                     <div class="card col mb-2">
                         <div class="px-1 pt-2">
                             <h6><b>Date: </b> <?php echo $view_request['date'] ?? '' ?></h6>                
@@ -321,10 +330,168 @@
                     </div>
                 </div>
             </div>         
+
+            <div class="container-fluid">
+                <!-- Reason -->
+                <div class="col ml-n4 mt-3">
+                    <div class="card text-center my-2">
+                        <h2 class="mt-2"><b>REASON:</b></h2>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5><b>Man</b></h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p><?php echo $view_request['man'] ?? '' ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5><b>Method</b></h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p><?php echo $view_request['method'] ?? '' ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5><b>Material</b></h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p><?php echo $view_request['material'] ?? '' ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5><b>Machine</b></h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p><?php echo $view_request['machine'] ?? '' ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Correction -->
+                <div class="col ml-n4 mt-3">
+                    <div class="card text-center my-2">
+                        <h2 class="mt-2"><b>CORRECTION:</b></h2>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card" style="width: 98%;">
+                            <div class="m-2">
+                                <p><?php echo $view_request['correction'] ?? '' ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corrective Action -->
+                <div class="col ml-n4 mt-3">
+                    <div class="card text-center my-2">
+                        <h2 class="mt-2"><b>CORRECTIVE ACTION:</b></h2>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5><b>Man</b></h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p><?php echo $view_request['ca_man'] ?? '' ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5><b>Method</b></h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p><?php echo $view_request['ca_method'] ?? '' ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5><b>Material</b></h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p><?php echo $view_request['ca_material'] ?? '' ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5><b>Machine</b></h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p><?php echo $view_request['ca_machine'] ?? '' ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col ml-n4 mt-3">
+                    <div class="card text-center my-2">
+                        <h2 class="mt-2"><b>REMARKS:</b></h2>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card" style="width: 98%;">
+                            <div class="m-2">
+                                <p><?php echo $view_request['remarks'] ?? '' ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="modal-footer">
             <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
+            <input type="submit" name="delete_request" class="btn btn-danger" value="Delete" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
             <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary">
         </div> 
 
