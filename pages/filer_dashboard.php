@@ -137,12 +137,12 @@
                                     <td class="text-center align-middle"><?php echo $department_head_status ?></td>
                                     <td class="text-center align-middle"><?php echo $factory_officer_status ?></td>
                                     <td class="text-center align-middle"><?php echo $coo_status ?></td>
-                                    <td>
-                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                                    <td style="table-layout: fixed; width: 8%;">
+                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
-                                            <input type="submit" name="view_request_ongoing" class="btn btn-primary" value="View" >
+                                            <input type="submit" name="view_request_ongoing" class="btn btn-success" value="View" >
                                         </form>
                                     </td>
                                 </tr>
@@ -222,12 +222,12 @@
                                     <td><?php echo $department_head_status ?></td>
                                     <td><?php echo $factory_officer_status ?></td>
                                     <td><?php echo $coo_status ?></td>
-                                    <td>
-                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                                    <td style="table-layout: fixed; width: 8%;">
+                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
-                                            <input type="submit" name="view_request_finished" class="btn btn-primary" value="View">
+                                            <input type="submit" name="view_request_finished" class="btn btn-success" value="View">
                                         </form>
                                     </td>
                                 </tr>
@@ -256,7 +256,7 @@
             </button>
         </div>
 
-        <div class="modal-body">
+        <div class="modal-body mr-n5">
             <div class="container-fluid row mr-1">
                 <div class="card col mr-2">
                     <div class="row align-items-center mt-2">
