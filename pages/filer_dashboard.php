@@ -257,8 +257,17 @@
         </div>
 
         <div class="modal-body mr-n5">
+            <div class="container-fluid">
+                <!-- Reason -->
+                <div class="col ml-n4">
+                    <div class="card text-center my-2">
+                        <h2 class="mt-2"><b>ROOT CAUSE ANALYSIS</b></h2>
+                    </div>
+                </div>
+            </div>
+
             <div class="container-fluid row mr-1">
-                <div class="card col mr-2">
+                <div class="card col mr-2 mt-2">
                     <div class="row align-items-center mt-2">
                         <div class="col-auto">
                             <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
@@ -278,7 +287,7 @@
                     </div>
                 </div>
 
-                <div class="container-fluid col">
+                <div class="container-fluid col mt-2">
                     <div class="card col mb-2">
                         <div class="px-1 pt-2">
                             <h6><b>Date: </b> <?php echo $view_request['date'] ?? '' ?></h6>                
