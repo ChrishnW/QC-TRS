@@ -29,19 +29,13 @@
         if($_SESSION['viewer_request'] == 'ongoing'){
             echo "<script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    document.getElementById('ongoing_trouble_report').style.display = 'block';
-                    document.getElementById('finished_trouble_report').style.display = 'none';
-                    document.getElementById('ongoingBtn').classList.add('active');
-                    document.getElementById('finishedBtn').classList.remove('active');
+                    display_ongoing();
                 });
             </script>";
         }else if($_SESSION['viewer_request'] == 'finished'){
             echo "<script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    document.getElementById('ongoing_trouble_report').style.display = 'none';
-                    document.getElementById('finished_trouble_report').style.display = 'block';
-                    document.getElementById('finishedBtn').classList.add('active');
-                    document.getElementById('ongoingBtn').classList.remove('active');
+                    display_finished();
                 });
             </script>";
         }
@@ -324,11 +318,13 @@
 
             <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary ml-2">
         </div> 
+
         <?php 
             unset($_SESSION['request_id']);
             unset($_SESSION['response_id']);
             unset($_SESSION['viewer_request']);
         ?>
+        
     </div>    
 </div>
 
