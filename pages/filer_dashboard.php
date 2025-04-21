@@ -92,14 +92,14 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped" id="ongoing_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white" style="height: 15px;">
-                            <tr style="font-size: 14px;">
+                            <tr>
                                 <th rowspan="2" class="text-center align-middle" style="width: 1%;">Date</th>
                                 <th rowspan="2" class="text-center align-middle" style="width: 1%;">Model</th>
                                 <th rowspan="2" class="text-center align-middle" style="width: 1%;">Department</th>
                                 <th colspan="4" class="text-center align-middle" style="width: 2%;">Approval Status</th>
                                 <th rowspan="2" class="text-center align-middle" style="width: 3%;">Actions</th>
                             </tr>
-                            <tr style="font-size: 12px;"> 
+                            <tr> 
                                 <th class="text-center align-middle border-top-0">Line Leader</th>
                                 <th class="text-center align-middle border-top-0">Department Head</th>
                                 <th class="text-center align-middle border-top-0">Factory Officer</th>
