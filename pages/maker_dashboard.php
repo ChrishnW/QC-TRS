@@ -14,6 +14,12 @@
         }
     }
 
+    function getUsername($id){
+        global $conn;
+        $account = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_account WHERE id='$id'"));
+        return $account['username'];
+    }
+
     // Display request form ..............................................................................
     if(isset($_SESSION['request_id']) && isset($_SESSION['response_id'])){
         $request_id = $_SESSION['request_id'];
@@ -56,15 +62,15 @@
         }
 
         // View the request form finished ........................................................................
-        // if(isset($_POST['view_request_finished'])){
-        //     $_SESSION['request_id'] = $_POST['request_id'];
-        //     $_SESSION['response_id'] = $_POST['response_id'];
-        //     $_SESSION['viewer_request'] = 'finished';
+        if(isset($_POST['view_request_finished'])){
+            $_SESSION['request_id'] = $_POST['request_id'];
+            $_SESSION['response_id'] = $_POST['response_id'];
+            $_SESSION['viewer_request'] = 'finished';
 
-        //     header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
-        //     ob_end_flush();
-        //     exit();
-        // }
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
+        }
     }
 
 ?>
@@ -252,12 +258,12 @@
             </button>
         </div>
 
-        <div class="modal-body">
-            <div class="container-fluid row overflow-auto justify-content-center ml-3">
+        <div class="modal-body mr-n5">
+            <div class="container-fluid row mr-1">
                 <div class="card col mr-2">
                     <div class="row align-items-center mt-2">
                         <div class="col-auto">
-                            <img src="../assets/img/logo.png" height="300px" width="300px" style="object-fit: contain;" alt="Good Image" class="img-fluid rounded">
+                            <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                         </div>
                         <div class="col text-center">
                             <h3><b>Good</b></h3>
@@ -266,7 +272,7 @@
                     <br>
                     <div class="row align-items-center mb-2">
                         <div class="col-auto">
-                            <img src="../assets/img/logo.png" height="300px" width="300px" style="object-fit: contain;" alt="Not Good Image" class="img-fluid rounded">
+                            <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                         </div>
                         <div class="col text-center">
                             <h3><b>Not Good</b></h3>
@@ -277,29 +283,29 @@
                 <div class="container-fluid col">
                     <div class="card col mb-2">
                         <div class="px-1 pt-2">
-                            <h6><b>Date: </b></h6>                
-                            <h6><b>Model: </b></h6>
-                            <h6><b>Department: </b></h6>            
-                            <h6><b>Lot No. </b></h6>
-                            <h6><b>Serial No. </b></h6>
-                            <h6><b>Temp No. </b></h6>    
-                            <h6><b>Quantity: </b></h6>   
-                        </div>
+                            <h6><b>Date: </b> <?php echo $view_request['date'] ?? '' ?></h6>                
+                            <h6><b>Model: </b> <?php echo $view_request['model'] ?? '' ?></h6>
+                            <h6><b>Department: </b> <?php echo isset($view_request['dept_id']) ? getUsername($view_request['dept_id']) : '' ?></h6>            
+                            <h6><b>Lot No. </b> <?php echo $view_request['lot'] ?? '' ?></h6>
+                            <h6><b>Serial No. </b> <?php echo $view_request['serial'] ?? '' ?></h6>
+                            <h6><b>Temp No. </b> <?php echo $view_request['temp'] ?? '' ?></h6>    
+                            <h6><b>Quantity: </b> <?php echo $view_request['qty'] ?? '' ?></h6>   
+                        </div>       
                     </div>
 
                     <div class="card col mb-2" style="height: 100px;">
                         <div class="px-1 pt-2">
-                            <h6><b>Findings: </b> </h6>
+                            <h6><b>Findings: </b> <?php echo $view_request['findings'] ?? '' ?></h6>
                         </div>
                     </div>
 
                     <div class="card col mb-2"> 
-                        <div class="px-1 pt-2">              
-                            <h6><b>Trouble Origin (100%): </b> </h6>
-                            <h6><b>Checked By (200%): </b> </h6>
-                            <h6><b>Found by (QC): </b> </h6>
-                            <h6><b>Found by (AI): </b> </h6>
-                            <h6><b>Due Date: </b> </h6>
+                        <div class="px-1 pt-2">               
+                            <h6><b>Trouble Origin (100%): </b><?php echo $view_request['origin1'] ?? '' ?></h6>
+                            <h6><b>Checked By (200%): </b> <?php echo $view_request['origin2'] ?? '' ?></h6>
+                            <h6><b>Found by (QC): </b> <?php echo $view_request['finder_qc'] ?? '' ?></h6>
+                            <h6><b>Found by (AI): </b> <?php echo $view_request['finder_ai'] ?? '' ?></h6>
+                            <h6><b>Due Date: </b> <?php echo $view_request['due_date'] ?? '' ?></h6>
                         </div>
                     </div>
 
@@ -307,10 +313,10 @@
                         <div class="px-1 pt-2">
                             <h5 class="mt-1 mb-n1"><b>Approval</b></h5>
                             <hr>
-                            <h6><b>Line Leader: </b> </h6>
-                            <h6><b>Department Head: </b> </h6>
-                            <h6><b>Factory Officer: </b> </h6>
-                            <h6><b>COO: </b> </h6>
+                            <h6><b>Line Leader: </b> <?php echo isset($view_request['leader_id']) ? getUsername($view_request['leader_id']) : '' ?></h6>
+                            <h6><b>Department Head: </b> <?php echo isset($view_request['dept_head_id']) ? getUsername($view_request['dept_head_id']) : '' ?></h6>
+                            <h6><b>Factory Officer: </b> <?php echo isset($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
+                            <h6><b>COO: </b> <?php echo isset($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
                         </div>
                     </div>
                 </div>
@@ -318,7 +324,8 @@
         </div>
 
         <div class="modal-footer">
-            <input type="reset" name="close_view" onclick="closeView()"  value="Close" class="btn btn-secondary ml-2">
+            <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
+            <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary">
         </div> 
 
         <?php 
@@ -326,7 +333,7 @@
             unset($_SESSION['response_id']);
             unset($_SESSION['viewer_request']);
         ?>
-
+        
     </div>    
 </div>
 
