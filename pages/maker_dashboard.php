@@ -251,7 +251,8 @@
 
                     <div class="card col">
                         <div class="px-1 pt-2">
-                            <h6>Approval</h6>
+                            <h6 class="mt-1 mb-n1">Approval</h6>
+                            <hr>
                             <h6>Line Leader: </h6>
                             <h6>Department Head: </h6>
                             <h6>Factory Officer: </h6>
