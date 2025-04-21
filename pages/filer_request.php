@@ -207,6 +207,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 
                             </select>
                         </div>
+
                         <div class="col-md-6">
                             <label for="head">Department Head <span style="color: red;">*</span></label><br>
                             <select name="head" id="head" class="form-control" required >
@@ -227,6 +228,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             </select>
                         </div>
+                    </div>
+
+                    <div class="row mb-3">  
                         <div class="col-md-6">
                             <label for="officer">Factory Officer <span style="color: red;">*</span></label><br>
                             <select name="officer" id="officer" class="form-control" required >
@@ -247,8 +251,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             </select>
                         </div>
+
                         <div class="col-md-6">
-                            <label for="coo">Chief Operating Office (COO) <span style="color: red;">*</span></label><br>
+                            <label for="coo">Chief Operating Officer (COO) <span style="color: red;">*</span></label><br>
                             <select name="coo" id="coo" class="form-control" required >
                                 <option value="" hidden></option>
 
@@ -268,7 +273,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </select>
                         </div>
                     </div>
-
+                </div>
 
                 <div class="modal-footer">
                     <input type="submit" name="request_submit" value="Submit" class="btn btn-primary">
