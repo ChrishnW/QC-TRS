@@ -490,8 +490,12 @@
         </div>
 
         <div class="modal-footer">
-            <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
-            <input type="submit" name="delete_request" class="btn btn-danger" value="Delete" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
+            <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'ongoing' && ($view_request['dept_status'] == 1 || $view_request['dept_status'] == 2) ? 'block' : 'none' ?>;" disabled>
+            <input type="submit" name="delete_request" class="btn btn-danger" value="Response" style="display: <?php echo $_SESSION['viewer_request'] == 'ongoing' && $view_request['dept_status'] == 0 ? 'block' : 'none' ?>;" disabled>
+            
+            
+            
+            
             <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary">
         </div> 
 
