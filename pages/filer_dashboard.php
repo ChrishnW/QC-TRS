@@ -345,7 +345,7 @@
 
                         <div class="card" style="width: 75%;">
                             <div class="m-2">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                                <p><?php echo $view_request['man'] ?? '' ?></p>
                             </div>
                         </div>
                     </div>
@@ -359,7 +359,7 @@
 
                         <div class="card" style="width: 75%;">
                             <div class="m-2">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                                <p><?php echo $view_request['method'] ?? '' ?></p>
                             </div>
                         </div>
                     </div>
@@ -373,7 +373,7 @@
 
                         <div class="card" style="width: 75%;">
                             <div class="m-2">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                                <p><?php echo $view_request['material'] ?? '' ?></p>
                             </div>
                         </div>
                     </div>
@@ -387,7 +387,7 @@
 
                         <div class="card" style="width: 75%;">
                             <div class="m-2">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                                <p><?php echo $view_request['machine'] ?? '' ?></p>
                             </div>
                         </div>
                     </div>
@@ -402,7 +402,7 @@
                     <div class="row mb-2 justify-content-center">
                         <div class="card" style="width: 98%;">
                             <div class="m-2">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iste sapiente minima cupiditate hic inventore mollitia voluptatem sequi adipisci. Hic reiciendis alias voluptatibus libero voluptates odio dolores nesciunt rerum magni?</p>
+                                <p><?php echo $view_request['correction'] ?? '' ?></p>
                             </div>
                         </div>
                     </div>
@@ -423,7 +423,7 @@
 
                         <div class="card" style="width: 75%;">
                             <div class="m-2">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iste sapiente minima cupiditate hic inventore mollitia voluptatem sequi adipisci. Hic reiciendis alias voluptatibus libero voluptates odio dolores nesciunt rerum magni?</p>
+                                <p><?php echo $view_request['ca_man'] ?? '' ?></p>
                             </div>
                         </div>
                     </div>
@@ -437,7 +437,7 @@
 
                         <div class="card" style="width: 75%;">
                             <div class="m-2">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                                <p><?php echo $view_request['ca_method'] ?? '' ?></p>
                             </div>
                         </div>
                     </div>
@@ -451,7 +451,7 @@
 
                         <div class="card" style="width: 75%;">
                             <div class="m-2">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                                <p><?php echo $view_request['ca_material'] ?? '' ?></p>
                             </div>
                         </div>
                     </div>
@@ -465,7 +465,7 @@
 
                         <div class="card" style="width: 75%;">
                             <div class="m-2">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                                <p><?php echo $view_request['ca_machine'] ?? '' ?></p>
                             </div>
                         </div>
                     </div>
@@ -479,7 +479,7 @@
                     <div class="row mb-2 justify-content-center">
                         <div class="card" style="width: 98%;">
                             <div class="m-2">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iste sapiente minima cupiditate hic inventore mollitia voluptatem sequi adipisci. Hic reiciendis alias voluptatibus libero voluptates odio dolores nesciunt rerum magni?</p>
+                                <p><?php echo $view_request['remarks'] ?? '' ?></p>
                             </div>
                         </div>
                     </div>
