@@ -240,8 +240,7 @@
                     </div>
 
                     <div class="card col mb-2"> 
-                        <div class="px-2 pt-2">     
-                            <h6>Findings: </h6>           
+                        <div class="px-2 pt-2">              
                             <h6>Trouble Origin (100%): </h6>
                             <h6>Checked By (200%): </h6>
                             <h6>Found by (QC): </h6>
