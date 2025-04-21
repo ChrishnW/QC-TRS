@@ -77,12 +77,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" enctype="multipart/form-data">
                 <div class="card-body mx-3">
                     <div class="row mb-3">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="date">Date <span style="color: red;">*</span></label><br>
                             <input type="date" name="date" id="date" class="form-control" required>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
+                            <label for="model">Model <span style="color: red;">*</span></label><br>
+                            <input type="text" name="model" id="model" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-4">
                             <label for="department">Department <span style="color: red;">*</span></label><br>
                             <select name="department"  id="department" class="form-control" required >
                                 <option value="" hidden></option>
@@ -105,32 +110,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="model">Model <span style="color: red;">*</span></label><br>
-                            <input type="text" name="model" id="model" class="form-control" required>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="quantity">Quantity <span style="color: red;">*</span></label><br>
-                            <input type="number" name="quantity" id="quantity"  class="form-control" required min="0">
-                        </div>   
-                    </div>
-
-                    <div class="row mb-3">
-                    <div class="col-md-4">
-                            <label for="lot">Lot Number <span style="color: red;">*</span></label>
+                        <div class="col-md-3">
+                            <label for="lot">Lot No. <span style="color: red;">*</span></label>
                             <input type="number" name="lot" id="lot" class="form-control" required>
                         </div>
 
-                        <div class="col-md-4">
-                            <label for="serial">Serial Number <span style="color: red;">*</span></label><br>
+                        <div class="col-md-3">
+                            <label for="serial">Serial No. <span style="color: red;">*</span></label><br>
                             <input type="number" name="serial" id="serial" class="form-control" required>
                         </div>  
 
-                        <div class="col-md-4">
-                            <label for="temp">Temp Number <span style="color: red;">*</span></label><br>
+                        <div class="col-md-3">
+                            <label for="temp">Temp No. <span style="color: red;">*</span></label><br>
                             <input type="number" name="temp" id="temp" class="form-control" required>
                         </div>
+
+                        <div class="col-md-3">
+                            <label for="quantity">Quantity <span style="color: red;">*</span></label><br>
+                            <input type="number" name="quantity" id="quantity"  class="form-control" required min="0">
+                        </div>  
                     </div>
 
                     <hr class="mt-4">
@@ -187,7 +185,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <hr class="mt-4">
 
-                    <h5>Approval</h5>
+                    <h5 class="mb-2">Approval</h5>
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="leader">Leader <span style="color: red;">*</span></label><br>
