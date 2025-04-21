@@ -324,8 +324,7 @@
         <div class="modal-footer">
             <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
             <input type="submit" name="delete_request" class="btn btn-danger" value="Delete" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
-
-            <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary ml-2">
+            <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary">
         </div> 
 
         <?php 
