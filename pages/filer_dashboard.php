@@ -324,11 +324,13 @@
                 <!-- Reason -->
                 <div class="col ml-n4 mt-3">
                     <div class="card text-center my-2">
-                        <h2 class="mt-2">REASON:</h2>
+                        <h2 class="mt-2"><b>REASON:</b></h2>
                     </div>
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5><b>Man</b></h5>
                             <div class="text-center m-2 pt-2">
                                 <h5>Man</h5>
                             </div>
@@ -343,6 +345,8 @@
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5><b>Method</b></h5>
                             <div class="text-center m-2 pt-2">
                                 <h5>Method</h5>
                             </div>
@@ -359,6 +363,8 @@
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
                             <div class="text-center m-2 pt-2">
                                 <h5>Material</h5>
+                            <div class="text-center m-2">
+                                <h5><b>Material</b></h5>
                             </div>
                         </div>
 
@@ -371,8 +377,8 @@
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
-                            <div class="text-center m-2 pt-2">
-                                <h5>Machine</h5>
+                            <div class="text-center m-2">
+                                <h5><b>Machine</b></h5>
                             </div>
                         </div>
 
@@ -384,15 +390,30 @@
                     </div>
                 </div>
 
+                <!-- Correction -->
+                <div class="col ml-n4 mt-3">
+                    <div class="card text-center my-2">
+                        <h2 class="mt-2"><b>CORRECTION:</b></h2>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card" style="width: 98%;">
+                            <div class="m-2">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iste sapiente minima cupiditate hic inventore mollitia voluptatem sequi adipisci. Hic reiciendis alias voluptatibus libero voluptates odio dolores nesciunt rerum magni?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Corrective Action -->
                 <div class="col ml-n4 mt-3">
                     <div class="card text-center my-2">
-                        <h2 class="mt-2">Corrective Action:</h2>
+                        <h2 class="mt-2"><b>CORRECTIVE ACTION:</b></h2>
                     </div>
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
-                            <div class="text-center m-2 pt-2">
+                            <div class="text-center m-2">
                                 <h5>Man</h5>
                             </div>
                         </div>
@@ -406,7 +427,7 @@
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
-                            <div class="text-center m-2 pt-2">
+                            <div class="text-center m-2">
                                 <h5>Method</h5>
                             </div>
                         </div>
@@ -420,7 +441,7 @@
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
-                            <div class="text-center m-2 pt-2">
+                            <div class="text-center m-2">
                                 <h5>Material</h5>
                             </div>
                         </div>
@@ -430,6 +451,12 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="col ml-n4 mt-3">
+                    <div class="card text-center my-2">
+                        <h2 class="mt-2"><b>REMARKS:</b></h2>
                     </div>
 
                     <div class="row mb-2 justify-content-center">
@@ -441,7 +468,7 @@
 
                         <div class="card" style="width: 75%;">
                             <div class="m-2">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iste sapiente minima cupiditate hic inventore mollitia voluptatem sequi adipisci. Hic reiciendis alias voluptatibus libero voluptates odio dolores nesciunt rerum magni?</p>
                             </div>
                         </div>
                     </div>
