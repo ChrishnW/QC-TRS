@@ -14,6 +14,59 @@
         }
     }
 
+    // Display request form ..............................................................................
+    if(isset($_SESSION['request_id']) && isset($_SESSION['response_id'])){
+        $request_id = $_SESSION['request_id'];
+        $response_id = $_SESSION['response_id'];
+        $view_request = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.id='$request_id' AND tbl_response.id='$response_id'"));
+
+        if($_SESSION['viewer_request'] == 'ongoing'){
+            echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    display_ongoing();
+                });
+            </script>";
+        }else if($_SESSION['viewer_request'] == 'finished'){
+            echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    display_finished();
+                });
+            </script>";
+        }
+        
+        echo "<script>     
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('view_ongoing').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        </script>";
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+        // View the request form ongoing ........................................................................
+        if(isset($_POST['view_request_ongoing'])){
+            $_SESSION['request_id'] = $_POST['request_id'];
+            $_SESSION['response_id'] = $_POST['response_id'];
+            $_SESSION['viewer_request'] = 'ongoing';
+
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
+        }
+
+        // View the request form finished ........................................................................
+        // if(isset($_POST['view_request_finished'])){
+        //     $_SESSION['request_id'] = $_POST['request_id'];
+        //     $_SESSION['response_id'] = $_POST['response_id'];
+        //     $_SESSION['viewer_request'] = 'finished';
+
+        //     header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+        //     ob_end_flush();
+        //     exit();
+        // }
+    }
+
 ?>
 
 <!-- Ongoing Trouble Report -->
@@ -85,7 +138,7 @@
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
-                                            <input type="submit" name="view_request" class="btn btn-primary" value="View" disabled>
+                                            <input type="submit" name="view_request_ongoing" class="btn btn-primary" value="View">
                                         </form>
                                     </td>
                                 </tr>
@@ -170,7 +223,7 @@
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
-                                            <input type="submit" name="view_request" class="btn btn-primary" value="View">
+                                            <input type="submit" name="view_request_finished" class="btn btn-primary" value="View">
                                         </form>
                                     </td>
                                 </tr>
@@ -188,7 +241,7 @@
     </div>
 </div>
 
-<!-- View Ongoing Trouble Report -->
+<!-- View Trouble Report form -->
 <div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
@@ -267,6 +320,13 @@
         <div class="modal-footer">
             <input type="reset" name="close_view" onclick="closeView()"  value="Close" class="btn btn-secondary ml-2">
         </div> 
+
+        <?php 
+            unset($_SESSION['request_id']);
+            unset($_SESSION['response_id']);
+            unset($_SESSION['viewer_request']);
+        ?>
+
     </div>    
 </div>
 
