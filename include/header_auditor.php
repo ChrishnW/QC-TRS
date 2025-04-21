@@ -31,8 +31,8 @@
 
       <li class="nav-item">
         <a class="nav-link" href="../pages/account.php">
-        <i class="fa fa-user" aria-hidden="true"></i>
-          <span>Manage Account</span></a>
+        <i class="fa fa-tachometerfas fa-fw fa-tachometer-alt" aria-hidden="true"></i>
+          <span>Dashboard</span></a>
       </li>
       
       <!-- <li class="nav-item">
