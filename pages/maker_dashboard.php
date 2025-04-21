@@ -79,8 +79,8 @@
                                     <td class="text-center align-middle"><?php echo $department_head_status ?></td>
                                     <td class="text-center align-middle"><?php echo $factory_officer_status ?></td>
                                     <td class="text-center align-middle"><?php echo $coo_status ?></td>
-                                    <td class="text-center align-middle">
-                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                                    <td style="table-layout: fixed; width: 8%;">
+                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
@@ -164,8 +164,8 @@
                                     <td class="text-center align-middle"><?php echo $department_head_status ?></td>
                                     <td class="text-center align-middle"><?php echo $factory_officer_status ?></td>
                                     <td class="text-center align-middle"><?php echo $coo_status ?></td>
-                                    <td class="text-center align-middle" style="width: 30px;">
-                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                                    <td style="table-layout: fixed; width: 8%;">
+                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
