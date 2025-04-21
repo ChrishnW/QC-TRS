@@ -322,7 +322,7 @@
 
             <div class="container-fluid">
                 <!-- Reason -->
-                <div class="col ml-n4">
+                <div class="col ml-n4 mt-3">
                     <div class="card text-center my-2">
                         <h2 class="mt-2">REASON:</h2>
                     </div>
@@ -385,7 +385,7 @@
                 </div>
 
                 <!-- Corrective Action -->
-                <div class="col ml-n4">
+                <div class="col ml-n4 mt-3">
                     <div class="card text-center my-2">
                         <h2 class="mt-2">Corrective Action:</h2>
                     </div>
