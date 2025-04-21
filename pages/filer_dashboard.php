@@ -319,6 +319,134 @@
                     </div>
                 </div>
             </div>         
+
+            <div class="container-fluid">
+                <!-- Reason -->
+                <div class="col ml-n4">
+                    <div class="card text-center my-2">
+                        <h2 class="mt-2">REASON:</h2>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5>Man</h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5>Method</h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5>Material</h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5>Machine</h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corrective Action -->
+                <div class="col ml-n4">
+                    <div class="card text-center my-2">
+                        <h2 class="mt-2">Corrective Action:</h2>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5>Man</h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5>Method</h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5>Material</h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
+                            <div class="text-center m-2">
+                                <h5>Machine</h5>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 75%;">
+                            <div class="m-2">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="modal-footer">
