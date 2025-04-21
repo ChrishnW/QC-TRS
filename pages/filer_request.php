@@ -277,7 +277,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <div class="modal-footer">
                     <input type="submit" name="request_submit" value="Submit" class="btn btn-primary">
-                    <input type="reset" value="Reset" class="btn btn-secondary mr-n2">
+                    <input type="reset" value="Reset" class="btn btn-secondary">
                 </div>
             </form>
         </div>
