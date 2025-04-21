@@ -52,8 +52,6 @@
                 document.body.style.overflow = 'hidden';
             });
         </script>";
-
-        unset($_SESSION['viewer_request']);
     }
 
 
@@ -137,7 +135,6 @@
                                         $coo_status = getApprovalStatus($coo);
                             ?>
 
-
                                 <tr>
                                     <td class="text-center align-middle"><?php echo $date ?></td>
                                     <td class="text-center align-middle"><?php echo $model ?></td>
@@ -152,8 +149,6 @@
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
                                             <input type="submit" name="view_request_ongoing" class="btn btn-primary" value="View" >
-                                            <!-- <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" disabled>
-                                            <input type="submit" name="delete_request" class="btn btn-danger" value="Delete" disabled> -->
                                         </form>
                                     </td>
                                 </tr>
@@ -321,17 +316,19 @@
                     </div>
                 </div>
             </div>         
-        
-            <?php 
-                unset($_SESSION['request_id']);
-                unset($_SESSION['response_id']);
-            ?>
-
         </div>
 
         <div class="modal-footer">
+            <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: block;" disabled>
+            <input type="submit" name="delete_request" class="btn btn-danger" value="Delete" style="display: block;" disabled>
+
             <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary ml-2">
         </div> 
+        <?php 
+            unset($_SESSION['request_id']);
+            unset($_SESSION['response_id']);
+            unset($_SESSION['viewer_request']);
+        ?>
     </div>    
 </div>
 
