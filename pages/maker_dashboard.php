@@ -72,15 +72,15 @@
                             ?>
 
                                 <tr>
-                                    <td><?php echo $date ?></td>
-                                    <td><?php echo $model ?></td>
-                                    <td><?php echo $department_status ?></td>
-                                    <td><?php echo $line_leader_status ?></td>
-                                    <td><?php echo $department_head_status ?></td>
-                                    <td><?php echo $factory_officer_status ?></td>
-                                    <td><?php echo $coo_status ?></td>
-                                    <td>
-                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="justify-content-center align-items-center form_table d-flex">
+                                    <td class="text-center align-middle"><?php echo $date ?></td>
+                                    <td class="text-center align-middle"><?php echo $model ?></td>
+                                    <td class="text-center align-middle"><?php echo $department_status ?></td>
+                                    <td class="text-center align-middle"><?php echo $line_leader_status ?></td>
+                                    <td class="text-center align-middle"><?php echo $department_head_status ?></td>
+                                    <td class="text-center align-middle"><?php echo $factory_officer_status ?></td>
+                                    <td class="text-center align-middle"><?php echo $coo_status ?></td>
+                                    <td class="text-center align-middle">
+                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
@@ -157,15 +157,15 @@
                             ?>
 
                                 <tr>
-                                    <td><?php echo $date ?></td>
-                                    <td><?php echo $model ?></td>
-                                    <td><?php echo $department_status ?></td>
-                                    <td><?php echo $line_leader_status ?></td>
-                                    <td><?php echo $department_head_status ?></td>
-                                    <td><?php echo $factory_officer_status ?></td>
-                                    <td><?php echo $coo_status ?></td>
-                                    <td>
-                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="justify-content-center align-items-center form_table d-flex">
+                                    <td class="text-center align-middle"><?php echo $date ?></td>
+                                    <td class="text-center align-middle"><?php echo $model ?></td>
+                                    <td class="text-center align-middle"><?php echo $department_status ?></td>
+                                    <td class="text-center align-middle"><?php echo $line_leader_status ?></td>
+                                    <td class="text-center align-middle"><?php echo $department_head_status ?></td>
+                                    <td class="text-center align-middle"><?php echo $factory_officer_status ?></td>
+                                    <td class="text-center align-middle"><?php echo $coo_status ?></td>
+                                    <td class="text-center align-middle" style="width: 30px;">
+                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
