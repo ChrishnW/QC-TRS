@@ -203,7 +203,7 @@
                 <div class="card col mr-2">
                     <div class="row align-items-center mt-2">
                         <div class="col-auto">
-                            <img src="../assets/img/logo.png" alt="Good Image" class="img-fluid">
+                            <img src="../assets/img/logo.png" alt="Good Image" class="img-fluid rounded">
                         </div>
                         <div class="col text-center">
                             <h6>Good</h6>
@@ -212,7 +212,7 @@
                     <br>
                     <div class="row align-items-center mb-2">
                         <div class="col-auto">
-                            <img src="../assets/img/logo.png" alt="Not Good Image" class="img-fluid">
+                            <img src="../assets/img/logo.png" alt="Not Good Image" class="img-fluid rounded">
                         </div>
                         <div class="col text-center">
                             <h6>Not Good</h6>
