@@ -14,6 +14,25 @@
         }
     }
 
+    if(isset($_SESSION['request_id']) && isset($_SESSION['response_id'])){
+        $request_id = $_SESSION['request_id'];
+        $response_id = $_SESSION['response_id'];
+        $view_request = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.id='$request_id' AND tbl_response.id='$response_id'"));
+    }
+
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+        // View the request form ........................................................................
+        if(isset($_POST['view_request_ongoing'])){
+            $_SESSION['request_id'] = $_POST['request_id'];
+            $_SESSION['response_id'] = $_POST['response_id'];
+
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
+        }
+    }
 
 ?>
 
@@ -84,9 +103,9 @@
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
-                                            <input type="submit" name="view_request" class="btn btn-primary" value="View" disabled>
-                                            <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" disabled>
-                                            <input type="submit" name="delete_request" class="btn btn-danger" value="Delete" disabled>
+                                            <input type="submit" name="view_request_ongoing" class="btn btn-primary" value="View" >
+                                            <!-- <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" disabled>
+                                            <input type="submit" name="delete_request" class="btn btn-danger" value="Delete" disabled> -->
                                         </form>
                                     </td>
                                 </tr>
@@ -205,52 +224,52 @@
                 <div class="card col">
                     <div class="row align-items-center mt-2">
                         <div class="col-auto">
-                            <img src="../assets/img/logo.png" alt="">
+                            <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png'; ?>" alt="Image is not available">
                         </div>
                         <div class="col text-center">
-                            <h6>Good</h6>
+                            <h3><b>Good</b></h3>
                         </div>
                     </div>
                     <br>
                     <div class="row align-items-center mb-2">
                         <div class="col-auto">
-                            <img src="../assets/img/logo.png" alt="">
+                            <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png' ?>" alt="Image is not available">
                         </div>
                         <div class="col text-center">
-                            <h6>Not Good</h6>
+                            <h3><b>Not Good</b></h3>
                         </div>
                     </div>
                 </div>
 
                 <div class="card col">
                     <div class="card col mt-2 mb-1">
-                        <h6>Date: </h6>                
-                        <h6>Model: </h6>
-                        <h6>Department: </h6>            
-                        <h6>Lot No. </h6>
-                        <h6>Serial No. </h6>
-                        <h6>Temp No. </h6>    
-                        <h6>Quantity: </h6>          
+                        <h6><b>Date: </b> <?php echo $view_request['date'] ?? '' ?></h6>                
+                        <h6><b>Model: </b> <?php echo $view_request['model'] ?? '' ?></h6>
+                        <h6><b>Department: </b> <?php echo $view_request['dept_id'] ?? '' ?></h6>            
+                        <h6><b>Lot No. </b> <?php echo $view_request['lot'] ?? '' ?></h6>
+                        <h6><b>Serial No. </b> <?php echo $view_request['serial'] ?? '' ?></h6>
+                        <h6><b>Temp No. </b> <?php echo $view_request['temp'] ?? '' ?></h6>    
+                        <h6><b>Quantity: </b> <?php echo $view_request['qty'] ?? '' ?></h6>          
                     </div>
 
                     <div class="card col mt-1 mb-1">
-                        <h6>Findings: </h6>
+                        <h6><b>Findings: </b> <?php echo $view_request['findings'] ?? '' ?></h6>
                     </div>
 
                     <div class="card col my-1">                 
-                        <h6>Trouble Origin (100%): </h6>
-                        <h6>Checked By (200%): </h6>
-                        <h6>Found by (QC): </h6>
-                        <h6>Found by (AI): </h6>
-                        <h6>Due Date: </h6>
+                        <h6><b>Trouble Origin (100%): </b><?php echo $view_request['origin1'] ?? '' ?></h6>
+                        <h6><b>Checked By (200%): </b> <?php echo $view_request['origin2'] ?? '' ?></h6>
+                        <h6><b>Found by (QC): </b> <?php echo $view_request['finder_qc'] ?? '' ?></h6>
+                        <h6><b>Found by (AI): </b> <?php echo $view_request['finder_ai'] ?? '' ?></h6>
+                        <h6><b>Due Date: </b> <?php echo $view_request['due_date'] ?? '' ?></h6>
                     </div>
 
                     <div class="card col mt-1 mb-2">
-                        <h6>Approval</h6>
-                        <h6>Line Leader: </h6>
-                        <h6>Department Head: </h6>
-                        <h6>Factory Officer: </h6>
-                        <h6>COO: </h6>
+                        <h5><b>Approval</b></h5>
+                        <h6><b>Line Leader: </b> <?php echo $view_request['leader_id'] ?? '' ?></h6>
+                        <h6><b>Department Head: </b> <?php echo $view_request['dept_head_id'] ?? '' ?></h6>
+                        <h6><b>Factory Officer: </b> <?php echo $view_request['fac_officer_id'] ?? '' ?></h6>
+                        <h6><b>COO: </b> <?php echo $view_request['coo_id'] ?? '' ?></h6>
                     </div>
                 </div>
             </div>         
