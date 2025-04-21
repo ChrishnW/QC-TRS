@@ -329,21 +329,21 @@
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
-                            <div class="text-center m-2">
+                            <div class="text-center m-2 pt-2">
                                 <h5>Man</h5>
                             </div>
                         </div>
 
                         <div class="card" style="width: 75%;">
-                            <div class="m-2">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                            <div class="m-2 bg-gray">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non labore iste debitis odit ea qui velit et ratione, quos ad omnis modi vero nesciunt eaque, accusantium praesentium quibusdam ex tempore!</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
-                            <div class="text-center m-2">
+                            <div class="text-center m-2 pt-2">
                                 <h5>Method</h5>
                             </div>
                         </div>
@@ -357,7 +357,7 @@
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
-                            <div class="text-center m-2">
+                            <div class="text-center m-2 pt-2">
                                 <h5>Material</h5>
                             </div>
                         </div>
@@ -371,7 +371,7 @@
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
-                            <div class="text-center m-2">
+                            <div class="text-center m-2 pt-2">
                                 <h5>Machine</h5>
                             </div>
                         </div>
@@ -392,7 +392,7 @@
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
-                            <div class="text-center m-2">
+                            <div class="text-center m-2 pt-2">
                                 <h5>Man</h5>
                             </div>
                         </div>
@@ -406,7 +406,7 @@
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
-                            <div class="text-center m-2">
+                            <div class="text-center m-2 pt-2">
                                 <h5>Method</h5>
                             </div>
                         </div>
@@ -420,7 +420,7 @@
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
-                            <div class="text-center m-2">
+                            <div class="text-center m-2 pt-2">
                                 <h5>Material</h5>
                             </div>
                         </div>
@@ -434,7 +434,7 @@
 
                     <div class="row mb-2 justify-content-center">
                         <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
-                            <div class="text-center m-2">
+                            <div class="text-center m-2 pt-2">
                                 <h5>Machine</h5>
                             </div>
                         </div>
