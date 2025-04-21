@@ -384,10 +384,25 @@
                     </div>
                 </div>
 
+                <!-- Correction -->
+                <div class="col ml-n4 mt-3">
+                    <div class="card text-center my-2">
+                        <h2 class="mt-2"><b>CORRECTION:</b></h2>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card" style="width: 98%;">
+                            <div class="m-2">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iste sapiente minima cupiditate hic inventore mollitia voluptatem sequi adipisci. Hic reiciendis alias voluptatibus libero voluptates odio dolores nesciunt rerum magni?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Corrective Action -->
                 <div class="col ml-n4 mt-3">
                     <div class="card text-center my-2">
-                        <h2 class="mt-2"><b>Corrective Action:</b></h2>
+                        <h2 class="mt-2"><b>CORRECTIVE ACTION:</b></h2>
                     </div>
 
                     <div class="row mb-2 justify-content-center">
@@ -442,6 +457,20 @@
                         <div class="card" style="width: 75%;">
                             <div class="m-2">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est earum amet voluptas soluta dolorum dignissimos nam! Quos, animi alias, hic aut consequuntur velit neque consequatur deleniti atque est, voluptatem nobis!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col ml-n4 mt-3">
+                    <div class="card text-center my-2">
+                        <h2 class="mt-2"><b>REMARKS:</b></h2>
+                    </div>
+
+                    <div class="row mb-2 justify-content-center">
+                        <div class="card" style="width: 98%;">
+                            <div class="m-2">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iste sapiente minima cupiditate hic inventore mollitia voluptatem sequi adipisci. Hic reiciendis alias voluptatibus libero voluptates odio dolores nesciunt rerum magni?</p>
                             </div>
                         </div>
                     </div>
