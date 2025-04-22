@@ -49,7 +49,7 @@
                                 Temporary</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
                         </div>
-                        
+
                         <div class="col-auto">
                             <i class="fa fa-times-circle fa-2x text-gray-300"></i> 
                         </div>
@@ -88,6 +88,7 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             <tr>
                                 <td style="table-layout: fixed; width: 20%;">TR-2025-0001</td>
@@ -137,6 +138,7 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
+                        
                         <tbody>
                             <tr>
                                 <td style="table-layout: fixed; width: 20%;">TR-2025-0001</td>
