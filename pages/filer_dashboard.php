@@ -498,9 +498,14 @@
             </div>
 
             <div class="modal-footer">
-                <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
-                <input type="submit" name="delete_request" class="btn btn-danger" value="Delete" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
-                <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary">
+                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
+                    <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
+                    <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
+
+                    <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
+                    <input type="submit" name="delete_request" class="btn btn-danger" value="Delete" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
+                    <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary">
+                </form>
             </div> 
 
             <?php 
