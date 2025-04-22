@@ -336,9 +336,9 @@
                                     <div class="col-auto">
                                         <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>
-                                </div>
-                                <div class="col text-center">
-                                    <h3><b>Good</b></h3>
+                                    <div class="col text-center">
+                                        <h3><b>Good</b></h3>
+                                    </div>
                                 </div>
                                 <br>
                                 <div class="row align-items-center mb-2">
@@ -380,7 +380,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card col">
+                                <div class="card col mb-2">
                                     <div class="px-1 pt-2">
                                         <h5 class="mt-1 mb-n1"><b>Approval</b></h5>
                                         <hr>
@@ -459,102 +459,101 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="card mb-4 bg-light">
-                            <!-- Correction -->
-                            <div class="col">
-                                <div class="card  text-center my-2">
-                                    <h2 class="mt-2"><b>CORRECTION:</b></h2>
+                    <div class="card mb-4 bg-light">
+                        <!-- Correction -->
+                        <div class="col">
+                            <div class="card  text-center my-2">
+                                <h2 class="mt-2"><b>CORRECTION:</b></h2>
+                            </div>
+
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card " style="width: 98%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['correction'] ?? '' ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4 bg-light">
+                        <!-- Corrective Action -->
+                        <div class="col">
+                            <div class="card  text-center my-2">
+                                <h2 class="mt-2"><b>CORRECTIVE ACTION:</b></h2>
+                            </div>
+
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="text-center m-2">
+                                        <h5><b>Man</b></h5>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="width: 75%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['ca_man'] ?? '' ?></p>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                    <div class="card " style="width: 98%;">
-                                        <div class="m-2">
-                                            <p><?php echo $view_request['correction'] ?? '' ?></p>
-                                        </div>
+                                <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="text-center m-2">
+                                        <h5><b>Method</b></h5>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="width: 75%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['ca_method'] ?? '' ?></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="text-center m-2">
+                                        <h5><b>Material</b></h5>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="width: 75%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['ca_material'] ?? '' ?></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="text-center m-2">
+                                        <h5><b>Machine</b></h5>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="width: 75%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['ca_machine'] ?? '' ?></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="card mb-4 bg-light">
-                            <!-- Corrective Action -->
-                            <div class="col">
-                                <div class="card  text-center my-2">
-                                    <h2 class="mt-2"><b>CORRECTIVE ACTION:</b></h2>
-                                </div>
-
-                                <div class="row mb-2 justify-content-center">
-                                    <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
-                                        <div class="text-center m-2">
-                                            <h5><b>Man</b></h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card" style="width: 75%;">
-                                        <div class="m-2">
-                                            <p><?php echo $view_request['ca_man'] ?? '' ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2 justify-content-center">
-                                    <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
-                                        <div class="text-center m-2">
-                                            <h5><b>Method</b></h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card" style="width: 75%;">
-                                        <div class="m-2">
-                                            <p><?php echo $view_request['ca_method'] ?? '' ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2 justify-content-center">
-                                    <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
-                                        <div class="text-center m-2">
-                                            <h5><b>Material</b></h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card" style="width: 75%;">
-                                        <div class="m-2">
-                                            <p><?php echo $view_request['ca_material'] ?? '' ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2 justify-content-center">
-                                    <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
-                                        <div class="text-center m-2">
-                                            <h5><b>Machine</b></h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card" style="width: 75%;">
-                                        <div class="m-2">
-                                            <p><?php echo $view_request['ca_machine'] ?? '' ?></p>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="card mb-2 bg-light">
+                        <!-- Remarks -->
+                        <div class="col">
+                            <div class="card text-center my-2">
+                                <h2 class="mt-2"><b>REMARKS:</b></h2>
                             </div>
-                        </div>
 
-                        <div class="card mb-2 bg-light">
-                            <!-- Remarks -->
-                            <div class="col">
-                                <div class="card text-center my-2">
-                                    <h2 class="mt-2"><b>REMARKS:</b></h2>
-                                </div>
-
-                                <div class="row mb-2 justify-content-center">
-                                    <div class="card" style="width: 98%;">
-                                        <div class="m-2">
-                                            <p><?php echo $view_request['remarks'] ?? '' ?></p>
-                                        </div>
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card" style="width: 98%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['remarks'] ?? '' ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -582,6 +581,7 @@
         </div>
     </div>    
 </div>
+
 <!-- Response / Edit Trouble Report Request Form -->
 <div class="modal" tabindex="-1" id="reponse_report_form" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl">
@@ -594,141 +594,141 @@
             </div>
             
             <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-
-            <div class="modal-body">
-                <div class="container-fluid justify-content-center align-items-center">
-                    <div class="card mb-4 bg-light">
-                        <div class="col">
-                            <div class="card  text-center my-2">
-                                <h2 class="mt-2"><b>ROOT CAUSE ANALYSIS</b></h2>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid row">
-                            <div class="card  col mb-2">
-                                <div class="row align-items-center mt-2">
-                                    <div class="col-auto">
-                                        <img src="<?php echo $response_request['img_g'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
-                                    </div>
-                                    <div class="col text-center">
-                                        <h3><b>Good</b></h3>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <img src="<?php echo $response_request['img_ng'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
-                                    </div>
-                                    <div class="col text-center">
-                                        <h3><b>Not Good</b></h3>
-                                    </div>
+                <div class="modal-body">
+                    <div class="container-fluid justify-content-center align-items-center">
+                        <div class="card mb-4 bg-light">
+                            <div class="col">
+                                <div class="card  text-center my-2">
+                                    <h2 class="mt-2"><b>ROOT CAUSE ANALYSIS</b></h2>
                                 </div>
                             </div>
 
-                            <div class="container-fluid mr-n5 col">
+                            <div class="container-fluid row">
                                 <div class="card  col mb-2">
-                                    <div class="px-1 pt-2">
-                                        <h6><b>Date: </b> <?php echo $response_request['date'] ?? '' ?></h6>                
-                                        <h6><b>Model: </b> <?php echo $response_request['model'] ?? '' ?></h6>
-                                        <h6><b>Department: </b> <?php echo isset($response_request['dept_id']) ? getUsername($response_request['dept_id']) : '' ?></h6>            
-                                        <h6><b>Lot No. </b> <?php echo $response_request['lot'] ?? '' ?></h6>
-                                        <h6><b>Serial No. </b> <?php echo $response_request['serial'] ?? '' ?></h6>
-                                        <h6><b>Temp No. </b> <?php echo $response_request['temp'] ?? '' ?></h6>    
-                                        <h6><b>Quantity: </b> <?php echo $response_request['qty'] ?? '' ?></h6>   
-                                    </div>       
-                                </div>
-
-                                <div class="card  col mb-2" style="height: 100px;">
-                                    <div class="px-1 pt-2">
-                                        <h6><b>Findings: </b> <?php echo $response_request['findings'] ?? '' ?></h6>
+                                    <div class="row align-items-center mt-2">
+                                        <div class="col-auto">
+                                            <img src="<?php echo $response_request['img_g'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                        </div>
+                                        <div class="col text-center">
+                                            <h3><b>Good</b></h3>
+                                        </div>
                                     </div>
-                                </div>
-                        
-                                <div class="card  col mb-2"> 
-                                    <div class="px-1 pt-2">                   
-                                        <h6><b>Trouble Origin (100%): </b><?php echo $response_request['origin1'] ?? '' ?></h6>
-                                        <h6><b>Checked By (200%): </b> <?php echo $response_request['origin2'] ?? '' ?></h6>
-                                        <h6><b>Found by (QC): </b> <?php echo $response_request['finder_qc'] ?? '' ?></h6>
-                                        <h6><b>Found by (AI): </b> <?php echo $response_request['finder_ai'] ?? '' ?></h6>
-                                        <h6><b>Due Date: </b> <?php echo $response_request['due_date'] ?? '' ?></h6>
+                                    <br>
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <img src="<?php echo $response_request['img_ng'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                        </div>
+                                        <div class="col text-center">
+                                            <h3><b>Not Good</b></h3>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="card  col mb-2">
-                                    <div class="px-1 pt-2">
-                                        <h5 class="mt-1 mb-n1"><b>Approval</b></h5>
-                                        <hr>
-                                        <h6><b>Line Leader: </b> <?php echo isset($response_request['leader_id']) ? getUsername($response_request['leader_id']) : '' ?></h6>
-                                        <h6><b>Department Head: </b> <?php echo isset($response_request['dept_head_id']) ? getUsername($response_request['dept_head_id']) : '' ?></h6>
-                                        <h6><b>Factory Officer: </b> <?php echo isset($response_request['fac_officer_id']) ? getUsername($response_request['fac_officer_id']) : '' ?></h6>
-                                        <h6><b>COO: </b> <?php echo isset($response_request['coo_id']) ? getUsername($response_request['coo_id']) : '' ?></h6>
+                                <div class="container-fluid mr-n5 col">
+                                    <div class="card  col mb-2">
+                                        <div class="px-1 pt-2">
+                                            <h6><b>Date: </b> <?php echo $response_request['date'] ?? '' ?></h6>                
+                                            <h6><b>Model: </b> <?php echo $response_request['model'] ?? '' ?></h6>
+                                            <h6><b>Department: </b> <?php echo isset($response_request['dept_id']) ? getUsername($response_request['dept_id']) : '' ?></h6>            
+                                            <h6><b>Lot No. </b> <?php echo $response_request['lot'] ?? '' ?></h6>
+                                            <h6><b>Serial No. </b> <?php echo $response_request['serial'] ?? '' ?></h6>
+                                            <h6><b>Temp No. </b> <?php echo $response_request['temp'] ?? '' ?></h6>    
+                                            <h6><b>Quantity: </b> <?php echo $response_request['qty'] ?? '' ?></h6>   
+                                        </div>       
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>       
-                </div>  
 
-                <div class="container-fluid justify-content-center align-items-center">
-                    <div class="card mb-4 bg-light">
-                        <!-- Reason -->
-                        <div class="col">
-                            <div class="card text-center my-2">
-                                <h2 class="mt-2"><b>REASON:</b></h2>
-                            </div>
-
-                            <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
-                                    <div class="text-center m-2">
-                                        <label for="man"><h5><b>Man</b></h5></label>
+                                    <div class="card  col mb-2" style="height: 100px;">
+                                        <div class="px-1 pt-2">
+                                            <h6><b>Findings: </b> <?php echo $response_request['findings'] ?? '' ?></h6>
+                                        </div>
                                     </div>
-                                </div>
+                            
+                                    <div class="card  col mb-2"> 
+                                        <div class="px-1 pt-2">                   
+                                            <h6><b>Trouble Origin (100%): </b><?php echo $response_request['origin1'] ?? '' ?></h6>
+                                            <h6><b>Checked By (200%): </b> <?php echo $response_request['origin2'] ?? '' ?></h6>
+                                            <h6><b>Found by (QC): </b> <?php echo $response_request['finder_qc'] ?? '' ?></h6>
+                                            <h6><b>Found by (AI): </b> <?php echo $response_request['finder_ai'] ?? '' ?></h6>
+                                            <h6><b>Due Date: </b> <?php echo $response_request['due_date'] ?? '' ?></h6>
+                                        </div>
+                                    </div>
 
-                                <div class="card " style="width: 75%;">
-                                    <div class="m-2">
-                                        <textarea name="man" id="man" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['man'] ?? '' ?></textarea>
+                                    <div class="card  col mb-2">
+                                        <div class="px-1 pt-2">
+                                            <h5 class="mt-1 mb-n1"><b>Approval</b></h5>
+                                            <hr>
+                                            <h6><b>Line Leader: </b> <?php echo isset($response_request['leader_id']) ? getUsername($response_request['leader_id']) : '' ?></h6>
+                                            <h6><b>Department Head: </b> <?php echo isset($response_request['dept_head_id']) ? getUsername($response_request['dept_head_id']) : '' ?></h6>
+                                            <h6><b>Factory Officer: </b> <?php echo isset($response_request['fac_officer_id']) ? getUsername($response_request['fac_officer_id']) : '' ?></h6>
+                                            <h6><b>COO: </b> <?php echo isset($response_request['coo_id']) ? getUsername($response_request['coo_id']) : '' ?></h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>       
+                    </div>  
 
-                            <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
-                                    <div class="text-center m-2">
-                                        <label for="method"><h5><b>Method</b></h5></label>
+                    <div class="container-fluid justify-content-center align-items-center">
+                        <div class="card mb-4 bg-light">
+                            <!-- Reason -->
+                            <div class="col">
+                                <div class="card text-center my-2">
+                                    <h2 class="mt-2"><b>REASON:</b></h2>
+                                </div>
+
+                                <div class="row mb-2 justify-content-center">
+                                    <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                        <div class="text-center m-2">
+                                            <label for="man"><h5><b>Man</b></h5></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="card " style="width: 75%;">
+                                        <div class="m-2">
+                                            <textarea name="man" id="man" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['man'] ?? '' ?></textarea>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
-                                    <div class="m-2">
-                                        <textarea name="method" id="method" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['method'] ?? '' ?></textarea>
+                                <div class="row mb-2 justify-content-center">
+                                    <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                        <div class="text-center m-2">
+                                            <label for="method"><h5><b>Method</b></h5></label>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
 
-                            <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
-                                    <div class="text-center m-2">
-                                        <label for="material"><h5><b>Material</b></h5></label>
-                                    </div>
-                                </div>
-
-                                <div class="card" style="width: 75%;">
-                                    <div class="m-2">
-                                        <textarea name="material" id="material" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['material'] ?? '' ?></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
-                                    <div class="text-center m-2">
-                                        <label for="machine"><h5><b>Machine</b></h5></label>
+                                    <div class="card " style="width: 75%;">
+                                        <div class="m-2">
+                                            <textarea name="method" id="method" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['method'] ?? '' ?></textarea>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="card" style="width: 75%;">
-                                    <div class="m-2">
-                                        <textarea name="machine" id="machine" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['machine'] ?? '' ?></textarea>
+                                <div class="row mb-2 justify-content-center">
+                                    <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                        <div class="text-center m-2">
+                                            <label for="material"><h5><b>Material</b></h5></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="card" style="width: 75%;">
+                                        <div class="m-2">
+                                            <textarea name="material" id="material" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['material'] ?? '' ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2 justify-content-center">
+                                    <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                        <div class="text-center m-2">
+                                            <label for="machine"><h5><b>Machine</b></h5></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="card" style="width: 75%;">
+                                        <div class="m-2">
+                                            <textarea name="machine" id="machine" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['machine'] ?? '' ?></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -737,7 +737,7 @@
                         <div class="card mb-4 bg-light">
                             <!-- Correction -->
                             <div class="col">
-                                <div class="card text-center my-2">
+                                <div class="card  text-center my-2">
                                     <label for="correction"><h2 class="mt-2"><b>CORRECTION:</b></h2></label>
                                 </div>
 
@@ -754,12 +754,12 @@
                         <div class="card mb-4 bg-light">
                             <!-- Corrective Action -->
                             <div class="col">
-                                <div class="card  text-center my-2">
+                                <div class="card text-center my-2">
                                     <h2 class="mt-2"><b>CORRECTIVE ACTION:</b></h2>
                                 </div>
 
                                 <div class="row mb-2 justify-content-center">
-                                    <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                         <div class="text-center m-2">
                                             <label for="ca_man"><h5><b>Man</b></h5></label>
                                         </div>
@@ -773,51 +773,53 @@
                                 </div>
 
                                 <div class="row mb-2 justify-content-center">
-                                    <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                         <div class="text-center m-2">
                                             <label for="ca_method"><h5><b>Method</b></h5></label>
                                         </div>
                                     </div>
 
-                                <div class="card " style="width: 75%;">
-                                    <div class="m-2">
-                                        <textarea name="ca_method" id="ca_method" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['ca_method'] ?? '' ?></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
-                                    <div class="text-center m-2">
-                                        <label for="ca_material"><h5><b>Material</b></h5></label>
+                                    <div class="card" style="width: 75%;">
+                                        <div class="m-2">
+                                            <textarea name="ca_method" id="ca_method" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['ca_method'] ?? '' ?></textarea>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="card" style="width: 75%;">
-                                    <div class="m-2">
-                                        <textarea name="ca_material" id="ca_material" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['ca_material'] ?? '' ?></textarea>
+                                <div class="row mb-2 justify-content-center">
+                                    <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                        <div class="text-center m-2">
+                                            <label for="ca_material"><h5><b>Material</b></h5></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="card" style="width: 75%;">
+                                        <div class="m-2">
+                                            <textarea name="ca_material" id="ca_material" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['ca_material'] ?? '' ?></textarea>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
-                                    <div class="text-center m-2">
-                                        <label for="ca_machine"><h5><b>Machine</b></h5></label>
+                                <div class="row mb-2 justify-content-center">
+                                    <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                        <div class="text-center m-2">
+                                            <label for="ca_machine"><h5><b>Machine</b></h5></label>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="card" style="width: 75%;">
-                                    <div class="m-2">
-                                        <textarea name="ca_machine" id="ca_machine" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['ca_machine'] ?? '' ?></textarea>
+                                    <div class="card" style="width: 75%;">
+                                        <div class="m-2">
+                                            <textarea name="ca_machine" id="ca_machine" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['ca_machine'] ?? '' ?></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="card mb-2 bg-light">
                             <!-- Remarks -->
                             <div class="col">
-                                <div class="card  text-center my-2">
+                                <div class="card text-center my-2">
                                     <label for="remarks"><h2 class="mt-2"><b>REMARKS:</b></h2></label>
                                 </div>
 
@@ -835,11 +837,9 @@
 
                 <div class="modal-footer">
                     <input type="hidden" name="response_id" value="<?php echo $response_request['id'] ?>">
-
                     <input type="submit" name="save_response" class="btn btn-success" value="Save">
                     <input type="reset" name="close_view" onclick="closeResponse()" value="Close" class="btn btn-secondary ml-2">
                 </div> 
-
             </form>
 
             <?php 
@@ -850,7 +850,6 @@
         </div>    
     </div>
 </div>
-
 
 <!-- Pop up for Message -->
 <div class="modal" tabindex="-1" id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
@@ -886,7 +885,6 @@
     </div>
   </div>
 </div>
-
 
 <?php include '../include/footer.php'; ?>
 
