@@ -42,7 +42,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                Rejected Audits</div>
+                                Closed Audits</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
                         </div>
                         <div class="col-auto">
@@ -82,23 +82,15 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>TR-2025-0001</td>
-                                <td>04/20/2025</td>
-                                <td>SDRB</td>
-                                <td>Pending</td>
-                                <td>
-                                    <button class="btn btn-primary">View</button>
-                                    <button class="btn btn-success">Audit</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>TR-2025-0001</td>
-                                <td>04/20/2025</td>
-                                <td>SDRB</td>
-                                <td>Pending</td>
-                                <td>
-                                    <button class="btn btn-primary">View</button>
-                                    <button class="btn btn-success">Audit</button>
+                                <td style="table-layout: fixed; width: 20%;">TR-2025-0001</td>
+                                <td style="table-layout: fixed; width: 20%;">04/20/2025</td>
+                                <td style="table-layout: fixed; width: 22%;">SDRB</td>
+                                <td style="table-layout: fixed; width: 20%;">Pending</td>
+                                <td style="table-layout: fixed; width: 18%;">
+                                    <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-primary mr-2">View</button>
+                                        <button class="btn btn-success">Audit</button>
+                                    </form>
                                 </td>
                             </tr>
                         </tbody>
