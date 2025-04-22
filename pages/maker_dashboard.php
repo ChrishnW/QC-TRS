@@ -98,15 +98,41 @@
         }
 
         // Edit the request form ongoing ........................................................................
-        // if(isset($_POST['edit_request_btn'])){
-        //     $_SESSION['request_id'] = $_POST['request_id'];
-        //     $_SESSION['response_id'] = $_POST['response_id'];
-        //     $_SESSION['viewer_request'] = 'ongoing';
+        if(isset($_POST['edit_request_btn'])){
+            $_SESSION['update_request_id'] = $_POST['request_id'];
+            $_SESSION['update_response_id'] = $_POST['response_id'];
 
-        //     header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
-        //     ob_end_flush();
-        //     exit();
-        // }
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
+        }
+
+        // Update submit form ........................................................................
+        if(isset($_POST['Save_response'])){
+            $request_id = $_POST['request_id'];
+            $response_id = $_POST['response_id'];
+
+            $man = filter_input(INPUT_POST, "man", FILTER_SANITIZE_SPECIAL_CHARS);
+            $method = filter_input(INPUT_POST, "method", FILTER_SANITIZE_SPECIAL_CHARS);
+            $material = filter_input(INPUT_POST, "material", FILTER_SANITIZE_SPECIAL_CHARS);
+            $machine = filter_input(INPUT_POST, "machine", FILTER_SANITIZE_SPECIAL_CHARS);
+            $correction = filter_input(INPUT_POST, "correction", FILTER_SANITIZE_SPECIAL_CHARS);
+            $ca_man = filter_input(INPUT_POST, "ca_man", FILTER_SANITIZE_SPECIAL_CHARS);
+            $ca_method = filter_input(INPUT_POST, "ca_method", FILTER_SANITIZE_SPECIAL_CHARS);
+            $ca_material = filter_input(INPUT_POST, "ca_material", FILTER_SANITIZE_SPECIAL_CHARS);
+            $ca_machine = filter_input(INPUT_POST, "ca_machine", FILTER_SANITIZE_SPECIAL_CHARS);
+            $remarks = filter_input(INPUT_POST, "remarks", FILTER_SANITIZE_SPECIAL_CHARS);
+            $dept_status = 1;
+
+
+            // Update the request form
+
+
+
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
+        }
     }
 
 ?>
@@ -543,7 +569,6 @@
         </div>    
     </div>
 </div>
-
 
 <!-- View Trouble Report Request Form -->
 <div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
