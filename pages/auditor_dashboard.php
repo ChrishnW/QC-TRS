@@ -58,7 +58,7 @@
 </div>
 
 <!-- Pending Audits -->
-<div class="container-fluid">
+<div class="container-fluid" id="pending_audits" style="display: block;">
     <div class="pending_dashboard">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4">
@@ -107,7 +107,7 @@
 </div>
 
 <!-- Approved Audits -->
-<div class="container-fluid">
+<div class="container-fluid" id="approved_audits" style="display: none;">
     <div class="approved_dashboard">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4">
@@ -156,7 +156,7 @@
 </div>
 
 <!-- Closed Audits -->
-<div class="container-fluid">
+<div class="container-fluid" id="closed_audits" style="display: none;">
     <div class="closed_dashboard">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4">
@@ -216,22 +216,31 @@
 
     // Function to display pending audits
     function display_pending() {
-        document.querySelector('.pending_dashboard').style.display = 'block';
-        document.querySelector('.approved_dashboard').style.display = 'none';
-        document.querySelector('.closed_dashboard').style.display = 'none';
+        document.getElementById("pending_audits").style.display = "block";
+        document.getElementById("approved_audits").style.display = "none";
+        document.getElementById("closed_audits").style.display = "none";
+        document.getElementById("display_pending").classList.add('active');
+        document.getElementById("display_approved").classList.remove('active');
+        document.getElementById("display_rejected").classList.remove('active');
     }
 
     // Function to display approved audits
     function display_approved() {
-        document.querySelector('.pending_dashboard').style.display = 'none';
-        document.querySelector('.approved_dashboard').style.display = 'block';
-        document.querySelector('.closed_dashboard').style.display = 'none';
+        document.getElementById("pending_audits").style.display = "none";
+        document.getElementById("approved_audits").style.display = "block";
+        document.getElementById("closed_audits").style.display = "none";
+        document.getElementById("display_pending").classList.remove('active');
+        document.getElementById("display_approved").classList.add('active');
+        document.getElementById("display_rejected").classList.remove('active');
     }
 
     // Function to display closed audits
     function display_closed() {
-        document.querySelector('.pending_dashboard').style.display = 'none';
-        document.querySelector('.approved_dashboard').style.display = 'none';
-        document.querySelector('.closed_dashboard').style.display = 'block';
+        document.getElementById("pending_audits").style.display = "none";
+        document.getElementById("approved_audits").style.display = "none";
+        document.getElementById("closed_audits").style.display = "block";
+        document.getElementById("display_pending").classList.remove('active');
+        document.getElementById("display_approved").classList.remove('active');
+        document.getElementById("display_rejected").classList.add('active');
     }
 </script>
