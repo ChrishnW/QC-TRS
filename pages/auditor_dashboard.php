@@ -57,13 +57,13 @@
     <div class="pending_dashboard">
         <div class="card shadow mb-4">
             <div class="card-header py-3.5 pt-4">
-                <h2 class="float-left">Auditorrrrrrrrrrrrrrrrrrrrrrrrrr</h2>
+                <h2 class="float-left">Audit Reports</h2>
                 
                 <div class="btn-group float-right pb-2">
                     <div class="btn-group" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-primary active" onclick="display_pending()">Pending Audits</button>
-                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Approved Audits</button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_rejected()">Rejected Audits</button>
+                        <button id="display_pending" type="button" class="btn btn-outline-primary active" onclick="display_pending()">Pending Audit</button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited</button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_rejected()">Closed</button>
                     </div>
                 </div>
             </div>
@@ -73,27 +73,33 @@
                     <table class="table table-bordered table-striped" id="pending_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
                             <tr>
-                                <th>Audit ID</th>
-                                <th>Audit Name</th>
-                                <th>Auditor Name</th>
+                                <th>Report ID</th>
+                                <th>Date</th>
+                                <th>Department</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>Audit 1</td>
-                                <td>Auditor 1</td>
+                                <td>TR-2025-0001</td>
+                                <td>04/20/2025</td>
+                                <td>SDRB</td>
                                 <td>Pending</td>
-                                <td><button class="btn btn-primary">View</button></td>
+                                <td>
+                                    <button class="btn btn-primary">View</button>
+                                    <button class="btn btn-success">Audit</button>
+                                </td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td>Audit 2</td>
-                                <td>Auditor 2</td>
-                                <td>Approved</td>
-                                <td><button class="btn btn-primary">View</button></td>
+                                <td>TR-2025-0001</td>
+                                <td>04/20/2025</td>
+                                <td>SDRB</td>
+                                <td>Pending</td>
+                                <td>
+                                    <button class="btn btn-primary">View</button>
+                                    <button class="btn btn-success">Audit</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
