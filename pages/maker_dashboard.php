@@ -804,7 +804,6 @@
                 unset($_SESSION['viewer_request']);
             ?>
         </div>
-        
     </div>    
 </div>
 
