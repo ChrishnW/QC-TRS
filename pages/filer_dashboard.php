@@ -130,12 +130,12 @@
                             ?>
 
                                 <tr>
-                                    <td class="text-center align-middle" style="table-layout: fixed; width: 15%"><?php echo $date ?></td>
-                                    <td class="text-center align-middle" style="table-layout: fixed; width: 15%"><?php echo $model ?></td>
-                                    <td class="text-center align-middle" style="table-layout: fixed; width: 12%"><?php echo $department_status ?></td>
-                                    <td class="text-center align-middle" style="table-layout: fixed; width: 15%"><?php echo $line_leader_status ?></td>
-                                    <td class="text-center align-middle" style="table-layout: fixed; width: 20%"><?php echo $department_head_status ?></td>
-                                    <td class="text-center align-middle" style="table-layout: fixed; width: 20%"><?php echo $factory_officer_status ?></td>
+                                    <td class="text-center align-middle" style="table-layout: fixed; width: 15%;"><?php echo $date ?></td>
+                                    <td class="text-center align-middle" style="table-layout: fixed; width: 15%;"><?php echo $model ?></td>
+                                    <td class="text-center align-middle" style="table-layout: fixed; width: 12%;"><?php echo $department_status ?></td>
+                                    <td class="text-center align-middle" style="table-layout: fixed; width: 15%;"><?php echo $line_leader_status ?></td>
+                                    <td class="text-center align-middle" style="table-layout: fixed; width: 20%;"><?php echo $department_head_status ?></td>
+                                    <td class="text-center align-middle" style="table-layout: fixed; width: 20%;"><?php echo $factory_officer_status ?></td>
                                     <td class="text-center align-middle" style="table-layout: fixed; width: 8%;"><?php echo $coo_status ?></td>
                                     <td style="table-layout: fixed; width: 8%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
