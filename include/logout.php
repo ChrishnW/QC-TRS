@@ -4,4 +4,6 @@ session_unset(); // Unset all session variables
 session_destroy(); // Destroy the session
 
 header("Location: /index.php"); // Redirect to the root index.php
+// header("Location: /qc-trs/index.php");
+
 exit(); // Ensure no further code is executed
