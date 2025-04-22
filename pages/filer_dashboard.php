@@ -668,12 +668,12 @@
 
                                 <div class="col-md-3">
                                     <label for="serial">Serial No. <span style="color: red;">*</span></label><br>
-                                    <input type="number" name="serial" id="serial" class="form-control" value="<?php echo $response_request['serial'] ?? '' ?>" required>
+                                    <input type="text" name="serial" id="serial" class="form-control" value="<?php echo $response_request['serial'] ?? '' ?>" required>
                                 </div>  
 
                                 <div class="col-md-3">
                                     <label for="temp">Temp No. <span style="color: red;">*</span></label><br>
-                                    <input type="number" name="temp" id="temp" class="form-control" value="<?php echo $response_request['temp'] ?? '' ?>" required>
+                                    <input type="text" name="temp" id="temp" class="form-control" value="<?php echo $response_request['temp'] ?? '' ?>" required>
                                 </div>
 
                                 <div class="col-md-3">
