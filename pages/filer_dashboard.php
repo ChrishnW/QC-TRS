@@ -120,8 +120,6 @@
         if(isset($_POST['update_request_submit'])){
             $request_id = $_POST['update_request_id'];
 
-            // echo "<script>alert('$request_id');</script>";
-            
             $date = $_POST['date'];
             $department = $_POST['department'];
             $model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_SPECIAL_CHARS);
