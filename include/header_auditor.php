@@ -30,7 +30,7 @@
       <hr class="sidebar-divider my-0">
 
       <li class="nav-item">
-        <a class="nav-link" href="../pages/account.php">
+        <a class="nav-link" href="../pages/auditor_dashboard.php">
         <i class="fa fa-tachometerfas fa-fw fa-tachometer-alt" aria-hidden="true"></i>
           <span>Dashboard</span></a>
       </li>
