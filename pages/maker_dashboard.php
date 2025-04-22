@@ -679,7 +679,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="man"><h5><b>Man</b></h5></label>
+                                            <label for="man"><h5><b>Man <span style="color: red;">*</span></b></h5></label>
                                         </div>
                                     </div>
 
@@ -693,7 +693,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="method"><h5><b>Method</b></h5></label>
+                                            <label for="method"><h5><b>Method <span style="color: red;">*</span></b></h5></label>
                                         </div>
                                     </div>
 
@@ -707,7 +707,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="material"><h5><b>Material</b></h5></label>
+                                            <label for="material"><h5><b>Material <span style="color: red;">*</span></b></h5></label>
                                         </div>
                                     </div>
 
@@ -721,7 +721,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="machine"><h5><b>Machine</b></h5></label>
+                                            <label for="machine"><h5><b>Machine <span style="color: red;">*</span></b></h5></label>
                                         </div>
                                     </div>
 
@@ -738,7 +738,7 @@
                             <!-- Correction -->
                             <div class="col">
                                 <div class="card  text-center my-2">
-                                    <label for="correction"><h2 class="mt-2"><b>CORRECTION:</b></h2></label>
+                                    <label for="correction"><h2 class="mt-2"><b>CORRECTION: <span style="color: red;">*</span>  </b></h2></label>
                                 </div>
 
                                 <div class="row mb-2 justify-content-center">
@@ -761,7 +761,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="ca_man"><h5><b>Man</b></h5></label>
+                                            <label for="ca_man"><h5><b>Man <span style="color: red;">*</span></b></h5></label>
                                         </div>
                                     </div>
 
@@ -775,7 +775,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="ca_method"><h5><b>Method</b></h5></label>
+                                            <label for="ca_method"><h5><b>Method <span style="color: red;">*</span></b></h5></label>
                                         </div>
                                     </div>
 
@@ -789,7 +789,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="ca_material"><h5><b>Material</b></h5></label>
+                                            <label for="ca_material"><h5><b>Material <span style="color: red;">*</span></b></h5></label>
                                         </div>
                                     </div>
 
@@ -803,7 +803,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="ca_machine"><h5><b>Machine</b></h5></label>
+                                            <label for="ca_machine"><h5><b>Machine <span style="color: red;">*</span></b></h5></label>
                                         </div>
                                     </div>
 
@@ -820,7 +820,7 @@
                             <!-- Remarks -->
                             <div class="col">
                                 <div class="card text-center my-2">
-                                    <label for="remarks"><h2 class="mt-2"><b>REMARKS:</b></h2></label>
+                                    <label for="remarks"><h2 class="mt-2"><b>REMARKS: <span style="color: red;">*</span></b></h2></label>
                                 </div>
 
                                 <div class="row mb-2 justify-content-center">
