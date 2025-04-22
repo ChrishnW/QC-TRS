@@ -209,7 +209,6 @@
 
 <script>
     $(document).ready(function() {
-        // Initialize DataTables for each section
         $('#pending_dataTable').DataTable();
         $('#approved_dataTable').DataTable();
         $('#closed_dataTable').DataTable();
@@ -235,7 +234,4 @@
         document.querySelector('.approved_dashboard').style.display = 'none';
         document.querySelector('.closed_dashboard').style.display = 'block';
     }
-
-    // Initialize the dashboard to show pending audits by default
-    display_pending();
 </script>
