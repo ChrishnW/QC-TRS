@@ -29,7 +29,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                          
+                            <tr>
+                                <td style="table-layout: fixed; width: 20%;">REQ12346</td>
+                                <td style="table-layout: fixed; width: 20%;">2023-10-02</td>
+                                <td style="table-layout: fixed; width: 22%;">Finance</td>
+                                <td style="table-layout: fixed; width: 20%;">Level 2</td>
+                                <td style="table-layout: fixed; width: 18%;">
+                                    <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-success mr-2">Approve</button>
+                                        <button class="btn btn-danger">Reject</button>
+                                    </form>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -67,7 +78,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            <tr>
+                                <td style="table-layout: fixed; width: 20%;">REQ12346</td>
+                                <td style="table-layout: fixed; width: 20%;">2023-10-02</td>
+                                <td style="table-layout: fixed; width: 22%;">Finance</td>
+                                <td style="table-layout: fixed; width: 20%;">Level 2</td>
+                                <td style="table-layout: fixed; width: 18%;">
+                                    <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-success mr-2">Approve</button>
+                                        <button class="btn btn-danger">Reject</button>
+                                    </form>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -105,7 +127,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            <tr>
+                                <td style="table-layout: fixed; width: 20%;">REQ12346</td>
+                                <td style="table-layout: fixed; width: 20%;">2023-10-02</td>
+                                <td style="table-layout: fixed; width: 22%;">Finance</td>
+                                <td style="table-layout: fixed; width: 20%;">Level 2</td>
+                                <td style="table-layout: fixed; width: 18%;">
+                                    <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-success mr-2">Approve</button>
+                                        <button class="btn btn-danger">Reject</button>
+                                    </form>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
