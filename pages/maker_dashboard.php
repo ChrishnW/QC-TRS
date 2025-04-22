@@ -581,7 +581,6 @@
         </div>
     </div>    
 </div>
-
 <!-- Response / Edit Trouble Report Request Form -->
 <div class="modal" tabindex="-1" id="reponse_report_form" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl">
@@ -850,6 +849,7 @@
         </div>    
     </div>
 </div>
+
 
 <!-- Pop up for Message -->
 <div class="modal" tabindex="-1" id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">

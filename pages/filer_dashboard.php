@@ -530,79 +530,13 @@
     </div>    
 </div>
 
-<!-- Pop up for Delete Account -->
-<div class="modal" id="modal_delete_account" tabindex="-1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-gradient-danger">
-                <h5 class="modal-title text-white">Delete Account</h5>
-                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="close_delete_modal()">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p class="h5">Are you sure you want to delete this account permanently?</p> 
-            </div>
-            <div class="modal-footer">
-                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-                    <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
-                    <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
-
-                    <input type="submit" name="delte_account_submit" value="Confirm" class="submit btn btn-danger pr-3"> 
-                    <a href="#" onclick="close_delete_modal()" class="close_popup btn btn-secondary" style="text-decoration: none;">Cancel</a>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Pop up for Message -->
-<div class="modal" tabindex="-1" id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-primary">
-        <h5 class="modal-title text-white">Notification</h5>
-        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" id="close_popup">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <?php
-        if(isset($_SESSION["message"])){
-          $message = $_SESSION["message"];
-      
-          echo "<script> 
-            document.addEventListener('DOMContentLoaded', function () {
-              document.getElementById('popup').style.display = 'block'; 
-            }); 
-          </script>";
-      ?>
-      
-      <div class="modal-body my-2">
-        <p class="h5"> <?php echo $message ?></p>
-      </div>
-
-      <?php
-          unset($_SESSION["message"]);
-        }
-      ?>
-
-    </div>
-  </div>
-</div>
-
-<?php 
-    unset($_SESSION['request_id']);
-    unset($_SESSION['response_id']);
-    unset($_SESSION['viewer_request']);
-?>
 <!-- Edit Trouble Report Request Form -->
-<!-- <div class="modal" tabindex="-1" id="edit_ongoing" class="position-fixed" style="display: block; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
+<div class="modal" tabindex="-1" id="edit_ongoing" class="position-fixed" style="display: block; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header bg-gradient-primary">
             <h5 class="modal-title text-white">Edit Trouble Request</h5>
-            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="closeView()">
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="close_edit_modal()">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -812,18 +746,84 @@
 
                     <div class="modal-footer">
                         <input type="submit" name="request_submit" value="Submit" class="btn btn-primary">
-                        <input type="reset" value="Reset" class="btn btn-secondary mr-3">
+                        <input type="reset" value="Cancel" onclick="close_edit_modal()" class="btn btn-secondary mr-3">
                     </div>
                 </form>
             </div>
         </div>
     </div>
-</div> -->
+</div>
+
+<!-- Pop up for Delete Account -->
+<div class="modal" id="modal_delete_account" tabindex="-1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-danger">
+                <h5 class="modal-title text-white">Delete Account</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="close_delete_modal()">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="h5">Are you sure you want to delete this account permanently?</p> 
+            </div>
+            <div class="modal-footer">
+                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                    <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
+                    <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
+
+                    <input type="submit" name="delte_account_submit" value="Confirm" class="submit btn btn-danger pr-3"> 
+                    <a href="#" onclick="close_delete_modal()" class="close_popup btn btn-secondary" style="text-decoration: none;">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pop up for Message -->
+<div class="modal" tabindex="-1" id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <h5 class="modal-title text-white">Notification</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" id="close_popup">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <?php
+        if(isset($_SESSION["message"])){
+          $message = $_SESSION["message"];
+      
+          echo "<script> 
+            document.addEventListener('DOMContentLoaded', function () {
+              document.getElementById('popup').style.display = 'block'; 
+            }); 
+          </script>";
+      ?>
+      
+      <div class="modal-body my-2">
+        <p class="h5"> <?php echo $message ?></p>
+      </div>
+
+      <?php
+          unset($_SESSION["message"]);
+        }
+      ?>
+
+    </div>
+  </div>
+</div>
+
+<?php 
+    unset($_SESSION['request_id']);
+    unset($_SESSION['response_id']);
+    unset($_SESSION['viewer_request']);
+?>
 
 <?php include '../include/footer.php'; ?>
 
 <script>
-    
 
     $(document).ready(function() {
         $('#ongoing_dataTable').DataTable();
@@ -847,7 +847,6 @@
     function closeView() {
         document.getElementById("view_ongoing").style.display = "none";
         document.body.style.overflow = 'auto';
-
     }
 
     function close_delete_modal(){
@@ -858,6 +857,11 @@
     function open_delete_modal(){
         document.getElementById("modal_delete_account").style.display = "block";
         document.body.style.overflow = 'hidden';
+    }
+
+    function close_edit_modal(){
+        document.getElementById("edit_ongoing").style.display = "none";
+        document.body.style.overflow = 'auto';
     }
 
     document.addEventListener('DOMContentLoaded', function () {
