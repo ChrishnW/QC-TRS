@@ -663,7 +663,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-3">
                                     <label for="lot">Lot No. <span style="color: red;">*</span></label>
-                                    <input type="number" name="lot" id="lot" class="form-control" value="<?php echo $response_request['lot'] ?? '' ?>" required>
+                                    <input type="text" name="lot" id="lot" class="form-control" value="<?php echo $response_request['lot'] ?? '' ?>" required>
                                 </div>
 
                                 <div class="col-md-3">
@@ -673,7 +673,7 @@
 
                                 <div class="col-md-3">
                                     <label for="temp">Temp No. <span style="color: red;">*</span></label><br>
-                                    <input type="text" name="temp" id="temp" class="form-control" value="<?php echo $response_request['temp'] ?? '' ?>" required>
+                                    <input type="number" name="temp" id="temp" class="form-control" value="<?php echo $response_request['temp'] ?? '' ?>" required>
                                 </div>
 
                                 <div class="col-md-3">
