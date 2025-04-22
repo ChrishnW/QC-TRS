@@ -72,6 +72,25 @@
             ob_end_flush();
             exit();
         }
+
+        // Delete account ............................................................................................................
+        if(isset($_POST['delte_account_submit'])) {
+            $request_id = $_POST['request_id'];
+            $response_id = $_POST['response_id'];
+
+            $result_request = mysqli_query($conn, "DELETE FROM tbl_request WHERE id='$request_id'");
+            $result_response = mysqli_query($conn, "DELETE FROM tbl_response WHERE id='$response_id'");
+
+            if($result_request && $result_response) {
+                $_SESSION["message"] = "Request deleted successfully.";
+            } else {
+                $_SESSION["message"] = "Failed to delete request. Please try again.";
+            }
+
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit;
+        }
     }
 
 ?>
@@ -537,7 +556,40 @@
     </div>
 </div>
 
+<!-- Pop up for Message -->
+<div class="modal" tabindex="-1" id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <h5 class="modal-title text-white">Notification</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" id="close_popup">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
+      <?php
+        if(isset($_SESSION["message"])){
+          $message = $_SESSION["message"];
+      
+          echo "<script> 
+            document.addEventListener('DOMContentLoaded', function () {
+              document.getElementById('popup').style.display = 'block'; 
+            }); 
+          </script>";
+      ?>
+      
+      <div class="modal-body my-2">
+        <p class="h5"> <?php echo $message ?></p>
+      </div>
+
+      <?php
+          unset($_SESSION["message"]);
+        }
+      ?>
+
+    </div>
+  </div>
+</div>
 
 <?php 
     unset($_SESSION['request_id']);
@@ -807,5 +859,13 @@
         document.getElementById("modal_delete_account").style.display = "block";
         document.body.style.overflow = 'hidden';
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        document.getElementById('close_popup').addEventListener('click', function () {
+            document.getElementById('popup').style.display = 'none';
+        });
+
+    });
 
 </script>
