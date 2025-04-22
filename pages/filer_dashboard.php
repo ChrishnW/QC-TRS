@@ -503,20 +503,47 @@
                     <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
 
                     <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
-                    <input type="submit" name="delete_request" class="btn btn-danger" value="Delete" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
-                    <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary">
+                    <a href="#" onclick="open_delete_modal()" class="close_popup btn btn-danger ml-2" style="text-decoration: none; display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">Delete</a>
+                    <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary ml-2">
                 </form>
             </div> 
-
-            <?php 
-                unset($_SESSION['request_id']);
-                unset($_SESSION['response_id']);
-                unset($_SESSION['viewer_request']);
-            ?>
         </div>
     </div>    
 </div>
 
+<!-- Pop up for Delete Account -->
+<div class="modal" id="modal_delete_account" tabindex="-1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-danger">
+                <h5 class="modal-title text-white">Delete Account</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="close_delete_modal()">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="h5">Are you sure you want to delete this account permanently?</p> 
+            </div>
+            <div class="modal-footer">
+                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                    <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
+                    <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
+
+                    <input type="submit" name="delte_account_submit" value="Confirm" class="submit btn btn-danger pr-3"> 
+                    <a href="#" onclick="close_delete_modal()" class="close_popup btn btn-secondary" style="text-decoration: none;">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<?php 
+    unset($_SESSION['request_id']);
+    unset($_SESSION['response_id']);
+    unset($_SESSION['viewer_request']);
+?>
 <!-- Edit Trouble Report Request Form -->
 <!-- <div class="modal" tabindex="-1" id="edit_ongoing" class="position-fixed" style="display: block; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl">
@@ -769,6 +796,16 @@
         document.getElementById("view_ongoing").style.display = "none";
         document.body.style.overflow = 'auto';
 
+    }
+
+    function close_delete_modal(){
+        document.getElementById("modal_delete_account").style.display = "none";
+        document.body.style.overflow = 'auto';
+    }
+
+    function open_delete_modal(){
+        document.getElementById("modal_delete_account").style.display = "block";
+        document.body.style.overflow = 'hidden';
     }
 
 </script>
