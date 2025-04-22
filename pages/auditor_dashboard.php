@@ -13,6 +13,7 @@
                                 Temporary</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">40</div>
                         </div>
+
                         <div class="col-auto">
                             <i class="fa fa-clock fa-2x text-gray-300"></i>
                         </div>
@@ -30,6 +31,7 @@
                                 Temporary</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
                         </div>
+
                         <div class="col-auto">
                             <i class="fa fa-check-circle fa-2x text-gray-300"></i> 
                         </div>
@@ -47,6 +49,7 @@
                                 Temporary</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
                         </div>
+                        
                         <div class="col-auto">
                             <i class="fa fa-times-circle fa-2x text-gray-300"></i> 
                         </div>
