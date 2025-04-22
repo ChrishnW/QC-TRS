@@ -115,7 +115,66 @@
             ob_end_flush();
             exit;
         }
+
+        // Edit request form submit ................................................................................................
+        if(isset($_POST['update_request_submit'])){
+            $request_id = $_POST['update_request_id'];
+
+            // echo "<script>alert('$request_id');</script>";
+            
+            $date = $_POST['date'];
+            $department = $_POST['department'];
+            $model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_SPECIAL_CHARS);
+            $quantity = filter_input(INPUT_POST, 'quantity', FILTER_SANITIZE_NUMBER_INT);
+            $lot = filter_input(INPUT_POST, 'lot', FILTER_SANITIZE_NUMBER_INT);
+            $serial = filter_input(INPUT_POST, 'serial', FILTER_SANITIZE_NUMBER_INT);
+            $temp = filter_input(INPUT_POST, 'temp', FILTER_SANITIZE_NUMBER_INT);
+            $findings = filter_input(INPUT_POST, 'findings', FILTER_SANITIZE_SPECIAL_CHARS);
+            $origin1 = filter_input(INPUT_POST, 'origin', FILTER_SANITIZE_SPECIAL_CHARS);
+            $origin2 = filter_input(INPUT_POST, 'check', FILTER_SANITIZE_SPECIAL_CHARS);
+            $found_qc = filter_input(INPUT_POST, 'found_qc', FILTER_SANITIZE_SPECIAL_CHARS);
+            $found_ai = filter_input(INPUT_POST, 'found_ai', FILTER_SANITIZE_SPECIAL_CHARS);
+            $due_date = $_POST['due_date'];
+            $leader = $_POST['leader'];
+            $head = $_POST['head'];
+            $officer = $_POST['officer'];
+            $coo = $_POST['coo'];
+
+            if(isset($_FILES["image_good"]) && $_FILES['image_good']['error'] == 0 && isset($_FILES["image_not_good"]) && $_FILES['image_not_good']['error'] == 0) {
+
+                $image_good_raw = $_FILES["image_good"]["name"];
+                $image_good = str_replace(" ", "_", $image_good_raw);
+                $image_good_path = "IMG/GOOD/" . $image_good;
+                $img_temp_path_good = $_FILES["image_good"]["tmp_name"];
+    
+                move_uploaded_file($img_temp_path_good, $image_good_path);
+    
+                $image_notgood_raw = $_FILES["image_not_good"]["name"];
+                $image_notgood = str_replace(" ", "_", $image_notgood_raw);
+                $image_notgood_path = "IMG/NOTGOOD/" . $image_notgood;
+                $img_temp_path_notgood = $_FILES["image_not_good"]["tmp_name"];
+    
+                move_uploaded_file($img_temp_path_notgood, $image_notgood_path);
+
+                $result = mysqli_query($conn, "UPDATE tbl_request SET date='$date', model='$model', lot='$lot', serial='$serial', temp='$temp', findings='$findings', origin1='$origin1', origin2='$origin2', finder_qc='$found_qc', finder_ai='$found_ai', qty='$quantity', img_ng='$image_notgood_path', img_g='$image_good_path', due_date='$due_date', dept_id='$department', leader_id='$leader', dept_head_id='$head', fac_officer_id='$officer', coo_id='$coo' WHERE id='$request_id'");
+
+                if($result) {
+                    $_SESSION["message"] = "Request updated successfully.";
+                } else {
+                    $_SESSION["message"] = "Failed to update request. Please try again.";
+                }
+
+            } else {
+                $_SESSION["message"] = "Failed to upload images. Please try again.";
+            }
+
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit;
+        }
     }
+
+    
 
 ?>
 
@@ -774,7 +833,8 @@
                         </div>
 
                         <div class="modal-footer">
-                            <input type="submit" name="update_request_submit" value="Submit" class="btn btn-primary" disabled>
+                            <input type="hidden" name="update_request_id" value="<?php echo $response_request['request_id'] ?>">
+                            <input type="submit" name="update_request_submit" value="Submit" class="btn btn-primary">
                             <input type="reset" value="Cancel" onclick="close_edit_modal()" class="btn btn-secondary mr-3">
                         </div>
                     </form>
