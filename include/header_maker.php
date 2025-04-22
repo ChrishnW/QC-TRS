@@ -35,11 +35,11 @@
           <span>Dashboard</span></a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="../pages/maker_response.php">
           <i class="fas fa-fw fa fa-file" aria-hidden="true"></i>
           <span>Trouble Report Form</span></a>
-      </li>
+      </li> -->
       
       <!-- <li class="nav-item">
         <a class="nav-link" href="../pages/dashboard.php">

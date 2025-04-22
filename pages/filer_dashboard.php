@@ -142,7 +142,7 @@
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
-                                            <input type="submit" name="view_request_ongoing" class="btn btn-success" value="View" >
+                                            <input type="submit" name="view_request_ongoing" class="btn btn-primary" value="View" >
                                         </form>
                                     </td>
                                 </tr>
@@ -227,7 +227,7 @@
                                             <input type="hidden" name="request_id" value="<?php echo $request_id; ?>">
                                             <input type="hidden" name="response_id" value="<?php echo $response_id; ?>">
                                         
-                                            <input type="submit" name="view_request_finished" class="btn btn-success" value="View">
+                                            <input type="submit" name="view_request_finished" class="btn btn-primary" value="View">
                                         </form>
                                     </td>
                                 </tr>
