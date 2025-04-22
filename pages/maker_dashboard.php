@@ -685,7 +685,7 @@
 
                                     <div class="card " style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="man" id="man" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['man'] ?? '' ?></textarea>
+                                            <textarea name="man" id="man" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['man'] ?? '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -699,7 +699,7 @@
 
                                     <div class="card " style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="method" id="method" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['method'] ?? '' ?></textarea>
+                                            <textarea name="method" id="method" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['method'] ?? '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -713,7 +713,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="material" id="material" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['material'] ?? '' ?></textarea>
+                                            <textarea name="material" id="material" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['material'] ?? '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -727,7 +727,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="machine" id="machine" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['machine'] ?? '' ?></textarea>
+                                            <textarea name="machine" id="machine" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['machine'] ?? '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -744,7 +744,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card " style="width: 98%;">
                                         <div class="m-2">
-                                            <textarea name="correction" id="correction" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['correction'] ?? '' ?></textarea>
+                                            <textarea name="correction" id="correction" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['correction'] ?? '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -767,7 +767,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="ca_man" id="ca_man" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['ca_man'] ?? '' ?></textarea>
+                                            <textarea name="ca_man" id="ca_man" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['ca_man'] ?? '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -781,7 +781,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="ca_method" id="ca_method" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['ca_method'] ?? '' ?></textarea>
+                                            <textarea name="ca_method" id="ca_method" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['ca_method'] ?? '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -795,7 +795,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="ca_material" id="ca_material" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['ca_material'] ?? '' ?></textarea>
+                                            <textarea name="ca_material" id="ca_material" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['ca_material'] ?? '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -809,7 +809,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="ca_machine" id="ca_machine" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['ca_machine'] ?? '' ?></textarea>
+                                            <textarea name="ca_machine" id="ca_machine" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['ca_machine'] ?? '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -826,7 +826,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card " style="width: 98%;">
                                         <div class="m-2">
-                                            <textarea name="remarks" id="remarks" style="width: 100%; height: 100%; border: none;" required><?php echo $response_request['remarks'] ?? '' ?></textarea>
+                                            <textarea name="remarks" id="remarks" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['remarks'] ?? '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
