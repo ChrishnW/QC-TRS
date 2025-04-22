@@ -69,8 +69,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="container-fluid">
     <div id="account_dashboard" class="account_dashboard" style="display: block;">
         <div class="card shadow mb-4">
-            <div class="card-header py-3.5 pt-4 bg-primary">
-                <h2 class="float-left text-white">Trouble Report Form</h2>
+            <div class="card-header py-3.5 pt-4 bg-light">
+                <h2 class="float-left">Trouble Report Form</h2>
                 <br>                         
             </div>
 
