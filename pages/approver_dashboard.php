@@ -93,10 +93,10 @@
                             ?>
 
                             <tr>
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
-                                <td style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUsername($row['dept_id']) : '' ?></td>
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
+                                <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
+                                <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
+                                <td class="text-left align-middle" style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUsername($row['dept_id']) : '' ?></td>
+                                <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                 <td style="table-layout: fixed; width: 18%;">
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                         <input type="hidden" name="request_id" value="<?php echo $row['request_id'] ?>">
@@ -169,10 +169,10 @@
                             ?>
 
                             <tr>
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
-                                <td style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUsername($row['dept_id']) : '' ?></td>
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
+                                <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
+                                <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
+                                <td class="text-left align-middle" style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUsername($row['dept_id']) : '' ?></td>
+                                <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                 <td style="table-layout: fixed; width: 18%;">
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                         <input type="hidden" name="request_id" value="<?php echo $row['request_id'] ?>">
@@ -245,10 +245,10 @@
                             ?>
 
                             <tr>
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
-                                <td style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUsername($row['dept_id']) : '' ?></td>
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
+                                <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
+                                <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
+                                <td class="text-left align-middle" style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUsername($row['dept_id']) : '' ?></td>
+                                <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                 <td style="table-layout: fixed; width: 18%;">
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                         <input type="hidden" name="request_id" value="<?php echo $row['request_id'] ?>">
