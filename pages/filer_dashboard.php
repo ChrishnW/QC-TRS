@@ -360,7 +360,7 @@
 
 <!-- View Trouble Report Request Form -->
 <div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header bg-gradient-primary">
                 <h5 class="modal-title text-white"></h5>
@@ -638,7 +638,7 @@
 
 <!-- Edit Trouble Report Request Form -->
 <div class="modal" tabindex="-1" id="edit_ongoing" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-xl ">
         <div class="modal-content">
             <div class="modal-header bg-gradient-primary">
                 <h5 class="modal-title text-white">Edit Trouble Request</h5>
