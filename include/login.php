@@ -22,7 +22,7 @@ if (isset($_POST['username'])) :
         echo "Admin";
       } 
       elseif ($user['access'] == 2) {
-        echo "Filer";
+        echo "requestor";
       } 
       elseif ($user['access'] == 3) {
         echo "Maker";
