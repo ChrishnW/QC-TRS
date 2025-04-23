@@ -363,7 +363,7 @@
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header bg-gradient-primary">
-                <h5 class="modal-title text-white"></h5>
+                <h5 class="modal-title text-white">Trouble Request</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="closeView()">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -638,7 +638,7 @@
 
 <!-- Edit Trouble Report Request Form -->
 <div class="modal" tabindex="-1" id="edit_ongoing" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
-    <div class="modal-dialog modal-xl ">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header bg-gradient-primary">
                 <h5 class="modal-title text-white">Edit Trouble Request</h5>
@@ -646,10 +646,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            
 
             <div class="modal-body">
-                <div class="container-fluid">
-                    <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" enctype="multipart/form-data">
+                    <div class="container-fluid">
                         <div class="card-body mx-3">
                             <div class="row mb-3">
                                 <div class="col-md-4">
@@ -854,15 +855,17 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="modal-footer">
-                            <input type="hidden" name="update_request_id" value="<?php echo $response_request['request_id'] ?>">
-                            <input type="submit" name="update_request_submit" value="Submit" class="btn btn-primary">
-                            <input type="reset" value="Cancel" onclick="close_edit_modal()" class="btn btn-secondary mr-3">
-                        </div>
-                    </form>
-                </div>
+                    </div>
             </div>
+
+            <div class="modal-footer">
+                    <input type="hidden" name="update_request_id" value="<?php echo $response_request['request_id'] ?>">
+                    <input type="submit" name="update_request_submit" value="Submit" class="btn btn-primary">
+                    <input type="reset" value="Cancel" onclick="close_edit_modal()" class="btn btn-secondary mr-3">
+                    
+                </form>
+            </div>
+
         </div>
     </div>
 </div>
