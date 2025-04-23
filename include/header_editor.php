@@ -40,7 +40,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>QC - TRS | Maker</title>
+  <title>QC - TRS | Editor</title>
 
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
 
