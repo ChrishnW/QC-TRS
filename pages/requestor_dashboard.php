@@ -167,7 +167,7 @@
     
                 move_uploaded_file($img_temp_path_notgood, $image_notgood_path);
 
-                $result = mysqli_query($conn, "UPDATE tbl_request SET date='$date', model='$model', lot='$lot', serial='$serial', temp='$temp', findings='$findings', origin1='$origin1', origin2='$origin2', finder_qc='$found_qc', finder_ai='$found_ai', qty='$quantity', img_ng='$image_notgood_path', img_g='$image_good_path', due_date='$due_date', dept_id='$department', leader_id='$leader', dept_head_id='$head', fac_officer_id='$officer', coo_id='$coo' WHERE id='$request_id'");
+                $result = mysqli_query($conn, "UPDATE tbl_request SET date='$date', model='$model', lot='$lot', serial='$serial', temp='$temp', findings='$findings', origin1='$origin1', origin2='$origin2', finder_qc='$found_qc', finder_ai='$found_ai', qty='$quantity', img_ng='$image_notgood_path', img_g='$image_good_path', due_date='$due_date', dept_id='$department', leader_id='$leader', supervisor_id='$head', fac_officer_id='$officer', coo_id='$coo' WHERE id='$request_id'");
 
                 if($result) {
                     $_SESSION["message"] = "Request updated successfully.";
@@ -437,8 +437,8 @@
                                             <h6 class="ml-3 <?php echo isset($view_request['leader_id']) ? getApprovalStatusColor($view_request['leader_status']) : '' ?>"><i><?php echo isset($view_request['leader_id']) ? getApprovalStatus($view_request['leader_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
-                                            <h6><b>Department Head: </b> <?php echo isset($view_request['dept_head_id']) ? getUsername($view_request['dept_head_id']) : '' ?></h6>
-                                            <h6 class="ml-3 <?php echo isset($view_request['dept_head_id']) ? getApprovalStatusColor($view_request['dept_head_status']) : '' ?>"><i><?php echo isset($view_request['dept_head_id']) ? getApprovalStatus($view_request['dept_head_status']) : '' ?></i></h6>
+                                            <h6><b>Department Head: </b> <?php echo isset($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
+                                            <h6 class="ml-3 <?php echo isset($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['dept_head_status']) : '' ?>"><i><?php echo isset($view_request['supervisor_id']) ? getApprovalStatus($view_request['dept_head_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>Factory Officer: </b> <?php echo isset($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
@@ -789,7 +789,7 @@
                                     <label for="head">Department Head <span style="color: red;">*</span></label><br>
                                     <select name="head" id="head" class="form-control" required >
                                         
-                                        <option value="<?php echo $response_request['dept_head_id'] ?? '' ?>" hidden><?php echo $response_request['dept_head_id'] ? getUsername($response_request['dept_head_id']) : '' ?></option>
+                                        <option value="<?php echo $response_request['supervisor_id'] ?? '' ?>" hidden><?php echo $response_request['supervisor_id'] ? getUsername($response_request['supervisor_id']) : '' ?></option>
                                         
                                         <?php 
                                             $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=5 AND status=1");
