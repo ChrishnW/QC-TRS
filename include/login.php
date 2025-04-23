@@ -22,10 +22,10 @@ if (isset($_POST['username'])) :
         echo "Admin";
       } 
       elseif ($user['access'] == 2) {
-        echo "requestor";
+        echo "Requestor";
       } 
       elseif ($user['access'] == 3) {
-        echo "Maker";
+        echo "Editor";
       } 
       elseif ($user['access'] >= 4 && $user['access'] <= 7) {
         echo "Approver";

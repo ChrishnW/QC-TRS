@@ -11,11 +11,11 @@ function Login() {
       if (response == 'Admin') {
         window.location.href = 'pages/admin_dashboard.php';
       } 
-      else if (response == 'requestor') {
+      else if (response == 'Requestor') {
         window.location.href = 'pages/requestor_dashboard.php';
       }
-      else if (response == 'Maker') {
-        window.location.href = 'pages/maker_dashboard.php';
+      else if (response == 'Editor') {
+        window.location.href = 'pages/editor_dashboard.php';
       }
       else if (response == 'Approver') {
         window.location.href = 'pages/approver_dashboard.php';
