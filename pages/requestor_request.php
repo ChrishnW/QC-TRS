@@ -204,7 +204,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="head">Department Head <span style="color: red;">*</span></label><br>
+                            <label for="head">QC Supervisor <span style="color: red;">*</span></label><br>
                             <select name="head" id="head" class="form-control" required >
                                 <option value="" hidden></option>
 

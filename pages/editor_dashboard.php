@@ -175,7 +175,7 @@
                             </tr>
                             <tr>
                                 <th class="text-center align-middle border-top-0">Line Leader</th>
-                                <th class="text-center align-middle border-top-0">Department Head</th>
+                                <th class="text-center align-middle border-top-0">QC Supervisor</th>
                                 <th class="text-center align-middle border-top-0">Factory Officer</th>
                                 <th class="text-center align-middle border-top-0">COO</th>
                             </tr>
@@ -263,7 +263,7 @@
                             </tr>
                             <tr>
                                 <th class="text-center align-middle border-top-0">Line Leader</th>
-                                <th class="text-center align-middle border-top-0">Department Head</th>
+                                <th class="text-center align-middle border-top-0">QC Supervisor</th>
                                 <th class="text-center align-middle border-top-0">Factory Officer</th>
                                 <th class="text-center align-middle border-top-0">COO</th>
                             </tr>
@@ -404,7 +404,7 @@
                                             <h6 class="ml-3 <?php echo isset($view_request['leader_id']) ? getApprovalStatusColor($view_request['leader_status']) : '' ?>"><i><?php echo isset($view_request['leader_id']) ? getApprovalStatus($view_request['leader_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
-                                            <h6><b>Department Head: </b> <?php echo isset($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
+                                            <h6><b>QC Supervisor: </b> <?php echo isset($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo isset($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['supervisor_status']) : '' ?>"><i><?php echo isset($view_request['supervisor_id']) ? getApprovalStatus($view_request['supervisor_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
@@ -689,7 +689,7 @@
                                                 <h6 class="ml-3 <?php echo isset($response_request['leader_id']) ? getApprovalStatusColor($response_request['leader_status']) : '' ?>"><i><?php echo isset($response_request['leader_id']) ? getApprovalStatus($response_request['leader_status']) : '' ?></i></h6>
                                             </div>
                                             <div class="row px-2">
-                                                <h6><b>Department Head: </b> <?php echo isset($response_request['supervisor_id']) ? getUsername($response_request['supervisor_id']) : '' ?></h6>
+                                                <h6><b>QC Supervisor: </b> <?php echo isset($response_request['supervisor_id']) ? getUsername($response_request['supervisor_id']) : '' ?></h6>
                                                 <h6 class="ml-3 <?php echo isset($response_request['supervisor_id']) ? getApprovalStatusColor($response_request['supervisor_status']) : '' ?>"><i><?php echo isset($response_request['supervisor_id']) ? getApprovalStatus($response_request['supervisor_status']) : '' ?></i></h6>
                                             </div>
                                             <div class="row px-2">
