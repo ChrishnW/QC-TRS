@@ -55,7 +55,7 @@
         <div class="sidebar-brand-icon">
         <img src="../assets/img/logo.png" alt="" class="img-fluid" style="width: 45px;">
         </div>
-        <div class="sidebar-brand-text mx-2">Approver</div>
+        <div class="sidebar-brand-text mx-2">Trouble Report System</div>
       </a>
 
       <hr class="sidebar-divider my-0">
