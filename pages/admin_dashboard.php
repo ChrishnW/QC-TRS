@@ -158,10 +158,10 @@
               ?>
 
               <tr>
-                <td><?php echo $id ?></td>
-                <td><?php echo $name ?></td>
-                <td><?php echo $roleName ?></td>
-                <td><?php echo $statusName ?></td>
+                <td class="text-left align-middle"><?php echo $id ?></td>
+                <td class="text-left align-middle"><?php echo $name ?></td>
+                <td class="text-left align-middle"><?php echo $roleName ?></td>
+                <td class="text-left align-middle"><?php echo $statusName ?></td>
                 <td style="table-layout: fixed; width: 15%;">
                   <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                     <input type="hidden" name="id_account" value="<?php echo $id ?>">
