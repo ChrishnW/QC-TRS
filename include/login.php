@@ -27,10 +27,10 @@ if (isset($_POST['username'])) :
       elseif ($user['access'] == 3) {
         echo "Maker";
       } 
-      elseif ($user['access'] == 4) {
+      elseif ($user['access'] >= 4 && $user['access'] <= 7) {
         echo "Approver";
       } 
-      elseif ($user['access'] == 5) {
+      elseif ($user['access'] == 8) {
         echo "Auditor";
       } 
       else {
