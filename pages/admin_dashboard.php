@@ -9,7 +9,7 @@
       case 3:
         return "Editor";
       case 4:
-        return "Line Leader";
+        return "Department Head";
       case 5:
         return "QC Supervisor";
       case 6:
@@ -203,7 +203,7 @@
                 <option value="" hidden></option>
                 <option value="2">Requestor</option>
                 <option value="3">Editor</option>
-                <option value="4">Line Leader</option>
+                <option value="4">Department Head</option>
                 <option value="5">QC Supervisor</option>
                 <option value="6">Factory Officer</option>
                 <option value="7">Chief Operating Officer</option>
@@ -266,7 +266,7 @@
                 <option value="<?php echo $role ?>" hidden><?php echo $roleName ?></option>
                 <option value="2">Requestor</option>
                 <option value="3">Editor</option>
-                <option value="4">Line Leader</option>
+                <option value="4">Department Head</option>
                 <option value="5">QC Supervisor</option>
                 <option value="6">Factory Officer</option>
                 <option value="7">Chief Operating Officer</option>

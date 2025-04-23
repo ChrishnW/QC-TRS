@@ -37,7 +37,7 @@
 
                 move_uploaded_file($img_temp_path_notgood, $image_notgood_path);
                 
-                $result = mysqli_query($conn, "INSERT INTO tbl_request (date, model, lot, serial, temp, findings, origin1, origin2, finder_qc, finder_ai, qty, img_ng, img_g, due_date, dept_id, leader_id, supervisor_id, fac_officer_id, coo_id, status) VALUES ('$date', '$model', '$lot', '$serial', '$temp', '$findings', '$origin', '$check', '$found_qc', '$found_ai', '$quantity', '$image_notgood_path', '$image_good_path', '$due_date', '$department', '$leader', '$head', '$officer', '$coo', '$status')");
+                $result = mysqli_query($conn, "INSERT INTO tbl_request (date, model, lot, serial, temp, findings, origin1, origin2, finder_qc, finder_ai, qty, img_ng, img_g, due_date, dept_id, dept_head_id, supervisor_id, fac_officer_id, coo_id, status) VALUES ('$date', '$model', '$lot', '$serial', '$temp', '$findings', '$origin', '$check', '$found_qc', '$found_ai', '$quantity', '$image_notgood_path', '$image_good_path', '$due_date', '$department', '$leader', '$head', '$officer', '$coo', '$status')");
 
                 if($result) {
                     $last_id = mysqli_insert_id($conn);
