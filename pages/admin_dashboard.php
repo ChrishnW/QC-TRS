@@ -112,9 +112,7 @@
       ob_end_flush();
       exit;
     }
-  
   }
-
 ?>
 
 <!-- Account Dashboard-->
@@ -122,11 +120,11 @@
   <div id="account_dashboard" class="account_dashboard" style="display: block;">
     <div class="card shadow mb-4">
       <div class="card-header py-3.5 pt-4">
-          <h2 class="float-left">Account List</h2>
-          <button id="btn_add_account" type="button" class="btn btn-primary float-right">
-            <i class="fa fa-plus pr-1"></i> Add Account
-          </button>
-          <div class="clearfix"></div>
+        <h2 class="float-left">Account List</h2>
+        <button id="btn_add_account" type="button" class="btn btn-primary float-right">
+          <i class="fa fa-plus pr-1"></i> Add Account
+        </button>
+        <div class="clearfix"></div>
       </div>
         
       <div class="card-body">
@@ -143,18 +141,16 @@
             </thead>
 
             <tbody>
-
               <?php 
-              
-              $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access != 1 ORDER BY id ASC");
-              if(mysqli_num_rows($result) > 0){
-                while($row = mysqli_fetch_assoc($result)){
-                  $id = $row['id'];
-                  $name = $row['username'];
-                  $role = $row['access'];
-                  $roleName = get_roleName($role);
-                  $status = $row['status'];
-                  $statusName = get_statusName($status);
+                $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access != 1 ORDER BY id ASC");
+                if(mysqli_num_rows($result) > 0){
+                  while($row = mysqli_fetch_assoc($result)){
+                    $id = $row['id'];
+                    $name = $row['username'];
+                    $role = $row['access'];
+                    $roleName = get_roleName($role);
+                    $status = $row['status'];
+                    $statusName = get_statusName($status);
               ?>
 
               <tr>
@@ -172,8 +168,8 @@
               </tr>
 
               <?php 
+                  }
                 }
-              }
               ?>
 
             </tbody>
@@ -381,7 +377,6 @@
 <?php include '../include/footer.php'; ?>
 
 <script>
-
   $(document).ready(function() {
     $('#dataTable').DataTable();
   });
@@ -399,7 +394,6 @@
   }
 
   document.addEventListener("DOMContentLoaded", function() {
-
     document.getElementById('close_popup').addEventListener('click', function () {
       document.getElementById('popup').style.display = 'none';
     });
@@ -407,7 +401,5 @@
     document.getElementById("btn_add_account").addEventListener("click", function() {
       document.getElementById("modal_add_account").style.display = "block";
     });
-
   });
-
 </script>
