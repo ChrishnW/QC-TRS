@@ -19,6 +19,37 @@
         return $account['username'];
     }
 
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    
+        if(isset($_POST['view_pending'])){
+            $_SESSION['request_id'] = $_POST['request_id'];
+            $_SESSION['response_id'] = $_POST['response_id'];
+            
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
+        } 
+        
+        if (isset($_POST['view_approved'])){
+            $_SESSION['request_id'] = $_POST['request_id'];
+            $_SESSION['response_id'] = $_POST['response_id'];
+
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
+        } 
+        
+        if (isset($_POST['view_rejected'])){
+            $_SESSION['request_id'] = $_POST['request_id'];
+            $_SESSION['response_id'] = $_POST['response_id'];
+
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
+        }
+    
+    }
+
 ?>
 
 <!-- Pending Approvals -->
@@ -59,7 +90,6 @@
                                 $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.dept_status={$userStatus['dept_status']} AND tbl_response.leader_status={$userStatus['leader_status']} AND tbl_response.dept_head_status={$userStatus['dept_head_status']} AND tbl_response.factory_status={$userStatus['fac_officer_status']} AND tbl_response.coo_status={$userStatus['coo_status']} AND (tbl_request.dept_id=$userId OR tbl_request.leader_id=$userId OR tbl_request.dept_head_id=$userId OR tbl_request.fac_officer_id=$userId OR tbl_request.coo_id=$userId)");
                                 if (mysqli_num_rows($result) > 0) {
                                     while($row = mysqli_fetch_assoc($result)){
-
                             ?>
 
                             <tr>
@@ -69,8 +99,9 @@
                                 <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                 <td style="table-layout: fixed; width: 18%;">
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
-                                        <button class="btn btn-success mr-2">Approve</button>
-                                        <button class="btn btn-danger">Reject</button>
+                                        <input type="hidden" name="request_id" value="<?php echo $row['request_id'] ?>">
+                                        <input type="hidden" name="response_id" value="<?php echo $row['id'] ?>">
+                                        <input type="submit" name="view_pending" value="View" class="btn btn-primary" disabled>
                                     </form>
                                 </td>
                             </tr>
@@ -144,8 +175,9 @@
                                 <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                 <td style="table-layout: fixed; width: 18%;">
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
-                                        <button class="btn btn-success mr-2">Approve</button>
-                                        <button class="btn btn-danger">Reject</button>
+                                        <input type="hidden" name="request_id" value="<?php echo $row['request_id'] ?>">
+                                        <input type="hidden" name="response_id" value="<?php echo $row['id'] ?>">
+                                        <input type="submit" name="view_approved" value="View" class="btn btn-primary" disabled>
                                     </form>
                                 </td>
                             </tr>
@@ -219,8 +251,9 @@
                                 <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                 <td style="table-layout: fixed; width: 18%;">
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
-                                        <button class="btn btn-success mr-2">Approve</button>
-                                        <button class="btn btn-danger">Reject</button>
+                                        <input type="hidden" name="request_id" value="<?php echo $row['request_id'] ?>">
+                                        <input type="hidden" name="response_id" value="<?php echo $row['id'] ?>">
+                                        <input type="submit" name="view_rejected" value="View" class="btn btn-primary" disabled>
                                     </form>
                                 </td>
                             </tr>
