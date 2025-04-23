@@ -231,7 +231,7 @@
                                         $model = $row['model'];
                                         $department = $row['dept_status'];
                                         $line_leader = $row['leader_status'];
-                                        $department_head = $row['dept_head_status'];
+                                        $department_head = $row['supervisor_status'];
                                         $factory_officer = $row['fac_officer_status'];
                                         $coo = $row['coo_status'];
 
@@ -316,7 +316,7 @@
                                         $model = $row['model'];
                                         $department = $row['dept_status'];
                                         $line_leader = $row['leader_status'];
-                                        $department_head = $row['dept_head_status'];
+                                        $department_head = $row['supervisor_status'];
                                         $factory_officer = $row['fac_officer_status'];
                                         $coo = $row['coo_status'];
 
@@ -438,7 +438,7 @@
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>Department Head: </b> <?php echo isset($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
-                                            <h6 class="ml-3 <?php echo isset($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['dept_head_status']) : '' ?>"><i><?php echo isset($view_request['supervisor_id']) ? getApprovalStatus($view_request['dept_head_status']) : '' ?></i></h6>
+                                            <h6 class="ml-3 <?php echo isset($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['supervisor_status']) : '' ?>"><i><?php echo isset($view_request['supervisor_id']) ? getApprovalStatus($view_request['supervisor_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>Factory Officer: </b> <?php echo isset($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>

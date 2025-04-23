@@ -11,7 +11,7 @@
       case 4:
         return "Line Leader";
       case 5:
-        return "Department Head";
+        return "QC Supervisor";
       case 6:
         return "Factory Officer";
       case 7:
