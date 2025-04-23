@@ -623,7 +623,7 @@
             </div>
 
             <div class="modal-footer">
-                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
+                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center mr-4">
                     <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
                     <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
 
