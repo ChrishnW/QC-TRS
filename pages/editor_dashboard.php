@@ -1,5 +1,5 @@
 <?php 
-    include '../include/header_maker.php'; 
+    include '../include/header_editor.php'; 
 
     function getApprovalStatus($status) {
         switch ($status) {

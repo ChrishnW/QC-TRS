@@ -1,4 +1,4 @@
-<?php include '../include/header_maker.php'; ?>
+<?php include '../include/header_editor.php'; ?>
 
 <div class="container-fluid">
     <div id="maker_form" class="maker_form" style="display: block;">

@@ -7,7 +7,7 @@
     } elseif($_SESSION['SESS_LEVEL'] == 2){
       header('location: ../pages/requestor_dashboard.php');
     } elseif($_SESSION['SESS_LEVEL'] == 3){
-      header('location: ../pages/maker_dashboard.php');
+      header('location: ../pages/editor_dashboard.php');
     } elseif($_SESSION['SESS_LEVEL'] >= 4 && $_SESSION['SESS_LEVEL'] <= 7){
       // header('location: ../pages/approver_dashboard.php');
     } elseif($_SESSION['SESS_LEVEL'] == 8){
