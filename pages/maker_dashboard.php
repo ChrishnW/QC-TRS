@@ -323,7 +323,7 @@
 
             <div class="modal-body">
                 <div class="container-fluid justify-content-center align-items-center">
-                    <div class="card mb-4 bg-light">
+                    <div class="card shadow mb-4 bg-light">
                         <div class="col">
                             <div class="card  text-center my-2">
                                 <h2 class="mt-2"><b>ROOT CAUSE ANALYSIS</b></h2>
@@ -398,7 +398,7 @@
                 </div>
 
                 <div class="container-fluid justify-content-center align-items-center">
-                    <div class="card mb-4 bg-light">
+                    <div class="card shadow mb-4 bg-light">
                         <!-- Reason -->
                         <div class="col">
                             <div class="card  text-center my-2">
@@ -463,7 +463,7 @@
                         </div>
                     </div>
 
-                    <div class="card mb-4 bg-light">
+                    <div class="card shadow mb-4 bg-light">
                         <!-- Correction -->
                         <div class="col">
                             <div class="card  text-center my-2">
@@ -480,7 +480,7 @@
                         </div>
                     </div>
 
-                    <div class="card mb-4 bg-light">
+                    <div class="card shadow mb-4 bg-light">
                         <!-- Corrective Action -->
                         <div class="col">
                             <div class="card  text-center my-2">
@@ -545,7 +545,7 @@
                         </div>
                     </div>
 
-                    <div class="card mb-2 bg-light">
+                    <div class="card shadow mb-2 bg-light">
                         <!-- Remarks -->
                         <div class="col">
                             <div class="card text-center my-2">
@@ -598,7 +598,7 @@
             <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                 <div class="modal-body">
                     <div class="container-fluid justify-content-center align-items-center">
-                        <div class="card mb-4 bg-light">
+                        <div class="card shadow mb-4 bg-light">
                             <div class="col">
                                 <div class="card  text-center my-2">
                                     <h2 class="mt-2"><b>ROOT CAUSE ANALYSIS</b></h2>
@@ -671,7 +671,7 @@
                     </div>  
 
                     <div class="container-fluid justify-content-center align-items-center">
-                        <div class="card mb-4 bg-light">
+                        <div class="card shadow mb-4 bg-light">
                             <!-- Reason -->
                             <div class="col">
                                 <div class="card text-center my-2">
@@ -736,7 +736,7 @@
                             </div>
                         </div>
 
-                        <div class="card mb-4 bg-light">
+                        <div class="card shadow mb-4 bg-light">
                             <!-- Correction -->
                             <div class="col">
                                 <div class="card  text-center my-2">
@@ -753,7 +753,7 @@
                             </div>
                         </div>
 
-                        <div class="card mb-4 bg-light">
+                        <div class="card shadow mb-4 bg-light">
                             <!-- Corrective Action -->
                             <div class="col">
                                 <div class="card text-center my-2">
@@ -818,7 +818,7 @@
                             </div>
                         </div>
 
-                        <div class="card mb-2 bg-light">
+                        <div class="card shadow mb-2 bg-light">
                             <!-- Remarks -->
                             <div class="col">
                                 <div class="card text-center my-2">
