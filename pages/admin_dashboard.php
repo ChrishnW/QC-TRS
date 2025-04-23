@@ -36,7 +36,12 @@
 
     // Add account ....................................................................................
     if (isset($_POST['add_account'])) {
-      $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+      $fname = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_SPECIAL_CHARS);
+      $lname = filter_input(INPUT_POST, 'lname', FILTER_SANITIZE_SPECIAL_CHARS);
+      $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
+
+      $name = $fname . " " . $lname;
+      $email = filter_var($email, FILTER_SANITIZE_EMAIL);
       $role = $_POST['role'];
       $pass = 12345;
       $password = password_hash($pass, PASSWORD_DEFAULT);
