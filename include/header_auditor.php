@@ -17,6 +17,17 @@
     header('location: ../index.php');
   }
 
+  function getUser($user_id){
+    global $conn;
+    $result = mysqli_query($conn, "SELECT username FROM tbl_account WHERE id = '$user_id'");
+    if ($result) {
+      $row = mysqli_fetch_assoc($result);
+      return $row['username'];
+    } else {
+      return null;
+    }
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +105,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">auditor_name</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small pt-2"><h3><?php echo $_SESSION['SESS_USERID'] ? getUser($_SESSION['SESS_USERID']) : '' ?></h3></span>
                 <img class="img-profile rounded-circle" src="../assets/img/undraw_profile.svg" alt="Picture">
               </a>
 
