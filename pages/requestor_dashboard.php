@@ -647,7 +647,6 @@
                 </button>
             </div>
             
-
             <div class="modal-body">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" enctype="multipart/form-data">
                     <div class="container-fluid">
