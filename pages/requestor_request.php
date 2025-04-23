@@ -183,7 +183,7 @@
                     <h5 class="mb-2">Approval</h5>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="leader">Leader <span style="color: red;">*</span></label><br>
+                            <label for="leader">Department Head <span style="color: red;">*</span></label><br>
                             <select name="leader" id="leader" class="form-control" required >
                                 <option value="" hidden></option>
 
