@@ -242,7 +242,7 @@
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                         <input type="hidden" name="request_id" value="<?php echo $row['request_id'] ?>">
                                         <input type="hidden" name="response_id" value="<?php echo $row['id'] ?>">
-                                        <input type="submit" name="view_approved" value="View" class="btn btn-primary" disabled>
+                                        <input type="submit" name="view_approved" value="View" class="btn btn-primary">
                                     </form>
                                 </td>
                             </tr>
@@ -318,7 +318,7 @@
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                         <input type="hidden" name="request_id" value="<?php echo $row['request_id'] ?>">
                                         <input type="hidden" name="response_id" value="<?php echo $row['id'] ?>">
-                                        <input type="submit" name="view_rejected" value="View" class="btn btn-primary" disabled>
+                                        <input type="submit" name="view_rejected" value="View" class="btn btn-primary">
                                     </form>
                                 </td>
                             </tr>
