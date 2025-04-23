@@ -590,7 +590,7 @@
             </div>
 
             <div class="modal-footer">
-                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
+                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center mr-4">
                     <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
                     <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
                 
@@ -875,9 +875,11 @@
                 </div>
 
                 <div class="modal-footer">
-                    <input type="hidden" name="response_id" value="<?php echo $response_request['id'] ?>">
-                    <input type="submit" name="save_response" class="btn btn-success" value="Save">
-                    <input type="reset" name="close_view" onclick="closeResponse()" value="Close" class="btn btn-secondary ml-2">
+                    <div class="mr-4">
+                        <input type="hidden" name="response_id" value="<?php echo $response_request['id'] ?>">
+                        <input type="submit" name="save_response" class="btn btn-success" value="Save">
+                        <input type="reset" name="close_view" onclick="closeResponse()" value="Close" class="btn btn-secondary ml-2">
+                    </div>
                 </div> 
             </form>
 
