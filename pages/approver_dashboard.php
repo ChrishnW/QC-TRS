@@ -341,7 +341,7 @@
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header bg-gradient-primary">
-                <h5 class="modal-title text-white"></h5>
+                <h5 class="modal-title text-white">Trouble Report Form</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="closeView()">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -357,7 +357,7 @@
                         </div>
 
                         <div class="container-fluid row">
-                            <div class="card  col mb-2">
+                            <div class="card col mb-2">
                                 <div class="row align-items-center mt-2">
                                     <div class="col-auto">
                                         <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">

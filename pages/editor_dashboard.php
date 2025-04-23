@@ -328,7 +328,7 @@
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header bg-gradient-primary">
-                <h5 class="modal-title text-white"></h5>
+                <h5 class="modal-title text-white">Trouble Report Form</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="closeView()">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -614,7 +614,7 @@
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header bg-gradient-primary">
-                <h5 class="modal-title text-white"></h5>
+                <h5 class="modal-title text-white">Trouble Report Form</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="closeResponse()">
                     <span aria-hidden="true">&times;</span>
                 </button>
