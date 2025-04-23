@@ -1,5 +1,4 @@
 <?php 
-
     include '../include/header_approver.php'; 
 
     function checkPendingStatus($access){
@@ -118,11 +117,31 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            <?php 
+                                $userId = $_SESSION['SESS_USERID'];
+                                $userAccess = $_SESSION['SESS_LEVEL'];
+                                $approvedStatus = 1;
+
+                                if($userAccess == 4){
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.leader_status=$approvedStatus AND tbl_request.leader_id=$userId");
+                                } elseif ($userAccess == 5){
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.dept_head_status=$approvedStatus AND tbl_request.dept_head_id=$userId");
+                                } elseif ($userAccess == 6){
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.factory_status=$approvedStatus AND tbl_request.fac_officer_id=$userId");
+                                } elseif ($userAccess == 7){
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.coo_status=$approvedStatus AND tbl_request.coo_id=$userId");
+                                }
+                                if (mysqli_num_rows($result) > 0) {
+                                    while($row = mysqli_fetch_assoc($result)){
+
+                            ?>
+
                             <tr>
-                                <td style="table-layout: fixed; width: 20%;">REQ12346</td>
-                                <td style="table-layout: fixed; width: 20%;">2023-10-02</td>
-                                <td style="table-layout: fixed; width: 22%;">Finance</td>
-                                <td style="table-layout: fixed; width: 20%;">Level 2</td>
+                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
+                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
+                                <td style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUsername($row['dept_id']) : '' ?></td>
+                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                 <td style="table-layout: fixed; width: 18%;">
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                         <button class="btn btn-success mr-2">Approve</button>
@@ -130,6 +149,12 @@
                                     </form>
                                 </td>
                             </tr>
+
+                            <?php 
+                                    }
+                                }
+                            ?>
+
                         </tbody>
                     </table>
                 </div>
@@ -167,11 +192,31 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            <?php 
+                                $userId = $_SESSION['SESS_USERID'];
+                                $userAccess = $_SESSION['SESS_LEVEL'];
+                                $rejectedStatus = 2;
+
+                                if($userAccess == 4){
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.leader_status=$rejectedStatus AND tbl_request.leader_id=$userId");
+                                } elseif ($userAccess == 5){
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.dept_head_status=$rejectedStatus AND tbl_request.dept_head_id=$userId");
+                                } elseif ($userAccess == 6){
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.factory_status=$rejectedStatus AND tbl_request.fac_officer_id=$userId");
+                                } elseif ($userAccess == 7){
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.coo_status=$rejectedStatus AND tbl_request.coo_id=$userId");
+                                }
+                                if (mysqli_num_rows($result) > 0) {
+                                    while($row = mysqli_fetch_assoc($result)){
+
+                            ?>
+
                             <tr>
-                                <td style="table-layout: fixed; width: 20%;">REQ12346</td>
-                                <td style="table-layout: fixed; width: 20%;">2023-10-02</td>
-                                <td style="table-layout: fixed; width: 22%;">Finance</td>
-                                <td style="table-layout: fixed; width: 20%;">Level 2</td>
+                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
+                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
+                                <td style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUsername($row['dept_id']) : '' ?></td>
+                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                 <td style="table-layout: fixed; width: 18%;">
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                         <button class="btn btn-success mr-2">Approve</button>
@@ -179,6 +224,12 @@
                                     </form>
                                 </td>
                             </tr>
+
+                            <?php 
+                                    }
+                                }
+                            ?>
+
                         </tbody>
                     </table>
                 </div>
