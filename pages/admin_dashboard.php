@@ -193,8 +193,18 @@
       <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" style="width: 100%; max-width: 600px;">
         <div class="modal-body">
           <div class="mb-3">
-            <label for="" class="form-label">Name <span style="color: red;">*</span></label>
-            <input type="text" name="name" class="form-control" required>
+            <label for="" class="form-label">First Name <span style="color: red;">*</span></label>
+            <input type="text" name="fname" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Last Name <span style="color: red;">*</span></label>
+            <input type="text" name="lname" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Email <span style="color: red;">*</span></label>
+            <input type="text" name="email" class="form-control" required>
           </div>
 
           <div class="mb-3">
@@ -244,10 +254,10 @@
           $statusName = get_statusName($status);
 
           echo "<script> 
-            document.addEventListener('DOMContentLoaded', function () {
-              document.getElementById('modal_edit_account').style.display = 'block'; 
-            });
-          </script>";
+                  document.addEventListener('DOMContentLoaded', function () {
+                    document.getElementById('modal_edit_account').style.display = 'block'; 
+                  });
+                </script>"; 
       ?>
 
       <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" style="width: 100%; max-width: 600px;">
@@ -256,10 +266,12 @@
             <label for="id" class="form-label">Id</label>
             <input type="text" name="id" class="form-control" required value="<?php echo $id ?>" readonly>
           </div>
+
           <div class="mb-3">
             <label for="name" class="form-label">Name <span style="color: red;">*</span></label>
             <input type="text" name="name" class="form-control" required value="<?php echo $name ?>">
           </div>
+
           <div class="mb-3">
             <label for="role" class="form-label">Role <span style="color: red;">*</span></label>
             <select name="role" class="form-control" required >
@@ -272,6 +284,7 @@
                 <option value="7">Chief Operating Officer</option>
             </select>
           </div>
+
           <div class="mb-3">
             <label for="status" class="form-label">Status <span style="color: red;">*</span></label>
             <select name="status" class="form-control" required >
@@ -281,6 +294,7 @@
             </select>
           </div>
         </div>
+
         <div class="modal-footer">
           <input type="submit" name="edit_account_submit" value="Save" class="btn btn-primary pr-3">
           <input type="reset" name="reset" value="Cancel" onclick="close_edit_account()" class="btn btn-secondary ml-2">
@@ -312,15 +326,16 @@
           $id = $_SESSION["delete_account_id"];
 
           echo "<script> 
-            document.addEventListener('DOMContentLoaded', function () {
-              document.getElementById('modal_delete_account').style.display = 'block'; 
-            });
-          </script>";
+                document.addEventListener('DOMContentLoaded', function () {
+                  document.getElementById('modal_delete_account').style.display = 'block'; 
+                });
+              </script>";
       ?>
 
       <div class="modal-body">
         <p class="h5">Are you sure you want to delete this account permanently?</p> 
       </div>
+
       <div class="modal-footer">
         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
           <input type="hidden" name="id" value="<?php echo $id ?>">
@@ -355,10 +370,10 @@
           $message = $_SESSION["message"];
       
           echo "<script> 
-            document.addEventListener('DOMContentLoaded', function () {
-              document.getElementById('popup').style.display = 'block'; 
-            }); 
-          </script>";
+                document.addEventListener('DOMContentLoaded', function () {
+                  document.getElementById('popup').style.display = 'block'; 
+                }); 
+              </script>";
       ?>
       
       <div class="modal-body my-2">
