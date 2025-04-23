@@ -1,4 +1,24 @@
-<?php include 'auth.php'; ?>
+<?php 
+  include 'auth.php'; 
+
+  if(isset($_SESSION['SESS_LEVEL'])){
+    if($_SESSION['SESS_LEVEL'] == 1){
+      header('location: admin_dashboard.php');
+    } elseif($_SESSION['SESS_LEVEL'] == 2){
+      header('location: filer_dashboard.php');
+    } elseif($_SESSION['SESS_LEVEL'] == 3){
+      // header('location: maker_dashboard.php');
+    } elseif($_SESSION['SESS_LEVEL'] >= 4 && $_SESSION['SESS_LEVEL'] <= 7){
+      header('location: approver_dashboard.php');
+    } elseif($_SESSION['SESS_LEVEL'] == 8){
+      header('location: auditor_dashboard.php');
+    }
+  } else{
+    header('location: ../index.php');
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
