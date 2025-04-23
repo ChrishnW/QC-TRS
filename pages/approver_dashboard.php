@@ -1,4 +1,26 @@
-<?php include '../include/header_approver.php'; ?>
+<?php 
+
+    include '../include/header_approver.php'; 
+
+    function checkPendingStatus($access){
+        if ($access == 4){
+            return ['dept_status' => 1, 'leader_status' => 0, 'dept_head_status' => 0, 'fac_officer_status' => 0, 'coo_status' => 0];
+        } elseif ($access == 5){
+            return ['dept_status' => 1, 'leader_status' => 1, 'dept_head_status' => 0, 'fac_officer_status' => 0, 'coo_status' => 0];
+        } elseif ($access == 6){
+            return ['dept_status' => 1, 'leader_status' => 1, 'dept_head_status' => 1, 'fac_officer_status' => 0, 'coo_status' => 0];
+        } elseif ($access == 7){
+            return ['dept_status' => 1, 'leader_status' => 1, 'dept_head_status' => 1, 'fac_officer_status' => 1, 'coo_status' => 0];
+        }
+    }
+
+    function getUsername($id){
+        global $conn;
+        $account = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_account WHERE id='$id'"));
+        return $account['username'];
+    }
+
+?>
 
 <!-- Pending Approvals -->
 <div class="container-fluid" id="pending_reports" style="display: block;">   
@@ -21,19 +43,31 @@
                     <table class="table table-bordered table-striped" id="pending_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
                             <tr>
-                                <th>Request ID</th>
                                 <th>Date</th>
+                                <th>Model</th>
                                 <th>Department</th>
-                                <th>Approval Level</th>
+                                <th>Quantity</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
+
+                            <?php 
+                                $userId = $_SESSION['SESS_USERID'];
+                                $userAccess = $_SESSION['SESS_LEVEL'];
+                                $userStatus = checkPendingStatus($userAccess);
+
+                                $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.dept_status={$userStatus['dept_status']} AND tbl_response.leader_status={$userStatus['leader_status']} AND tbl_response.dept_head_status={$userStatus['dept_head_status']} AND tbl_response.factory_status={$userStatus['fac_officer_status']} AND tbl_response.coo_status={$userStatus['coo_status']} AND (tbl_request.dept_id=$userId OR tbl_request.leader_id=$userId OR tbl_request.dept_head_id=$userId OR tbl_request.fac_officer_id=$userId OR tbl_request.coo_id=$userId)");
+                                if (mysqli_num_rows($result) > 0) {
+                                    while($row = mysqli_fetch_assoc($result)){
+
+                            ?>
+
                             <tr>
-                                <td style="table-layout: fixed; width: 20%;">REQ12346</td>
-                                <td style="table-layout: fixed; width: 20%;">2023-10-02</td>
-                                <td style="table-layout: fixed; width: 22%;">Finance</td>
-                                <td style="table-layout: fixed; width: 20%;">Level 2</td>
+                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
+                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
+                                <td style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUsername($row['dept_id']) : '' ?></td>
+                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                 <td style="table-layout: fixed; width: 18%;">
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                         <button class="btn btn-success mr-2">Approve</button>
@@ -41,6 +75,12 @@
                                     </form>
                                 </td>
                             </tr>
+
+                            <?php 
+                                    }
+                                }
+                            ?>
+
                         </tbody>
                     </table>
                 </div>
@@ -70,10 +110,10 @@
                     <table class="table table-bordered table-striped" id="approved_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
                             <tr>
-                                <th>Request ID</th>
                                 <th>Date</th>
+                                <th>Model</th>
                                 <th>Department</th>
-                                <th>Approval Level</th>
+                                <th>Quantity</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -119,10 +159,10 @@
                     <table class="table table-bordered table-striped" id="rejected_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
                             <tr>
-                                <th>Request ID</th>
                                 <th>Date</th>
+                                <th>Model</th>
                                 <th>Department</th>
-                                <th>Approval Level</th>
+                                <th>Quantity</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
