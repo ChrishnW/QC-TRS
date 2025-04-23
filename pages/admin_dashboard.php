@@ -266,8 +266,8 @@
                 <option value="<?php echo $role ?>" hidden><?php echo $roleName ?></option>
                 <option value="2">Requestor</option>
                 <option value="3">Editor</option>
-                <option value="4">Line Leader</option>
-                <option value="5">Department Head</option>
+                <option value="4">Department Head</option>
+                <option value="5">QC Surpevisor</option>
                 <option value="6">Factory Officer</option>
                 <option value="7">Chief Operating Officer</option>
             </select>
