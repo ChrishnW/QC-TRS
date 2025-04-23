@@ -196,7 +196,7 @@
                                         $department = $row['dept_status'];
                                         $line_leader = $row['leader_status'];
                                         $department_head = $row['dept_head_status'];
-                                        $factory_officer = $row['factory_status'];
+                                        $factory_officer = $row['fac_officer_status'];
                                         $coo = $row['coo_status'];
 
                                         $department_status = getApprovalStatus($department);
@@ -282,7 +282,7 @@
                                         $department = $row['dept_status'];
                                         $line_leader = $row['leader_status'];
                                         $department_head = $row['dept_head_status'];
-                                        $factory_officer = $row['factory_status'];
+                                        $factory_officer = $row['fac_officer_status'];
                                         $coo = $row['coo_status'];
 
                                         $department_status = getApprovalStatus($department);
@@ -409,7 +409,7 @@
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>Factory Officer: </b> <?php echo isset($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
-                                            <h6 class="ml-3 <?php echo isset($view_request['fac_officer_id']) ? getApprovalStatusColor($view_request['factory_status']) : '' ?>"><i><?php echo isset($view_request['fac_officer_id']) ? getApprovalStatus($view_request['factory_status']) : '' ?></i></h6>
+                                            <h6 class="ml-3 <?php echo isset($view_request['fac_officer_id']) ? getApprovalStatusColor($view_request['fac_officer_status']) : '' ?>"><i><?php echo isset($view_request['fac_officer_id']) ? getApprovalStatus($view_request['fac_officer_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>COO: </b> <?php echo isset($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
@@ -694,7 +694,7 @@
                                             </div>
                                             <div class="row px-2">
                                                 <h6><b>Factory Officer: </b> <?php echo isset($response_request['fac_officer_id']) ? getUsername($response_request['fac_officer_id']) : '' ?></h6>
-                                                <h6 class="ml-3 <?php echo isset($response_request['fac_officer_id']) ? getApprovalStatusColor($response_request['factory_status']) : '' ?>"><i><?php echo isset($response_request['fac_officer_id']) ? getApprovalStatus($response_request['factory_status']) : '' ?></i></h6>
+                                                <h6 class="ml-3 <?php echo isset($response_request['fac_officer_id']) ? getApprovalStatusColor($response_request['fac_officer_status']) : '' ?>"><i><?php echo isset($response_request['fac_officer_id']) ? getApprovalStatus($response_request['fac_officer_status']) : '' ?></i></h6>
                                             </div>
                                             <div class="row px-2">
                                                 <h6><b>COO: </b> <?php echo isset($response_request['coo_id']) ? getUsername($response_request['coo_id']) : '' ?></h6>

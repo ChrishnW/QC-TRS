@@ -152,7 +152,7 @@
                                 $userAccess = $_SESSION['SESS_LEVEL'];
                                 $userStatus = checkPendingStatus($userAccess);
 
-                                $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.dept_status={$userStatus['dept_status']} AND tbl_response.leader_status={$userStatus['leader_status']} AND tbl_response.dept_head_status={$userStatus['dept_head_status']} AND tbl_response.factory_status={$userStatus['fac_officer_status']} AND tbl_response.coo_status={$userStatus['coo_status']} AND (tbl_request.dept_id=$userId OR tbl_request.leader_id=$userId OR tbl_request.dept_head_id=$userId OR tbl_request.fac_officer_id=$userId OR tbl_request.coo_id=$userId)");
+                                $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.dept_status={$userStatus['dept_status']} AND tbl_response.leader_status={$userStatus['leader_status']} AND tbl_response.dept_head_status={$userStatus['dept_head_status']} AND tbl_response.fac_officer_status={$userStatus['fac_officer_status']} AND tbl_response.coo_status={$userStatus['coo_status']} AND (tbl_request.dept_id=$userId OR tbl_request.leader_id=$userId OR tbl_request.dept_head_id=$userId OR tbl_request.fac_officer_id=$userId OR tbl_request.coo_id=$userId)");
                                 if (mysqli_num_rows($result) > 0) {
                                     while($row = mysqli_fetch_assoc($result)){
                             ?>
@@ -224,7 +224,7 @@
                                 } elseif ($userAccess == 5){
                                     $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.dept_head_status=$approvedStatus AND tbl_request.dept_head_id=$userId");
                                 } elseif ($userAccess == 6){
-                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.factory_status=$approvedStatus AND tbl_request.fac_officer_id=$userId");
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.fac_officer_status=$approvedStatus AND tbl_request.fac_officer_id=$userId");
                                 } elseif ($userAccess == 7){
                                     $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.coo_status=$approvedStatus AND tbl_request.coo_id=$userId");
                                 }
@@ -300,7 +300,7 @@
                                 } elseif ($userAccess == 5){
                                     $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.dept_head_status=$rejectedStatus AND tbl_request.dept_head_id=$userId");
                                 } elseif ($userAccess == 6){
-                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.factory_status=$rejectedStatus AND tbl_request.fac_officer_id=$userId");
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.fac_officer_status=$rejectedStatus AND tbl_request.fac_officer_id=$userId");
                                 } elseif ($userAccess == 7){
                                     $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response on tbl_request.id=tbl_response.request_id WHERE tbl_response.coo_status=$rejectedStatus AND tbl_request.coo_id=$userId");
                                 }
@@ -420,7 +420,7 @@
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>Factory Officer: </b> <?php echo isset($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
-                                            <h6 class="ml-3 <?php echo isset($view_request['fac_officer_id']) ? getApprovalStatusColor($view_request['factory_status']) : '' ?>"><i><?php echo isset($view_request['fac_officer_id']) ? getApprovalStatus($view_request['factory_status']) : '' ?></i></h6>
+                                            <h6 class="ml-3 <?php echo isset($view_request['fac_officer_id']) ? getApprovalStatusColor($view_request['fac_officer_status']) : '' ?>"><i><?php echo isset($view_request['fac_officer_id']) ? getApprovalStatus($view_request['fac_officer_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>COO: </b> <?php echo isset($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
