@@ -5,7 +5,7 @@
   function get_roleName($role) {
     switch ($role) {
       case 2:
-        return "Filer";
+        return "requestor";
       case 3:
         return "Maker";
       case 4:
@@ -201,7 +201,7 @@
             <label for="role" class="form-label">Role <span style="color: red;">*</span></label>
             <select name="role" class="form-control" required >
                 <option value="" hidden></option>
-                <option value="2">Filer</option>
+                <option value="2">requestor</option>
                 <option value="3">Maker</option>
                 <option value="4">Line Leader</option>
                 <option value="5">Department Head</option>
@@ -264,7 +264,7 @@
             <label for="role" class="form-label">Role <span style="color: red;">*</span></label>
             <select name="role" class="form-control" required >
                 <option value="<?php echo $role ?>" hidden><?php echo $roleName ?></option>
-                <option value="2">Filer</option>
+                <option value="2">requestor</option>
                 <option value="3">Maker</option>
                 <option value="4">Line Leader</option>
                 <option value="5">Department Head</option>
