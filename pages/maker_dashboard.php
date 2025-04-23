@@ -28,24 +28,24 @@
 
         if($_SESSION['viewer_request'] == 'ongoing'){
             echo "<script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    display_ongoing();
-                });
-            </script>";
+                    document.addEventListener('DOMContentLoaded', function() {
+                        display_ongoing();
+                    });
+                </script>";
         }else if($_SESSION['viewer_request'] == 'finished'){
             echo "<script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    display_finished();
-                });
-            </script>";
+                    document.addEventListener('DOMContentLoaded', function() {
+                        display_finished();
+                    });
+                </script>";
         }
         
         echo "<script>     
-            document.addEventListener('DOMContentLoaded', function() {
-                document.getElementById('view_ongoing').style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            });
-        </script>";
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('view_ongoing').style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            </script>";
     }
 
     // Display request update form ..............................................................................
@@ -55,15 +55,14 @@
         $response_request = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.id='$request_id' AND tbl_response.id='$response_id'"));
 
         echo "<script>     
-            document.addEventListener('DOMContentLoaded', function() {
-                document.getElementById('reponse_report_form').style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            });
-        </script>";
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('reponse_report_form').style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            </script>";
     }
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
         // View the request form ongoing ........................................................................
         if(isset($_POST['view_request_ongoing'])){
             $_SESSION['request_id'] = $_POST['request_id'];
@@ -135,7 +134,6 @@
             exit();
         }
     }
-
 ?>
 
 <!-- Ongoing Trouble Report -->
@@ -150,6 +148,7 @@
                     <button id="finishedBtn" type="button" class="btn btn-outline-primary" onclick="display_finished()">Finished</button>
                 </div>
             </div>
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped" id="ongoing_dataTable" width="100%" cellspacing="0">
@@ -168,8 +167,8 @@
                                 <th class="text-center align-middle border-top-0">COO</th>
                             </tr>
                         </thead>
+
                         <tbody>
-                            
                             <?php
 
                                 $dept_id = $_SESSION['SESS_USERID'];
@@ -237,6 +236,7 @@
                     <button id="finishedBtn" type="button" class="btn btn-outline-primary active" onclick="display_finished()">Finished</button>
                 </div>
             </div>
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped" id="finished_dataTable" width="100%" cellspacing="0">
@@ -255,8 +255,8 @@
                                 <th class="text-center align-middle border-top-0">COO</th>
                             </tr>
                         </thead>
+
                         <tbody>
-                            
                             <?php
                                 $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.status=1 AND tbl_request.dept_id='$dept_id'"); 
                                 if(mysqli_num_rows($result) > 0) {
@@ -340,7 +340,9 @@
                                         <h3><b>Good</b></h3>
                                     </div>
                                 </div>
+
                                 <br>
+
                                 <div class="row align-items-center mb-2">
                                     <div class="col-auto">
                                         <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
@@ -853,37 +855,37 @@
 
 <!-- Pop up for Message -->
 <div class="modal" tabindex="-1" id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-primary">
-        <h5 class="modal-title text-white">Notification</h5>
-        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" id="close_popup">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title text-white">Notification</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" id="close_popup">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-      <?php
-        if(isset($_SESSION["message"])){
-          $message = $_SESSION["message"];
-      
-          echo "<script> 
-            document.addEventListener('DOMContentLoaded', function () {
-              document.getElementById('popup').style.display = 'block'; 
-            }); 
-          </script>";
-      ?>
-      
-      <div class="modal-body my-2">
-        <p class="h5"> <?php echo $message ?></p>
-      </div>
+            <?php
+                if(isset($_SESSION["message"])){
+                $message = $_SESSION["message"];
+            
+                echo "<script> 
+                        document.addEventListener('DOMContentLoaded', function () {
+                            document.getElementById('popup').style.display = 'block'; 
+                        }); 
+                    </script>";
+            ?>
+            
+            <div class="modal-body my-2">
+                <p class="h5"> <?php echo $message ?></p>
+            </div>
 
-      <?php
-          unset($_SESSION["message"]);
-        }
-      ?>
+            <?php
+                unset($_SESSION["message"]);
+                }
+            ?>
 
+        </div>
     </div>
-  </div>
 </div>
 
 <?php include '../include/footer.php'; ?>
@@ -919,11 +921,8 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-
         document.getElementById('close_popup').addEventListener('click', function () {
             document.getElementById('popup').style.display = 'none';
         });
-    
     });
-
 </script>

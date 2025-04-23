@@ -109,7 +109,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small pt-2"><h3><?php echo $_SESSION['SESS_USERID'] ? getUser($_SESSION['SESS_USERID']) : '' ?></h3></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small pt-2"><?php echo $_SESSION['SESS_USERID'] ? getUser($_SESSION['SESS_USERID']) : '' ?></span>
                 <img class="img-profile rounded-circle" src="../assets/img/undraw_profile.svg" alt="Picture">
               </a>
 

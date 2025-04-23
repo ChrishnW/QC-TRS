@@ -1,69 +1,64 @@
 <?php 
-include '../include/header_filer.php'; 
+    include '../include/header_filer.php'; 
 
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if(isset($_POST['request_submit'])) {
+            $date = $_POST['date'];
+            $department = $_POST['department'];
+            $model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_SPECIAL_CHARS);
+            $quantity = filter_input(INPUT_POST, 'quantity', FILTER_SANITIZE_NUMBER_INT);
+            $lot = filter_input(INPUT_POST, 'lot', FILTER_SANITIZE_NUMBER_INT);
+            $serial = filter_input(INPUT_POST, 'serial', FILTER_SANITIZE_NUMBER_INT);
+            $temp = filter_input(INPUT_POST, 'temp', FILTER_SANITIZE_NUMBER_INT);
+            $findings = filter_input(INPUT_POST, 'findings', FILTER_SANITIZE_SPECIAL_CHARS);
+            $origin = filter_input(INPUT_POST, 'origin', FILTER_SANITIZE_SPECIAL_CHARS);
+            $check = filter_input(INPUT_POST, 'check', FILTER_SANITIZE_SPECIAL_CHARS);
+            $found_qc = filter_input(INPUT_POST, 'found_qc', FILTER_SANITIZE_SPECIAL_CHARS);
+            $found_ai = filter_input(INPUT_POST, 'found_ai', FILTER_SANITIZE_SPECIAL_CHARS);
+            $due_date = $_POST['due_date'];
+            $leader = $_POST['leader'];
+            $head = $_POST['head'];
+            $officer = $_POST['officer'];
+            $coo = $_POST['coo'];
+            $status = 0;
 
+            if(isset($_FILES["image_good"]) && $_FILES['image_good']['error'] == 0 && isset($_FILES["image_not_good"]) && $_FILES['image_not_good']['error'] == 0) {
+                $image_good_raw = $_FILES["image_good"]["name"];
+                $image_good = str_replace(" ", "_", $image_good_raw);
+                $image_good_path = "IMG/GOOD/" . $image_good;
+                $img_temp_path_good = $_FILES["image_good"]["tmp_name"];
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                move_uploaded_file($img_temp_path_good, $image_good_path);
 
-    if(isset($_POST['request_submit'])) {
-        $date = $_POST['date'];
-        $department = $_POST['department'];
-        $model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_SPECIAL_CHARS);
-        $quantity = filter_input(INPUT_POST, 'quantity', FILTER_SANITIZE_NUMBER_INT);
-        $lot = filter_input(INPUT_POST, 'lot', FILTER_SANITIZE_NUMBER_INT);
-        $serial = filter_input(INPUT_POST, 'serial', FILTER_SANITIZE_NUMBER_INT);
-        $temp = filter_input(INPUT_POST, 'temp', FILTER_SANITIZE_NUMBER_INT);
-        $findings = filter_input(INPUT_POST, 'findings', FILTER_SANITIZE_SPECIAL_CHARS);
-        $origin = filter_input(INPUT_POST, 'origin', FILTER_SANITIZE_SPECIAL_CHARS);
-        $check = filter_input(INPUT_POST, 'check', FILTER_SANITIZE_SPECIAL_CHARS);
-        $found_qc = filter_input(INPUT_POST, 'found_qc', FILTER_SANITIZE_SPECIAL_CHARS);
-        $found_ai = filter_input(INPUT_POST, 'found_ai', FILTER_SANITIZE_SPECIAL_CHARS);
-        $due_date = $_POST['due_date'];
-        $leader = $_POST['leader'];
-        $head = $_POST['head'];
-        $officer = $_POST['officer'];
-        $coo = $_POST['coo'];
-        $status = 0;
+                $image_notgood_raw = $_FILES["image_not_good"]["name"];
+                $image_notgood = str_replace(" ", "_", $image_notgood_raw);
+                $image_notgood_path = "IMG/NOTGOOD/" . $image_notgood;
+                $img_temp_path_notgood = $_FILES["image_not_good"]["tmp_name"];
 
-        if(isset($_FILES["image_good"]) && $_FILES['image_good']['error'] == 0 && isset($_FILES["image_not_good"]) && $_FILES['image_not_good']['error'] == 0) {
-
-            $image_good_raw = $_FILES["image_good"]["name"];
-            $image_good = str_replace(" ", "_", $image_good_raw);
-            $image_good_path = "IMG/GOOD/" . $image_good;
-            $img_temp_path_good = $_FILES["image_good"]["tmp_name"];
-
-            move_uploaded_file($img_temp_path_good, $image_good_path);
-
-            $image_notgood_raw = $_FILES["image_not_good"]["name"];
-            $image_notgood = str_replace(" ", "_", $image_notgood_raw);
-            $image_notgood_path = "IMG/NOTGOOD/" . $image_notgood;
-            $img_temp_path_notgood = $_FILES["image_not_good"]["tmp_name"];
-
-            move_uploaded_file($img_temp_path_notgood, $image_notgood_path);
-            
-            $result = mysqli_query($conn, "INSERT INTO tbl_request (date, model, lot, serial, temp, findings, origin1, origin2, finder_qc, finder_ai, qty, img_ng, img_g, due_date, dept_id, leader_id, dept_head_id, fac_officer_id, coo_id, status) VALUES ('$date', '$model', '$lot', '$serial', '$temp', '$findings', '$origin', '$check', '$found_qc', '$found_ai', '$quantity', '$image_notgood_path', '$image_good_path', '$due_date', '$department', '$leader', '$head', '$officer', '$coo', '$status')");
-
-            if($result) {
-                $last_id = mysqli_insert_id($conn);
-                $approver_status = 0;
-
-                mysqli_query($conn, "INSERT INTO tbl_response (request_id, dept_status, leader_status, dept_head_status, factory_status, coo_status) VALUES ('$last_id', '$approver_status', '$approver_status', '$approver_status', '$approver_status', '$approver_status')");
+                move_uploaded_file($img_temp_path_notgood, $image_notgood_path);
                 
-                $_SESSION["message"] = "Request submitted successfully.";
+                $result = mysqli_query($conn, "INSERT INTO tbl_request (date, model, lot, serial, temp, findings, origin1, origin2, finder_qc, finder_ai, qty, img_ng, img_g, due_date, dept_id, leader_id, dept_head_id, fac_officer_id, coo_id, status) VALUES ('$date', '$model', '$lot', '$serial', '$temp', '$findings', '$origin', '$check', '$found_qc', '$found_ai', '$quantity', '$image_notgood_path', '$image_good_path', '$due_date', '$department', '$leader', '$head', '$officer', '$coo', '$status')");
+
+                if($result) {
+                    $last_id = mysqli_insert_id($conn);
+                    $approver_status = 0;
+
+                    mysqli_query($conn, "INSERT INTO tbl_response (request_id, dept_status, leader_status, dept_head_status, factory_status, coo_status) VALUES ('$last_id', '$approver_status', '$approver_status', '$approver_status', '$approver_status', '$approver_status')");
+                    
+                    $_SESSION["message"] = "Request submitted successfully.";
+                } else {
+                    $_SESSION["message"] = "Failed to submit request. Please try again.";
+                }
+
             } else {
-                $_SESSION["message"] = "Failed to submit request. Please try again.";
+                $_SESSION["message"] = "Failed to upload images. Please try again.";
             }
 
-        } else {
-            $_SESSION["message"] = "Failed to upload images. Please try again.";
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit;
         }
-
-        header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
-        ob_end_flush();
-        exit;
     }
-}
-
 ?>
 
 <div class="container-fluid">
@@ -286,47 +281,45 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!-- Pop up for Message -->
 <div class="modal" tabindex="-1" id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-primary">
-        <h5 class="modal-title text-white">Notification</h5>
-        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" id="close_popup">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title text-white">Notification</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" id="close_popup">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-      <?php
-        if(isset($_SESSION["message"])){
-          $message = $_SESSION["message"];
-      
-          echo "<script> 
-            document.addEventListener('DOMContentLoaded', function () {
-              document.getElementById('popup').style.display = 'block'; 
-            }); 
-          </script>";
-      ?>
-      
-      <div class="modal-body my-2">
-        <p class="h5"> <?php echo $message ?></p>
-      </div>
+            <?php
+                if(isset($_SESSION["message"])){
+                $message = $_SESSION["message"];
+            
+                echo "<script> 
+                            document.addEventListener('DOMContentLoaded', function () {
+                                document.getElementById('popup').style.display = 'block'; 
+                            }); 
+                        </script>";
+            ?>
+            
+            <div class="modal-body my-2">
+                <p class="h5"> <?php echo $message ?></p>
+            </div>
 
-      <?php
-          unset($_SESSION["message"]);
-        }
-      ?>
+            <?php
+                unset($_SESSION["message"]);
+                }
+            ?>
 
+        </div>
     </div>
-  </div>
 </div>
 
 <?php include '../include/footer.php'; ?>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-
         document.getElementById('close_popup').addEventListener('click', function () {
-        document.getElementById('popup').style.display = 'none';
-        });
-        
+            document.getElementById('popup').style.display = 'none';
+        });      
     });
 </script>

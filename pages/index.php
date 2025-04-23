@@ -1,7 +1,6 @@
 <?php include '../include/header.php'; ?>
 
 <div class="container-fluid mt-n5">
-    <!-- Center Content Using Bootstrap -->
     <div class="row justify-content-center align-items-center" style="height: 80vh;">
         <div class="col-md-6 text-center">
             <div class="error mx-auto" data-text="404" style="font-size: 6rem; font-weight: bold;">404</div>
