@@ -325,11 +325,11 @@
           $statusName = get_statusName($status);
 
           echo "<script> 
-            document.addEventListener('DOMContentLoaded', function () {
-              document.getElementById('modal_edit_account').style.display = 'block'; 
-              document.body.style.overflow = 'hidden';
-            });
-          </script>"; 
+                  document.addEventListener('DOMContentLoaded', function () {
+                    document.getElementById('modal_edit_account').style.display = 'block'; 
+                    document.body.style.overflow = 'hidden';
+                  });
+                </script>"; 
       ?>
 
       <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" style="width: 100%; max-width: 600px;">
@@ -383,8 +383,10 @@
         </div>
 
         <div class="modal-footer">
-          <input type="submit" name="edit_account_submit" value="Save" class="btn btn-primary pr-3">
-          <input type="reset" name="reset" value="Cancel" onclick="close_edit_account()" class="btn btn-secondary ml-2">
+          <div class="">
+            <input type="submit" name="edit_account_submit" value="Save" class="btn btn-primary pr-3">
+            <input type="reset" name="reset" value="Cancel" onclick="close_edit_account()" class="btn btn-secondary ml-2">
+          </div>
         </div>
       </form>
 
@@ -413,11 +415,11 @@
           $id = $_SESSION["delete_account_id"];
 
           echo "<script> 
-                document.addEventListener('DOMContentLoaded', function () {
-                  document.getElementById('modal_delete_account').style.display = 'block'; 
-                  document.body.style.overflow = 'hidden';
-                });
-              </script>";
+                  document.addEventListener('DOMContentLoaded', function () {
+                    document.getElementById('modal_delete_account').style.display = 'block'; 
+                    document.body.style.overflow = 'hidden';
+                  });
+                </script>";
       ?>
 
       <div class="modal-body">
@@ -458,11 +460,11 @@
           $message = $_SESSION["message"];
       
           echo "<script> 
-                document.addEventListener('DOMContentLoaded', function () {
-                  document.getElementById('popup').style.display = 'block'; 
-                  document.body.style.overflow = 'hidden'; 
-                }); 
-              </script>";
+                  document.addEventListener('DOMContentLoaded', function () {
+                    document.getElementById('popup').style.display = 'block'; 
+                    document.body.style.overflow = 'hidden'; 
+                  }); 
+                </script>";
       ?>
       
       <div class="modal-body my-2">
