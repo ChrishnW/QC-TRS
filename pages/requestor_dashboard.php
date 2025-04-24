@@ -29,8 +29,13 @@
 
     function getUsername($id){
         global $conn;
-        $account = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_account WHERE id='$id'"));
-        return $account['username'];
+        $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id = '$id'");
+        if ($result) {
+                $row = mysqli_fetch_assoc($result);
+            return $row['firstname'] . " " . $row['lastname'];
+        } else {
+            return null;
+        }
     }
 
     // Display request form ..............................................................................
@@ -680,7 +685,7 @@
                                                 while($row = mysqli_fetch_assoc($result)) {
                                         ?>
                                         
-                                        <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+                                        <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
 
                                         <?php 
                                                 }

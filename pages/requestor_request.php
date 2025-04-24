@@ -93,7 +93,7 @@
                                         while($row = mysqli_fetch_assoc($result)) {
                                 ?>
                                 
-                                <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
 
                                 <?php 
                                         }
