@@ -36,12 +36,14 @@
 
     // Add account ....................................................................................
     if (isset($_POST['add_account'])) {
+      $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
       $fname = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_SPECIAL_CHARS);
       $lname = filter_input(INPUT_POST, 'lname', FILTER_SANITIZE_SPECIAL_CHARS);
-      $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
 
+      // Concatenate first name and last name for username
       $name = $fname . " " . $lname;
-      $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+      $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
       $role = $_POST['role'];
       $pass = 12345;
       $password = password_hash($pass, PASSWORD_DEFAULT);
@@ -73,10 +75,16 @@
     // Edit account submit ...........................................................................
     if (isset($_POST['edit_account_submit'])) {
       $id = $_POST['id'];
-      $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+      $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+      $fname = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_SPECIAL_CHARS);
+      $lname = filter_input(INPUT_POST, 'lname', FILTER_SANITIZE_SPECIAL_CHARS);
+
+      // Concatenate first name and last name for username
+      $name = $fname . " " . $lname;
+
+      $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
       $role = $_POST['role'];
       $status = $_POST['status'];
-
       $result = mysqli_query($conn, "UPDATE tbl_account SET username='$name', access='$role', status='$status' WHERE id='$id'");
 
       if($result){
