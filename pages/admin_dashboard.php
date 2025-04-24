@@ -41,7 +41,7 @@
       $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
 
       $name = $fname . " " . $lname;
-      $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+      // $email = filter_var($email, FILTER_SANITIZE_EMAIL);
       $role = $_POST['role'];
       $pass = 12345;
       $password = password_hash($pass, PASSWORD_DEFAULT);
@@ -138,6 +138,7 @@
             <thead class="bg-primary text-white">
               <tr>
                 <th>ID</th>
+                <th>Username</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
@@ -152,8 +153,9 @@
                 if(mysqli_num_rows($result) > 0){
                   while($row = mysqli_fetch_assoc($result)){
                     $id = $row['id'];
+                    // $username = $username['name'];
                     $name = $row['username'];
-                    $email = $email['email'];
+                    // $email = $email['email'];
                     $role = $row['access'];
                     $roleName = get_roleName($role);
                     $status = $row['status'];
@@ -162,8 +164,9 @@
 
               <tr>
                 <td class="text-left align-middle"><?php echo $id ?></td>
+                <td class="text-left align-middle"></td>
                 <td class="text-left align-middle"><?php echo $name ?></td>
-                <td class="text-left align-middle"><?php echo $email ?></td>
+                <td class="text-left align-middle"></td>
                 <td class="text-left align-middle"><?php echo $roleName ?></td>
                 <td class="text-left align-middle"><?php echo $statusName ?></td>
                 <td style="table-layout: fixed; width: 15%;">
