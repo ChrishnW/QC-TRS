@@ -268,6 +268,7 @@
           $id = $_SESSION["edit_account_id"];
           $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id='$id' ");
           $row = mysqli_fetch_assoc($result);
+          
           $name = $row['username'];
           $role = $row['access'];
           $status = $row['status'];
@@ -290,22 +291,22 @@
           </div>
 
           <div class="mb-3">
-            <label for="name" class="form-label">Username <span style="color: red;"></span></label>
-            <input type="text" name="name" class="form-control" value="<?php  ?>">
+            <label for="username" class="form-label">Username <span style="color: red;"></span></label>
+            <input type="text" name="username" class="form-control" value="<?php  ?>">
           </div>
 
           <div class="mb-3">
-            <label for="name" class="form-label">First Name <span style="color: red;"></span></label>
-            <input type="text" name="fname" class="form-control" value="<?php  ?>">
+            <label for="fname" class="form-label">First Name <span style="color: red;">*</span></label>
+            <input type="text" name="fname" class="form-control" required value="<?php ?>">
           </div>
 
           <div class="mb-3">
-            <label for="name" class="form-label">Last Name <span style="color: red;"></span></label>
-            <input type="text" name="lname" class="form-control" value="<?php  ?>">
+            <label for="lname" class="form-label">Last Name <span style="color: red;">*</span></label>
+            <input type="text" name="lname" class="form-control" required value="<?php ?>">
           </div>
 
           <div class="mb-3">
-            <label for="name" class="form-label">Email <span style="color: red;"></span></label>
+            <label for="email" class="form-label">Email <span style="color: red;"></span></label>
             <input type="text" name="email" class="form-control" value="<?php  ?>">
           </div>
 
