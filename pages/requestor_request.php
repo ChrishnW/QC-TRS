@@ -193,7 +193,7 @@
                                         while($row = mysqli_fetch_assoc($result)) {
                                 ?>
                                 
-                                <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
 
                                 <?php 
                                         }
@@ -214,7 +214,7 @@
                                         while($row = mysqli_fetch_assoc($result)) {
                                 ?>
                                 
-                                <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
 
                                 <?php 
                                         }
@@ -237,7 +237,7 @@
                                         while($row = mysqli_fetch_assoc($result)) {
                                 ?>
                                 
-                                <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
 
                                 <?php 
                                         }
@@ -258,7 +258,7 @@
                                         while($row = mysqli_fetch_assoc($result)) {
                                 ?>
                                 
-                                <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
 
                                 <?php 
                                         }
@@ -297,6 +297,7 @@
                 echo "<script> 
                             document.addEventListener('DOMContentLoaded', function () {
                                 document.getElementById('popup').style.display = 'block'; 
+                                document.body.style.overflow = 'hidden';
                             }); 
                         </script>";
             ?>
@@ -320,6 +321,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('close_popup').addEventListener('click', function () {
             document.getElementById('popup').style.display = 'none';
+            document.body.style.overflow = 'auto';
         });      
     });
 </script>
