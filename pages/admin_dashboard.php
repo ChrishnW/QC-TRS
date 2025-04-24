@@ -138,7 +138,9 @@
             <thead class="bg-primary text-white">
               <tr>
                 <th>ID</th>
+                <th>Username</th>
                 <th>Name</th>
+                <th>Email</th>
                 <th>Role</th>
                 <th>Status</th>
                 <th style="width: 170px;">Actions</th>
@@ -160,7 +162,9 @@
 
               <tr>
                 <td class="text-left align-middle"><?php echo $id ?></td>
+                <td class="text-left align-middle"><?php ?></td>
                 <td class="text-left align-middle"><?php echo $name ?></td>
+                <td class="text-left align-middle"><?php ?></td>
                 <td class="text-left align-middle"><?php echo $roleName ?></td>
                 <td class="text-left align-middle"><?php echo $statusName ?></td>
                 <td style="table-layout: fixed; width: 15%;">
@@ -290,6 +294,11 @@
           <div class="mb-3">
             <label for="name" class="form-label">Last Name <span style="color: red;"></span></label>
             <input type="text" name="lname" class="form-control" value="<?php  ?>">
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Email <span style="color: red;"></span></label>
+            <input type="text" name="email" class="form-control" value="<?php  ?>">
           </div>
 
           <div class="mb-3">
