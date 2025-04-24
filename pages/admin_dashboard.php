@@ -275,6 +275,7 @@
           echo "<script> 
             document.addEventListener('DOMContentLoaded', function () {
               document.getElementById('modal_edit_account').style.display = 'block'; 
+              document.body.style.overflow = 'hidden';
             });
           </script>"; 
       ?>
@@ -362,6 +363,7 @@
           echo "<script> 
                 document.addEventListener('DOMContentLoaded', function () {
                   document.getElementById('modal_delete_account').style.display = 'block'; 
+                  document.body.style.overflow = 'hidden';
                 });
               </script>";
       ?>
@@ -406,6 +408,7 @@
           echo "<script> 
                 document.addEventListener('DOMContentLoaded', function () {
                   document.getElementById('popup').style.display = 'block'; 
+                  document.body.style.overflow = 'hidden'; 
                 }); 
               </script>";
       ?>
@@ -432,23 +435,28 @@
 
   function close_add_account(){
     document.getElementById("modal_add_account").style.display = "none";
+    document.body.style.overflow = "auto"; 
   }
 
   function close_edit_account(){
     document.getElementById("modal_edit_account").style.display = "none";
+    document.body.style.overflow = "auto"; 
   }
 
   function close_delete_account(){
     document.getElementById("modal_delete_account").style.display = "none";
+    document.body.style.overflow = "auto"; 
   }
 
   document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('close_popup').addEventListener('click', function () {
       document.getElementById('popup').style.display = 'none';
+      document.body.style.overflow = 'auto';
     });
 
     document.getElementById("btn_add_account").addEventListener("click", function() {
       document.getElementById("modal_add_account").style.display = "block";
+      document.body.style.overflow = "hidden"; 
     });
   });
 </script>
