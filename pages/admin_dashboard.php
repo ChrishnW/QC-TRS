@@ -106,6 +106,32 @@
 
       $result = mysqli_query($conn, "UPDATE tbl_account SET username='$username', firstname='$firstname', lastname='$lastname', email='$email', access='$role', status='$status' WHERE id='$id'");
 
+      // Validate email format
+      // if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      //   $_SESSION["message"] = "Invalid email format.";
+      //   header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+      //   ob_end_flush();
+      //   exit;
+      // }
+
+      // Check for duplicate username
+      // $check_username = mysqli_query($conn, "SELECT * FROM tbl_account WHERE username='$username'");
+      // if (mysqli_num_rows($check_username) > 0) {
+      //     $_SESSION["message"] = "Username already exists.";
+      //     header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+      //     ob_end_flush();
+      //     exit;
+      // }
+
+      // Check for duplicate email
+      // $check_email = mysqli_query($conn, "SELECT * FROM tbl_account WHERE email='$email'");
+      // if (mysqli_num_rows($check_email) > 0) {
+      //     $_SESSION["message"] = "Email already exists.";
+      //     header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+      //     ob_end_flush();
+      //     exit;
+      // }
+
       if($result){
           $_SESSION["message"] = "Account updated successfully.";
       }
@@ -234,22 +260,22 @@
         <div class="modal-body">
           <div class="mb-3">
             <label for="username" class="form-label">Username <span style="color: red;">*</span></label>
-            <input type="text" name="username" id="username" class="form-control" required>
+            <input type="text" name="username" id="username" class="form-control" maxlength="24" required>
           </div>
 
           <div class="mb-3">
             <label for="firstname" class="form-label">First Name <span style="color: red;">*</span></label>
-            <input type="text" name="firstname" id="firstname" class="form-control" required>
+            <input type="text" name="firstname" id="firstname" class="form-control" maxlength="24" required>
           </div>
 
           <div class="mb-3">
             <label for="lastname" class="form-label">Last Name <span style="color: red;">*</span></label>
-            <input type="text" name="lastname" id="lastname" class="form-control" required>
+            <input type="text" name="lastname" id="lastname" class="form-control" maxlength="24" required>
           </div>
 
           <div class="mb-3">
             <label for="email" class="form-label">Email <span style="color: red;"></span></label>
-            <input type="text" name="email" id="email" class="form-control" required>
+            <input type="email" size="30" name="email" id="email" class="form-control" required>
           </div>
 
           <div class="mb-3">
@@ -315,17 +341,17 @@
 
           <div class="mb-3">
             <label for="username" class="form-label">Username <span style="color: red;">*</span></label>
-            <input type="text" name="username" id="username" class="form-control" required value="<?php echo $row['username'] ?? '' ?>">
+            <input type="text" name="username" id="username" class="form-control" maxlength="24" required value="<?php echo $row['username'] ?? '' ?>">
           </div>
 
           <div class="mb-3">
             <label for="firstname" class="form-label">First Name <span style="color: red;">*</span></label>
-            <input type="text" name="firstname" id="firstname" class="form-control" required value="<?php echo $row['firstname'] ?? '' ?>">
+            <input type="text" name="firstname" id="firstname" class="form-control" maxlength="24" required value="<?php echo $row['firstname'] ?? '' ?>">
           </div>
 
           <div class="mb-3">
             <label for="lastname" class="form-label">Last Name <span style="color: red;">*</span></label>
-            <input type="text" name="lastname" id="lastname" class="form-control" required value="<?php echo $row['lastname'] ?? '' ?>">
+            <input type="text" name="lastname" id="lastname" class="form-control" maxlength="24" required value="<?php echo $row['lastname'] ?? '' ?>">
           </div>
 
           <div class="mb-3">
