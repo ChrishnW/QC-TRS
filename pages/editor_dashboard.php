@@ -14,6 +14,17 @@
         }
     }
 
+    function getDeptStatus($status) {
+        switch ($status) {
+            case 0:
+                return "Pending";
+            case 1:
+                return "Submitted";
+            default:
+                return "Unknown";
+        }
+    }
+
     function getApprovalStatusColor($status) {
         switch ($status) {
             case 0:
@@ -204,7 +215,7 @@
                                         $factory_officer = $row['fac_officer_status'];
                                         $coo = $row['coo_status'];
 
-                                        $department_status = getApprovalStatus($department);
+                                        $department_status = getDeptStatus($department);
                                         $line_leader_status = getApprovalStatus($line_leader);
                                         $department_head_status = getApprovalStatus($department_head);
                                         $factory_officer_status = getApprovalStatus($factory_officer);
@@ -290,7 +301,7 @@
                                         $factory_officer = $row['fac_officer_status'];
                                         $coo = $row['coo_status'];
 
-                                        $department_status = getApprovalStatus($department);
+                                        $department_status = getDeptStatus($department);
                                         $line_leader_status = getApprovalStatus($line_leader);
                                         $department_head_status = getApprovalStatus($department_head);
                                         $factory_officer_status = getApprovalStatus($factory_officer);
