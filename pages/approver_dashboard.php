@@ -658,8 +658,8 @@
             </div>
 
             <div class="modal-footer">
-                <button class="btn btn-success" data-toggle="modal" data-target="#approveModal">Approve</button>
-                <button class="btn btn-danger" data-toggle="modal" data-target="#rejectModal">Reject</button>
+                <button class="btn btn-success" data-toggle="modal" data-target="#approveModal" style="display: <?php echo $_SESSION['viewer_request'] == 'approved' ? 'none' : 'block' ?>;">Approve</button>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#rejectModal" style="display: <?php echo $_SESSION['viewer_request'] == 'rejected' ? 'none' : 'block' ?>;">Reject</button>
             </div> 
 
         </div>
