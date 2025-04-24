@@ -161,7 +161,9 @@
                 if(mysqli_num_rows($result) > 0){
                   while($row = mysqli_fetch_assoc($result)){
                     $id = $row['id'];
+                    $username = $row['username'];
                     $name = $row['username'];
+                    $email = $row['email'];
                     $role = $row['access'];
                     $roleName = get_roleName($role);
                     $status = $row['status'];
@@ -170,9 +172,9 @@
 
               <tr>
                 <td class="text-left align-middle"><?php echo $id ?></td>
-                <td class="text-left align-middle"><?php ?></td>
+                <td class="text-left align-middle"><?php echo $username?></td>
                 <td class="text-left align-middle"><?php echo $name ?></td>
-                <td class="text-left align-middle"><?php ?></td>
+                <td class="text-left align-middle"><?php echo $email?></td>
                 <td class="text-left align-middle"><?php echo $roleName ?></td>
                 <td class="text-left align-middle"><?php echo $statusName ?></td>
                 <td style="table-layout: fixed; width: 15%;">
@@ -210,22 +212,22 @@
       <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" style="width: 100%; max-width: 600px;">
         <div class="modal-body">
           <div class="mb-3">
-            <label for="" class="form-label">Username <span style="color: red;"></span></label>
+            <label for="username" class="form-label">Username <span style="color: red;"></span></label>
             <input type="text" name="fname" class="form-control">
           </div>
 
           <div class="mb-3">
-            <label for="" class="form-label">First Name <span style="color: red;">*</span></label>
+            <label for="fname" class="form-label">First Name <span style="color: red;">*</span></label>
             <input type="text" name="fname" class="form-control" required>
           </div>
 
           <div class="mb-3">
-            <label for="" class="form-label">Last Name <span style="color: red;">*</span></label>
+            <label for="lname" class="form-label">Last Name <span style="color: red;">*</span></label>
             <input type="text" name="lname" class="form-control" required>
           </div>
 
           <div class="mb-3">
-            <label for="" class="form-label">Email <span style="color: red;"></span></label>
+            <label for="email" class="form-label">Email <span style="color: red;"></span></label>
             <input type="text" name="email" class="form-control">
           </div>
 
@@ -297,7 +299,7 @@
 
           <div class="mb-3">
             <label for="username" class="form-label">Username <span style="color: red;"></span></label>
-            <input type="text" name="username" class="form-control" value="<?php  ?>">
+            <input type="text" name="username" class="form-control" value="<?php echo $username?>">
           </div>
 
           <div class="mb-3">
@@ -312,7 +314,7 @@
 
           <div class="mb-3">
             <label for="email" class="form-label">Email <span style="color: red;"></span></label>
-            <input type="text" name="email" class="form-control" value="<?php  ?>">
+            <input type="text" name="email" class="form-control" value="<?php echo $email ?>">
           </div>
 
           <div class="mb-3">
