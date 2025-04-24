@@ -612,17 +612,65 @@
             </div>
 
             <div class="modal-footer">
-                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center mr-4">
-                    <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
-                    <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
-
-                    <input type="submit" name="edit_request" class="btn btn-danger" value="This button is for approve or reject" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;" disabled>
-                    <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary ml-2">
-                </form>
+                <button class="btn btn-success" data-toggle="modal" data-target="#approveModal">Approve</button>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#rejectModal">Reject</button>
             </div> 
 
         </div>
     </div>    
+</div>
+
+<!-- Pop up for Approve report -->
+<div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-success">
+                <h5 class="modal-title text-white" id="exampleModalLabel">Trouble Report</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="h5">Are you sure you want to <b>Approve</b> this report?</p> 
+            </div>
+            <div class="modal-footer">
+                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                    <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
+                    <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
+
+                    <input type="submit" name="approve_request_submit" value="Confirm" class="submit btn btn-success pr-3" disabled> 
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Pop up for Reject report -->
+<div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-danger">
+                <h5 class="modal-title text-white" id="exampleModalLabel">Trouble Report</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="h5">Are you sure you want to <b>Reject</b> this report?</p> 
+            </div>
+            <div class="modal-footer">
+                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                    <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
+                    <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
+
+                    <input type="submit" name="reject_request_submit" value="Confirm" class="submit btn btn-danger pr-3" disabled> 
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php 
