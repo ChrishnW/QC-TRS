@@ -162,7 +162,7 @@
                                 <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
                                 <td class="text-left align-middle" style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUsername($row['dept_id']) : '' ?></td>
                                 <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
-                                <td style="table-layout: fixed; width: 18%;">
+                                <td style="table-layout: fixed; width: 10%;">
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                         <input type="hidden" name="request_id" value="<?php echo $row['request_id'] ?>">
                                         <input type="hidden" name="response_id" value="<?php echo $row['id'] ?>">
@@ -349,7 +349,7 @@
 
             <div class="modal-body">
                 <div class="container-fluid justify-content-center align-items-center">
-                    <div class="card mb-4 bg-light">
+                    <div class="card shadow mb-4 bg-light">
                         <div class="col">
                             <div class="card  text-center my-2">
                                 <h2 class="mt-2"><b>ROOT CAUSE ANALYSIS</b></h2>
@@ -440,10 +440,10 @@
                 </div>
                         
                 <div class="container-fluid justify-content-center align-items-center">
-                    <div class="card mb-4 bg-light">
+                    <div class="card shadow mb-4 bg-light">
                         <!-- Reason -->
                         <div class="col">
-                            <div class="card  text-center my-2">
+                            <div class="card text-center my-2">
                                 <h2 class="mt-2"><b>REASON:</b></h2>
                             </div>
 
@@ -454,7 +454,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['man'] ?? '' ?></p>
                                     </div>
@@ -468,7 +468,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['method'] ?? '' ?></p>
                                     </div>
@@ -482,7 +482,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['material'] ?? '' ?></p>
                                     </div>
@@ -496,7 +496,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['machine'] ?? '' ?></p>
                                     </div>
@@ -505,7 +505,7 @@
                         </div>
                     </div>
 
-                    <div class="card mb-4 bg-light">
+                    <div class="card shadow mb-4 bg-light">
                         <!-- Correction -->
                         <div class="col">
                             <div class="card  text-center my-2">
@@ -522,7 +522,7 @@
                         </div>
                     </div>
 
-                    <div class="card mb-4 bg-light">
+                    <div class="card shadow mb-4 bg-light">
                         <!-- Corrective Action -->
                         <div class="col">
                             <div class="card  text-center my-2">
@@ -587,7 +587,7 @@
                         </div>
                     </div>
 
-                    <div class="card mb-2 bg-light">
+                    <div class="card shadow mb-2 bg-light">
                         <!-- Remarks -->
                         <div class="col">
                             <div class="card  text-center my-2">
