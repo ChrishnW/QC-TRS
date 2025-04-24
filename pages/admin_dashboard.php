@@ -265,16 +265,21 @@
 
       <?php
         if (isset($_SESSION["edit_account_id"])) {
-          $id = $_SESSION["edit_account_id"];
-          $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id='$id' ");
-          $row = mysqli_fetch_assoc($result);
-          
-          $name = $row['username'];
-          $role = $row['access'];
-          $status = $row['status'];
+            $id = $_SESSION["edit_account_id"];
+            $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id='$id' ");
+            $row = mysqli_fetch_assoc($result);
+            
+            $name = $row['username'];
+            $role = $row['access'];
+            $status = $row['status'];
 
-          $roleName = get_roleName($role);
-          $statusName = get_statusName($status);
+            // Split the name into first name and last name
+            $nameParts = explode(" ", $name, 2);
+            $fname = $nameParts[0];
+            $lname = isset($nameParts[1]) ? $nameParts[1] : "";
+
+            $roleName = get_roleName($role);
+            $statusName = get_statusName($status);
 
           echo "<script> 
                   document.addEventListener('DOMContentLoaded', function () {
@@ -297,12 +302,12 @@
 
           <div class="mb-3">
             <label for="fname" class="form-label">First Name <span style="color: red;">*</span></label>
-            <input type="text" name="fname" class="form-control" required value="<?php ?>">
+            <input type="text" name="fname" class="form-control" required value="<?php echo $fname ?>">
           </div>
 
           <div class="mb-3">
             <label for="lname" class="form-label">Last Name <span style="color: red;">*</span></label>
-            <input type="text" name="lname" class="form-control" required value="<?php ?>">
+            <input type="text" name="lname" class="form-control" required value="<?php echo $lname ?>">
           </div>
 
           <div class="mb-3">
