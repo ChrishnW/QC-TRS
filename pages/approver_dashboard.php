@@ -111,6 +111,27 @@
         exit();
     }
 
+    function checkStatusApproveNext($response_id){
+        global $conn;
+        $access = $_SESSION['SESS_LEVEL'] + 1;
+
+        $result = mysqli_query($conn, "SELECT * FROM tbl_response where id='$response_id'  ");
+        $row = mysqli_fetch_assoc($result);
+
+        if($access = 5 && $row['supervisor_status'] != 0){
+            return false;
+        }
+        elseif($access = 6 && $row['fac_officer_status'] != 0){
+            return false;
+        }
+        elseif($access = 7 && $row['coo_status'] != 0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
     
         // View request form pending ..............................................................................
