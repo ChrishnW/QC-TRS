@@ -51,7 +51,7 @@
   <div id="wrapper">
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="filer_dashboard.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="requestor_dashboard.php">
         <div class="sidebar-brand-icon">
         <img src="../assets/img/logo.png" alt="" class="img-fluid" style="width: 45px;">
         </div>
@@ -61,7 +61,7 @@
       <hr class="sidebar-divider my-0">
 
       <li class="nav-item">
-        <a class="nav-link" href="../pages/filer_dashboard.php">
+        <a class="nav-link" href="../pages/requestor_dashboard.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
