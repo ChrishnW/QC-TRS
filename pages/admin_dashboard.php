@@ -273,6 +273,11 @@
           </div>
 
           <div class="mb-3">
+            <label for="name" class="form-label">Username <span style="color: red;">*</span></label>
+            <input type="text" name="name" class="form-control" required value="<?php echo $name ?>">
+          </div>
+
+          <div class="mb-3">
             <label for="name" class="form-label">Name <span style="color: red;">*</span></label>
             <input type="text" name="name" class="form-control" required value="<?php echo $name ?>">
           </div>

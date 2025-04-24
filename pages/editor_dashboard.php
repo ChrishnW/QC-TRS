@@ -345,28 +345,28 @@
 
                         <div class="container-fluid row">
                             <div class="card col mb-2">
-                                <div class="card mt-2 bg-light">
+                                <!-- <div class="card mt-2 bg-light">
                                     <div class="col text-center mt-2">
                                         <h3><b>Not Good</b></h3>
                                     </div>  
-                                </div>
+                                </div> -->
 
-                                <div class="row align-items-center mt-2" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                     <div class="col-auto">
-                                        <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                        <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>                 
                                 </div>
 
                                 <br>
 
-                                <div class="card mt-2 bg-light">
+                                <!-- <div class="card mt-2 bg-light">
                                     <div class="col text-center mt-2">
                                         <h3><b>Good</b></h3>
                                     </div>
-                                </div>
+                                </div> -->
                                 
-                                <div class="row align-items-center mb-2" style="flex-grow: 1; display: flex; flex-direction: column;">
-                                    <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                    <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                 </div>
                             </div>
 
@@ -383,7 +383,7 @@
                                     </div>       
                                 </div>
 
-                                <div class="card col mb-2 flex-grow-1" style="max-height: auto; overflow-y: auto;">
+                                <div class="card col mb-2 flex-grow-1" style="max-height: 120px; overflow-y: auto;">
                                     <div class="p-2">
                                         <h6><b>Findings: </b> <?php echo $view_request['findings'] ?? '' ?></h6>
                                     </div>
@@ -636,74 +636,80 @@
                             </div>
 
                             <div class="container-fluid row">
-                                <div class="card  col mb-2">
-                                    <div class="row align-items-center mt-2">
+                                <div class="card col mb-2">
+                                    <!-- <div class="card mt-2 bg-light">
+                                        <div class="col text-center mt-2">
+                                            <h3><b>Not Good</b></h3>
+                                        </div>  
+                                    </div> -->
+
+                                    <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                         <div class="col-auto">
-                                            <img src="<?php echo $response_request['img_g'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
-                                        </div>
-                                        <div class="col text-center">
+                                            <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                        </div>                 
+                                    </div>
+
+                                    <br>
+
+                                    <!-- <div class="card mt-2 bg-light">
+                                        <div class="col text-center mt-2">
                                             <h3><b>Good</b></h3>
                                         </div>
-                                    </div>
-                                    <br>
-                                    <div class="row align-items-center mb-2">
-                                        <div class="col-auto">
-                                            <img src="<?php echo $response_request['img_ng'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
-                                        </div>
-                                        <div class="col text-center">
-                                            <h3><b>Not Good</b></h3>
-                                        </div>
+                                    </div> -->
+                                    
+                                    <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                        <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>
                                 </div>
 
-                                <div class="container-fluid mr-n5 col">
-                                    <div class="card  col mb-2">
-                                        <div class="px-1 pt-2">
-                                            <h6><b>Date: </b> <?php echo $response_request['date'] ?? '' ?></h6>                
-                                            <h6><b>Model: </b> <?php echo $response_request['model'] ?? '' ?></h6>
-                                            <h6><b>Department: </b> <?php echo isset($response_request['dept_id']) ? getUsername($response_request['dept_id']) : '' ?></h6>            
-                                            <h6><b>Lot No. </b> <?php echo $response_request['lot'] ?? '' ?></h6>
-                                            <h6><b>Serial No. </b> <?php echo $response_request['serial'] ?? '' ?></h6>
-                                            <h6><b>Temp No. </b> <?php echo $response_request['temp'] ?? '' ?></h6>    
-                                            <h6><b>Quantity: </b> <?php echo $response_request['qty'] ?? '' ?></h6>   
+                                <div class="container-fluid mr-n5 col d-flex flex-column align-items-stretch">
+                                    <div class="card col mb-2 flex-grow-1">
+                                        <div class="p-2">
+                                            <h6><b>Date: </b> <?php echo $view_request['date'] ?? '' ?></h6>                
+                                            <h6><b>Model: </b> <?php echo $view_request['model'] ?? '' ?></h6>
+                                            <h6><b>Department: </b> <?php echo isset($view_request['dept_id']) ? getUsername($view_request['dept_id']) : '' ?></h6>            
+                                            <h6><b>Lot No. </b> <?php echo $view_request['lot'] ?? '' ?></h6>
+                                            <h6><b>Serial No. </b> <?php echo $view_request['serial'] ?? '' ?></h6>
+                                            <h6><b>Temp No. </b> <?php echo $view_request['temp'] ?? '' ?></h6>    
+                                            <h6><b>Quantity: </b> <?php echo $view_request['qty'] ?? '' ?></h6>   
                                         </div>       
                                     </div>
 
-                                    <div class="card  col mb-2" style="height: 100px;">
-                                        <div class="px-1 pt-2">
-                                            <h6><b>Findings: </b> <?php echo $response_request['findings'] ?? '' ?></h6>
-                                        </div>
-                                    </div>
-                            
-                                    <div class="card  col mb-2"> 
-                                        <div class="px-1 pt-2">                   
-                                            <h6><b>Trouble Origin (100%): </b><?php echo $response_request['origin1'] ?? '' ?></h6>
-                                            <h6><b>Checked By (200%): </b> <?php echo $response_request['origin2'] ?? '' ?></h6>
-                                            <h6><b>Found by (QC): </b> <?php echo $response_request['finder_qc'] ?? '' ?></h6>
-                                            <h6><b>Found by (AI): </b> <?php echo $response_request['finder_ai'] ?? '' ?></h6>
-                                            <h6><b>Due Date: </b> <?php echo $response_request['due_date'] ?? '' ?></h6>
+                                    <div class="card col mb-2 flex-grow-1" style="max-height: 120px; overflow-y: auto;">
+                                        <div class="p-2">
+                                            <h6><b>Findings: </b> <?php echo $view_request['findings'] ?? '' ?></h6>
                                         </div>
                                     </div>
 
-                                    <div class="card col mb-2">
-                                        <div class="col px-1 pt-2">
+                                    <div class="card col mb-2 flex-grow-1" style="max-height: 150px;"> 
+                                        <div class="p-2">                 
+                                            <h6><b>Trouble Origin (100%): </b><?php echo $view_request['origin1'] ?? '' ?></h6>
+                                            <h6><b>Checked By (200%): </b> <?php echo $view_request['origin2'] ?? '' ?></h6>
+                                            <h6><b>Found by (QC): </b> <?php echo $view_request['finder_qc'] ?? '' ?></h6>
+                                            <h6><b>Found by (AI): </b> <?php echo $view_request['finder_ai'] ?? '' ?></h6>
+                                            <h6><b>Due Date: </b> <?php echo $view_request['due_date'] ?? '' ?></h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="card col mb-2 flex-grow-1" style="max-height: 180px;">
+                                        <div class="col p-2">
                                             <h5 class="mt-1 mb-n1"><b>Approval</b></h5>
                                             <hr>
                                             <div class="row px-2">
-                                                <h6><b>Department Head: </b> <?php echo isset($response_request['dept_head_id']) ? getUsername($response_request['dept_head_id']) : '' ?></h6>
-                                                <h6 class="ml-3 <?php echo isset($response_request['dept_head_id']) ? getApprovalStatusColor($response_request['dept_head_status']) : '' ?>"><i><?php echo isset($response_request['dept_head_id']) ? getApprovalStatus($response_request['dept_head_status']) : '' ?></i></h6>
+                                                <h6><b>Department Head: </b> <?php echo isset($view_request['dept_head_id']) ? getUsername($view_request['dept_head_id']) : '' ?></h6>
+                                                <h6 class="ml-3 <?php echo isset($view_request['dept_head_id']) ? getApprovalStatusColor($view_request['dept_head_status']) : '' ?>"><i><?php echo isset($view_request['dept_head_id']) ? getApprovalStatus($view_request['dept_head_status']) : '' ?></i></h6>
                                             </div>
                                             <div class="row px-2">
-                                                <h6><b>QC Supervisor: </b> <?php echo isset($response_request['supervisor_id']) ? getUsername($response_request['supervisor_id']) : '' ?></h6>
-                                                <h6 class="ml-3 <?php echo isset($response_request['supervisor_id']) ? getApprovalStatusColor($response_request['supervisor_status']) : '' ?>"><i><?php echo isset($response_request['supervisor_id']) ? getApprovalStatus($response_request['supervisor_status']) : '' ?></i></h6>
+                                                <h6><b>QC Supervisor: </b> <?php echo isset($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
+                                                <h6 class="ml-3 <?php echo isset($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['supervisor_status']) : '' ?>"><i><?php echo isset($view_request['supervisor_id']) ? getApprovalStatus($view_request['supervisor_status']) : '' ?></i></h6>
                                             </div>
                                             <div class="row px-2">
-                                                <h6><b>Factory Officer: </b> <?php echo isset($response_request['fac_officer_id']) ? getUsername($response_request['fac_officer_id']) : '' ?></h6>
-                                                <h6 class="ml-3 <?php echo isset($response_request['fac_officer_id']) ? getApprovalStatusColor($response_request['fac_officer_status']) : '' ?>"><i><?php echo isset($response_request['fac_officer_id']) ? getApprovalStatus($response_request['fac_officer_status']) : '' ?></i></h6>
+                                                <h6><b>Factory Officer: </b> <?php echo isset($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
+                                                <h6 class="ml-3 <?php echo isset($view_request['fac_officer_id']) ? getApprovalStatusColor($view_request['fac_officer_status']) : '' ?>"><i><?php echo isset($view_request['fac_officer_id']) ? getApprovalStatus($view_request['fac_officer_status']) : '' ?></i></h6>
                                             </div>
                                             <div class="row px-2">
-                                                <h6><b>COO: </b> <?php echo isset($response_request['coo_id']) ? getUsername($response_request['coo_id']) : '' ?></h6>
-                                                <h6 class="ml-3 <?php echo isset($response_request['coo_id']) ? getApprovalStatusColor($response_request['coo_status']) : '' ?>"><i><?php echo isset($response_request['coo_id']) ? getApprovalStatus($response_request['coo_status']) : '' ?></i></h6>
+                                                <h6><b>COO: </b> <?php echo isset($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
+                                                <h6 class="ml-3 <?php echo isset($view_request['coo_id']) ? getApprovalStatusColor($view_request['coo_status']) : '' ?>"><i><?php echo isset($view_request['coo_id']) ? getApprovalStatus($view_request['coo_status']) : '' ?></i></h6>
                                             </div>
                                         </div>
                                     </div>
