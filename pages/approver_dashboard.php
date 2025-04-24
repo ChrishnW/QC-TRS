@@ -22,13 +22,13 @@
     function getApprovalStatus($status) {
         switch ($status) {
             case 0:
-                return "Pending";
+                return '<span class="badge badge-pill badge-primary"><i class="fas fa-clock"></i> Pending</span>';
             case 1:
-                return "Approved";
+                return '<span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Approved</span>';
             case 2:
-                return "Rejected";
+                return '<span class="badge badge-pill badge-danger"><i class="fas fa-times"></i> Rejected</span>';
             default:
-                return "Unknown";
+                return '<span class="badge badge-pill badge-secondary"><i class="fas fa-question"></i> Unknown</span>';
         }
     }
 
