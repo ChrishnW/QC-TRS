@@ -45,6 +45,32 @@
       $password = password_hash($pass, PASSWORD_DEFAULT);
       $status = 1;
 
+      // Validate email format
+      // if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      //   $_SESSION["message"] = "Invalid email format.";
+      //   header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+      //   ob_end_flush();
+      //   exit;
+      // }
+
+      // Check for duplicate username
+      // $check_username = mysqli_query($conn, "SELECT * FROM tbl_account WHERE username='$username'");
+      // if (mysqli_num_rows($check_username) > 0) {
+      //     $_SESSION["message"] = "Username already exists.";
+      //     header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+      //     ob_end_flush();
+      //     exit;
+      // }
+
+      // Check for duplicate email
+      // $check_email = mysqli_query($conn, "SELECT * FROM tbl_account WHERE email='$email'");
+      // if (mysqli_num_rows($check_email) > 0) {
+      //     $_SESSION["message"] = "Email already exists.";
+      //     header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+      //     ob_end_flush();
+      //     exit;
+      // }
+
       $result = mysqli_query($conn, "INSERT INTO tbl_account (username, firstname, lastname, email, password, access, status) VALUES ('$username', '$firstname', '$lastname', '$email', '$password', '$role', '$status')");
 
       if($result){
