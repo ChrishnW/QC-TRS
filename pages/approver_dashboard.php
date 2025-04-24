@@ -86,17 +86,30 @@
         </script>";
     }
 
-    // if(isset($_SESSION['request_id_answered']) && isset($_SESSION['response_id_answered'])){
-    //     $request_id_answered = $_SESSION['request_id_answered'];
-    //     $response_id_answered = $_SESSION['response_id_answered'];
-    //     $status = $_SESSION['status'];
+    function updateRequest($request_id, $response_id, $status){
+        $access = $_SESSION['SESS_LEVEL'];
+        global $conn;
 
-    //     mysqli_query($conn, "UPDATE tbl_response SET dept_head_status='$status' WHERE id='$response_id_answered' AND request_id='$request_id_answered'");
-        
-    //     unset($_SESSION['request_id_answered']);
-    //     unset($_SESSION['response_id_answered']);
-    //     unset($_SESSION['status']);
-    // }
+        if ($access == 4){
+            mysqli_query($conn, "UPDATE tbl_response SET dept_head_status='$status' WHERE id='$response_id'");
+        } elseif ($access == 5){
+            mysqli_query($conn, "UPDATE tbl_response SET supervisor_status='$status' WHERE id='$response_id'");
+        } elseif ($access == 6){
+            mysqli_query($conn, "UPDATE tbl_response SET fac_officer_status='$status' WHERE id='$response_id'");
+        } elseif ($access == 7){
+            mysqli_query($conn, "UPDATE tbl_response SET coo_status='$status' WHERE id='$response_id'");
+
+            if($status == 1){
+                mysqli_query($conn, "UPDATE tbl_request SET status='1' WHERE id='$request_id'");
+            } elseif($status == 2){
+                mysqli_query($conn, "UPDATE tbl_request SET status='0' WHERE id='$request_id'");
+            }
+        }
+
+        header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+        ob_end_flush();
+        exit();
+    }
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
     
@@ -135,25 +148,20 @@
 
         // Approve request submit ..............................................................................
         if(isset($_POST['approve_request_submit'])){
-            $_SESSION['request_id_answered'] = $_POST['request_id_answered'];
-            $_SESSION['response_id_answered'] = $_POST['response_id_answered'];
-            $_SESSION['status'] = '1';
+            $request_id = $_POST['request_id_answered'];
+            $response_id = $_POST['response_id_answered'];
+            $status = '1';
 
-            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
-            ob_end_flush();
-            exit();
-
+            updateRequest($request_id, $response_id, $status);
         }
 
         // Reject request submit ..............................................................................
-        if(isset($_POST['approve_request_submit'])){
-            $_SESSION['request_id_answered'] = $_POST['request_id_answered'];
-            $_SESSION['response_id_answered'] = $_POST['response_id_answered'];
-            $_SESSION['status'] = '2';
+        if(isset($_POST['reject_request_submit'])){
+            $request_id = $_POST['request_id_answered'];
+            $response_id = $_POST['response_id_answered'];
+            $status = '2';
 
-            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
-            ob_end_flush();
-            exit();
+            updateRequest($request_id, $response_id, $status);
         }
     
     }
@@ -676,7 +684,7 @@
                     <input type="hidden" name="request_id_answered" value="<?php echo $view_request['request_id'] ?>">
                     <input type="hidden" name="response_id_answered" value="<?php echo $view_request['id'] ?>">
 
-                    <input type="submit" name="approve_request_submit" value="Confirm" class="submit btn btn-success pr-3" disabled> 
+                    <input type="submit" name="approve_request_submit" value="Confirm" class="submit btn btn-success pr-3"> 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </form>
             </div>
@@ -703,7 +711,7 @@
                     <input type="hidden" name="request_id_answered" value="<?php echo $view_request['request_id'] ?>">
                     <input type="hidden" name="response_id_answered" value="<?php echo $view_request['id'] ?>">
 
-                    <input type="submit" name="reject_request_submit" value="Confirm" class="submit btn btn-danger pr-3" disabled> 
+                    <input type="submit" name="reject_request_submit" value="Confirm" class="submit btn btn-danger pr-3"> 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </form>
             </div>
