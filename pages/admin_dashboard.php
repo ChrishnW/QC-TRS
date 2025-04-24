@@ -47,7 +47,7 @@
       $password = password_hash($pass, PASSWORD_DEFAULT);
       $status = 1;
 
-      $result = mysqli_query($conn, "INSERT INTO tbl_account (username, password, access, status) VALUES ('$name', '$password', '$role', '$status')");
+      $result = mysqli_query($conn, "INSERT INTO tbl_account (username, password, access, status) VALUES ('$name', '$password', $email, '$role', '$status')");
 
       if($result){
           $_SESSION["message"] = "Account added successfully.";
@@ -77,7 +77,7 @@
       $role = $_POST['role'];
       $status = $_POST['status'];
 
-      $result = mysqli_query($conn, "UPDATE tbl_account SET username='$name', access='$role', status='$status' WHERE id='$id'");
+      $result = mysqli_query($conn, "UPDATE tbl_account SET username='$name', $email, access='$role', status='$status' WHERE id='$id'");
 
       if($result){
           $_SESSION["message"] = "Account updated successfully.";
@@ -139,6 +139,7 @@
               <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Email</th>
                 <th>Role</th>
                 <th>Status</th>
                 <th style="width: 170px;">Actions</th>
@@ -152,6 +153,7 @@
                   while($row = mysqli_fetch_assoc($result)){
                     $id = $row['id'];
                     $name = $row['username'];
+                    $email = $email['email'];
                     $role = $row['access'];
                     $roleName = get_roleName($role);
                     $status = $row['status'];
@@ -161,6 +163,7 @@
               <tr>
                 <td class="text-left align-middle"><?php echo $id ?></td>
                 <td class="text-left align-middle"><?php echo $name ?></td>
+                <td class="text-left align-middle"><?php echo $email ?></td>
                 <td class="text-left align-middle"><?php echo $roleName ?></td>
                 <td class="text-left align-middle"><?php echo $statusName ?></td>
                 <td style="table-layout: fixed; width: 15%;">
@@ -237,7 +240,7 @@
 
 <!-- Pop up for Edit Account -->
 <div class="modal" id="modal_edit_account" tabindex="-1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header bg-gradient-primary">
         <h5 class="modal-title text-white">Edit Account</h5>
@@ -252,6 +255,7 @@
           $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id='$id' ");
           $row = mysqli_fetch_assoc($result);
           $name = $row['username'];
+          // $email = $email['email'];
           $role = $row['access'];
           $status = $row['status'];
 
@@ -266,7 +270,7 @@
       ?>
 
       <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" style="width: 100%; max-width: 600px;">
-        <div class="modal-body">
+        <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
           <div class="mb-3">
             <label for="id" class="form-label">Id</label>
             <input type="text" name="id" class="form-control" required value="<?php echo $id ?>" readonly>
@@ -278,8 +282,18 @@
           </div>
 
           <div class="mb-3">
-            <label for="name" class="form-label">Name <span style="color: red;">*</span></label>
-            <input type="text" name="name" class="form-control" required value="<?php echo $name ?>">
+            <label for="name" class="form-label">First Name <span style="color: red;">*</span></label>
+            <input type="text" name="fname" class="form-control" required value="<?php echo $fname ?>">
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Last Name <span style="color: red;">*</span></label>
+            <input type="text" name="lname" class="form-control" required value="<?php echo $lname ?>">
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Email <span style="color: red;">*</span></label>
+            <input type="text" name="email" class="form-control" required value="<?php echo $email ?>">
           </div>
 
           <div class="mb-3">
