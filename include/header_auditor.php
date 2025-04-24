@@ -19,10 +19,10 @@
 
   function getUser($user_id){
     global $conn;
-    $result = mysqli_query($conn, "SELECT username FROM tbl_account WHERE id = '$user_id'");
+    $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id = '$user_id'");
     if ($result) {
       $row = mysqli_fetch_assoc($result);
-      return $row['username'];
+      return $row['firstname'] . " " . $row['lastname'];
     } else {
       return null;
     }
