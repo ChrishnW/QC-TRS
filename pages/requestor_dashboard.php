@@ -371,9 +371,9 @@
 
             <div class="modal-body">
                 <div class="container-fluid justify-content-center align-items-center">
-                    <div class="card mb-4 bg-light">
+                    <div class="card shadow mb-4 bg-light">
                         <div class="col">
-                            <div class="card  text-center my-2">
+                            <div class="card text-center my-2">
                                 <h2 class="mt-2"><b>ROOT CAUSE ANALYSIS</b></h2>
                             </div>             
                         </div>
@@ -462,10 +462,10 @@
                 </div>
                         
                 <div class="container-fluid justify-content-center align-items-center">
-                    <div class="card mb-4 bg-light">
+                    <div class="card shadow mb-4 bg-light">
                         <!-- Reason -->
                         <div class="col">
-                            <div class="card  text-center my-2">
+                            <div class="card text-center my-2">
                                 <h2 class="mt-2"><b>REASON:</b></h2>
                             </div>
 
@@ -476,7 +476,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['man'] ?? '' ?></p>
                                     </div>
@@ -490,7 +490,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['method'] ?? '' ?></p>
                                     </div>
@@ -504,7 +504,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['material'] ?? '' ?></p>
                                     </div>
@@ -512,13 +512,13 @@
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                     <div class="text-center m-2">
                                         <h5><b>Machine</b></h5>
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['machine'] ?? '' ?></p>
                                     </div>
@@ -527,15 +527,15 @@
                         </div>
                     </div>
 
-                    <div class="card mb-4 bg-light">
+                    <div class="card shadow mb-4 bg-light">
                         <!-- Correction -->
                         <div class="col">
-                            <div class="card  text-center my-2">
+                            <div class="card text-center my-2">
                                 <h2 class="mt-2"><b>CORRECTION:</b></h2>
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card " style="width: 98%;">
+                                <div class="card" style="width: 98%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['correction'] ?? '' ?></p>
                                     </div>
@@ -544,21 +544,21 @@
                         </div>
                     </div>
 
-                    <div class="card mb-4 bg-light">
+                    <div class="card shadow mb-4 bg-light">
                         <!-- Corrective Action -->
                         <div class="col">
-                            <div class="card  text-center my-2">
+                            <div class="card text-center my-2">
                                 <h2 class="mt-2"><b>CORRECTIVE ACTION:</b></h2>
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                     <div class="text-center m-2">
                                         <h5><b>Man</b></h5>
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['ca_man'] ?? '' ?></p>
                                     </div>
@@ -566,13 +566,13 @@
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                     <div class="text-center m-2">
                                         <h5><b>Method</b></h5>
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['ca_method'] ?? '' ?></p>
                                     </div>
@@ -580,13 +580,13 @@
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                     <div class="text-center m-2">
                                         <h5><b>Material</b></h5>
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['ca_material'] ?? '' ?></p>
                                     </div>
@@ -594,13 +594,13 @@
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                     <div class="text-center m-2">
                                         <h5><b>Machine</b></h5>
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['ca_machine'] ?? '' ?></p>
                                     </div>
@@ -609,15 +609,15 @@
                         </div>
                     </div>
 
-                    <div class="card mb-2 bg-light">
+                    <div class="card shadow mb-2 bg-light">
                         <!-- Remarks -->
                         <div class="col">
-                            <div class="card  text-center my-2">
+                            <div class="card text-center my-2">
                                 <h2 class="mt-2"><b>REMARKS:</b></h2>
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card " style="width: 98%;">
+                                <div class="card" style="width: 98%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['remarks'] ?? '' ?></p>
                                     </div>
