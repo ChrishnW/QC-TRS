@@ -37,19 +37,15 @@
     // Add account ....................................................................................
     if (isset($_POST['add_account'])) {
       $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
-      $fname = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_SPECIAL_CHARS);
-      $lname = filter_input(INPUT_POST, 'lname', FILTER_SANITIZE_SPECIAL_CHARS);
-
-      // Concatenate first name and last name for username
-      $name = $fname . " " . $lname;
-
+      $firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_SPECIAL_CHARS);
+      $lastname = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_SPECIAL_CHARS);
       $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
       $role = $_POST['role'];
       $pass = 12345;
       $password = password_hash($pass, PASSWORD_DEFAULT);
       $status = 1;
 
-      $result = mysqli_query($conn, "INSERT INTO tbl_account (username, password, access, status) VALUES ('$name', '$password', '$role', '$status')");
+      $result = mysqli_query($conn, "INSERT INTO tbl_account (username, firstname, lastname, email, password, access, status) VALUES ('$username', '$firstname', '$lastname', '$email', '$password', '$role', '$status')");
 
       if($result){
           $_SESSION["message"] = "Account added successfully.";
@@ -76,16 +72,13 @@
     if (isset($_POST['edit_account_submit'])) {
       $id = $_POST['id'];
       $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
-      $fname = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_SPECIAL_CHARS);
-      $lname = filter_input(INPUT_POST, 'lname', FILTER_SANITIZE_SPECIAL_CHARS);
-
-      // Concatenate first name and last name for username
-      $name = $fname . " " . $lname;
-
+      $firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_SPECIAL_CHARS);
+      $lastname = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_SPECIAL_CHARS);
       $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
       $role = $_POST['role'];
       $status = $_POST['status'];
-      $result = mysqli_query($conn, "UPDATE tbl_account SET username='$name', access='$role', status='$status' WHERE id='$id'");
+
+      $result = mysqli_query($conn, "UPDATE tbl_account SET username='$username', firstname='$firstname', lastname='$lastname', email='$email', access='$role', status='$status' WHERE id='$id'");
 
       if($result){
           $_SESSION["message"] = "Account updated successfully.";
@@ -146,8 +139,8 @@
             <thead class="bg-primary text-white">
               <tr>
                 <th>ID</th>
-                <th>Username</th>
                 <th>Name</th>
+                <th>Username</th>
                 <th>Email</th>
                 <th>Role</th>
                 <th>Status</th>
@@ -162,7 +155,9 @@
                   while($row = mysqli_fetch_assoc($result)){
                     $id = $row['id'];
                     $username = $row['username'];
-                    $name = $row['username'];
+                    $firstname = $row['firstname'];
+                    $lastname = $row['lastname'];
+                    $fullname = $firstname . " " . $lastname;
                     $email = $row['email'];
                     $role = $row['access'];
                     $roleName = get_roleName($role);
@@ -172,8 +167,8 @@
 
               <tr>
                 <td class="text-left align-middle"><?php echo $id ?></td>
-                <td class="text-left align-middle"><?php echo $username?></td>
-                <td class="text-left align-middle"><?php echo $name ?></td>
+                <td class="text-left align-middle"><?php echo $fullname?></td>
+                <td class="text-left align-middle"><?php echo $username ?></td>
                 <td class="text-left align-middle"><?php echo $email?></td>
                 <td class="text-left align-middle"><?php echo $roleName ?></td>
                 <td class="text-left align-middle"><?php echo $statusName ?></td>
@@ -212,28 +207,28 @@
       <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" style="width: 100%; max-width: 600px;">
         <div class="modal-body">
           <div class="mb-3">
-            <label for="username" class="form-label">Username <span style="color: red;"></span></label>
-            <input type="text" name="fname" class="form-control">
+            <label for="username" class="form-label">Username <span style="color: red;">*</span></label>
+            <input type="text" name="username" id="username" class="form-control" required>
           </div>
 
           <div class="mb-3">
-            <label for="fname" class="form-label">First Name <span style="color: red;">*</span></label>
-            <input type="text" name="fname" class="form-control" required>
+            <label for="firstname" class="form-label">First Name <span style="color: red;">*</span></label>
+            <input type="text" name="firstname" id="firstname" class="form-control" required>
           </div>
 
           <div class="mb-3">
-            <label for="lname" class="form-label">Last Name <span style="color: red;">*</span></label>
-            <input type="text" name="lname" class="form-control" required>
+            <label for="lastname" class="form-label">Last Name <span style="color: red;">*</span></label>
+            <input type="text" name="lastname" id="lastname" class="form-control" required>
           </div>
 
           <div class="mb-3">
             <label for="email" class="form-label">Email <span style="color: red;"></span></label>
-            <input type="text" name="email" class="form-control">
+            <input type="text" name="email" id="email" class="form-control" required>
           </div>
 
           <div class="mb-3">
             <label for="role" class="form-label">Role <span style="color: red;">*</span></label>
-            <select name="role" class="form-control" required >
+            <select name="role" id="role" class="form-control" required >
                 <option value="" hidden></option>
                 <option value="2">Requestor</option>
                 <option value="3">Editor</option>
@@ -267,27 +262,21 @@
 
       <?php
         if (isset($_SESSION["edit_account_id"])) {
-            $id = $_SESSION["edit_account_id"];
-            $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id='$id' ");
-            $row = mysqli_fetch_assoc($result);
-            
-            $name = $row['username'];
-            $role = $row['access'];
-            $status = $row['status'];
+          $id = $_SESSION["edit_account_id"];
+          $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id='$id' ");
+          $row = mysqli_fetch_assoc($result);
+          
+          $role = $row['access'];
+          $status = $row['status'];
 
-            // Split the name into first name and last name
-            $nameParts = explode(" ", $name, 2);
-            $fname = $nameParts[0];
-            $lname = isset($nameParts[1]) ? $nameParts[1] : "";
-
-            $roleName = get_roleName($role);
-            $statusName = get_statusName($status);
+          $roleName = get_roleName($role);
+          $statusName = get_statusName($status);
 
           echo "<script> 
-                  document.addEventListener('DOMContentLoaded', function () {
-                    document.getElementById('modal_edit_account').style.display = 'block'; 
-                  });
-                </script>"; 
+            document.addEventListener('DOMContentLoaded', function () {
+              document.getElementById('modal_edit_account').style.display = 'block'; 
+            });
+          </script>"; 
       ?>
 
       <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" style="width: 100%; max-width: 600px;">
@@ -298,28 +287,28 @@
           </div>
 
           <div class="mb-3">
-            <label for="username" class="form-label">Username <span style="color: red;"></span></label>
-            <input type="text" name="username" class="form-control" value="<?php echo $username?>">
+            <label for="username" class="form-label">Username <span style="color: red;">*</span></label>
+            <input type="text" name="username" id="username" class="form-control" required value="<?php echo $row['username'] ?? '' ?>">
           </div>
 
           <div class="mb-3">
-            <label for="fname" class="form-label">First Name <span style="color: red;">*</span></label>
-            <input type="text" name="fname" class="form-control" required value="<?php echo $fname ?>">
+            <label for="firstname" class="form-label">First Name <span style="color: red;">*</span></label>
+            <input type="text" name="firstname" id="firstname" class="form-control" required value="<?php echo $row['firstname'] ?? '' ?>">
           </div>
 
           <div class="mb-3">
-            <label for="lname" class="form-label">Last Name <span style="color: red;">*</span></label>
-            <input type="text" name="lname" class="form-control" required value="<?php echo $lname ?>">
+            <label for="lastname" class="form-label">Last Name <span style="color: red;">*</span></label>
+            <input type="text" name="lastname" id="lastname" class="form-control" required value="<?php echo $row['lastname'] ?? '' ?>">
           </div>
 
           <div class="mb-3">
             <label for="email" class="form-label">Email <span style="color: red;"></span></label>
-            <input type="text" name="email" class="form-control" value="<?php echo $email ?>">
+            <input type="text" name="email" id="email" class="form-control" required value="<?php echo $row['email'] ?? '' ?>">
           </div>
 
           <div class="mb-3">
             <label for="role" class="form-label">Role <span style="color: red;">*</span></label>
-            <select name="role" class="form-control" required >
+            <select name="role" id="role" class="form-control" required >
                 <option value="<?php echo $role ?>" hidden><?php echo $roleName ?></option>
                 <option value="2">Requestor</option>
                 <option value="3">Editor</option>
@@ -332,7 +321,7 @@
 
           <div class="mb-3">
             <label for="status" class="form-label">Status <span style="color: red;">*</span></label>
-            <select name="status" class="form-control" required >
+            <select name="status" id="status" class="form-control" required >
                 <option value="<?php echo $status ?>" hidden><?php echo $statusName ?></option>
                 <option value="1">Acive</option>
                 <option value="0">Inactive</option>
