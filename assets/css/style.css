@@ -1,12 +1,27 @@
 /* Change badge color when the button is hovered */
 #ongoingBtn:hover .badge {
     background-color: #FFFFFF; /* Bootstrap primary blue */
-    color: #007bff; /* White text */
+    color: #0275d8; /* White text */
 }
 
 #finishedBtn:hover .badge {
     background-color: #FFFFFF; /* Bootstrap primary blue */
-    color: #007bff; /* White text */
+    color: #0275d8; /* White text */
+}
+
+#display_pending:hover .badge{
+    background-color: #FFFFFF;
+    color: #0275d8;
+}
+
+#display_approved:hover .badge{
+    background-color: #FFFFFF;
+    color: #0275d8;
+}
+
+#display_rejected:hover .badge{
+    background-color: #FFFFFF;
+    color: #0275d8;
 }
 
 .pull-right {
