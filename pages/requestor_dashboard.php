@@ -645,72 +645,40 @@
                     </div>
 
                     <div class="card shadow mb-4 bg-light">
-                        <div class="col">
-                            <div class="row text-center">
-                                <div class="col-md-4">
-                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Verification</b></span>
-                                    </div>
-                                </div>
-                               
-                                <div class="col-md-2">
-                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Findings</b></span>
-                                    </div>
-                                </div>
+                        <div class="card m-2">
+                            <div class="table-responsive">
+                                <table class="table" id="closed_dataTable" width="100%" cellspacing="0">
+                                    <thead class="">
+                                        <tr class="text-center">
+                                            <th style="table-layout: fixed; width: 40%;"></th>
+                                            <th style="table-layout: fixed; width: 20%;">Findings</th>
+                                            <th style="table-layout: fixed; width: 20%;">Remarks</th>
+                                            <th style="table-layout: fixed; width: 10%;">Auditor</th>
+                                            <th style="table-layout: fixed; width: 10%;">Date</th>
+                                        </tr>
+                                    </thead>
 
-                                <div class="col-md-2">
-                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Remarks</b></span>
-                                    </div>
-                                </div>
+                                    <tbody>
+                                        <tr>
+                                            <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
 
-                                <div class="col-md-2">
-                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Auditor</b></span>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Date</b></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>After 3 months</b></span>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
-                                    </div>
-                                </div>
+                                        <tr>
+                                            <td>Effectiveness Verification (After 3 months)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </div>                    
+                    </div>                  
                 </div>
             </div>
 
