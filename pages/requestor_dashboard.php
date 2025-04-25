@@ -410,12 +410,6 @@
 
                         <div class="container-fluid row">
                             <div class="card col mb-2">
-                                <!-- <div class="card mt-2 bg-light">
-                                    <div class="col text-center mt-2">
-                                        <h3><b>Not Good</b></h3>
-                                    </div>  
-                                </div> -->
-
                                 <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                     <div class="col-auto">
                                         <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
@@ -424,12 +418,6 @@
 
                                 <br>
 
-                                <!-- <div class="card mt-2 bg-light">
-                                    <div class="col text-center mt-2">
-                                        <h3><b>Good</b></h3>
-                                    </div>
-                                </div> -->
-                                
                                 <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                     <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                 </div>
@@ -655,6 +643,74 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="card shadow mb-4 bg-light">
+                        <div class="col">
+                            <div class="row text-center">
+                                <div class="col-md-4">
+                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Verification</b></span>
+                                    </div>
+                                </div>
+                               
+                                <div class="col-md-2">
+                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Findings</b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Remarks</b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Auditor</b></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-2">
+                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Date</b></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>After 3 months</b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
                 </div>
             </div>
 
