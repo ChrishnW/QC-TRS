@@ -778,14 +778,14 @@
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="image_good">Image (Good) <span style="color: red;">*</span></label><br>
-                                    <input type="file" name="image_good" id="image_good" class="form-control" style="height: auto;" required accept=".jpg,.jpeg,.png,.pdf">
-                                </div>
-
-                                <div class="col-md-6">
                                     <label for="image_not_good">Image (Not Good) <span style="color: red;">*</span></label><br>
                                     <input type="file" name="image_not_good" id="image_not_good" class="form-control" style="height: auto;" required accept=".jpg,.jpeg,.png,.pdf">
                                 </div>
+
+                                <div class="col-md-6">
+                                    <label for="image_good">Image (Good) <span style="color: red;">*</span></label><br>
+                                    <input type="file" name="image_good" id="image_good" class="form-control" style="height: auto;" required accept=".jpg,.jpeg,.png,.pdf">
+                                </div>                               
                             </div>
 
                             <div class="row mb-3">
