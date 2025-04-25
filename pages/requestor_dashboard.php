@@ -129,8 +129,9 @@
 
             $result_request = mysqli_query($conn, "DELETE FROM tbl_request WHERE id='$request_id'");
             $result_response = mysqli_query($conn, "DELETE FROM tbl_response WHERE id='$response_id'");
+            $result_audit = mysqli_query($conn, "DELETE FROM tbl_audit WHERE response_id='$response_id'");
 
-            if($result_request && $result_response) {
+            if($result_request && $result_response && $result_audit) {
                 $_SESSION["message"] = "Report deleted successfully.";
             } else {
                 $_SESSION["message"] = "Failed to delete Report. Please try again.";
