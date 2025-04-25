@@ -117,9 +117,7 @@
                                     <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                     <td style="table-layout: fixed; width: 18%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
-
                                             <input type="hidden" name="audit_id" value="<?php echo $row['id'] ?? '' ?>">
-
                                             <input type="submit" name="view_pending" class="btn btn-primary mr-2" value="View" disabled>
                                         </form>
                                     </td>
@@ -178,12 +176,12 @@
                                 <tr>
                                     <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
                                     <td style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
-                                    <td style="table-layout: fixed; width: 22%;"><?php echo $row['date'] ?? '' ?></td>
+                                    <td style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUser($row['dept_id']) : '' ?></td>
                                     <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                     <td style="table-layout: fixed; width: 18%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
-                                            <button class="btn btn-primary mr-2" disabled>View</button>
-                                            <button class="btn btn-success disabled" disabled>Audit</button>
+                                            <input type="hidden" name="audit_id" value="<?php echo $row['id'] ?? '' ?>">
+                                            <input type="submit" name="view_pending" class="btn btn-primary mr-2" value="View" disabled>
                                         </form>
                                     </td>
                                 </tr>
@@ -241,12 +239,12 @@
                                 <tr>
                                     <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
                                     <td style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
-                                    <td style="table-layout: fixed; width: 22%;"><?php echo $row['date'] ?? '' ?></td>
+                                    <td style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUser($row['dept_id']) : '' ?></td>
                                     <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                     <td style="table-layout: fixed; width: 18%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
-                                            <button class="btn btn-primary mr-2" disabled>View</button>
-                                            <button class="btn btn-success disabled" disabled>Audit</button>
+                                            <input type="hidden" name="audit_id" value="<?php echo $row['id'] ?? '' ?>">
+                                            <input type="submit" name="view_pending" class="btn btn-primary mr-2" value="View" disabled>
                                         </form>
                                     </td>
                                 </tr>
