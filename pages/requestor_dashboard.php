@@ -1,6 +1,12 @@
 <?php 
     include '../include/header_requestor.php'; 
 
+    $ongoing_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 0");
+    $ongoing_count = mysqli_fetch_assoc($ongoing_count_result)['count'] ?? 0;
+
+    $finished_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 1");
+    $finished_count = mysqli_fetch_assoc($finished_count_result)['count'] ?? 0;
+
     function getApprovalStatus($status) {
         switch ($status) {
             case 0:
@@ -213,10 +219,13 @@
                 <h2 class="float-left">Ongoing Trouble Report Request</h2>
 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
-                    <button id="ongoingBtn" type="button" class="btn btn-outline-primary active" onclick="display_ongoing()">Ongoing</button>
-                    <button id="finishedBtn" type="button" class="btn btn-outline-primary" onclick="display_finished()">Finished</button>
+                    <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                        <button id="ongoingBtn" type="button" class="btn btn-outline-primary active" onclick="display_ongoing()">Ongoing <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo $ongoing_count; ?></span></button>
+                        <button id="finishedBtn" type="button" class="btn btn-outline-primary" onclick="display_finished()">Finished <span class="badge badge-primary rounded-circle ml-1"><?php echo $finished_count; ?></span></button>
+                    </div>
                 </div>
             </div>
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped" id="ongoing_dataTable" width="100%" cellspacing="0">
@@ -297,10 +306,13 @@
                 <h2 class="float-left">Finished Trouble Report Request</h2>
 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
-                    <button id="ongoingBtn" type="button" class="btn btn-outline-primary" onclick="display_ongoing()">Ongoing</button>
-                    <button id="finishedBtn" type="button" class="btn btn-outline-primary active" onclick="display_finished()">Finished</button>
+                    <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                        <button id="ongoingBtn" type="button" class="btn btn-outline-primary" onclick="display_ongoing()">Ongoing <span class="badge badge-primary rounded-circle ml-1"><?php echo $ongoing_count; ?></span></button>
+                        <button id="finishedBtn" type="button" class="btn btn-outline-primary active" onclick="display_finished()">Finished <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo $finished_count; ?></span></button>
+                    </div>
                 </div>
             </div>
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped" id="finished_dataTable" width="100%" cellspacing="0">

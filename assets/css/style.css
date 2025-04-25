@@ -1,3 +1,14 @@
+/* Change badge color when the button is hovered */
+#ongoingBtn:hover .badge {
+    background-color: #FFFFFF; /* Bootstrap primary blue */
+    color: #007bff; /* White text */
+}
+
+#finishedBtn:hover .badge {
+    background-color: #FFFFFF; /* Bootstrap primary blue */
+    color: #007bff; /* White text */
+}
+
 .pull-right {
     float: right
 }
