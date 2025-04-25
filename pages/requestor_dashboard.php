@@ -244,6 +244,7 @@
                                 <th class="text-center align-middle border-top-0">COO</th>
                             </tr>
                         </thead>
+
                         <tbody>               
                             <?php
                                 $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.status=0"); 
@@ -331,8 +332,8 @@
                                 <th class="text-center align-middle border-top-0">COO</th>
                             </tr>
                         </thead>
+
                         <tbody>
-                            
                             <?php
                                 $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.status=1"); 
                                 if(mysqli_num_rows($result) > 0) {
