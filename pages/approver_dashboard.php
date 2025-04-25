@@ -526,17 +526,17 @@
                 </div>
                         
                 <div class="container-fluid justify-content-center align-items-center">
-                    <div class="card shadow mb-4 bg-light">
+                    <div class="card shadow mb-2 bg-light">
                         <!-- Reason -->
                         <div class="col">
                             <div class="card text-center my-2">
-                                <h2 class="mt-2"><b>REASON:</b></h2>
+                                <span class="my-2" style="font-size: 24px"><b>REASON:</b></span>
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                <div class="card  justify-content-center align-items-center mr-2" style="width: 22%;">
                                     <div class="text-center m-2">
-                                        <h5><b>Man</b></h5>
+                                        <span class="text-center" style="font-size: 18px;"><b>Man</b></span>
                                     </div>
                                 </div>
 
@@ -548,9 +548,9 @@
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                <div class="card  justify-content-center align-items-center mr-2" style="width: 22%;">
                                     <div class="text-center m-2">
-                                        <h5><b>Method</b></h5>
+                                        <span class="text-center" style="font-size: 18px;"><b>Method</b></span>
                                     </div>
                                 </div>
 
@@ -562,9 +562,9 @@
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                <div class="card  justify-content-center align-items-center mr-2" style="width: 22%;">
                                     <div class="text-center m-2">
-                                        <h5><b>Material</b></h5>
+                                        <span class="text-center" style="font-size: 18px;"><b>Material</b></span>
                                     </div>
                                 </div>
 
@@ -576,9 +576,9 @@
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
                                     <div class="text-center m-2">
-                                        <h5><b>Machine</b></h5>
+                                        <span class="text-center" style="font-size: 18px;"><b>Machine</b></span>
                                     </div>
                                 </div>
 
@@ -591,15 +591,15 @@
                         </div>
                     </div>
 
-                    <div class="card shadow mb-4 bg-light">
+                    <div class="card shadow mb-2 bg-light">
                         <!-- Correction -->
                         <div class="col">
-                            <div class="card  text-center my-2">
-                                <h2 class="mt-2"><b>CORRECTION:</b></h2>
+                            <div class="card text-center my-2">
+                                <span class="my-2" style="font-size: 24px"><b>CORRECTION:</b></span>
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card " style="width: 98%;">
+                                <div class="card" style="width: 98%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['correction'] ?? '' ?></p>
                                     </div>
@@ -608,21 +608,21 @@
                         </div>
                     </div>
 
-                    <div class="card shadow mb-4 bg-light">
+                    <div class="card shadow mb-2 bg-light">
                         <!-- Corrective Action -->
                         <div class="col">
-                            <div class="card  text-center my-2">
-                                <h2 class="mt-2"><b>CORRECTIVE ACTION:</b></h2>
+                            <div class="card text-center my-2">
+                                <span class="my-2" style="font-size: 24px"><b>CORRECTIVE ACTION:</b></span>
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
                                     <div class="text-center m-2">
-                                        <h5><b>Man</b></h5>
+                                        <span class="text-center" style="font-size: 18px;"><b>Man</b></span>
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['ca_man'] ?? '' ?></p>
                                     </div>
@@ -630,13 +630,13 @@
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
                                     <div class="text-center m-2">
-                                        <h5><b>Method</b></h5>
+                                        <span class="text-center" style="font-size: 18px;"><b>Method</b></span>
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['ca_method'] ?? '' ?></p>
                                     </div>
@@ -644,13 +644,13 @@
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
                                     <div class="text-center m-2">
-                                        <h5><b>Material</b></h5>
+                                        <span class="text-center" style="font-size: 18px;"><b>Material</b></span>
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['ca_material'] ?? '' ?></p>
                                     </div>
@@ -658,13 +658,13 @@
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
                                     <div class="text-center m-2">
-                                        <h5><b>Machine</b></h5>
+                                        <span class="text-center" style="font-size: 18px;"><b>Machine</b></span>
                                     </div>
                                 </div>
 
-                                <div class="card " style="width: 75%;">
+                                <div class="card" style="width: 75%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['ca_machine'] ?? '' ?></p>
                                     </div>
@@ -676,12 +676,12 @@
                     <div class="card shadow mb-2 bg-light">
                         <!-- Remarks -->
                         <div class="col">
-                            <div class="card  text-center my-2">
-                                <h2 class="mt-2"><b>REMARKS:</b></h2>
+                            <div class="card text-center my-2">
+                                <span class="my-2" style="font-size: 24px"><b>REMARKS:</b></span>
                             </div>
 
                             <div class="row mb-2 justify-content-center">
-                                <div class="card " style="width: 98%;">
+                                <div class="card" style="width: 98%;">
                                     <div class="m-2">
                                         <p><?php echo $view_request['remarks'] ?? '' ?></p>
                                     </div>
@@ -689,6 +689,42 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="card shadow mb-4 bg-light">
+                        <div class="card m-2">
+                            <div class="table-responsive">
+                                <table class="table" id="closed_dataTable" width="100%" cellspacing="0">
+                                    <thead class="">
+                                        <tr class="text-center">
+                                            <th style="table-layout: fixed; width: 40%;"></th>
+                                            <th style="table-layout: fixed; width: 20%;">Findings</th>
+                                            <th style="table-layout: fixed; width: 20%;">Remarks</th>
+                                            <th style="table-layout: fixed; width: 10%;">Auditor</th>
+                                            <th style="table-layout: fixed; width: 10%;">Date</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Effectiveness Verification (After 3 months)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>                  
                 </div>
             </div>
 
