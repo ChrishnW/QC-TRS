@@ -64,6 +64,7 @@
     }
 ?>
 
+<!-- Trouble Report Form -->
 <div class="container-fluid">
     <div id="account_dashboard" class="account_dashboard" style="display: block;">
         <div class="card shadow mb-4">
