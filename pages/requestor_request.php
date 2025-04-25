@@ -40,11 +40,14 @@
                 $result = mysqli_query($conn, "INSERT INTO tbl_request (date, model, lot, serial, temp, findings, origin1, origin2, finder_qc, finder_ai, qty, img_ng, img_g, due_date, dept_id, dept_head_id, supervisor_id, fac_officer_id, coo_id, status) VALUES ('$date', '$model', '$lot', '$serial', '$temp', '$findings', '$origin', '$check', '$found_qc', '$found_ai', '$quantity', '$image_notgood_path', '$image_good_path', '$due_date', '$department', '$leader', '$head', '$officer', '$coo', '$status')");
 
                 if($result) {
-                    $last_id = mysqli_insert_id($conn);
+                    $request_id = mysqli_insert_id($conn);
                     $approver_status = 0;
 
-                    mysqli_query($conn, "INSERT INTO tbl_response (request_id, dept_status, dept_head_status, supervisor_status, fac_officer_status, coo_status) VALUES ('$last_id', '$approver_status', '$approver_status', '$approver_status', '$approver_status', '$approver_status')");
+                    mysqli_query($conn, "INSERT INTO tbl_response (request_id, dept_status, dept_head_status, supervisor_status, fac_officer_status, coo_status) VALUES ('$request_id', '$approver_status', '$approver_status', '$approver_status', '$approver_status', '$approver_status')");
                     
+                    $response_id = mysqli_insert_id($conn);
+                    mysqli_query($conn, "INSERT INTO tbl_audit (response_id, status) VALUES ('$response_id', '$approver_status')");
+
                     $_SESSION["message"] = "Request submitted successfully.";
                 } else {
                     $_SESSION["message"] = "Failed to submit request. Please try again.";
