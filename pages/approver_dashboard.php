@@ -1,6 +1,16 @@
 <?php 
     include '../include/header_approver.php'; 
 
+    // mali to!!
+    $pending_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 0");
+    $pending_count = mysqli_fetch_assoc($pending_count_result)['count'] ?? 0;
+
+    $approved_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 1");
+    $approved_count = mysqli_fetch_assoc($approved_count_result)['count'] ?? 0;
+
+    $rejected_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 2");
+    $rejected_count = mysqli_fetch_assoc($rejected_count_result)['count'] ?? 0;
+
     function checkPendingStatus($access){
         if ($access == 4){
             return ['dept_status' => 1, 'dept_head_status' => 0, 'supervisor_status' => 0, 'fac_officer_status' => 0, 'coo_status' => 0];
@@ -184,9 +194,7 @@
 
             updateRequest($request_id, $response_id, $status);
         }
-    
     }
-
 ?>
 
 <!-- Pending Approvals -->
@@ -197,10 +205,12 @@
                 <h2 class="float-left">Pending Approvals</h2>
                 
                 <div class="btn-group float-right pb-2">
-                    <div class="btn-group" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-primary active" onclick="display_pending()">Pending Approval</button>
-                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Approved Reports</button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_rejected()">Rejected Reports</button>
+                    <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                        <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                            <button id="display_pending" type="button" class="btn btn-outline-primary active" onclick="display_pending()">Pending Approval <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo $pending_count; ?></span></button>
+                            <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Approved Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo $approved_count; ?></span></button>
+                            <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_rejected()">Rejected Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo $rejected_count; ?></span></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -217,8 +227,8 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
 
+                        <tbody>
                             <?php 
                                 $userId = $_SESSION['SESS_USERID'];
                                 $userAccess = $_SESSION['SESS_LEVEL'];
@@ -264,10 +274,12 @@
                 <h2 class="float-left">Approved Reports</h2>
                
                 <div class="btn-group float-right pb-2">
-                    <div class="btn-group" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending Approval</button>
-                        <button id="display_approved" type="button" class="btn btn-outline-primary active" onclick="display_approved()">Approved Reports</button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_rejected()">Rejected Reports</button>
+                    <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                        <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                            <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending Approval <span class="badge badge-primary rounded-circle ml-1"><?php echo $pending_count; ?></span></button>
+                            <button id="display_approved" type="button" class="btn btn-outline-primary active" onclick="display_approved()">Approved Reports <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo $approved_count; ?></span></button>
+                            <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_rejected()">Rejected Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo $rejected_count; ?></span></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -284,8 +296,8 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
 
+                        <tbody>
                             <?php 
                                 $userId = $_SESSION['SESS_USERID'];
                                 $userAccess = $_SESSION['SESS_LEVEL'];
@@ -340,10 +352,12 @@
                 <h2 class="float-left">Rejected Reports</h2>
 
                 <div class="btn-group float-right pb-2">
-                    <div class="btn-group" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending Approval</button>
-                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Approved Reports</button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-primary active" onclick="display_rejected()">Rejected Reports</button>
+                    <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                        <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                            <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending Approval <span class="badge badge-primary rounded-circle ml-1"><?php echo $pending_count; ?></span></button>
+                            <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Approved Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo $approved_count; ?></span></button>
+                            <button id="display_rejected" type="button" class="btn btn-outline-primary active" onclick="display_rejected()">Rejected Reports <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo $rejected_count; ?></span></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -360,8 +374,8 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
 
+                        <tbody>
                             <?php 
                                 $userId = $_SESSION['SESS_USERID'];
                                 $userAccess = $_SESSION['SESS_LEVEL'];
@@ -713,7 +727,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- Pop up for Reject report -->
 <div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
