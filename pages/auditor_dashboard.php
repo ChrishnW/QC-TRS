@@ -262,223 +262,344 @@
     </div>
 </div>
 
-<!-- Trouble Report Form -->
-<div class="container-fluid">
-    <div id="account_dashboard" class="account_dashboard" style="display: block;">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3.5 pt-4 bg-light">
-                <h2 class="float-left">Trouble Report Form</h2>
-                <br>                         
+<!-- View Trouble Report Request Form -->
+<div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-primary">
+                <h5 class="modal-title text-white">Trouble Report Form</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="closeView()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
 
-            <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" enctype="multipart/form-data">
-                <div class="card-body mx-3">
-                    <div class="row mb-3">
-                        <div class="col-md-4">
-                            <label for="date">Date <span style="color: red;">*</span></label><br>
-                            <input type="date" name="date" id="date" class="form-control" required>
+            <div class="modal-body">
+                <div class="container-fluid justify-content-center align-items-center">
+                    <div class="card shadow mb-4 bg-light">
+                        <div class="col">
+                            <div class="card text-center my-2">
+                                <h2 class="mt-2"><b>ROOT CAUSE ANALYSIS</b></h2>
+                            </div>             
                         </div>
 
-                        <div class="col-md-4">
-                            <label for="model">Model <span style="color: red;">*</span></label><br>
-                            <input type="text" name="model" id="model" class="form-control" required>
-                        </div>
+                        <div class="container-fluid row">
+                            <div class="card col mb-2">
+                                <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                    <div class="col-auto">
+                                        <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                    </div>                 
+                                </div>
 
-                        <div class="col-md-4">
-                            <label for="department">Department <span style="color: red;">*</span></label><br>
-                            <select name="department"  id="department" class="form-control" required >
-                                <option value="" hidden></option>
+                                <br>
 
-                                <?php 
-                                    $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=3 AND status=1");
-                                    if($result) {    
-                                        while($row = mysqli_fetch_assoc($result)) {
-                                ?>
-                                
-                                <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
+                                <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                    <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                </div>
+                            </div>
 
-                                <?php 
-                                        }
-                                    }
-                                ?>
+                            <div class="container-fluid mr-n5 col d-flex flex-column align-items-stretch">
+                                <div class="card col mb-2 flex-grow-1">
+                                    <div class="p-2">
+                                        <h6><b>Date: </b> <?php echo $view_request['date'] ?? '' ?></h6>                
+                                        <h6><b>Model: </b> <?php echo $view_request['model'] ?? '' ?></h6>
+                                        <h6><b>Department: </b> <?php echo isset($view_request['dept_id']) ? getUsername($view_request['dept_id']) : '' ?></h6>            
+                                        <h6><b>Lot No. </b> <?php echo $view_request['lot'] ?? '' ?></h6>
+                                        <h6><b>Serial No. </b> <?php echo $view_request['serial'] ?? '' ?></h6>
+                                        <h6><b>Temp No. </b> <?php echo $view_request['temp'] ?? '' ?></h6>    
+                                        <h6><b>Quantity: </b> <?php echo $view_request['qty'] ?? '' ?></h6>   
+                                    </div>       
+                                </div>
 
-                            </select>
-                        </div>
-                    </div>
+                                <div class="card col mb-2 flex-grow-1" style="max-height: 120px; overflow-y: auto;">
+                                    <div class="p-2">
+                                        <h6><b>Findings: </b> <?php echo $view_request['findings'] ?? '' ?></h6>
+                                    </div>
+                                </div>
 
-                    <div class="row mb-3">
-                        <div class="col-md-3">
-                            <label for="lot">Lot No. <span style="color: red;">*</span></label>
-                            <input type="text" name="lot" id="lot" class="form-control" required>
-                        </div>
+                                <div class="card col mb-2 flex-grow-1" style="max-height: 150px;"> 
+                                    <div class="p-2">                 
+                                        <h6><b>Trouble Origin (100%): </b><?php echo $view_request['origin1'] ?? '' ?></h6>
+                                        <h6><b>Checked By (200%): </b> <?php echo $view_request['origin2'] ?? '' ?></h6>
+                                        <h6><b>Found by (QC): </b> <?php echo $view_request['finder_qc'] ?? '' ?></h6>
+                                        <h6><b>Found by (AI): </b> <?php echo $view_request['finder_ai'] ?? '' ?></h6>
+                                        <h6><b>Due Date: </b> <?php echo $view_request['due_date'] ?? '' ?></h6>
+                                    </div>
+                                </div>
 
-                        <div class="col-md-3">
-                            <label for="serial">Serial No. <span style="color: red;">*</span></label><br>
-                            <input type="text" name="serial" id="serial" class="form-control" required>
-                        </div>  
-
-                        <div class="col-md-3">
-                            <label for="temp">Temp No. <span style="color: red;">*</span></label><br>
-                            <input type="number" name="temp" id="temp" class="form-control" required>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="quantity">Quantity <span style="color: red;">*</span></label><br>
-                            <input type="number" name="quantity" id="quantity"  class="form-control" required min="0">
-                        </div>  
-                    </div>
-
-                    <hr class="mt-4">
-
-                    <div class="row mb-3">
-                        <div class="col-md-12">
-                            <label for="findings">Findings <span style="color: red;">*</span></label><br>
-                            <textarea name="findings" id="findings" class="form-control" rows="5" required></textarea>
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="origin">Trouble Origin (100%) <span style="color: red;">*</span></label><br>
-                            <input type="text" name="origin" id="origin" class="form-control" required>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="check">Checked by (200%) <span style="color: red;">*</span></label><br>
-                            <input type="text" name="check" id="check" class="form-control" required>
-                        </div>
-                    </div>
-                    
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="found_qc">Found by (QC) <span style="color: red;">*</span></label><br>
-                            <input type="text" name="found_qc" id="found_qc" class="form-control" required>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="found_ai">Found by (AI) <span style="color: red;">*</span></label><br>
-                            <input type="text" name="found_ai" id="found_ai" class="form-control" required>
-                        </div>
-                    </div>                   
-
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="image_not_good">Image (Not Good) <span style="color: red;">*</span></label><br>
-                            <input type="file" name="image_not_good" id="image_not_good" class="form-control" style="height: auto;" required accept=".jpg,.jpeg,.png,.pdf">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="image_good">Image (Good) <span style="color: red;">*</span></label><br>
-                            <input type="file" name="image_good" id="image_good" class="form-control" style="height: auto;" required accept=".jpg,.jpeg,.png,.pdf">
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="due_date">Due Date <span style="color: red;">*</span></label><br>
-                            <input type="date" name="due_date" id="due_date" class="form-control" required>
-                        </div>
-                    </div>
-
-                    <hr class="mt-4">
-
-                    <h5 class="mb-2">Approval</h5>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="leader">Department Head <span style="color: red;">*</span></label><br>
-                            <select name="leader" id="leader" class="form-control" required >
-                                <option value="" hidden></option>
-
-                                <?php 
-                                    $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=4 AND status=1");
-                                    if($result) {    
-                                        while($row = mysqli_fetch_assoc($result)) {
-                                ?>
-                                
-                                <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
-
-                                <?php 
-                                        }
-                                    }
-                                ?>
-                                
-                            </select>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="head">QC Supervisor <span style="color: red;">*</span></label><br>
-                            <select name="head" id="head" class="form-control" required >
-                                <option value="" hidden></option>
-
-                                <?php 
-                                    $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=5 AND status=1");
-                                    if($result) {    
-                                        while($row = mysqli_fetch_assoc($result)) {
-                                ?>
-                                
-                                <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
-
-                                <?php 
-                                        }
-                                    }
-                                ?>
-
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">  
-                        <div class="col-md-6">
-                            <label for="officer">Factory Officer <span style="color: red;">*</span></label><br>
-                            <select name="officer" id="officer" class="form-control" required >
-                                <option value="" hidden></option>
-
-                                <?php 
-                                    $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=6 AND status=1");
-                                    if($result) {    
-                                        while($row = mysqli_fetch_assoc($result)) {
-                                ?>
-                                
-                                <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
-
-                                <?php 
-                                        }
-                                    }
-                                ?>
-
-                            </select>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="coo">Chief Operating Officer (COO) <span style="color: red;">*</span></label><br>
-                            <select name="coo" id="coo" class="form-control" required >
-                                <option value="" hidden></option>
-
-                                <?php 
-                                    $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=7 AND status=1");
-                                    if($result) {    
-                                        while($row = mysqli_fetch_assoc($result)) {
-                                ?>
-                                
-                                <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
-
-                                <?php 
-                                        }
-                                    }
-                                ?>
-
-                            </select>
-                        </div>
+                                <div class="card col mb-2 flex-grow-1" style="max-height: 180px;">
+                                    <div class="col p-2">
+                                        <h5 class="mt-1 mb-n1"><b>Approval</b></h5>
+                                        <hr>
+                                        <div class="row px-2">
+                                            <h6><b>Department Head: </b> <?php echo isset($view_request['dept_head_id']) ? getUsername($view_request['dept_head_id']) : '' ?></h6>
+                                            <h6 class="ml-3 <?php echo isset($view_request['dept_head_id']) ? getApprovalStatusColor($view_request['dept_head_status']) : '' ?>"><i><?php echo isset($view_request['dept_head_id']) ? getApprovalStatus($view_request['dept_head_status']) : '' ?></i></h6>
+                                        </div>
+                                        <div class="row px-2">
+                                            <h6><b>QC Supervisor: </b> <?php echo isset($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
+                                            <h6 class="ml-3 <?php echo isset($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['supervisor_status']) : '' ?>"><i><?php echo isset($view_request['supervisor_id']) ? getApprovalStatus($view_request['supervisor_status']) : '' ?></i></h6>
+                                        </div>
+                                        <div class="row px-2">
+                                            <h6><b>Factory Officer: </b> <?php echo isset($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
+                                            <h6 class="ml-3 <?php echo isset($view_request['fac_officer_id']) ? getApprovalStatusColor($view_request['fac_officer_status']) : '' ?>"><i><?php echo isset($view_request['fac_officer_id']) ? getApprovalStatus($view_request['fac_officer_status']) : '' ?></i></h6>
+                                        </div>
+                                        <div class="row px-2">
+                                            <h6><b>COO: </b> <?php echo isset($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
+                                            <h6 class="ml-3 <?php echo isset($view_request['coo_id']) ? getApprovalStatusColor($view_request['coo_status']) : '' ?>"><i><?php echo isset($view_request['coo_id']) ? getApprovalStatus($view_request['coo_status']) : '' ?></i></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>   
                     </div>
                 </div>
+                        
+                <div class="container-fluid justify-content-center align-items-center">
+                    <div class="card shadow mb-4 bg-light">
+                        <!-- Reason -->
+                        <div class="col">
+                            <div class="card text-center my-2">
+                                <h2 class="mt-2"><b>REASON:</b></h2>
+                            </div>
 
-                <div class="modal-footer">
-                    <input type="submit" name="request_submit" value="Submit" class="btn btn-primary">
-                    <input type="reset" value="Reset" class="btn btn-secondary mr-3">
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="text-center m-2">
+                                        <h5><b>Man</b></h5>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="width: 75%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['man'] ?? '' ?></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="text-center m-2">
+                                        <h5><b>Method</b></h5>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="width: 75%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['method'] ?? '' ?></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card  justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="text-center m-2">
+                                        <h5><b>Material</b></h5>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="width: 75%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['material'] ?? '' ?></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="text-center m-2">
+                                        <h5><b>Machine</b></h5>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="width: 75%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['machine'] ?? '' ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4 bg-light">
+                        <!-- Correction -->
+                        <div class="col">
+                            <div class="card text-center my-2">
+                                <h2 class="mt-2"><b>CORRECTION:</b></h2>
+                            </div>
+
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card" style="width: 98%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['correction'] ?? '' ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4 bg-light">
+                        <!-- Corrective Action -->
+                        <div class="col">
+                            <div class="card text-center my-2">
+                                <h2 class="mt-2"><b>CORRECTIVE ACTION:</b></h2>
+                            </div>
+
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="text-center m-2">
+                                        <h5><b>Man</b></h5>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="width: 75%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['ca_man'] ?? '' ?></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="text-center m-2">
+                                        <h5><b>Method</b></h5>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="width: 75%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['ca_method'] ?? '' ?></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="text-center m-2">
+                                        <h5><b>Material</b></h5>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="width: 75%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['ca_material'] ?? '' ?></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
+                                    <div class="text-center m-2">
+                                        <h5><b>Machine</b></h5>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="width: 75%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['ca_machine'] ?? '' ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-2 bg-light">
+                        <!-- Remarks -->
+                        <div class="col">
+                            <div class="card text-center my-2">
+                                <h2 class="mt-2"><b>REMARKS:</b></h2>
+                            </div>
+
+                            <div class="row mb-2 justify-content-center">
+                                <div class="card" style="width: 98%;">
+                                    <div class="m-2">
+                                        <p><?php echo $view_request['remarks'] ?? '' ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4 bg-light">
+                        <div class="col">
+                            <div class="row text-center">
+                                <div class="col-md-4">
+                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Verification</b></span>
+                                    </div>
+                                </div>
+                               
+                                <div class="col-md-2">
+                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Findings</b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Remarks</b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Auditor</b></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-2">
+                                    <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Date</b></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>After 3 months</b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
                 </div>
-            </form>
+            </div>
+
+            <div class="modal-footer">
+                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center mr-2">
+                    <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
+                    <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
+
+                    <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">
+                    <button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#deleteModal" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">Delete</button>
+                    <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary ml-2">
+                </form>
+            </div> 
         </div>
-    </div>
+    </div>    
 </div>
 
 <?php include '../include/footer.php'; ?>
