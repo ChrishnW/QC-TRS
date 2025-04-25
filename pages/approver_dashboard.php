@@ -118,17 +118,17 @@
         $result = mysqli_query($conn, "SELECT * FROM tbl_response where id='$response_id'  ");
         $row = mysqli_fetch_assoc($result);
 
-        if($access = 5 && $row['supervisor_status'] != 0){
-            return false;
+        if($access == 5 && $row['supervisor_status'] != 0){
+            return "none";
         }
-        elseif($access = 6 && $row['fac_officer_status'] != 0){
-            return false;
+        elseif($access == 6 && $row['fac_officer_status'] != 0){
+            return "none";
         }
-        elseif($access = 7 && $row['coo_status'] != 0){
-            return false;
+        elseif($access == 7 && $row['coo_status'] != 0){
+            return "none";
         }
         else{
-            return true;
+            return "";
         }
     }
 
@@ -678,7 +678,7 @@
                 </div>
             </div>
 
-            <div class="modal-footer">
+            <div class="modal-footer" style="display: <?php echo checkStatusApproveNext($view_request['id']) ?>">
                 <div class="d-flex mr-2">
                     <button class="btn btn-success mr-2" data-toggle="modal" data-target="#approveModal" style="display: <?php echo $_SESSION['viewer_request'] == 'approved' ? 'none' : 'block' ?>;">Approve</button>
                     <button class="btn btn-danger" data-toggle="modal" data-target="#rejectModal" style="display: <?php echo $_SESSION['viewer_request'] == 'rejected' ? 'none' : 'block' ?>;">Reject</button>
