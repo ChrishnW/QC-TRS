@@ -1,7 +1,6 @@
 <?php include '../include/header_auditor.php'; ?>
 
 <!-- Dashboard Cards -->
-<!-- alisin? -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-xl-3 col-md-6 mb-4">
@@ -81,10 +80,10 @@
                     <table class="table table-bordered table-striped" id="pending_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
                             <tr>
-                                <th>Report ID</th>
                                 <th>Date</th>
+                                <th>Model</th>
                                 <th>Department</th>
-                                <th>Status</th>
+                                <th>Quantity</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -131,10 +130,10 @@
                     <table class="table table-bordered table-striped" id="approved_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
                             <tr>
-                                <th>Report ID</th>
                                 <th>Date</th>
+                                <th>Model</th>
                                 <th>Department</th>
-                                <th>Status</th>
+                                <th>Quantity</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -181,10 +180,10 @@
                     <table class="table table-bordered table-striped" id="closed_dataTable" width="100%" cellspacing="0">
                         <thead class="bg-primary text-white">
                             <tr>
-                                <th>Report ID</th>
                                 <th>Date</th>
+                                <th>Model</th>
                                 <th>Department</th>
-                                <th>Status</th>
+                                <th>Quantity</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
