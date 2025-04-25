@@ -110,9 +110,9 @@
             mysqli_query($conn, "UPDATE tbl_response SET coo_status='$status' WHERE id='$response_id'");
 
             if($status == 1){
-                mysqli_query($conn, "UPDATE tbl_request SET status='1' WHERE id='$request_id'");
-            } elseif($status == 2){
-                mysqli_query($conn, "UPDATE tbl_request SET status='0' WHERE id='$request_id'");
+                mysqli_query($conn, "UPDATE tbl_audit SET status='1' WHERE response_id='$response_id'");
+            } elseif($status == 0){
+                mysqli_query($conn, "UPDATE tbl_audit SET status='0' WHERE response_id='$response_id'");
             }
         }
 
@@ -190,7 +190,7 @@
         if(isset($_POST['reject_request_submit'])){
             $request_id = $_POST['request_id_answered'];
             $response_id = $_POST['response_id_answered'];
-            $status = '2';
+            $status = '0';
 
             updateRequest($request_id, $response_id, $status);
         }
