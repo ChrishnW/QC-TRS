@@ -263,7 +263,7 @@
 </div>
 
 <!-- View Trouble Report Request Form -->
-<div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
+<div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: block; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header bg-gradient-primary">
@@ -523,7 +523,7 @@
                             <div class="row text-center">
                                 <div class="col-md-4">
                                     <div class="card my-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Verification</b></span>
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
                                     </div>
                                 </div>
                                
@@ -555,34 +555,67 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>After 3 months</b></span>
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Implementation Veification (as stated in the corrective action or after received the Root cause analysis report)</b></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-2">
                                     <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>as</b></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-2">
                                     <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>asd</b></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-2">
                                     <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>asd</b></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-2">
                                     <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
-                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b></b></span>
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>asd</b></span>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Effective ness Verification (After 3 months)</b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam, maxime! Accusamus id labore exercitationem recusandae provident ut expedita eveniet, facere sunt dignissimos impedit maxime soluta error modi quae ad laboriosam.</b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>asd</b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>asd</b></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="card text-center mb-2 d-flex align-items-center justify-content-center" style="min-height: 50px;">
+                                        <span class="text-center" style="font-size: 16px; word-wrap: break-word;"><b>asd</b></span>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>                    
                 </div>
@@ -590,11 +623,11 @@
 
             <div class="modal-footer">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center mr-2">
-                    <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
+                    <!-- <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
                     <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
 
                     <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">
-                    <button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#deleteModal" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">Delete</button>
+                    <button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#deleteModal" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">Delete</button> -->
                     <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary ml-2">
                 </form>
             </div> 
@@ -639,5 +672,10 @@
         document.getElementById("display_pending").classList.remove('active');
         document.getElementById("display_approved").classList.remove('active');
         document.getElementById("display_rejected").classList.add('active');
+    }
+
+    function closeView() {
+        document.getElementById("view_ongoing").style.display = "none";
+        document.body.style.overflow = 'auto';
     }
 </script>

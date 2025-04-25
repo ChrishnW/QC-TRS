@@ -96,7 +96,7 @@
         </script>";
     }
 
-    function updateRequest($request_id, $response_id, $status){
+    function updateRequest($response_id, $status){
         $access = $_SESSION['SESS_LEVEL'];
         global $conn;
 
@@ -183,7 +183,7 @@
             $response_id = $_POST['response_id_answered'];
             $status = '1';
 
-            updateRequest($request_id, $response_id, $status);
+            updateRequest($response_id, $status);
         }
 
         // Reject request submit ..............................................................................
@@ -192,7 +192,7 @@
             $response_id = $_POST['response_id_answered'];
             $status = '0';
 
-            updateRequest($request_id, $response_id, $status);
+            updateRequest($response_id, $status);
         }
     }
 ?>
