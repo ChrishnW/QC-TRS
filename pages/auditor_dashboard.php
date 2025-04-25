@@ -518,7 +518,7 @@
                         </div>
                     </div>
 
-                    <div class="card shadow mb-4 bg-light">
+                    <!-- <div class="card shadow mb-4 bg-light">
                         <div class="col">
                             <div class="row text-center">
                                 <div class="col-md-4">
@@ -617,7 +617,43 @@
                             </div>
 
                         </div>
-                    </div>                    
+                    </div>                     -->
+
+                    <div class="card shadow mb-4 bg-light">
+                        <div class="card m-2">
+                            <div class="table-responsive">
+                                <table class="table" id="closed_dataTable" width="100%" cellspacing="0">
+                                    <thead class="">
+                                        <tr class="text-center">
+                                            <th style="table-layout: fixed; width: 40%;"></th>
+                                            <th style="table-layout: fixed; width: 20%;">Findings</th>
+                                            <th style="table-layout: fixed; width: 20%;">Remarks</th>
+                                            <th style="table-layout: fixed; width: 10%;">Auditor</th>
+                                            <th style="table-layout: fixed; width: 10%;">Date</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Effectiveness Verification (After 3 months)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
