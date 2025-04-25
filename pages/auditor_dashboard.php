@@ -1,4 +1,18 @@
-<?php include '../include/header_auditor.php'; ?>
+<?php 
+    include '../include/header_auditor.php'; 
+    
+    function getUsername($id){
+        global $conn;
+        $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id = '$id'");
+        if ($result) {
+                $row = mysqli_fetch_assoc($result);
+            return $row['firstname'] . " " . $row['lastname'];
+        } else {
+            return null;
+        }
+    }
+
+?>
 
 <!-- Dashboard Cards -->
 <div class="container-fluid">
@@ -91,7 +105,7 @@
                         <tbody>
 
                             <?php 
-                                $result = mysqli_query($conn, "SELECT * FROM tbl_audit INNER JOIN tbl_response ON tbl_audit.response_id=tbl_response.id INNER JOIN tbl_request ON tbl_response.request_id=tbl_request.id WHERE tbl_audit.status=1");
+                                $result = mysqli_query($conn, "SELECT tbl_request.date, tbl_request.model, tbl_request.dept_id, tbl_request.qty, tbl_audit.id FROM tbl_audit INNER JOIN tbl_response ON tbl_audit.response_id=tbl_response.id INNER JOIN tbl_request ON tbl_response.request_id=tbl_request.id WHERE tbl_audit.status=1");
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
                             ?>
@@ -99,12 +113,14 @@
                                 <tr>
                                     <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
                                     <td style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
-                                    <td style="table-layout: fixed; width: 22%;"><?php echo $row['date'] ?? '' ?></td>
+                                    <td style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUser($row['dept_id']) : '' ?></td>
                                     <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                     <td style="table-layout: fixed; width: 18%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
-                                            <button class="btn btn-primary mr-2" disabled>View</button>
-                                            <button class="btn btn-success disabled" disabled>Audit</button>
+
+                                            <input type="hidden" name="audit_id" value="<?php echo $row['id'] ?? '' ?>">
+
+                                            <input type="submit" name="view_pending" class="btn btn-primary mr-2" value="View" disabled>
                                         </form>
                                     </td>
                                 </tr>
