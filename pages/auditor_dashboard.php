@@ -89,31 +89,30 @@
                         </thead>
 
                         <tbody>
-                            <tr>
 
-                                <?php 
-                                    $result = mysqli_query($conn, "SELECT * FROM tbl_audit INNER JOIN tbl_response ON tbl_audit.response_id=tbl_response.id INNER JOIN tbl_request ON tbl_response.request_id=tbl_request.id WHERE tbl_audit.status=0");
-                                    if($result){
-                                        while($row = mysqli_fetch_assoc($result)){
-                                ?>
+                            <?php 
+                                $result = mysqli_query($conn, "SELECT * FROM tbl_audit INNER JOIN tbl_response ON tbl_audit.response_id=tbl_response.id INNER JOIN tbl_request ON tbl_response.request_id=tbl_request.id WHERE tbl_audit.status=0");
+                                if(mysqli_num_rows($result) > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                            ?>
 
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
-                                <td style="table-layout: fixed; width: 22%;"><?php echo $row['date'] ?? '' ?></td>
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
-                                <td style="table-layout: fixed; width: 18%;">
-                                    <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
-                                        <button class="btn btn-primary mr-2">View</button>
-                                        <button class="btn btn-success disabled">Audit</button>
-                                    </form>
-                                </td>
+                                <tr>
+                                    <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
+                                    <td style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
+                                    <td style="table-layout: fixed; width: 22%;"><?php echo $row['date'] ?? '' ?></td>
+                                    <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
+                                    <td style="table-layout: fixed; width: 18%;">
+                                        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
+                                            <button class="btn btn-primary mr-2" disabled>View</button>
+                                            <button class="btn btn-success disabled" disabled>Audit</button>
+                                        </form>
+                                    </td>
+                                </tr>
 
-                                <?php 
-                                        }
+                            <?php 
                                     }
-                                ?>
-
-                            </tr>
+                                }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -151,23 +150,23 @@
                             </tr>
                         </thead>
                         
-                        <!-- <tbody>
+                        <tbody>
                             <tr>
 
                                 <?php 
-                                    $result = mysqli_query($conn, "SELECT * FROM tbl_audit INNER JOIN tbl_response ON tbl_audit.response_id=tbl_response.id WHERE tbl_audit.status=1");
-                                    if($result){
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_audit INNER JOIN tbl_response ON tbl_audit.response_id=tbl_response.id INNER JOIN tbl_request ON tbl_response.request_id=tbl_request.id WHERE tbl_audit.status=1");
+                                    if(mysqli_num_rows($result) > 0){
                                         while($row = mysqli_fetch_assoc($result)){
                                 ?>
 
                                 <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
+                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
                                 <td style="table-layout: fixed; width: 22%;"><?php echo $row['date'] ?? '' ?></td>
-                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
+                                <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                 <td style="table-layout: fixed; width: 18%;">
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
-                                        <button class="btn btn-primary mr-2">View</button>
-                                        <button class="btn btn-success disabled">Audit</button>
+                                        <button class="btn btn-primary mr-2" disabled>View</button>
+                                        <button class="btn btn-success disabled" disabled>Audit</button>
                                     </form>
                                 </td>
 
@@ -177,7 +176,7 @@
                                 ?>
 
                             </tr>
-                        </tbody> -->
+                        </tbody>
                     </table>
                 </div>
             </div>
