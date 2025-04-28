@@ -479,7 +479,7 @@
 
                                 <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                     <div class="col-auto">
-                                        <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available" class="img-fluid">
+                                        <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>                 
                                 </div>
 
@@ -492,7 +492,7 @@
                                 </div> -->
                                 
                                 <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
-                                    <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available" class="img-fluid">
+                                    <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                 </div>
                             </div>
 
