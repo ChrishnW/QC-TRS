@@ -221,8 +221,8 @@
 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
                     <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
-                        <button id="ongoingBtn" type="button" class="btn btn-outline-primary active" onclick="display_ongoing()">Ongoing <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo $ongoing_count; ?></span></button>
-                        <button id="finishedBtn" type="button" class="btn btn-outline-primary" onclick="display_finished()">Finished <span class="badge badge-primary rounded-circle ml-1"><?php echo $finished_count; ?></span></button>
+                        <button id="ongoingBtn" type="button" class="btn btn-outline-primary active" onclick="display_ongoing()">Ongoing Reports <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo $ongoing_count; ?></span></button>
+                        <button id="finishedBtn" type="button" class="btn btn-outline-primary" onclick="display_finished()">Finished Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo $finished_count; ?></span></button>
                     </div>
                 </div>
             </div>
@@ -309,8 +309,8 @@
 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
                     <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
-                        <button id="ongoingBtn" type="button" class="btn btn-outline-primary" onclick="display_ongoing()">Ongoing <span class="badge badge-primary rounded-circle ml-1"><?php echo $ongoing_count; ?></span></button>
-                        <button id="finishedBtn" type="button" class="btn btn-outline-primary active" onclick="display_finished()">Finished <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo $finished_count; ?></span></button>
+                        <button id="ongoingBtn" type="button" class="btn btn-outline-primary" onclick="display_ongoing()">Ongoing Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo $ongoing_count; ?></span></button>
+                        <button id="finishedBtn" type="button" class="btn btn-outline-primary active" onclick="display_finished()">Finished Reports <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo $finished_count; ?></span></button>
                     </div>
                 </div>
             </div>
