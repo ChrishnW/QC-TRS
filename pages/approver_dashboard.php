@@ -1,14 +1,41 @@
 <?php 
     include '../include/header_approver.php'; 
 
-    // mali to!!
-    $pending_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 0");
+    $userId = $_SESSION['SESS_USERID'];
+    $userAccess = $_SESSION['SESS_LEVEL'];
+
+    // Initialize counts
+    $pending_count = 0;
+    $approved_count = 0;
+    $rejected_count = 0;
+
+    // Define query conditions based on user access level
+    if ($userAccess == 4) {
+        $pending_condition = "dept_status = 1 AND dept_head_status = 0";
+        $approved_condition = "dept_head_status = 1";
+        $rejected_condition = "dept_head_status = 2";
+    } elseif ($userAccess == 5) {
+        $pending_condition = "dept_head_status = 1 AND supervisor_status = 0";
+        $approved_condition = "supervisor_status = 1";
+        $rejected_condition = "supervisor_status = 2";
+    } elseif ($userAccess == 6) {
+        $pending_condition = "supervisor_status = 1 AND fac_officer_status = 0";
+        $approved_condition = "fac_officer_status = 1";
+        $rejected_condition = "fac_officer_status = 2";
+    } elseif ($userAccess == 7) {
+        $pending_condition = "fac_officer_status = 1 AND coo_status = 0";
+        $approved_condition = "coo_status = 1";
+        $rejected_condition = "coo_status = 2";
+    }
+
+    // Fetch counts dynamically
+    $pending_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE $pending_condition AND (tbl_request.dept_id=$userId OR tbl_request.dept_head_id=$userId OR tbl_request.supervisor_id=$userId OR tbl_request.fac_officer_id=$userId OR tbl_request.coo_id=$userId)");
     $pending_count = mysqli_fetch_assoc($pending_count_result)['count'] ?? 0;
 
-    $approved_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 1");
+    $approved_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE $approved_condition AND (tbl_request.dept_id=$userId OR tbl_request.dept_head_id=$userId OR tbl_request.supervisor_id=$userId OR tbl_request.fac_officer_id=$userId OR tbl_request.coo_id=$userId)");
     $approved_count = mysqli_fetch_assoc($approved_count_result)['count'] ?? 0;
 
-    $rejected_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 2");
+    $rejected_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE $rejected_condition AND (tbl_request.dept_id=$userId OR tbl_request.dept_head_id=$userId OR tbl_request.supervisor_id=$userId OR tbl_request.fac_officer_id=$userId OR tbl_request.coo_id=$userId)");
     $rejected_count = mysqli_fetch_assoc($rejected_count_result)['count'] ?? 0;
 
     function checkPendingStatus($access){

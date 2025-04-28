@@ -1,5 +1,15 @@
 <?php 
     include '../include/header_auditor.php'; 
+
+    // do not touch!
+    // $pending_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 0");
+    // $pending_count = mysqli_fetch_assoc($pending_count_result)['count'] ?? 0;
+
+    // $approved_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 1");
+    // $approved_count = mysqli_fetch_assoc($approved_count_result)['count'] ?? 0;
+    
+    // $closed_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 2");
+    // $closed_count = mysqli_fetch_assoc($closed_count_result)['count'] ?? 0;
     
     function getUsername($id){
         global $conn;
@@ -15,7 +25,7 @@
 ?>
 
 <!-- Dashboard Cards -->
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row">
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
@@ -71,7 +81,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- Pending Audits -->
 <div class="container-fluid" id="pending_audits" style="display: block;">
@@ -80,11 +90,11 @@
             <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Audit Reports</h2>
                 
-                <div class="btn-group float-right pb-2">
-                    <div class="btn-group" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-primary active" onclick="display_pending()">Pending Audit</button>
-                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited</button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed</button>
+                <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                    <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                        <button id="display_pending" type="button" class="btn btn-outline-primary active" onclick="display_pending()">Pending <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo 1 ?></span></button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited <span class="badge badge-primary rounded-circle ml-1"><?php echo 2 ?></span></button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed <span class="badge badge-primary rounded-circle ml-1"><?php echo 3 ?></span></button>
                     </div>
                 </div>
             </div>
@@ -143,11 +153,11 @@
             <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Audited Reports</h2>
                 
-                <div class="btn-group float-right pb-2">
-                    <div class="btn-group" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending Audit</button>
-                        <button id="display_approved" type="button" class="btn btn-outline-primary active" onclick="display_approved()">Audited</button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed</button>
+                <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                    <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending  <span class="badge badge-primary rounded-circle ml-1"><?php echo 1 ?></span></button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary active" onclick="display_approved()">Audited <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo 2 ?></span></button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed <span class="badge badge-primary rounded-circle ml-1"><?php echo 3 ?></span></button>
                     </div>
                 </div>
             </div>
@@ -206,11 +216,12 @@
             <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Closed Reports</h2>
 
-                <div class="btn-group float-right pb-2">
-                    <div class="btn-group" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending Audit</button>
-                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited</button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-primary active" onclick="display_closed()">Closed</button>
+                
+                <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                    <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending  <span class="badge badge-primary rounded-circle ml-1"><?php echo 1 ?></span></button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited <span class="badge badge-primary rounded-circle ml-1"><?php echo 2 ?></span></button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary active" onclick="display_closed()">Closed <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo 3 ?></span></button>
                     </div>
                 </div>
             </div>
