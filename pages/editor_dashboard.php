@@ -362,7 +362,7 @@
 
             <div class="modal-body">
                 <div class="container-fluid justify-content-center align-items-center">
-                    <div class="card shadow mb-4 bg-light">
+                    <div class="card shadow mb-2 bg-light">
                         <div class="col">
                             <div class="card  text-center my-2">
                                 <h2 class="mt-2"><b>ROOT CAUSE ANALYSIS</b></h2>
@@ -694,7 +694,7 @@
             <div class="modal-body">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                     <div class="container-fluid justify-content-center align-items-center">
-                        <div class="card shadow mb-4 bg-light">
+                        <div class="card shadow mb-2 bg-light">
                             <div class="col">
                                 <div class="card  text-center my-2">
                                     <h2 class="mt-2"><b>ROOT CAUSE ANALYSIS</b></h2>
