@@ -80,11 +80,11 @@
             <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Audit Reports</h2>
                 
-                <div class="btn-group float-right pb-2">
-                    <div class="btn-group" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-primary active" onclick="display_pending()">Pending Audit</button>
-                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited</button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed</button>
+                <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                    <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                        <button id="display_pending" type="button" class="btn btn-outline-primary active" onclick="display_pending()">Pending <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo 1 ?></span></button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited <span class="badge badge-primary rounded-circle ml-1"><?php echo 2 ?></span></button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed <span class="badge badge-primary rounded-circle ml-1"><?php echo 3 ?></span></button>
                     </div>
                 </div>
             </div>
@@ -143,11 +143,11 @@
             <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Audited Reports</h2>
                 
-                <div class="btn-group float-right pb-2">
-                    <div class="btn-group" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending Audit</button>
-                        <button id="display_approved" type="button" class="btn btn-outline-primary active" onclick="display_approved()">Audited</button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed</button>
+                <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                    <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending  <span class="badge badge-primary rounded-circle ml-1"><?php echo 1 ?></span></button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary active" onclick="display_approved()">Audited <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo 2 ?></span></button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed <span class="badge badge-primary rounded-circle ml-1"><?php echo 3 ?></span></button>
                     </div>
                 </div>
             </div>
@@ -206,11 +206,12 @@
             <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Closed Reports</h2>
 
-                <div class="btn-group float-right pb-2">
-                    <div class="btn-group" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending Audit</button>
-                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited</button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-primary active" onclick="display_closed()">Closed</button>
+                
+                <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                    <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
+                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending  <span class="badge badge-primary rounded-circle ml-1"><?php echo 1 ?></span></button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited <span class="badge badge-primary rounded-circle ml-1"><?php echo 2 ?></span></button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary active" onclick="display_closed()">Closed <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo 3 ?></span></button>
                     </div>
                 </div>
             </div>
