@@ -11,21 +11,21 @@
 
     // Define query conditions based on user access level
     if ($userAccess == 4) {
-        $pending_condition = "dept_status=1 AND dept_head_status=0";
-        $approved_condition = "dept_head_status=1";
-        $rejected_condition = "dept_head_status=2";
+        $pending_condition = "dept_status = 1 AND dept_head_status = 0";
+        $approved_condition = "dept_head_status = 1";
+        $rejected_condition = "dept_head_status = 2";
     } elseif ($userAccess == 5) {
-        $pending_condition = "dept_head_status=1 AND supervisor_status=0";
-        $approved_condition = "supervisor_status=1";
-        $rejected_condition = "supervisor_status=2";
+        $pending_condition = "dept_head_status = 1 AND supervisor_status = 0";
+        $approved_condition = "supervisor_status = 1";
+        $rejected_condition = "supervisor_status = 2";
     } elseif ($userAccess == 6) {
-        $pending_condition = "supervisor_status=1 AND fac_officer_status=0";
-        $approved_condition = "fac_officer_status=1";
-        $rejected_condition = "fac_officer_status=2";
+        $pending_condition = "supervisor_status = 1 AND fac_officer_status = 0";
+        $approved_condition = "fac_officer_status = 1";
+        $rejected_condition = "fac_officer_status = 2";
     } elseif ($userAccess == 7) {
-        $pending_condition = "fac_officer_status=1 AND coo_status=0";
-        $approved_condition = "coo_status=1";
-        $rejected_condition = "coo_status=2";
+        $pending_condition = "fac_officer_status = 1 AND coo_status = 0";
+        $approved_condition = "coo_status = 1";
+        $rejected_condition = "coo_status = 2";
     }
 
     // Fetch counts dynamically
