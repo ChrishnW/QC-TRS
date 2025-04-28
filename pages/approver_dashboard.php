@@ -136,11 +136,11 @@
         } elseif ($access == 7){
             mysqli_query($conn, "UPDATE tbl_response SET coo_status='$status' WHERE id='$response_id'");
 
-            // if($status == 1){
-            //     mysqli_query($conn, "UPDATE tbl_audit SET status='1' WHERE response_id='$response_id'");
-            // } elseif($status == 0){
-            //     mysqli_query($conn, "UPDATE tbl_audit SET status='0' WHERE response_id='$response_id'");
-            // }
+            if($status == 1){
+                mysqli_query($conn, "UPDATE tbl_audit SET status='1' WHERE response_id='$response_id'");
+            } elseif($status == 0){
+                mysqli_query($conn, "UPDATE tbl_audit SET status='0' WHERE response_id='$response_id'");
+            }
         }
 
         header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
