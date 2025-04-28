@@ -688,7 +688,6 @@
             
             <div class="modal-body">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-
                     <div class="container-fluid justify-content-center align-items-center">
                         <div class="card shadow mb-4 bg-light">
                             <div class="col">
@@ -981,17 +980,15 @@
                             </div>
                         </div> 
                     </div>
-                </form>
             </div>
 
             <div class="modal-footer">
-                <div class="mr-4">
-                    <input type="hidden" name="response_id" value="<?php echo $response_request['id'] ?>">
-                    <input type="submit" name="save_response" class="btn btn-success" value="Save">
-                    <input type="reset" name="close_view" onclick="closeResponse()" value="Close" class="btn btn-secondary ml-2">
-                </div>
+                    <div class="mr-4">
+                        <input type="hidden" name="response_id" value="<?php echo $response_request['id'] ?>">
+                        <input type="submit" name="save_response" class="btn btn-success" value="Save">
+                        <input type="reset" name="close_view" onclick="closeResponse()" value="Close" class="btn btn-secondary ml-2">
+                    </div>
                 </form>
-
             </div> 
 
             <?php 
