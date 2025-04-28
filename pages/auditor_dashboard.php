@@ -543,7 +543,7 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody>
+                                    <tbody class="text-justify">
                                         <tr>
                                             <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
                                             <td></td>
