@@ -1,7 +1,7 @@
 <?php 
     include '../include/header_auditor.php'; 
 
-    // do not touch!
+    // do not touch! 🤚
     // $pending_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 0");
     // $pending_count = mysqli_fetch_assoc($pending_count_result)['count'] ?? 0;
 
