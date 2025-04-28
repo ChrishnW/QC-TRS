@@ -1,5 +1,15 @@
 <?php 
     include '../include/header_auditor.php'; 
+
+    // do not touch!
+    // $pending_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 0");
+    // $pending_count = mysqli_fetch_assoc($pending_count_result)['count'] ?? 0;
+
+    // $approved_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 1");
+    // $approved_count = mysqli_fetch_assoc($approved_count_result)['count'] ?? 0;
+    
+    // $closed_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 2");
+    // $closed_count = mysqli_fetch_assoc($closed_count_result)['count'] ?? 0;
     
     function getUsername($id){
         global $conn;
