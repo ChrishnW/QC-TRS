@@ -748,12 +748,12 @@
                             <div class="row mb-3">
                                 <div class="col-md-3">
                                     <label for="lot">Lot No. <span style="color: red;">*</span></label>
-                                    <input type="number" name="lot" id="lot" class="form-control" value="<?php echo $response_request['lot'] ?? '' ?>" required>
+                                    <input type="text" name="lot" id="lot" class="form-control" value="<?php echo $response_request['lot'] ?? '' ?>" required>
                                 </div>
 
                                 <div class="col-md-3">
                                     <label for="serial">Serial No. <span style="color: red;">*</span></label><br>
-                                    <input type="number" name="serial" id="serial" class="form-control" value="<?php echo $response_request['serial'] ?? '' ?>" required>
+                                    <input type="text" name="serial" id="serial" class="form-control" value="<?php echo $response_request['serial'] ?? '' ?>" required>
                                 </div>  
 
                                 <div class="col-md-3">
