@@ -401,17 +401,17 @@
 
                                 <div class="card col mb-2 flex-grow-1" style="max-height: 120px; overflow-y: auto;">
                                     <div class="p-2">
-                                        <h6><b>Findings: </b> <?php echo $view_request['findings'] ?? '' ?></h6>
+                                        <h6><b>Findings: </b> <?php echo !empty($view_request['findings']) ? $view_request['findings'] : '' ?></h6>
                                     </div>
                                 </div>
 
                                 <div class="card col mb-2 flex-grow-1" style="max-height: 150px;"> 
                                     <div class="p-2">                 
-                                        <h6><b>Trouble Origin (100%): </b><?php echo $view_request['origin1'] ?? '' ?></h6>
-                                        <h6><b>Checked By (200%): </b> <?php echo $view_request['origin2'] ?? '' ?></h6>
-                                        <h6><b>Found by (QC): </b> <?php echo $view_request['finder_qc'] ?? '' ?></h6>
-                                        <h6><b>Found by (AI): </b> <?php echo $view_request['finder_ai'] ?? '' ?></h6>
-                                        <h6><b>Due Date: </b> <?php echo $view_request['due_date'] ?? '' ?></h6>
+                                        <h6><b>Trouble Origin (100%): </b><?php echo !empty($view_request['origin1']) ? $view_request['origin1'] : '' ?></h6>
+                                        <h6><b>Checked By (200%): </b> <?php echo !empty($view_request['origin2']) ? $view_request['origin2'] : '' ?></h6>
+                                        <h6><b>Found by (QC): </b> <?php echo !empty($view_request['finder_qc']) ? $view_request['finder_qc'] : '' ?></h6>
+                                        <h6><b>Found by (AI): </b> <?php echo !empty($view_request['finder_ai']) ? $view_request['finder_ai'] : '' ?></h6>
+                                        <h6><b>Due Date: </b> <?php echo !empty($view_request['due_date']) ? $view_request['due_date'] : '' ?></h6>
                                     </div>
                                 </div>
 
@@ -420,20 +420,20 @@
                                         <h5 class="mt-1 mb-n1"><b>Approval</b></h5>
                                         <hr>
                                         <div class="row px-2">
-                                            <h6><b>Department Head: </b> <?php echo isset($view_request['dept_head_id']) ? getUsername($view_request['dept_head_id']) : '' ?></h6>
-                                            <h6 class="ml-3 <?php echo isset($view_request['dept_head_id']) ? getApprovalStatusColor($view_request['dept_head_status']) : '' ?>"><i><?php echo isset($view_request['dept_head_id']) ? getApprovalStatus($view_request['dept_head_status']) : '' ?></i></h6>
+                                            <h6><b>Department Head: </b> <?php echo !empty($view_request['dept_head_id']) ? getUsername($view_request['dept_head_id']) : '' ?></h6>
+                                            <h6 class="ml-3 <?php echo isset($view_request['dept_head_id']) ? getApprovalStatusColor($view_request['dept_head_status']) : '' ?>"><i><?php echo !empty($view_request['dept_head_id']) ? getApprovalStatus($view_request['dept_head_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
-                                            <h6><b>QC Supervisor: </b> <?php echo isset($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
-                                            <h6 class="ml-3 <?php echo isset($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['supervisor_status']) : '' ?>"><i><?php echo isset($view_request['supervisor_id']) ? getApprovalStatus($view_request['supervisor_status']) : '' ?></i></h6>
+                                            <h6><b>QC Supervisor: </b> <?php echo !empty($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
+                                            <h6 class="ml-3 <?php echo !empty($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['supervisor_status']) : '' ?>"><i><?php echo !empty($view_request['supervisor_id']) ? getApprovalStatus($view_request['supervisor_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
-                                            <h6><b>Factory Officer: </b> <?php echo isset($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
-                                            <h6 class="ml-3 <?php echo isset($view_request['fac_officer_id']) ? getApprovalStatusColor($view_request['fac_officer_status']) : '' ?>"><i><?php echo isset($view_request['fac_officer_id']) ? getApprovalStatus($view_request['fac_officer_status']) : '' ?></i></h6>
+                                            <h6><b>Factory Officer: </b> <?php echo !empty($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
+                                            <h6 class="ml-3 <?php echo !empty($view_request['fac_officer_id']) ? getApprovalStatusColor($view_request['fac_officer_status']) : '' ?>"><i><?php echo !empty($view_request['fac_officer_id']) ? getApprovalStatus($view_request['fac_officer_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
-                                            <h6><b>COO: </b> <?php echo isset($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
-                                            <h6 class="ml-3 <?php echo isset($view_request['coo_id']) ? getApprovalStatusColor($view_request['coo_status']) : '' ?>"><i><?php echo isset($view_request['coo_id']) ? getApprovalStatus($view_request['coo_status']) : '' ?></i></h6>
+                                            <h6><b>COO: </b> <?php echo !empty($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
+                                            <h6 class="ml-3 <?php echo !empty($view_request['coo_id']) ? getApprovalStatusColor($view_request['coo_status']) : '' ?>"><i><?php echo !empty($view_request['coo_id']) ? getApprovalStatus($view_request['coo_status']) : '' ?></i></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -459,7 +459,7 @@
 
                                 <div class="card" style="width: 75%;">
                                     <div class="m-2">
-                                        <p><?php echo $view_request['man'] ?? '' ?></p>
+                                        <p><?php echo !empty($view_request['man']) ? $view_request['man'] : '' ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -473,7 +473,7 @@
 
                                 <div class="card" style="width: 75%;">
                                     <div class="m-2">
-                                        <p><?php echo $view_request['method'] ?? '' ?></p>
+                                        <p><?php echo !empty($view_request['method']) ? $view_request['method'] : '' ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -487,7 +487,7 @@
 
                                 <div class="card" style="width: 75%;">
                                     <div class="m-2">
-                                        <p><?php echo $view_request['material'] ?? '' ?></p>
+                                        <p><?php echo !empty($view_request['material']) ? $view_request['material'] : '' ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -501,7 +501,7 @@
 
                                 <div class="card" style="width: 75%;">
                                     <div class="m-2">
-                                        <p><?php echo $view_request['machine'] ?? '' ?></p>
+                                        <p><?php echo !empty($view_request['machine']) ? $view_request['machine'] : '' ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -518,7 +518,7 @@
                             <div class="row mb-2 justify-content-center">
                                 <div class="card" style="width: 98%;">
                                     <div class="m-2">
-                                        <p><?php echo $view_request['correction'] ?? '' ?></p>
+                                        <p><?php echo !empty($view_request['correction']) ? $view_request['correction'] : '' ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -541,7 +541,7 @@
 
                                 <div class="card" style="width: 75%;">
                                     <div class="m-2">
-                                        <p><?php echo $view_request['ca_man'] ?? '' ?></p>
+                                        <p><?php echo !empty($view_request['ca_man']) ? $view_request['ca_man'] : '' ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -555,7 +555,7 @@
 
                                 <div class="card" style="width: 75%;">
                                     <div class="m-2">
-                                        <p><?php echo $view_request['ca_method'] ?? '' ?></p>
+                                        <p><?php echo !empty($view_request['ca_method']) ? $view_request['ca_method'] : '' ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -569,7 +569,7 @@
 
                                 <div class="card" style="width: 75%;">
                                     <div class="m-2">
-                                        <p><?php echo $view_request['ca_material'] ?? '' ?></p>
+                                        <p><?php echo !empty($view_request['ca_material']) ? $view_request['ca_material'] : '' ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -583,7 +583,7 @@
 
                                 <div class="card" style="width: 75%;">
                                     <div class="m-2">
-                                        <p><?php echo $view_request['ca_machine'] ?? '' ?></p>
+                                        <p><?php echo !empty($view_request['ca_machine']) ? $view_request['ca_machine'] : '' ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -600,7 +600,7 @@
                             <div class="row mb-2 justify-content-center">
                                 <div class="card" style="width: 98%;">
                                     <div class="m-2">
-                                        <p><?php echo $view_request['remarks'] ?? '' ?></p>
+                                        <p><?php echo !empty($view_request['remarks']) ? $view_request['remarks'] : '' ?></p>
                                     </div>
                                 </div>
                             </div>
