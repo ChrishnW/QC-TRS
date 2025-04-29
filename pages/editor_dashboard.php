@@ -1,6 +1,7 @@
 <?php 
     include '../include/header_editor.php'; 
 
+    // need to modify for different accounts (04/30/25)
     $ongoing_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 0");
     $ongoing_count = mysqli_fetch_assoc($ongoing_count_result)['count'] ?? 0;
 
