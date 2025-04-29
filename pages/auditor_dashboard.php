@@ -532,7 +532,7 @@
                     <div class="card shadow mb-4 bg-light">
                         <div class="card m-2">
                             <div class="table-responsive">
-                                <table class="table" id="closed_dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="closed_dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr class="text-center">
                                             <th style="table-layout: fixed; width: 40%;"></th>
@@ -546,18 +546,18 @@
                                     <tbody class="text-justify">
                                         <tr>
                                             <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>asdasd</td>
+                                            <td>asdasd</td>
+                                            <td>asdasd</td>
+                                            <td>asdasd</td>
                                         </tr>
 
                                         <tr>
                                             <td>Effectiveness Verification (After 3 months)</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>asdasd</td>
+                                            <td>asdasd</td>
+                                            <td>asas</td>
+                                            <td>asa</td>
                                         </tr>
                                     </tbody>
                                 </table>
