@@ -647,8 +647,8 @@
 
             <div class="modal-footer">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center mr-2">
-                    <!-- <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
-                    <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
+                    <input type="hidden" name="audit_id" value="<?php echo $_SESSION['audit_id'] ?? '' ?>">
+                    <!--<input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
 
                     <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">
                     <button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#deleteModal" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">Delete</button> -->
@@ -659,7 +659,11 @@
     </div>    
 </div>
 
-<?php include '../include/footer.php'; ?>
+<?php 
+    include '../include/footer.php'; 
+
+    unset($_SESSION['audit_id']);
+?>
 
 <script>
     $(document).ready(function() {
