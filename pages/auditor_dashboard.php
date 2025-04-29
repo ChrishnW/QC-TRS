@@ -22,6 +22,83 @@
         }
     }
 
+    function getApprovalStatus($status) {
+        switch ($status) {
+            case 0:
+                return "Pending";
+            case 1:
+                return "Approved";
+            case 2:
+                return "Rejected";
+            default:
+                return "Unknown";
+        }
+    }
+
+    function getApprovalStatusColor($status) {
+        switch ($status) {
+            case 0:
+                return "text-primary";
+            case 1:
+                return "text-success";
+            case 2:
+                return "text-danger";
+            default:
+                return "text-secondary";
+        }
+    }
+
+    // Display view form ..........................................................................................
+    if(isset($_SESSION['audit_id'])){
+        $audit_id = $_SESSION['audit_id'];
+        $result = mysqli_query($conn, "SELECT * FROM tbl_audit INNER JOIN tbl_response ON tbl_audit.response_id=tbl_response.id INNER JOIN tbl_request ON tbl_response.request_id=tbl_request.id WHERE tbl_audit.id=$audit_id");
+        $view_request = mysqli_fetch_assoc($result);
+
+        echo "<script>     
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('view_ongoing').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        </script>";
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+        // View request form pending ..............................................................................
+        if(isset($_POST['view_pending'])){
+            $_SESSION['audit_id'] = $_POST['audit_id'];
+            $_SESSION['viewer_request'] = 'pending';
+            
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
+        } 
+        
+        // View request form approved ..............................................................................
+        // if (isset($_POST['view_approved'])){
+        //     $_SESSION['request_id'] = $_POST['request_id'];
+        //     $_SESSION['response_id'] = $_POST['response_id'];
+        //     $_SESSION['viewer_request'] = 'approved';
+
+        //     header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+        //     ob_end_flush();
+        //     exit();
+        // } 
+        
+        // // View request form rejected ..............................................................................
+        // if (isset($_POST['view_rejected'])){
+        //     $_SESSION['request_id'] = $_POST['request_id'];
+        //     $_SESSION['response_id'] = $_POST['response_id'];
+        //     $_SESSION['viewer_request'] = 'rejected';
+
+        //     header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+        //     ob_end_flush();
+        //     exit();
+        // }
+
+
+    }
+
 ?>
 
 <!-- Dashboard Cards -->
@@ -118,6 +195,7 @@
                                 $result = mysqli_query($conn, "SELECT tbl_request.date, tbl_request.model, tbl_request.dept_id, tbl_request.qty, tbl_audit.id FROM tbl_audit INNER JOIN tbl_response ON tbl_audit.response_id=tbl_response.id INNER JOIN tbl_request ON tbl_response.request_id=tbl_request.id WHERE tbl_audit.status=1");
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
+                                        echo $row['id'];
                             ?>
 
                                 <tr>
@@ -297,27 +375,27 @@
                             <div class="card col mb-2">
                                 <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                     <div class="col-auto">
-                                        <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                        <img src="<?php echo !empty($view_request['img_ng']) ? $view_request['img_ng'] : '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>                 
                                 </div>
 
                                 <br>
 
                                 <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
-                                    <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                    <img src="<?php echo !empty($view_request['img_g']) ? $view_request['img_g'] : '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                 </div>
                             </div>
 
                             <div class="container-fluid mr-n5 col d-flex flex-column align-items-stretch">
                                 <div class="card col mb-2 flex-grow-1">
                                     <div class="p-2">
-                                        <h6><b>Date: </b> <?php echo $view_request['date'] ?? '' ?></h6>                
-                                        <h6><b>Model: </b> <?php echo $view_request['model'] ?? '' ?></h6>
-                                        <h6><b>Department: </b> <?php echo isset($view_request['dept_id']) ? getUsername($view_request['dept_id']) : '' ?></h6>            
-                                        <h6><b>Lot No. </b> <?php echo $view_request['lot'] ?? '' ?></h6>
-                                        <h6><b>Serial No. </b> <?php echo $view_request['serial'] ?? '' ?></h6>
-                                        <h6><b>Temp No. </b> <?php echo $view_request['temp'] ?? '' ?></h6>    
-                                        <h6><b>Quantity: </b> <?php echo $view_request['qty'] ?? '' ?></h6>   
+                                        <h6><b>Date: </b> <?php echo !empty($view_request['date']) ? $view_request['date'] : '' ?></h6>                
+                                        <h6><b>Model: </b> <?php echo !empty($view_request['model']) ? $view_request['model'] : '' ?></h6>
+                                        <h6><b>Department: </b> <?php echo !empty($view_request['dept_id']) ? getUsername($view_request['dept_id']) : '' ?></h6>            
+                                        <h6><b>Lot No. </b> <?php echo !empty($view_request['lot']) ? $view_request['lot'] : '' ?></h6>
+                                        <h6><b>Serial No. </b> <?php echo !empty($view_request['serial']) ? $view_request['serial'] : '' ?></h6>
+                                        <h6><b>Temp No. </b> <?php echo !empty($view_request['temp']) ? $view_request['temp'] : '' ?></h6>    
+                                        <h6><b>Quantity: </b> <?php echo !empty($view_request['qty']) ? $view_request['qty'] : '' ?></h6>   
                                     </div>       
                                 </div>
 
@@ -546,18 +624,18 @@
                                     <tbody class="text-justify">
                                         <tr>
                                             <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
-                                            <td>asdasd</td>
-                                            <td>asdasd</td>
-                                            <td>asdasd</td>
-                                            <td>asdasd</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
 
                                         <tr>
                                             <td>Effectiveness Verification (After 3 months)</td>
-                                            <td>asdasd</td>
-                                            <td>asdasd</td>
-                                            <td>asas</td>
-                                            <td>asa</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                     </tbody>
                                 </table>
