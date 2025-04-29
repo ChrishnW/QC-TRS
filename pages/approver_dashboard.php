@@ -138,7 +138,7 @@
 
             if($status == 1){
                 mysqli_query($conn, "UPDATE tbl_audit SET status='1' WHERE response_id='$response_id'");
-            } elseif($status == 0){
+            } elseif($status == 2){
                 mysqli_query($conn, "UPDATE tbl_audit SET status='0' WHERE response_id='$response_id'");
             }
         }
@@ -269,7 +269,7 @@
                             <tr>
                                 <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
                                 <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['model'] ?? '' ?></td>
-                                <td class="text-left align-middle" style="table-layout: fixed; width: 22%;"><?php echo $row['dept_id'] ? getUsername($row['dept_id']) : '' ?></td>
+                                <td class="text-left align-middle" style="table-layout: fixed; width: 22%;"><?php echo !empty($row['dept_id']) ? getUsername($row['dept_id']) : '' ?></td>
                                 <td class="text-left align-middle" style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
                                 <td style="table-layout: fixed; width: 10%;">
                                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
