@@ -1,12 +1,17 @@
 <?php 
     include '../include/header_editor.php'; 
 
-    $ongoing_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 0");
+    $dept_id = $_SESSION['SESS_USERID'];
+
+    $ongoing_count = 0;
+    $finished_count = 0;
+
+    $ongoing_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 0 AND dept_id = '$dept_id'");
     $ongoing_count = mysqli_fetch_assoc($ongoing_count_result)['count'] ?? 0;
 
-    $finished_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 1");
+    $finished_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 1 AND dept_id = '$dept_id'");
     $finished_count = mysqli_fetch_assoc($finished_count_result)['count'] ?? 0;
-    
+
     function getApprovalStatus($status) {
         switch ($status) {
             case 0:
