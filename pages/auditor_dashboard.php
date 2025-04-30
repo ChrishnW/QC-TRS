@@ -205,7 +205,7 @@
                                     <td style="table-layout: fixed; width: 10%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                             <input type="hidden" name="audit_id" value="<?php echo $row['id'] ?? '' ?>">
-                                            <input type="submit" name="view_pending" class="btn btn-primary mr-2" value="View">
+                                            <input type="submit" name="view_pending" class="btn btn-primary btn-sm mr-2" value="View">
                                         </form>
                                     </td>
                                 </tr>
@@ -268,7 +268,7 @@
                                     <td style="table-layout: fixed; width: 10%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                             <input type="hidden" name="audit_id" value="<?php echo $row['id'] ?? '' ?>">
-                                            <input type="submit" name="view_pending" class="btn btn-primary mr-2" value="View" disabled>
+                                            <input type="submit" name="view_pending" class="btn btn-primary btn-sm mr-2" value="View" disabled>
                                         </form>
                                     </td>
                                 </tr>
@@ -332,7 +332,7 @@
                                     <td style="table-layout: fixed; width: 10%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                             <input type="hidden" name="audit_id" value="<?php echo $row['id'] ?? '' ?>">
-                                            <input type="submit" name="view_pending" class="btn btn-primary mr-2" value="View" disabled>
+                                            <input type="submit" name="view_pending" class="btn btn-primary btn-sm mr-2" value="View" disabled>
                                         </form>
                                     </td>
                                 </tr>
