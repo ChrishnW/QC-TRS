@@ -1,10 +1,16 @@
 <?php 
     include '../include/header_requestor.php'; 
 
-    $ongoing_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 0");
+    // mali pa rin to  (╯‵□′)╯︵┻━┻
+    $dept_id = $_SESSION['SESS_USERID'];
+
+    $ongoing_count = 0;
+    $finished_count = 0;
+
+    $ongoing_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 0 AND dept_id = '$dept_id'");
     $ongoing_count = mysqli_fetch_assoc($ongoing_count_result)['count'] ?? 0;
 
-    $finished_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 1");
+    $finished_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 1 AND dept_id = '$dept_id'");
     $finished_count = mysqli_fetch_assoc($finished_count_result)['count'] ?? 0;
 
     function getApprovalStatus($status) {
@@ -96,7 +102,6 @@
             });
         </script>";
     }
-
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -207,9 +212,6 @@
             exit;
         }
     }
-
-    
-
 ?>
 
 <!-- Ongoing Trouble Report -->
