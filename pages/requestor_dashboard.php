@@ -952,7 +952,7 @@
                     <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
                     <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
 
-                    <input type="submit" name="delte_account_submit" value="Confirm" class="submit btn btn-danger pr-3"> 
+                    <input type="submit" name="delete_account_submit" value="Confirm" class="submit btn btn-danger pr-3"> 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <!-- <a href="#" onclick="close_delete_modal()" class="close_popup btn btn-secondary" style="text-decoration: none;">Cancel</a> -->
                 </form>
