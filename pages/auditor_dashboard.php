@@ -652,6 +652,7 @@
 
                     <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">
                     <button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#deleteModal" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">Delete</button> -->
+                    <input type="submit" name="response_view" value="Response" class="btn btn-primary ml-2" disabled>
                     <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary ml-2">
                 </form>
             </div> 
