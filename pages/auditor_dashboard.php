@@ -1,16 +1,16 @@
 <?php 
     include '../include/header_auditor.php'; 
 
-    // do not touch! 🤚
-    // $pending_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 0");
-    // $pending_count = mysqli_fetch_assoc($pending_count_result)['count'] ?? 0;
+    // mali to
+    $pending_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_audit WHERE status = 1");
+    $pending_count = mysqli_fetch_assoc($pending_count_result)['count'] ?? 0;
 
-    // $approved_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 1");
-    // $approved_count = mysqli_fetch_assoc($approved_count_result)['count'] ?? 0;
-    
-    // $closed_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 2");
-    // $closed_count = mysqli_fetch_assoc($closed_count_result)['count'] ?? 0;
-    
+    $approved_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_audit WHERE status = 2");
+    $approved_count = mysqli_fetch_assoc($approved_count_result)['count'] ?? 0;
+
+    $closed_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_audit WHERE status = 3");
+    $closed_count = mysqli_fetch_assoc($closed_count_result)['count'] ?? 0;
+
     function getUsername($id){
         global $conn;
         $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE id = '$id'");
@@ -169,9 +169,9 @@
                 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
                     <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-primary active" onclick="display_pending()">Pending Reports <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo 1 ?></span></button>
-                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo 2 ?></span></button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo 3 ?></span></button>
+                        <button id="display_pending" type="button" class="btn btn-outline-primary active" onclick="display_pending()">Pending Reports <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo $pending_count; ?></span></button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo $approved_count; ?></span></button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo $closed_count; ?></span></button>
                     </div>
                 </div>
             </div>
@@ -233,9 +233,9 @@
                 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
                     <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending  Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo 1 ?></span></button>
-                        <button id="display_approved" type="button" class="btn btn-outline-primary active" onclick="display_approved()">Audited Reports <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo 2 ?></span></button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo 3 ?></span></button>
+                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending  Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo $pending_count; ?></span></button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary active" onclick="display_approved()">Audited Reports <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo $approved_count; ?></span></button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo $closed_count; ?></span></button>
                     </div>
                 </div>
             </div>
@@ -297,9 +297,9 @@
                 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
                     <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo 1 ?></span></button>
-                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo 2 ?></span></button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-primary active" onclick="display_closed()">Closed Reports <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo 3 ?></span></button>
+                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo $pending_count; ?></span></button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited Reports <span class="badge badge-primary rounded-circle ml-1"><?php echo $approved_count; ?></span></button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary active" onclick="display_closed()">Closed Reports <span class="badge badge-light text-primary rounded-circle ml-1"><?php echo $closed_count; ?></span></button>
                     </div>
                 </div>
             </div>
