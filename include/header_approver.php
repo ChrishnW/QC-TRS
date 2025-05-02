@@ -27,7 +27,6 @@
       return null;
     }
   }
-
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +49,6 @@
 <body id="page-top">
   <div id="wrapper">
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="approver_dashboard.php">
         <div class="sidebar-brand-icon">
         <img src="../assets/img/logo.png" alt="" class="img-fluid" style="width: 45px;">
@@ -60,35 +58,11 @@
 
       <hr class="sidebar-divider my-0">
 
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="../pages/account.php">
-        <i class="fa fa-user" aria-hidden="true"></i>
-          <span>Manage Account</span></a>
-      </li>
-       -->
       <li class="nav-item">
         <a class="nav-link" href="../pages/approver_dashboard.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
-
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="../pages/approver_dashboard.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Request</span></a>
-      </li> -->
-
-      <!-- <hr class="sidebar-divider"> -->
-
-      
-
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="link.html">
-          <i class="fas fa-fw fa-users"></i>
-          <span>Link</span></a>
-      </li> -->
-
-      <!-- <hr class="sidebar-divider d-none d-md-block"> -->
 
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -104,8 +78,6 @@
           </button>
 
           <ul class="navbar-nav ml-auto">
-            <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
-
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -115,19 +87,6 @@
 
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="userDropdown">
-                <!-- <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
-                <div class="dropdown-divider"></div> -->
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
