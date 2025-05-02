@@ -20,6 +20,7 @@
         return "Unknown Role";
     }
   }
+
   // Get status name ..................................................................................
   function get_statusName($status) {
     switch ($status) {
@@ -33,7 +34,6 @@
   }     
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
     // Add account ....................................................................................
     if (isset($_POST['add_account'])) {
       $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -243,6 +243,7 @@
         </div>        
       </div>
     </div>
+  </div>
 </div>
 
 <!-- Pop up for Add Account -->
