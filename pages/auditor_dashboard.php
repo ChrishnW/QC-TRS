@@ -183,6 +183,23 @@
             exit();
         }
 
+        // Submit response request ........................................................................
+        if(isset($_POST['save_response_after'])){
+            $id = $_POST['response_id'];
+
+            $findings = filter_input(INPUT_POST, "au_findings_after", FILTER_SANITIZE_SPECIAL_CHARS);
+            $remarks = filter_input(INPUT_POST, "au_remarks_after", FILTER_SANITIZE_SPECIAL_CHARS);
+            $auditor = filter_input(INPUT_POST, "au_auditor_after", FILTER_SANITIZE_SPECIAL_CHARS);
+            $date = $_POST['au_date_after'];
+            $status = 3;
+
+            mysqli_query($conn, "UPDATE tbl_audit SET auditor_name_after='$auditor', auditor_findings_after='$findings', auditor_remarks_after='$remarks', auditor_date_after='$date', status='$status' WHERE id='$id'");
+
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
+        }
+
 
     }
 
@@ -1367,7 +1384,7 @@
                                                     <textarea name="au_auditor_after" id="au_auditor_after"  class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request_after['auditor_name_after']) ? $response_request_after['auditor_name_after'] : '' ?></textarea>
                                                 </td>
                                                 <td onclick="document.getElementById('au_date_after').focus();">
-                                                    <input type="date" name="au_date_after" id="au_date_after" class="form-control border-0" value="<?php echo !empty($response_request['auditor_date']) ? $response_request['auditor_date'] : '' ?>" required>
+                                                    <input type="date" name="au_date_after" id="au_date_after" class="form-control border-0" value="<?php echo !empty($response_request_after['auditor_date_after']) ? $response_request_after['auditor_date_after'] : '' ?>" required>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1380,8 +1397,8 @@
 
             <div class="modal-footer">
                     <div class="mr-4">
-                        <input type="hidden" name="response_id" value="<?php echo !empty($response_request['id']) ? $response_request['id'] : '' ?>">
-                        <input type="submit" name="save_response_after" class="btn btn-success" value="Save" disabled>
+                        <input type="hidden" name="response_id" value="<?php echo !empty($response_request_after['id']) ? $response_request_after['id'] : '' ?>">
+                        <input type="submit" name="save_response_after" class="btn btn-success" value="Save">
                         <input type="reset" name="close_view" onclick="closeResponse_after()" value="Close" class="btn btn-secondary ml-2">
                     </div>
                 </form>
