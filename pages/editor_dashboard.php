@@ -212,7 +212,6 @@
 
                         <tbody>
                             <?php
-
                                 $dept_id = $_SESSION['SESS_USERID'];
                                 $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.status=0 AND tbl_request.dept_id='$dept_id'"); 
                                 if(mysqli_num_rows($result) > 0) {
@@ -376,12 +375,6 @@
 
                         <div class="container-fluid row">
                             <div class="card col mb-2">
-                                <!-- <div class="card mt-2 bg-light">
-                                    <div class="col text-center mt-2">
-                                        <h3><b>Not Good</b></h3>
-                                    </div>  
-                                </div> -->
-
                                 <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                     <div class="col-auto">
                                         <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
@@ -389,12 +382,6 @@
                                 </div>
 
                                 <br>
-
-                                <!-- <div class="card mt-2 bg-light">
-                                    <div class="col text-center mt-2">
-                                        <h3><b>Good</b></h3>
-                                    </div>
-                                </div> -->
                                 
                                 <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                     <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
