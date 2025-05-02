@@ -727,17 +727,17 @@
                                     <tbody class="text-justify">
                                         <tr>
                                             <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
-                                            <td><?php echo !empty($view_request['auditor_name']) ? $view_request['auditor_name'] : '' ?></td>
                                             <td><?php echo !empty($view_request['auditor_findings']) ? $view_request['auditor_findings'] : '' ?></td>
                                             <td><?php echo !empty($view_request['auditor_remarks']) ? $view_request['auditor_remarks'] : '' ?></td>
+                                            <td><?php echo !empty($view_request['auditor_name']) ? $view_request['auditor_name'] : '' ?></td>
                                             <td><?php echo !empty($view_request['auditor_date']) ? $view_request['auditor_date'] : '' ?></td>
                                         </tr>
 
                                         <tr>
                                             <td>Effectiveness Verification (After 3 months)</td>
-                                            <td><?php echo !empty($view_request['auditor_name_after']) ? $view_request['auditor_name_after'] : '' ?></td>
                                             <td><?php echo !empty($view_request['auditor_findings_after']) ? $view_request['auditor_findings_after'] : '' ?></td>
                                             <td><?php echo !empty($view_request['auditor_remarks_after']) ? $view_request['auditor_remarks_after'] : '' ?></td>
+                                            <td><?php echo !empty($view_request['auditor_name_after']) ? $view_request['auditor_name_after'] : '' ?></td>
                                             <td><?php echo !empty($view_request['auditor_date_after']) ? $view_request['auditor_date_after'] : '' ?></td>
                                         </tr>
                                     </tbody>
