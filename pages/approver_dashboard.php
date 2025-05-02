@@ -95,32 +95,32 @@
 
         if($_SESSION['viewer_request'] == 'pending'){
             echo "<script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    display_pending();
-                });
-            </script>";
+                    document.addEventListener('DOMContentLoaded', function() {
+                        display_pending();
+                    });
+                </script>";
         } 
         else if($_SESSION['viewer_request'] == 'approved'){
             echo "<script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    display_approved();
-                });
-            </script>";
+                    document.addEventListener('DOMContentLoaded', function() {
+                        display_approved();
+                    });
+                </script>";
         } 
         else if($_SESSION['viewer_request'] == 'rejected'){
             echo "<script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    display_rejected();
-                });
-            </script>";
+                    document.addEventListener('DOMContentLoaded', function() {
+                        display_rejected();
+                    });
+                </script>";
         }
         
         echo "<script>     
-            document.addEventListener('DOMContentLoaded', function() {
-                document.getElementById('view_ongoing').style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            });
-        </script>";
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('view_ongoing').style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            </script>";
     }
 
     function updateRequest($response_id, $status){
@@ -170,7 +170,7 @@
     }
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    
+
         // View request form pending ..............................................................................
         if(isset($_POST['view_pending'])){
             $_SESSION['request_id'] = $_POST['request_id'];
@@ -218,7 +218,6 @@
             $request_id = $_POST['request_id_answered'];
             $response_id = $_POST['response_id_answered'];
             $status = '2';
-
             updateRequest($response_id, $status);
         }
     }
@@ -341,7 +340,6 @@
                                 }
                                 if (mysqli_num_rows($result) > 0) {
                                     while($row = mysqli_fetch_assoc($result)){
-
                             ?>
 
                             <tr>
@@ -419,7 +417,6 @@
                                 }
                                 if (mysqli_num_rows($result) > 0) {
                                     while($row = mysqli_fetch_assoc($result)){
-
                             ?>
 
                             <tr>
@@ -471,12 +468,6 @@
 
                         <div class="container-fluid row">
                             <div class="card col mb-2">
-                                <!-- <div class="card mt-2 bg-light">
-                                    <div class="col text-center mt-2">
-                                        <h3><b>Not Good</b></h3>
-                                    </div>  
-                                </div> -->
-
                                 <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                     <div class="col-auto">
                                         <img src="<?php echo $view_request['img_ng'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
@@ -484,13 +475,7 @@
                                 </div>
 
                                 <br>
-
-                                <!-- <div class="card mt-2 bg-light">
-                                    <div class="col text-center mt-2">
-                                        <h3><b>Good</b></h3>
-                                    </div>
-                                </div> -->
-                                
+      
                                 <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                     <img src="<?php echo $view_request['img_g'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                 </div>
@@ -775,9 +760,11 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body">
                 <p class="h5">Are you sure you want to <b>Approve</b> this report?</p> 
             </div>
+
             <div class="modal-footer">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                     <input type="hidden" name="request_id_answered" value="<?php echo $view_request['request_id'] ?>">
@@ -801,9 +788,11 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body">
                 <p class="h5">Are you sure you want to <b>Reject</b> this report?</p> 
             </div>
+
             <div class="modal-footer">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                     <input type="hidden" name="request_id_answered" value="<?php echo $view_request['request_id'] ?>">
@@ -864,5 +853,4 @@
         document.getElementById("view_ongoing").style.display = "none";
         document.body.style.overflow = 'auto';
     }
-
 </script>
