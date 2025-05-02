@@ -196,15 +196,15 @@
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
                             ?>
-                            
+
                                 <tr>
-                                    <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
-                                    <td style="table-layout: fixed; width: 25%;"><?php echo $row['model'] ?? '' ?></td>
-                                    <td style="table-layout: fixed; width: 25%;"><?php echo $row['dept_id'] ? getUser($row['dept_id']) : '' ?></td>
-                                    <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
+                                    <td style="table-layout: fixed; width: 20%;"><?php echo !empty($row['date']) ? $row['date'] : '' ?></td>
+                                    <td style="table-layout: fixed; width: 25%;"><?php echo !empty($row['model']) ? $row['model'] : '' ?></td>
+                                    <td style="table-layout: fixed; width: 25%;"><?php echo !empty($row['dept_id']) ? getUser($row['dept_id']) : '' ?></td>
+                                    <td style="table-layout: fixed; width: 20%;"><?php echo !empty($row['qty']) ? $row['qty'] : '' ?></td>
                                     <td style="table-layout: fixed; width: 10%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
-                                            <input type="hidden" name="audit_id" value="<?php echo $row['id'] ?? '' ?>">
+                                            <input type="hidden" name="audit_id" value="<?php echo !empty($row['id']) ? $row['id'] : '' ?>">
                                             <input type="submit" name="view_pending" class="btn btn-primary btn-sm mr-2" value="View">
                                         </form>
                                     </td>
@@ -258,16 +258,19 @@
                                 $result = mysqli_query($conn, "SELECT tbl_request.date, tbl_request.model, tbl_request.dept_id, tbl_request.qty, tbl_audit.id FROM tbl_audit INNER JOIN tbl_response ON tbl_audit.response_id=tbl_response.id INNER JOIN tbl_request ON tbl_response.request_id=tbl_request.id WHERE tbl_audit.status=2");
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
-                            ?>
+                            ?>!empty(
 
                                 <tr>
-                                    <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
-                                    <td style="table-layout: fixed; width: 25%;"><?php echo $row['model'] ?? '' ?></td>
-                                    <td style="table-layout: fixed; width: 25%;"><?php echo $row['dept_id'] ? getUser($row['dept_id']) : '' ?></td>
-                                    <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
+ )                                   <t 
+
+                                <tr>
+  : style="table-layout: fixed; width: 20%;"><?php echo !empty($row['date']) ? $row['date'] : '' ?></td>
+                                    <td style="table-layout: fixed; width: 25%;"><?php echo !empty($row['model']) ? $row['model'] : '' ?></td>
+                                    <td style="table-layout: fixed; width: 25%;"><?php echo !empty($row['dept_id']) ? getUser($row['dept_id']) : '' ?></td>
+                                    <td style="table-layout: fixed; width: 20%;"><?php echo !empty($row['qty']) ? $row['qty'] : '' ?></td>
                                     <td style="table-layout: fixed; width: 10%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
-                                            <input type="hidden" name="audit_id" value="<?php echo $row['id'] ?? '' ?>">
+                                            <input type="hidden" name="audit_id" value="<?php echo !empty($row['id']) ? $row['id'] : '' ?>">
                                             <input type="submit" name="view_pending" class="btn btn-primary btn-sm mr-2" value="View" disabled>
                                         </form>
                                     </td>
@@ -325,13 +328,13 @@
                             ?>
 
                                 <tr>
-                                    <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
-                                    <td style="table-layout: fixed; width: 25%;"><?php echo $row['model'] ?? '' ?></td>
-                                    <td style="table-layout: fixed; width: 25%;"><?php echo $row['dept_id'] ? getUser($row['dept_id']) : '' ?></td>
-                                    <td style="table-layout: fixed; width: 20%;"><?php echo $row['qty'] ?? '' ?></td>
+                                    <td style="table-layout: fixed; width: 20%;"><?php echo !empty($row['date']) ? $row['date'] : '' ?></td>
+                                    <td style="table-layout: fixed; width: 25%;"><?php echo !empty($row['model']) ? $row['model'] : '' ?></td>
+                                    <td style="table-layout: fixed; width: 25%;"><?php echo !empty($row['dept_id']) ? getUser($row['dept_id']) : '' ?></td>
+                                    <td style="table-layout: fixed; width: 20%;"><?php echo !empty($row['qty']) ? $row['qty'] : '' ?></td>
                                     <td style="table-layout: fixed; width: 10%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
-                                            <input type="hidden" name="audit_id" value="<?php echo $row['id'] ?? '' ?>">
+                                            <input type="hidden" name="audit_id" value="<?php echo !empty($row['id']) ? $row['id'] : '' ?>">
                                             <input type="submit" name="view_pending" class="btn btn-primary btn-sm mr-2" value="View" disabled>
                                         </form>
                                     </td>
