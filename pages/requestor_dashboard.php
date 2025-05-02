@@ -1,7 +1,11 @@
 <?php 
     include '../include/header_requestor.php'; 
 
-    // mali pa rin to  (╯‵□′)╯︵┻━┻
+    // mali pa rin to  (╯‵□′)╯︵┻━┻ jhvjxsdzxj,mvgh
+
+    $ongoing_count = 0;
+    $finished_count = 0;
+
     $ongoing_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 0");
     $ongoing_count = mysqli_fetch_assoc($ongoing_count_result)['count'] ?? 0;
 
@@ -123,7 +127,7 @@
         }
 
         // Delete account ............................................................................................................
-        if(isset($_POST['delte_account_submit'])) {
+        if(isset($_POST['delete_account_submit'])) {
             $request_id = $_POST['request_id'];
             $response_id = $_POST['response_id'];
 
