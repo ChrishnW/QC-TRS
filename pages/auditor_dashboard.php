@@ -924,20 +924,20 @@
                                         <thead class="">
                                             <tr class="text-center">
                                                 <th style="table-layout: fixed; width: 40%;"></th>
-                                                <th style="table-layout: fixed; width: 20%;">Findings</th>
-                                                <th style="table-layout: fixed; width: 20%;">Remarks</th>
-                                                <th style="table-layout: fixed; width: 10%;">Auditor</th>
-                                                <th style="table-layout: fixed; width: 10%;">Date</th>
+                                                <th style="table-layout: fixed; width: 20%;">Findings <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 20%;">Remarks <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 10%;">Auditor <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 10%;">Date <span style="color: red;">*</span></b></span></th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
                                             <tr>
                                                 <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><textarea name="findings" id="findings" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php !empty($response_request['auditor_findings']) ? $response_request['auditor_findings'] : '' ?></textarea></td>
+                                                <td><textarea name="remarks" id="remarks" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php !empty($response_request['auditor_remarks']) ? $response_request['auditor_remarks'] : '' ?></textarea></td>
+                                                <td><textarea name="authos" id="authos" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php !empty($response_request['auditor_name']) ? $response_request['auditor_name'] : '' ?></textarea></td>
+                                                <td><input type="date" class="form-control border-0"></td>
                                             </tr>
 
                                             <tr>
