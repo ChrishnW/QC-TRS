@@ -682,7 +682,7 @@
             <div class="modal-footer">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center mr-2">
                     <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
-                    <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
+                    <input type="hidden" name="response_id" value="<?php echo $view_request['response_id'] ?>">
 
                     <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">
                     <button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#deleteModal" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">Delete</button>
@@ -711,12 +711,12 @@
                             <div class="row mb-3">
                                 <div class="col-md-4">
                                     <label for="date">Date <span style="color: red;">*</span></label><br>
-                                    <input type="date" name="date" id="date" class="form-control" value="<?php echo $response_request['date'] ?? '' ?>" required>
+                                    <input type="date" name="date" id="date" class="form-control" value="<?php echo !empty($response_request['date']) ? $response_request['date'] : '' ?>" required>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label for="model">Model <span style="color: red;">*</span></label><br>
-                                    <input type="text" name="model" id="model" class="form-control" value="<?php echo $response_request['model'] ?? '' ?>" required>
+                                    <input type="text" name="model" id="model" class="form-control" value="<?php echo !empty($response_request['model']) ? $response_request['model'] : '' ?>" required>
                                 </div>
 
                                 <div class="col-md-4">
