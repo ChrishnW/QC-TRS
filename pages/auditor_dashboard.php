@@ -196,7 +196,7 @@
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
                             ?>
-
+                            
                                 <tr>
                                     <td style="table-layout: fixed; width: 20%;"><?php echo $row['date'] ?? '' ?></td>
                                     <td style="table-layout: fixed; width: 25%;"><?php echo $row['model'] ?? '' ?></td>
@@ -774,9 +774,6 @@
                                     </div>
                                 </div>
 
-
-
-
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card  justify-content-center align-items-center mr-2" style="width: 22%;">
                                         <div class="text-center m-2">
@@ -794,13 +791,13 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card  justify-content-center align-items-center mr-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="material"><span class="text-center" style="font-size: 18px;"><b>Material</b></span></label>
+                                            <span class="text-center" style="font-size: 18px;"><b>Material</b></span>
                                         </div>
                                     </div>
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="material" id="material" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['material'] ?? '' ?></textarea>
+                                            <p><?php echo $response_request['material'] ?? '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -808,13 +805,13 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card  justify-content-center align-items-center mr-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="machine"><span class="text-center" style="font-size: 18px;"><b>Machine</b></span></label>
+                                            <span class="text-center" style="font-size: 18px;"><b>Machine</b></span>
                                         </div>
                                     </div>
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="machine" id="machine" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['machine'] ?? '' ?></textarea>
+                                            <p><?php echo $response_request['machine'] ?? '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -825,13 +822,13 @@
                             <!-- Correction -->
                             <div class="col">
                                 <div class="card text-center my-2">
-                                    <label for="correction" class="pt-2"><span class="my-2" style="font-size: 24px"><b>CORRECTION:  </b></span></label>
+                                    <span class="my-2" style="font-size: 24px"><b>CORRECTION:  </b></span>
                                 </div>
 
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card " style="width: 98%;">
                                         <div class="m-2">
-                                            <textarea name="correction" id="correction" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['correction'] ?? '' ?></textarea>
+                                            <p><?php echo $response_request['correction'] ?? '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -848,13 +845,13 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="ca_man"><span class="text-center" style="font-size: 18px;"><b>Man</b></span></label>
+                                            <span class="text-center" style="font-size: 18px;"><b>Man</b></span>
                                         </div>
                                     </div>
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="ca_man" id="ca_man" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['ca_man'] ?? '' ?></textarea>
+                                            <p><?php echo $response_request['ca_man'] ?? '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -862,13 +859,13 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="ca_method"><span class="text-center" style="font-size: 18px;"><b>Method</b></span></label>
+                                            <span class="text-center" style="font-size: 18px;"><b>Method</b></span>
                                         </div>
                                     </div>
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="ca_method" id="ca_method" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['ca_method'] ?? '' ?></textarea>
+                                            <p><?php echo $response_request['ca_method'] ?? '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -876,13 +873,13 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card justify-content-center align-items-center mr-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="ca_material"><span class="text-center" style="font-size: 18px;"><b>Material</b></span></label>
+                                            <span class="text-center" style="font-size: 18px;"><b>Material</b></span>
                                         </div>
                                     </div>
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="ca_material" id="ca_material" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['ca_material'] ?? '' ?></textarea>
+                                            <p><?php echo $response_request['ca_material'] ?? '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -890,13 +887,13 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card justify-content-center align-items-center mr-2 pt-2" style="width: 22%;">
                                         <div class="text-center m-2">
-                                            <label for="ca_machine"><span class="text-center" style="font-size: 18px;"><b>Machine</b></span></label>
+                                            <span class="text-center" style="font-size: 18px;"><b>Machine</b></span>
                                         </div>
                                     </div>
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="ca_machine" id="ca_machine" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['ca_machine'] ?? '' ?></textarea>
+                                            <p><?php echo $response_request['ca_machine'] ?? '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -907,13 +904,13 @@
                             <!-- Remarks -->
                             <div class="col">
                                 <div class="card text-center my-2">
-                                    <label for="remarks"><span class="my-2 pt-2" style="font-size: 24px"><b>REMARKS:</b></span></label>
+                                    <span class="my-2 pt-2" style="font-size: 24px"><b>REMARKS:</b></span>
                                 </div>
 
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card " style="width: 98%;">
                                         <div class="m-2">
-                                            <textarea name="remarks" id="remarks" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['remarks'] ?? '' ?></textarea>
+                                            <p><?php echo $response_request['remarks'] ?? '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -961,8 +958,8 @@
             <div class="modal-footer">
                     <div class="mr-4">
                         <input type="hidden" name="response_id" value="<?php echo $response_request['id'] ?>">
-                        <input type="submit" name="save_response" class="btn btn-success" value="Save">
-                        <input type="reset" name="close_view" onclick="closeResponse()" value="Close" class="btn btn-secondary ml-2">
+                        <input type="submit" name="save_response" class="btn btn-success" value="Save" disabled>
+                        <input type="reset" name="close_view" onclick="closeResponse()" value="Close" class="btn btn-secondary ml-2" disabled>
                     </div>
                 </form>
             </div> 
