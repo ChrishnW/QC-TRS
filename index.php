@@ -1,5 +1,4 @@
 <?php 
-
   include 'include/auth.php';
 
   if(isset($_SESSION['SESS_LEVEL'])){
@@ -15,14 +14,11 @@
       header('location: pages/auditor_dashboard.php');
     }
   }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,7 +38,6 @@
   <!-- Custom styles for this template-->
   <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
   <link href="assets/css/style.css?v=1.1  " rel="stylesheet">
-
 </head>
 
 <body class="bg-image">
@@ -55,11 +50,11 @@
               <div class="col-xl-6 col-lg-5 d-none d-md-block">
                 <img src="assets/img/cover.svg" alt="login background" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
               </div>
+
               <div class="col-xl-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
 
                   <form id="loginDetails">
-
                     <div class="d-flex align-items-center mb-3 pb-1">
                       <img src="assets/img/logo.png" alt="Logo" style="width: 50px;" class="mr-3">
                       <span class="h4 font-weight-bold mb-0">Trouble Report System</span>
@@ -85,7 +80,6 @@
                       </label>
                       <a href="forgot_password.php" class="small text-muted">Forgot password?</a>
                     </div> -->
-
                   </form>
 
                   <div class="pt-1 mb-4">
@@ -123,11 +117,7 @@
   </script> -->
 
   <!-- <script src="assets/js/script.js"></script> -->
-
-
-
-
-
+   
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
