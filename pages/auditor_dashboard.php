@@ -923,21 +923,33 @@
                                     <table class="table" id="closed_dataTable" width="100%" cellspacing="0">
                                         <thead class="">
                                             <tr class="text-center">
-                                                <th style="table-layout: fixed; width: 40%;"></th>
-                                                <th style="table-layout: fixed; width: 20%;">Findings <span style="color: red;">*</span></b></span></th>
-                                                <th style="table-layout: fixed; width: 20%;">Remarks <span style="color: red;">*</span></b></span></th>
-                                                <th style="table-layout: fixed; width: 10%;">Auditor <span style="color: red;">*</span></b></span></th>
-                                                <th style="table-layout: fixed; width: 10%;">Date <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 30%;"></th>
+                                                <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_findings').focus();">Findings <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_remarks').focus();">Remarks <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_authos').focus();">Auditor <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 10%;" onclick="document.getElementById('au_date').focus();">Date <span style="color: red;">*</span></b></span></th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
                                             <tr>
                                                 <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
-                                                <td><textarea name="findings" id="findings" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php !empty($response_request['auditor_findings']) ? $response_request['auditor_findings'] : '' ?></textarea></td>
-                                                <td><textarea name="remarks" id="remarks" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php !empty($response_request['auditor_remarks']) ? $response_request['auditor_remarks'] : '' ?></textarea></td>
-                                                <td><textarea name="authos" id="authos" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php !empty($response_request['auditor_name']) ? $response_request['auditor_name'] : '' ?></textarea></td>
-                                                <td><input type="date" class="form-control border-0"></td>
+                                                
+                                                <td onclick="document.getElementById('au_findings').focus();">
+                                                    <textarea name="au_findings" id="au_findings" class="form-control border-0" style="width: 100%; height: auto; color: black;" required><?php echo !empty($response_request['auditor_findings']) ? $response_request['auditor_findings'] : '' ?></textarea>
+                                                </td>
+
+                                                <td onclick="document.getElementById('au_remarks').focus();">
+                                                    <textarea name="au_remarks" id="au_remarks" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_remarks']) ? $response_request['auditor_remarks'] : '' ?></textarea>
+                                                </td>
+
+                                                <td onclick="document.getElementById('au_authos').focus();">
+                                                    <textarea name="au_authos" id="au_authos" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_name']) ? $response_request['auditor_name'] : '' ?></textarea>
+                                                </td>
+
+                                                <td onclick="document.getElementById('au_date').focus();">
+                                                    <input type="date" name="au_date" id="au_date" class="form-control border-0" value="<?php echo !empty($response_request['auditor_date']) ? $response_request['auditor_date'] : '' ?>">
+                                                </td>
                                             </tr>
 
                                             <tr>
