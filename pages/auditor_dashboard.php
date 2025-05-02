@@ -118,6 +118,23 @@
             exit();
         }
 
+        // Submit response request ........................................................................
+        if(isset($_POST['save_response'])){
+            $id = $_POST['response_id'];
+
+            $findings = filter_input(INPUT_POST, "au_findings", FILTER_SANITIZE_SPECIAL_CHARS);
+            $remarks = filter_input(INPUT_POST, "au_remarks", FILTER_SANITIZE_SPECIAL_CHARS);
+            $auditor = filter_input(INPUT_POST, "au_author", FILTER_SANITIZE_SPECIAL_CHARS);
+            $date = $_POST['au_date'];
+            $status = 2;
+
+            mysqli_query($conn, "UPDATE tbl_audit SET auditor_name='$auditor', auditor_findings='$findings', auditor_remarks='$remarks', auditor_date='$date', status='$status' WHERE id='$id'");
+
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
+        }
+
 
     }
 
@@ -950,7 +967,7 @@
                                                 <th style="table-layout: fixed; width: 30%;"></th>
                                                 <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_findings').focus();">Findings <span style="color: red;">*</span></b></span></th>
                                                 <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_remarks').focus();">Remarks <span style="color: red;">*</span></b></span></th>
-                                                <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_authos').focus();">Auditor <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_author').focus();">Auditor <span style="color: red;">*</span></b></span></th>
                                                 <th style="table-layout: fixed; width: 10%;" onclick="document.getElementById('au_date').focus();">Date <span style="color: red;">*</span></b></span></th>
                                             </tr>
                                         </thead>
@@ -967,8 +984,8 @@
                                                     <textarea name="au_remarks" id="au_remarks" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_remarks']) ? $response_request['auditor_remarks'] : '' ?></textarea>
                                                 </td>
 
-                                                <td onclick="document.getElementById('au_authos').focus();">
-                                                    <textarea name="au_authos" id="au_authos" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_name']) ? $response_request['auditor_name'] : '' ?></textarea>
+                                                <td onclick="document.getElementById('au_author').focus();">
+                                                    <textarea name="au_author" id="au_author" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_name']) ? $response_request['auditor_name'] : '' ?></textarea>
                                                 </td>
 
                                                 <td onclick="document.getElementById('au_date').focus();">
@@ -994,7 +1011,7 @@
             <div class="modal-footer">
                     <div class="mr-4">
                         <input type="hidden" name="response_id" value="<?php echo !empty($response_request['id']) ? $response_request['id'] : '' ?>">
-                        <input type="submit" name="save_response" class="btn btn-success" value="Save" disabled>
+                        <input type="submit" name="save_response" class="btn btn-success" value="Save">
                         <input type="reset" name="close_view" onclick="closeResponse()" value="Close" class="btn btn-secondary ml-2">
                     </div>
                 </form>
