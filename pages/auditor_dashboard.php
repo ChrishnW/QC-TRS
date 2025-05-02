@@ -118,8 +118,8 @@
             exit();
         } 
         
-        // // View request form rejected ..............................................................................
-        if (isset($_POST['view_rejected'])){
+        // // View request form closed ..............................................................................
+        if (isset($_POST['view_closed'])){
             $_SESSION['audit_id'] = $_POST['audit_id'];
             $_SESSION['viewer_request'] = 'closed';
 
@@ -326,7 +326,7 @@
                                     <td style="table-layout: fixed; width: 10%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                             <input type="hidden" name="audit_id" value="<?php echo !empty($row['id']) ? $row['id'] : '' ?>">
-                                            <input type="submit" name="view_audited" class="btn btn-primary btn-sm mr-2" value="View" disabled>
+                                            <input type="submit" name="view_audited" class="btn btn-primary btn-sm mr-2" value="View">
                                         </form>
                                     </td>
                                 </tr>
@@ -390,7 +390,7 @@
                                     <td style="table-layout: fixed; width: 10%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                                             <input type="hidden" name="audit_id" value="<?php echo !empty($row['id']) ? $row['id'] : '' ?>">
-                                            <input type="submit" name="view_pending" class="btn btn-primary btn-sm mr-2" value="View" disabled>
+                                            <input type="submit" name="view_closed" class="btn btn-primary btn-sm mr-2" value="View">
                                         </form>
                                     </td>
                                 </tr>
@@ -670,11 +670,11 @@
                                 <table class="table table-bordered" id="closed_dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr class="text-center">
-                                            <th style="table-layout: fixed; width: 40%;"></th>
+                                            <th style="table-layout: fixed; width: 30%;"></th>
                                             <th style="table-layout: fixed; width: 20%;">Findings</th>
                                             <th style="table-layout: fixed; width: 20%;">Remarks</th>
-                                            <th style="table-layout: fixed; width: 10%;">Auditor</th>
-                                            <th style="table-layout: fixed; width: 10%;">Date</th>
+                                            <th style="table-layout: fixed; width: 15%;">Auditor</th>
+                                            <th style="table-layout: fixed; width: 15%;">Date</th>
                                         </tr>
                                     </thead>
 
@@ -986,8 +986,8 @@
                                                 <th style="table-layout: fixed; width: 30%;"></th>
                                                 <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_findings').focus();">Findings <span style="color: red;">*</span></b></span></th>
                                                 <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_remarks').focus();">Remarks <span style="color: red;">*</span></b></span></th>
-                                                <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_auditor').focus();">Auditor <span style="color: red;">*</span></b></span></th>
-                                                <th style="table-layout: fixed; width: 10%;" onclick="document.getElementById('au_date').focus();">Date <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 15%;" onclick="document.getElementById('au_auditor').focus();">Auditor <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 15%;" onclick="document.getElementById('au_date').focus();">Date <span style="color: red;">*</span></b></span></th>
                                             </tr>
                                         </thead>
 
