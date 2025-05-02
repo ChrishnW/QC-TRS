@@ -480,9 +480,7 @@
                                     <div class="col-auto">
                                         <img src="<?php echo !empty($view_request['img_ng']) ? $view_request['img_ng'] : '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>                 
-                                </div>
-
-                                <br>
+                                </div> <br>
 
                                 <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                     <img src="<?php echo !empty($view_request['img_g']) ? $view_request['img_g'] : '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
@@ -751,14 +749,9 @@
             <div class="modal-footer">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center mr-2">
                     <input type="hidden" name="audit_id" value="<?php echo $_SESSION['audit_id'] ?? '' ?>">
-                    
                     <input type="submit" name="response_request_btn" value="Response" class="btn btn-primary ml-2" style="display: <?php echo $_SESSION['viewer_request'] == 'pending' ? 'block' : 'none' ?>;">
-
-                    
                     <input type="submit" name="response_request_btn" value="Edit" class="btn btn-warning ml-2" style="display: <?php echo $_SESSION['viewer_request'] == 'audited' ? 'block' : 'none' ?>;">
-                    
                     <input type="submit" name="response_request_btn_after" value="Response" class="btn btn-primary ml-2" style="display: <?php echo $_SESSION['viewer_request'] == 'audited' ? 'block' : 'none' ?>;">
-
                     <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary ml-2">
                 </form>
             </div> 
@@ -794,9 +787,7 @@
                                         <div class="col-auto">
                                             <img src="<?php echo !empty($response_request['img_ng']) ? $response_request['img_ng'] : '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                         </div>                 
-                                    </div>
-
-                                    <br>
+                                    </div> <br>
 
                                     <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                         <img src="<?php echo !empty($response_request['img_g']) ? $response_request['img_g'] : '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
@@ -1041,19 +1032,15 @@
                                         <tbody>
                                             <tr>
                                                 <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
-                                                
                                                 <td onclick="document.getElementById('au_findings').focus();">
                                                     <textarea name="au_findings" id="au_findings" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_findings']) ? $response_request['auditor_findings'] : '' ?></textarea>
                                                 </td>
-
                                                 <td onclick="document.getElementById('au_remarks').focus();">
                                                     <textarea name="au_remarks" id="au_remarks" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_remarks']) ? $response_request['auditor_remarks'] : '' ?></textarea>
                                                 </td>
-
                                                 <td onclick="document.getElementById('au_auditor').focus();">
                                                     <textarea name="au_auditor" id="au_auditor" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_name']) ? $response_request['auditor_name'] : '' ?></textarea>
                                                 </td>
-
                                                 <td onclick="document.getElementById('au_date').focus();">
                                                     <input type="date" name="au_date" id="au_date" class="form-control border-0" value="<?php echo !empty($response_request['auditor_date']) ? $response_request['auditor_date'] : '' ?>" required>
                                                 </td>
@@ -1119,10 +1106,8 @@
                                         <div class="col-auto">
                                             <img src="<?php echo !empty($response_request_after['img_ng']) ? $response_request_after['img_ng'] : '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                         </div>                 
-                                    </div>
-
-                                    <br>
-
+                                    </div> <br>
+                                    
                                     <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                         <img src="<?php echo !empty($response_request_after['img_g']) ? $response_request_after['img_g'] : '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>
