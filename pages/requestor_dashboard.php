@@ -216,7 +216,7 @@
 <!-- Ongoing Trouble Report -->
 <div class="container-fluid" id="ongoing_trouble_report" style="display: block;">
     <div class="filer_dashboard">
-        <div class="card shadow mb-4">
+        <div class="card shadow mb-2">
             <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Ongoing Trouble Report Request</h2>
 
@@ -304,7 +304,7 @@
 <!-- Finished Trouble Report -->
 <div class="container-fluid" id="finished_trouble_report" style="display: none;">
     <div class="filer_dashboard">
-        <div class="card shadow mb-4">
+        <div class="card shadow mb-2">
             <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Finished Trouble Report Request</h2>
 
@@ -645,7 +645,7 @@
                         </div>
                     </div>
 
-                    <div class="card shadow mb-4 bg-light">
+                    <div class="card shadow mb-0 bg-light">
                         <div class="card m-2">
                             <div class="table-responsive">
                                 <table class="table" id="closed_dataTable" width="100%" cellspacing="0">

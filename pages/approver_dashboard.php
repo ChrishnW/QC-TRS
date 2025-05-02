@@ -227,7 +227,7 @@
 <!-- Pending Approvals -->
 <div class="container-fluid" id="pending_reports" style="display: block;">   
     <div class="pending_dashboard">
-        <div class="card shadow mb-4">
+        <div class="card shadow mb-2">
             <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Pending Approvals</h2>
                 
@@ -296,7 +296,7 @@
 <!-- Approved Reports -->
 <div class="container-fluid" id="approved_reports" style="display: none;">   
     <div class="approved_dashboard">
-        <div class="card shadow mb-4">
+        <div class="card shadow mb-2">
             <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Approved Reports</h2>
                
@@ -374,7 +374,7 @@
 <!-- Rejected Reports -->
 <div class="container-fluid" id="rejected_reports" style="display: none;">   
     <div class="rejected_dashboard">
-        <div class="card shadow mb-4">
+        <div class="card shadow mb-2">
             <div class="card-header py-3.5 pt-4">
                 <h2 class="float-left">Rejected Reports</h2>
 
@@ -717,7 +717,7 @@
                         </div>
                     </div>
 
-                    <div class="card shadow mb-4 bg-light">
+                    <div class="card shadow mb-0 bg-light">
                         <div class="card m-2">
                             <div class="table-responsive">
                                 <table class="table" id="closed_dataTable" width="100%" cellspacing="0">
