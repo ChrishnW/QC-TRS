@@ -337,7 +337,7 @@
       <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" style="width: 100%; max-width: 600px;">
         <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
           <div class="mb-3">
-            <label for="id" class="form-label">Id</label>
+            <label for="id" class="form-label">ID</label>
             <input type="text" name="id" class="form-control" required value="<?php echo $id ?>" readonly>
           </div>
 
