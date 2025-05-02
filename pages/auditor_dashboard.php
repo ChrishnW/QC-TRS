@@ -62,6 +62,19 @@
         </script>";
     }
 
+    // Display request update form ..............................................................................
+    if(isset($_SESSION['response_audit_id'])){
+        $audit_id = $_SESSION['response_audit_id'];
+        $response_request = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id INNER JOIN tbl_audit ON tbl_audit.response_id=tbl_response.id WHERE tbl_audit.id='$audit_id'"));
+
+        echo "<script>     
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('reponse_report_form').style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            </script>";
+    }
+
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         // View request form pending ..............................................................................
@@ -95,6 +108,15 @@
         //     ob_end_flush();
         //     exit();
         // }
+
+        // Response the request form ........................................................................
+        if(isset($_POST['response_request_btn'])){
+            $_SESSION['response_audit_id'] = $_POST['audit_id'];
+
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
+        }
 
 
     }
@@ -647,11 +669,13 @@
             <div class="modal-footer">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center mr-2">
                     <input type="hidden" name="audit_id" value="<?php echo $_SESSION['audit_id'] ?? '' ?>">
-                    <!--<input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
 
-                    <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">
-                    <button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#deleteModal" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">Delete</button> -->
-                    <input type="submit" name="response_view" value="Response" class="btn btn-primary ml-2" disabled>
+                    <!-- <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">
+                    <button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#deleteModal" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;"
+                    
+                     -->
+                    
+                    <input type="submit" name="response_request_btn" value="Response" class="btn btn-primary ml-2">
                     <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary ml-2">
                 </form>
             </div> 
@@ -660,7 +684,7 @@
 </div>
 
 <!-- Response / Edit Trouble Report Request Form -->
-<div class="modal" tabindex="-1" id="reponse_report_form" class="position-fixed" style="display: block; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
+<div class="modal" tabindex="-1" id="reponse_report_form" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header bg-gradient-primary">
@@ -969,16 +993,15 @@
 
             <div class="modal-footer">
                     <div class="mr-4">
-                        <input type="hidden" name="response_id" value="<?php echo $response_request['id'] ?>">
+                        <input type="hidden" name="response_id" value="<?php echo !empty($response_request['id']) ? $response_request['id'] : '' ?>">
                         <input type="submit" name="save_response" class="btn btn-success" value="Save" disabled>
-                        <input type="reset" name="close_view" onclick="closeResponse()" value="Close" class="btn btn-secondary ml-2" disabled>
+                        <input type="reset" name="close_view" onclick="closeResponse()" value="Close" class="btn btn-secondary ml-2">
                     </div>
                 </form>
             </div> 
 
             <?php 
-                unset($_SESSION['update_request_id']);
-                unset($_SESSION['update_response_id']);
+                unset($_SESSION['response_audit_id']);
             ?>
         
         </div>    
@@ -1032,4 +1055,10 @@
         document.getElementById("view_ongoing").style.display = "none";
         document.body.style.overflow = 'auto';
     }
+    
+    function closeResponse() {
+        document.getElementById("reponse_report_form").style.display = "none";
+        document.body.style.overflow = 'auto';
+    }
+
 </script>
