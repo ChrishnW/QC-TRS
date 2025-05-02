@@ -723,7 +723,7 @@
                                     <label for="department">Department <span style="color: red;">*</span></label><br>
                                     <select name="department"  id="department" class="form-control" required >
 
-                                        <option value="<?php echo $response_request['dept_id'] ?? '' ?>" hidden><?php echo $response_request['dept_id'] ? getUsername($response_request['dept_id']) : '' ?></option>
+                                        <option value="<?php echo !empty($response_request['dept_id']) ? $response_request['dept_id']: '' ?>" hidden><?php echo !empty($response_request['dept_id']) ? getUsername($response_request['dept_id']) : '' ?></option>
 
                                         <?php 
                                             $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=3 AND status=1");
