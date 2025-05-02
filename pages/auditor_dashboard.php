@@ -124,7 +124,7 @@
 
             $findings = filter_input(INPUT_POST, "au_findings", FILTER_SANITIZE_SPECIAL_CHARS);
             $remarks = filter_input(INPUT_POST, "au_remarks", FILTER_SANITIZE_SPECIAL_CHARS);
-            $auditor = filter_input(INPUT_POST, "au_author", FILTER_SANITIZE_SPECIAL_CHARS);
+            $auditor = filter_input(INPUT_POST, "au_auditor", FILTER_SANITIZE_SPECIAL_CHARS);
             $date = $_POST['au_date'];
             $status = 2;
 
@@ -967,7 +967,7 @@
                                                 <th style="table-layout: fixed; width: 30%;"></th>
                                                 <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_findings').focus();">Findings <span style="color: red;">*</span></b></span></th>
                                                 <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_remarks').focus();">Remarks <span style="color: red;">*</span></b></span></th>
-                                                <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_author').focus();">Auditor <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_auditor').focus();">Auditor <span style="color: red;">*</span></b></span></th>
                                                 <th style="table-layout: fixed; width: 10%;" onclick="document.getElementById('au_date').focus();">Date <span style="color: red;">*</span></b></span></th>
                                             </tr>
                                         </thead>
@@ -984,8 +984,8 @@
                                                     <textarea name="au_remarks" id="au_remarks" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_remarks']) ? $response_request['auditor_remarks'] : '' ?></textarea>
                                                 </td>
 
-                                                <td onclick="document.getElementById('au_author').focus();">
-                                                    <textarea name="au_author" id="au_author" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_name']) ? $response_request['auditor_name'] : '' ?></textarea>
+                                                <td onclick="document.getElementById('au_auditor').focus();">
+                                                    <textarea name="au_auditor" id="au_auditor" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_name']) ? $response_request['auditor_name'] : '' ?></textarea>
                                                 </td>
 
                                                 <td onclick="document.getElementById('au_date').focus();">
