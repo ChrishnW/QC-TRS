@@ -265,17 +265,17 @@
 
           <div class="mb-3">
             <label for="firstname" class="form-label">First Name <span style="color: red;">*</span></label>
-            <input type="text" name="firstname" id="firstname" class="form-control" required>
+            <input type="text" name="firstname" id="firstname" class="form-control" required title="Last name should only contain letters and spaces." pattern="[A-Za-z\s]{1,50}">
           </div>
 
           <div class="mb-3">
             <label for="lastname" class="form-label">Last Name <span style="color: red;">*</span></label>
-            <input type="text" name="lastname" id="lastname" class="form-control" required>
+            <input type="text" name="lastname" id="lastname" class="form-control" required title="Last name should only contain letters and spaces." pattern="[A-Za-z\s]{1,50}">
           </div>
 
           <div class="mb-3">
             <label for="email" class="form-label">Email <span style="color: red;">*</span></label>
-            <input type="email" size="30" name="email" id="email" class="form-control" required title="Enter a valid email address in the format of user@example.com" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" value="<?php echo $row['email'] ?? '' ?>">
+            <input type="email" size="30" name="email" id="email" class="form-control" value="<?php echo $row['email'] ?? '' ?>" required title="Enter a valid email address in the format of user@example.com" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
           </div>
             
           <div class="mb-3">
@@ -347,17 +347,17 @@
 
           <div class="mb-3">
             <label for="firstname" class="form-label">First Name <span style="color: red;">*</span></label>
-            <input type="text" name="firstname" id="firstname" class="form-control" required value="<?php echo $row['firstname'] ?? '' ?>">
+            <input type="text" name="firstname" id="firstname" class="form-control" required value="<?php echo $row['firstname'] ?? '' ?>" title="Last name should only contain letters and spaces." pattern="[A-Za-z\s]{1,50}">
           </div>
 
           <div class="mb-3">
             <label for="lastname" class="form-label">Last Name <span style="color: red;">*</span></label>
-            <input type="text" name="lastname" id="lastname" class="form-control" required value="<?php echo $row['lastname'] ?? '' ?>">
+            <input type="text" name="lastname" id="lastname" class="form-control" required value="<?php echo $row['lastname'] ?? '' ?>" title="Last name should only contain letters and spaces." pattern="[A-Za-z\s]{1,50}">
           </div>
  
           <div class="mb-3">
             <label for="email" class="form-label">Email <span style="color: red;"></span></label>
-            <input type="email" size="30" name="email" id="email" class="form-control" required title="Enter a valid email address in the format of user@example.com" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" value="<?php echo $row['email'] ?? '' ?>">
+            <input type="email" size="30" name="email" id="email" class="form-control" required value="<?php echo $row['email'] ?? '' ?>" title="Enter a valid email address in the format of user@example.com" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
           </div>
 
           <div class="mb-3">
