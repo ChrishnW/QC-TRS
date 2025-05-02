@@ -685,43 +685,43 @@
 
                                     <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                         <div class="col-auto">
-                                            <img src="<?php echo $response_request['img_ng'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                            <img src="<?php echo !empty($response_request['img_ng']) ? $response_request['img_ng'] : '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                         </div>                 
                                     </div>
 
                                     <br>
 
                                     <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
-                                        <img src="<?php echo $response_request['img_g'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                        <img src="<?php echo !empty($response_request['img_g']) ? $response_request['img_g'] : '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>
                                 </div>
 
                                 <div class="container-fluid mr-n5 col d-flex flex-column align-items-stretch">
                                     <div class="card col mb-2 flex-grow-1">
                                         <div class="p-2">
-                                            <h6><b>Date: </b> <?php echo $response_request['date'] ?? '' ?></h6>                
-                                            <h6><b>Model: </b> <?php echo $response_request['model'] ?? '' ?></h6>
-                                            <h6><b>Department: </b> <?php echo isset($response_request['dept_id']) ? getUsername($response_request['dept_id']) : '' ?></h6>            
-                                            <h6><b>Lot No. </b> <?php echo $response_request['lot'] ?? '' ?></h6>
-                                            <h6><b>Serial No. </b> <?php echo $response_request['serial'] ?? '' ?></h6>
-                                            <h6><b>Temp No. </b> <?php echo $response_request['temp'] ?? '' ?></h6>    
-                                            <h6><b>Quantity: </b> <?php echo $response_request['qty'] ?? '' ?></h6>   
+                                            <h6><b>Date: </b> <?php echo !empty($response_request['date']) ? $response_request['date'] : '' ?></h6>                
+                                            <h6><b>Model: </b> <?php echo !empty($response_request['model']) ? $response_request['model'] : '' ?></h6>
+                                            <h6><b>Department: </b> <?php echo !empty($response_request['dept_id']) ? getUsername($response_request['dept_id']) : '' ?></h6>            
+                                            <h6><b>Lot No. </b> <?php echo !empty($response_request['lot']) ? $response_request['lot'] : '' ?></h6>
+                                            <h6><b>Serial No. </b> <?php echo !empty($response_request['serial']) ? $response_request['serial'] : '' ?></h6>
+                                            <h6><b>Temp No. </b> <?php echo !empty($response_request['temp']) ? $response_request['temp'] : '' ?></h6>    
+                                            <h6><b>Quantity: </b> <?php echo !empty($response_request['qty']) ? $response_request['qty'] : '' ?></h6>   
                                         </div>       
                                     </div>
 
                                     <div class="card col mb-2 flex-grow-1" style="max-height: 120px; overflow-y: auto;">
                                         <div class="p-2">
-                                            <h6><b>Findings: </b> <?php echo $response_request['findings'] ?? '' ?></h6>
+                                            <h6><b>Findings: </b> <?php echo !empty($response_request['findings']) ? $response_request['findings'] : '' ?></h6>
                                         </div>
                                     </div>
 
                                     <div class="card col mb-2 flex-grow-1" style="max-height: 150px;"> 
                                         <div class="p-2">                 
-                                            <h6><b>Trouble Origin (100%): </b><?php echo $response_request['origin1'] ?? '' ?></h6>
-                                            <h6><b>Checked By (200%): </b> <?php echo $response_request['origin2'] ?? '' ?></h6>
-                                            <h6><b>Found by (QC): </b> <?php echo $response_request['finder_qc'] ?? '' ?></h6>
-                                            <h6><b>Found by (AI): </b> <?php echo $response_request['finder_ai'] ?? '' ?></h6>
-                                            <h6><b>Due Date: </b> <?php echo $response_request['due_date'] ?? '' ?></h6>
+                                            <h6><b>Trouble Origin (100%): </b><?php echo !empty($response_request['origin1']) ? $response_request['origin1'] : '' ?></h6>
+                                            <h6><b>Checked By (200%): </b> <?php echo !empty($response_request['origin2']) ? $response_request['origin2'] : '' ?></h6>
+                                            <h6><b>Found by (QC): </b> <?php echo !empty($response_request['finder_qc']) ? $response_request['finder_qc'] : '' ?></h6>
+                                            <h6><b>Found by (AI): </b> <?php echo !empty($response_request['finder_ai']) ? $response_request['finder_ai'] : '' ?></h6>
+                                            <h6><b>Due Date: </b> <?php echo !empty($response_request['due_date']) ? $response_request['due_date'] : '' ?></h6>
                                         </div>
                                     </div>
 
@@ -730,20 +730,20 @@
                                             <h5 class="mt-1 mb-n1"><b>Approval</b></h5>
                                             <hr>
                                             <div class="row px-2">
-                                                <h6><b>Department Head: </b> <?php echo isset($response_request['dept_head_id']) ? getUsername($response_request['dept_head_id']) : '' ?></h6>
-                                                <h6 class="ml-3 <?php echo isset($response_request['dept_head_id']) ? getApprovalStatusColor($response_request['dept_head_status']) : '' ?>"><i><?php echo isset($response_request['dept_head_id']) ? getApprovalStatus($response_request['dept_head_status']) : '' ?></i></h6>
+                                                <h6><b>Department Head: </b> <?php echo !empty($response_request['dept_head_id']) ? getUsername($response_request['dept_head_id']) : '' ?></h6>
+                                                <h6 class="ml-3 <?php echo !empty($response_request['dept_head_id']) ? getApprovalStatusColor($response_request['dept_head_status']) : '' ?>"><i><?php echo !empty($response_request['dept_head_id']) ? getApprovalStatus($response_request['dept_head_status']) : '' ?></i></h6>
                                             </div>
                                             <div class="row px-2">
-                                                <h6><b>QC Supervisor: </b> <?php echo isset($response_request['supervisor_id']) ? getUsername($response_request['supervisor_id']) : '' ?></h6>
-                                                <h6 class="ml-3 <?php echo isset($response_request['supervisor_id']) ? getApprovalStatusColor($response_request['supervisor_status']) : '' ?>"><i><?php echo isset($response_request['supervisor_id']) ? getApprovalStatus($response_request['supervisor_status']) : '' ?></i></h6>
+                                                <h6><b>QC Supervisor: </b> <?php echo !empty($response_request['supervisor_id']) ? getUsername($response_request['supervisor_id']) : '' ?></h6>
+                                                <h6 class="ml-3 <?php echo !empty($response_request['supervisor_id']) ? getApprovalStatusColor($response_request['supervisor_status']) : '' ?>"><i><?php echo !empty($response_request['supervisor_id']) ? getApprovalStatus($response_request['supervisor_status']) : '' ?></i></h6>
                                             </div>
                                             <div class="row px-2">
-                                                <h6><b>Factory Officer: </b> <?php echo isset($response_request['fac_officer_id']) ? getUsername($response_request['fac_officer_id']) : '' ?></h6>
-                                                <h6 class="ml-3 <?php echo isset($response_request['fac_officer_id']) ? getApprovalStatusColor($response_request['fac_officer_status']) : '' ?>"><i><?php echo isset($response_request['fac_officer_id']) ? getApprovalStatus($response_request['fac_officer_status']) : '' ?></i></h6>
+                                                <h6><b>Factory Officer: </b> <?php echo !empty($response_request['fac_officer_id']) ? getUsername($response_request['fac_officer_id']) : '' ?></h6>
+                                                <h6 class="ml-3 <?php echo !empty($response_request['fac_officer_id']) ? getApprovalStatusColor($response_request['fac_officer_status']) : '' ?>"><i><?php echo !empty($response_request['fac_officer_id']) ? getApprovalStatus($response_request['fac_officer_status']) : '' ?></i></h6>
                                             </div>
                                             <div class="row px-2">
-                                                <h6><b>COO: </b> <?php echo isset($response_request['coo_id']) ? getUsername($response_request['coo_id']) : '' ?></h6>
-                                                <h6 class="ml-3 <?php echo isset($response_request['coo_id']) ? getApprovalStatusColor($response_request['coo_status']) : '' ?>"><i><?php echo isset($response_request['coo_id']) ? getApprovalStatus($response_request['coo_status']) : '' ?></i></h6>
+                                                <h6><b>COO: </b> <?php echo !empty($response_request['coo_id']) ? getUsername($response_request['coo_id']) : '' ?></h6>
+                                                <h6 class="ml-3 <?php echo !empty($response_request['coo_id']) ? getApprovalStatusColor($response_request['coo_status']) : '' ?>"><i><?php echo !empty($response_request['coo_id']) ? getApprovalStatus($response_request['coo_status']) : '' ?></i></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -769,7 +769,7 @@
 
                                     <div class="card " style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo $response_request['man'] ?? '' ?></p>
+                                            <p><?php echo !empty($response_request['man']) ? $response_request['man'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -783,7 +783,7 @@
 
                                     <div class="card " style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo $response_request['method'] ?? '' ?></p>
+                                            <p><?php echo !empty($response_request['method']) ? $response_request['method'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -797,7 +797,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo $response_request['material'] ?? '' ?></p>
+                                            <p><?php echo !empty($response_request['material']) ? $response_request['material'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -811,7 +811,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo $response_request['machine'] ?? '' ?></p>
+                                            <p><?php echo !empty($response_request['machine']) ? $response_request['machine'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -828,7 +828,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card " style="width: 98%;">
                                         <div class="m-2">
-                                            <p><?php echo $response_request['correction'] ?? '' ?></p>
+                                            <p><?php echo !empty($response_request['correction']) ? $response_request['correction'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -851,7 +851,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo $response_request['ca_man'] ?? '' ?></p>
+                                            <p><?php echo !empty($response_request['ca_man']) ? $response_request['ca_man'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -865,7 +865,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo $response_request['ca_method'] ?? '' ?></p>
+                                            <p><?php echo !empty($response_request['ca_method']) ? $response_request['ca_method'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -879,7 +879,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo $response_request['ca_material'] ?? '' ?></p>
+                                            <p><?php echo !empty($response_request['ca_material']) ? $response_request['ca_material'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -893,7 +893,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo $response_request['ca_machine'] ?? '' ?></p>
+                                            <p><?php echo !empty($response_request['ca_machine']) ? $response_request['ca_machine'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -910,7 +910,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card " style="width: 98%;">
                                         <div class="m-2">
-                                            <p><?php echo $response_request['remarks'] ?? '' ?></p>
+                                            <p><?php echo !empty($response_request['remarks']) ? $response_request['remarks'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
