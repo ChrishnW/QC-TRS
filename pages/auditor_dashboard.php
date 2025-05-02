@@ -48,13 +48,8 @@
         }
     }
 
-    // Display view form ..........................................................................................
-    if(isset($_SESSION['audit_id'])){
-        $audit_id = $_SESSION['audit_id'];
-        $result = mysqli_query($conn, "SELECT * FROM tbl_audit INNER JOIN tbl_response ON tbl_audit.response_id=tbl_response.id INNER JOIN tbl_request ON tbl_response.request_id=tbl_request.id WHERE tbl_audit.id=$audit_id");
-        $view_request = mysqli_fetch_assoc($result);
-
-        if($_SESSION['viewer_request'] == 'ongoing'){
+    function displayModule(){
+        if($_SESSION['viewer_request'] == 'pending'){
             echo "<script>
                     document.addEventListener('DOMContentLoaded', function() {
                         display_pending();
@@ -73,7 +68,15 @@
                     });
                 </script>";
         }
+    }
+
+    // Display view form ..........................................................................................
+    if(isset($_SESSION['audit_id'])){
+        $audit_id = $_SESSION['audit_id'];
+        $result = mysqli_query($conn, "SELECT * FROM tbl_audit INNER JOIN tbl_response ON tbl_audit.response_id=tbl_response.id INNER JOIN tbl_request ON tbl_response.request_id=tbl_request.id WHERE tbl_audit.id=$audit_id");
+        $view_request = mysqli_fetch_assoc($result);
         
+        displayModule();
 
         echo "<script>     
             document.addEventListener('DOMContentLoaded', function() {
@@ -88,9 +91,26 @@
         $audit_id = $_SESSION['response_audit_id'];
         $response_request = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id INNER JOIN tbl_audit ON tbl_audit.response_id=tbl_response.id WHERE tbl_audit.id='$audit_id'"));
 
+        displayModule();
+
         echo "<script>     
                 document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('reponse_report_form').style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            </script>";
+    }
+
+    // Display request update form after 3 months ..............................................................................
+    if(isset($_SESSION['response_audit_id_after'])){
+        $audit_id = $_SESSION['response_audit_id_after'];
+        $response_request_after = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id INNER JOIN tbl_audit ON tbl_audit.response_id=tbl_response.id WHERE tbl_audit.id='$audit_id'"));
+
+        displayModule();
+
+        echo "<script>     
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('reponse_report_form_after').style.display = 'block';
                     document.body.style.overflow = 'hidden';
                 });
             </script>";
@@ -118,7 +138,7 @@
             exit();
         } 
         
-        // // View request form closed ..............................................................................
+        // View request form closed ..............................................................................
         if (isset($_POST['view_closed'])){
             $_SESSION['audit_id'] = $_POST['audit_id'];
             $_SESSION['viewer_request'] = 'closed';
@@ -131,6 +151,15 @@
         // Response the request form ........................................................................
         if(isset($_POST['response_request_btn'])){
             $_SESSION['response_audit_id'] = $_POST['audit_id'];
+
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
+        }
+
+        // Response after 3 months the request form ........................................................................
+        if(isset($_POST['response_request_btn_after'])){
+            $_SESSION['response_audit_id_after'] = $_POST['audit_id'];
 
             header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
             ob_end_flush();
@@ -705,14 +734,14 @@
             <div class="modal-footer">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center mr-2">
                     <input type="hidden" name="audit_id" value="<?php echo $_SESSION['audit_id'] ?? '' ?>">
-
-                    <!-- <input type="submit" name="edit_request" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;">
-                    <button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#deleteModal" style="display: <?php echo $_SESSION['viewer_request'] == 'finished' ? 'none' : 'block' ?>;"
-                    
-                     -->
                     
                     <input type="submit" name="response_request_btn" value="Response" class="btn btn-primary ml-2" style="display: <?php echo $_SESSION['viewer_request'] == 'pending' ? 'block' : 'none' ?>;">
-                    <input type="submit" name="response_request_btn_after" value="Edit" class="btn btn-warning ml-2" style="display: <?php echo $_SESSION['viewer_request'] == 'audited' ? 'block' : 'none' ?>;" disabled>
+
+                    
+                    <input type="submit" name="response_request_btn" value="Edit" class="btn btn-warning ml-2" style="display: <?php echo $_SESSION['viewer_request'] == 'audited' ? 'block' : 'none' ?>;">
+                    
+                    <input type="submit" name="response_request_btn_after" value="Response" class="btn btn-primary ml-2" style="display: <?php echo $_SESSION['viewer_request'] == 'audited' ? 'block' : 'none' ?>;">
+
                     <input type="reset" name="close_view" onclick="closeView()" value="Close" class="btn btn-secondary ml-2">
                 </form>
             </div> 
@@ -1071,43 +1100,43 @@
 
                                     <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                         <div class="col-auto">
-                                            <img src="<?php echo !empty($response_request['img_ng']) ? $response_request['img_ng'] : '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                            <img src="<?php echo !empty($response_request_after['img_ng']) ? $response_request_after['img_ng'] : '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                         </div>                 
                                     </div>
 
                                     <br>
 
                                     <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
-                                        <img src="<?php echo !empty($response_request['img_g']) ? $response_request['img_g'] : '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                        <img src="<?php echo !empty($response_request_after['img_g']) ? $response_request_after['img_g'] : '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>
                                 </div>
 
                                 <div class="container-fluid mr-n5 col d-flex flex-column align-items-stretch">
                                     <div class="card col mb-2 flex-grow-1">
                                         <div class="p-2">
-                                            <h6><b>Date: </b> <?php echo !empty($response_request['date']) ? $response_request['date'] : '' ?></h6>                
-                                            <h6><b>Model: </b> <?php echo !empty($response_request['model']) ? $response_request['model'] : '' ?></h6>
-                                            <h6><b>Department: </b> <?php echo !empty($response_request['dept_id']) ? getUsername($response_request['dept_id']) : '' ?></h6>            
-                                            <h6><b>Lot No. </b> <?php echo !empty($response_request['lot']) ? $response_request['lot'] : '' ?></h6>
-                                            <h6><b>Serial No. </b> <?php echo !empty($response_request['serial']) ? $response_request['serial'] : '' ?></h6>
-                                            <h6><b>Temp No. </b> <?php echo !empty($response_request['temp']) ? $response_request['temp'] : '' ?></h6>    
-                                            <h6><b>Quantity: </b> <?php echo !empty($response_request['qty']) ? $response_request['qty'] : '' ?></h6>   
+                                            <h6><b>Date: </b> <?php echo !empty($response_request_after['date']) ? $response_request_after['date'] : '' ?></h6>                
+                                            <h6><b>Model: </b> <?php echo !empty($response_request_after['model']) ? $response_request_after['model'] : '' ?></h6>
+                                            <h6><b>Department: </b> <?php echo !empty($response_request_after['dept_id']) ? getUsername($response_request_after['dept_id']) : '' ?></h6>            
+                                            <h6><b>Lot No. </b> <?php echo !empty($response_request_after['lot']) ? $response_request_after['lot'] : '' ?></h6>
+                                            <h6><b>Serial No. </b> <?php echo !empty($response_request_after['serial']) ? $response_request_after['serial'] : '' ?></h6>
+                                            <h6><b>Temp No. </b> <?php echo !empty($response_request_after['temp']) ? $response_request_after['temp'] : '' ?></h6>    
+                                            <h6><b>Quantity: </b> <?php echo !empty($response_request_after['qty']) ? $response_request_after['qty'] : '' ?></h6>   
                                         </div>       
                                     </div>
 
                                     <div class="card col mb-2 flex-grow-1" style="max-height: 120px; overflow-y: auto;">
                                         <div class="p-2">
-                                            <h6><b>Findings: </b> <?php echo !empty($response_request['findings']) ? $response_request['findings'] : '' ?></h6>
+                                            <h6><b>Findings: </b> <?php echo !empty($response_request_after['findings']) ? $response_request_after['findings'] : '' ?></h6>
                                         </div>
                                     </div>
 
                                     <div class="card col mb-2 flex-grow-1" style="max-height: 150px;"> 
                                         <div class="p-2">                 
-                                            <h6><b>Trouble Origin (100%): </b><?php echo !empty($response_request['origin1']) ? $response_request['origin1'] : '' ?></h6>
-                                            <h6><b>Checked By (200%): </b> <?php echo !empty($response_request['origin2']) ? $response_request['origin2'] : '' ?></h6>
-                                            <h6><b>Found by (QC): </b> <?php echo !empty($response_request['finder_qc']) ? $response_request['finder_qc'] : '' ?></h6>
-                                            <h6><b>Found by (AI): </b> <?php echo !empty($response_request['finder_ai']) ? $response_request['finder_ai'] : '' ?></h6>
-                                            <h6><b>Due Date: </b> <?php echo !empty($response_request['due_date']) ? $response_request['due_date'] : '' ?></h6>
+                                            <h6><b>Trouble Origin (100%): </b><?php echo !empty($response_request_after['origin1']) ? $response_request_after['origin1'] : '' ?></h6>
+                                            <h6><b>Checked By (200%): </b> <?php echo !empty($response_request_after['origin2']) ? $response_request_after['origin2'] : '' ?></h6>
+                                            <h6><b>Found by (QC): </b> <?php echo !empty($response_request_after['finder_qc']) ? $response_request_after['finder_qc'] : '' ?></h6>
+                                            <h6><b>Found by (AI): </b> <?php echo !empty($response_request_after['finder_ai']) ? $response_request_after['finder_ai'] : '' ?></h6>
+                                            <h6><b>Due Date: </b> <?php echo !empty($response_request_after['due_date']) ? $response_request_after['due_date'] : '' ?></h6>
                                         </div>
                                     </div>
 
@@ -1116,20 +1145,20 @@
                                             <h5 class="mt-1 mb-n1"><b>Approval</b></h5>
                                             <hr>
                                             <div class="row px-2">
-                                                <h6><b>Department Head: </b> <?php echo !empty($response_request['dept_head_id']) ? getUsername($response_request['dept_head_id']) : '' ?></h6>
-                                                <h6 class="ml-3 <?php echo !empty($response_request['dept_head_id']) ? getApprovalStatusColor($response_request['dept_head_status']) : '' ?>"><i><?php echo !empty($response_request['dept_head_id']) ? getApprovalStatus($response_request['dept_head_status']) : '' ?></i></h6>
+                                                <h6><b>Department Head: </b> <?php echo !empty($response_request_after['dept_head_id']) ? getUsername($response_request_after['dept_head_id']) : '' ?></h6>
+                                                <h6 class="ml-3 <?php echo !empty($response_request_after['dept_head_id']) ? getApprovalStatusColor($response_request_after['dept_head_status']) : '' ?>"><i><?php echo !empty($response_request_after['dept_head_id']) ? getApprovalStatus($response_request_after['dept_head_status']) : '' ?></i></h6>
                                             </div>
                                             <div class="row px-2">
-                                                <h6><b>QC Supervisor: </b> <?php echo !empty($response_request['supervisor_id']) ? getUsername($response_request['supervisor_id']) : '' ?></h6>
-                                                <h6 class="ml-3 <?php echo !empty($response_request['supervisor_id']) ? getApprovalStatusColor($response_request['supervisor_status']) : '' ?>"><i><?php echo !empty($response_request['supervisor_id']) ? getApprovalStatus($response_request['supervisor_status']) : '' ?></i></h6>
+                                                <h6><b>QC Supervisor: </b> <?php echo !empty($response_request_after['supervisor_id']) ? getUsername($response_request_after['supervisor_id']) : '' ?></h6>
+                                                <h6 class="ml-3 <?php echo !empty($response_request_after['supervisor_id']) ? getApprovalStatusColor($response_request_after['supervisor_status']) : '' ?>"><i><?php echo !empty($response_request_after['supervisor_id']) ? getApprovalStatus($response_request_after['supervisor_status']) : '' ?></i></h6>
                                             </div>
                                             <div class="row px-2">
-                                                <h6><b>Factory Officer: </b> <?php echo !empty($response_request['fac_officer_id']) ? getUsername($response_request['fac_officer_id']) : '' ?></h6>
-                                                <h6 class="ml-3 <?php echo !empty($response_request['fac_officer_id']) ? getApprovalStatusColor($response_request['fac_officer_status']) : '' ?>"><i><?php echo !empty($response_request['fac_officer_id']) ? getApprovalStatus($response_request['fac_officer_status']) : '' ?></i></h6>
+                                                <h6><b>Factory Officer: </b> <?php echo !empty($response_request_after['fac_officer_id']) ? getUsername($response_request_after['fac_officer_id']) : '' ?></h6>
+                                                <h6 class="ml-3 <?php echo !empty($response_request_after['fac_officer_id']) ? getApprovalStatusColor($response_request_after['fac_officer_status']) : '' ?>"><i><?php echo !empty($response_request_after['fac_officer_id']) ? getApprovalStatus($response_request_after['fac_officer_status']) : '' ?></i></h6>
                                             </div>
                                             <div class="row px-2">
-                                                <h6><b>COO: </b> <?php echo !empty($response_request['coo_id']) ? getUsername($response_request['coo_id']) : '' ?></h6>
-                                                <h6 class="ml-3 <?php echo !empty($response_request['coo_id']) ? getApprovalStatusColor($response_request['coo_status']) : '' ?>"><i><?php echo !empty($response_request['coo_id']) ? getApprovalStatus($response_request['coo_status']) : '' ?></i></h6>
+                                                <h6><b>COO: </b> <?php echo !empty($response_request_after['coo_id']) ? getUsername($response_request_after['coo_id']) : '' ?></h6>
+                                                <h6 class="ml-3 <?php echo !empty($response_request_after['coo_id']) ? getApprovalStatusColor($response_request_after['coo_status']) : '' ?>"><i><?php echo !empty($response_request_after['coo_id']) ? getApprovalStatus($response_request_after['coo_status']) : '' ?></i></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -1155,7 +1184,7 @@
 
                                     <div class="card " style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo !empty($response_request['man']) ? $response_request['man'] : '' ?></p>
+                                            <p><?php echo !empty($response_request_after['man']) ? $response_request_after['man'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1169,7 +1198,7 @@
 
                                     <div class="card " style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo !empty($response_request['method']) ? $response_request['method'] : '' ?></p>
+                                            <p><?php echo !empty($response_request_after['method']) ? $response_request_after['method'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1183,7 +1212,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo !empty($response_request['material']) ? $response_request['material'] : '' ?></p>
+                                            <p><?php echo !empty($response_request_after['material']) ? $response_request_after['material'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1197,7 +1226,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo !empty($response_request['machine']) ? $response_request['machine'] : '' ?></p>
+                                            <p><?php echo !empty($response_request_after['machine']) ? $response_request_after['machine'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1214,7 +1243,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card " style="width: 98%;">
                                         <div class="m-2">
-                                            <p><?php echo !empty($response_request['correction']) ? $response_request['correction'] : '' ?></p>
+                                            <p><?php echo !empty($response_request_after['correction']) ? $response_request_after['correction'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1237,7 +1266,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo !empty($response_request['ca_man']) ? $response_request['ca_man'] : '' ?></p>
+                                            <p><?php echo !empty($response_request_after['ca_man']) ? $response_request_after['ca_man'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1251,7 +1280,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo !empty($response_request['ca_method']) ? $response_request['ca_method'] : '' ?></p>
+                                            <p><?php echo !empty($response_request_after['ca_method']) ? $response_request_after['ca_method'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1265,7 +1294,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo !empty($response_request['ca_material']) ? $response_request['ca_material'] : '' ?></p>
+                                            <p><?php echo !empty($response_request_after['ca_material']) ? $response_request_after['ca_material'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1279,7 +1308,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <p><?php echo !empty($response_request['ca_machine']) ? $response_request['ca_machine'] : '' ?></p>
+                                            <p><?php echo !empty($response_request_after['ca_machine']) ? $response_request_after['ca_machine'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1296,7 +1325,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card " style="width: 98%;">
                                         <div class="m-2">
-                                            <p><?php echo !empty($response_request['remarks']) ? $response_request['remarks'] : '' ?></p>
+                                            <p><?php echo !empty($response_request_after['remarks']) ? $response_request_after['remarks'] : '' ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1322,28 +1351,28 @@
                                                 <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
                                                 
                                                 <td onclick="document.getElementById('au_findings').focus();">
-                                                    <textarea name="au_findings" id="au_findings" class="form-control border-0" style="width: 100%; height: auto; color: black;" required><?php echo !empty($response_request['auditor_findings']) ? $response_request['auditor_findings'] : '' ?></textarea>
+                                                    <!-- <textarea name="au_findings" id="au_findings" class="form-control border-0" style="width: 100%; height: auto; color: black;" required><?php echo !empty($response_request_after['auditor_findings']) ? $response_request_after['auditor_findings'] : '' ?></textarea> -->
                                                 </td>
 
                                                 <td onclick="document.getElementById('au_remarks').focus();">
-                                                    <textarea name="au_remarks" id="au_remarks" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_remarks']) ? $response_request['auditor_remarks'] : '' ?></textarea>
+                                                    <!-- <textarea name="au_remarks" id="au_remarks" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request_after['auditor_remarks']) ? $response_request_after['auditor_remarks'] : '' ?></textarea> -->
                                                 </td>
 
                                                 <td onclick="document.getElementById('au_auditor').focus();">
-                                                    <textarea name="au_auditor" id="au_auditor" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_name']) ? $response_request['auditor_name'] : '' ?></textarea>
+                                                    <!-- <textarea name="au_auditor" id="au_auditor" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request_after['auditor_name']) ? $response_request_after['auditor_name'] : '' ?></textarea> -->
                                                 </td>
 
                                                 <td onclick="document.getElementById('au_date').focus();">
-                                                    <input type="date" name="au_date" id="au_date" class="form-control border-0" value="<?php echo !empty($response_request['auditor_date']) ? $response_request['auditor_date'] : '' ?>">
+                                                    <!-- <input type="date" name="au_date" id="au_date" class="form-control border-0" value="<?php echo !empty($response_request_after['auditor_date']) ? $response_request_after['auditor_date'] : '' ?>"> -->
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <td>Effectiveness Verification (After 3 months)</td>
-                                                <td><?php echo !empty($response_request['auditor_findings_after']) ? $response_request['auditor_findings_after'] : '' ?></td>
-                                                <td><?php echo !empty($response_request['auditor_remarks_after']) ? $response_request['auditor_remarks_after'] : '' ?></td>
-                                                <td><?php echo !empty($response_request['auditor_name_after']) ? $response_request['auditor_name_after'] : '' ?></td>
-                                                <td><?php echo !empty($response_request['auditor_date_after']) ? $response_request['auditor_date_after'] : '' ?></td>
+                                                <td><?php echo !empty($response_request_after['auditor_findings_after']) ? $response_request_after['auditor_findings_after'] : '' ?></td>
+                                                <td><?php echo !empty($response_request_after['auditor_remarks_after']) ? $response_request_after['auditor_remarks_after'] : '' ?></td>
+                                                <td><?php echo !empty($response_request_after['auditor_name_after']) ? $response_request_after['auditor_name_after'] : '' ?></td>
+                                                <td><?php echo !empty($response_request_after['auditor_date_after']) ? $response_request_after['auditor_date_after'] : '' ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -1356,14 +1385,14 @@
             <div class="modal-footer">
                     <div class="mr-4">
                         <input type="hidden" name="response_id" value="<?php echo !empty($response_request['id']) ? $response_request['id'] : '' ?>">
-                        <input type="submit" name="save_response_after" class="btn btn-success" value="Save">
+                        <input type="submit" name="save_response_after" class="btn btn-success" value="Save" disabled>
                         <input type="reset" name="close_view" onclick="closeResponse_after()" value="Close" class="btn btn-secondary ml-2">
                     </div>
                 </form>
             </div> 
 
             <?php 
-                unset($_SESSION['response_audit_id']);
+                unset($_SESSION['response_audit_id_after']);
             ?>
         
         </div>    
@@ -1421,6 +1450,11 @@
     
     function closeResponse() {
         document.getElementById("reponse_report_form").style.display = "none";
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeResponse_after() {
+        document.getElementById("reponse_report_form_after").style.display = "none";
         document.body.style.overflow = 'auto';
     }
 
