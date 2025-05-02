@@ -299,11 +299,11 @@
                 $message = $_SESSION["message"];
             
                 echo "<script> 
-                            document.addEventListener('DOMContentLoaded', function () {
-                                document.getElementById('popup').style.display = 'block'; 
-                                document.body.style.overflow = 'hidden';
-                            }); 
-                        </script>";
+                        document.addEventListener('DOMContentLoaded', function () {
+                            document.getElementById('popup').style.display = 'block'; 
+                            document.body.style.overflow = 'hidden';
+                        }); 
+                    </script>";
             ?>
             
             <div class="modal-body my-2">
