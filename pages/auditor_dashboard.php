@@ -1107,7 +1107,7 @@
                                             <img src="<?php echo !empty($response_request_after['img_ng']) ? $response_request_after['img_ng'] : '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                         </div>                 
                                     </div> <br>
-                                    
+
                                     <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                         <img src="<?php echo !empty($response_request_after['img_g']) ? $response_request_after['img_g'] : '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>
@@ -1396,7 +1396,6 @@
         </div>    
     </div>
 </div>
-
 
 <?php 
     include '../include/footer.php'; 

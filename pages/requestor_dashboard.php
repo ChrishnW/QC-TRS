@@ -643,15 +643,15 @@
 
                     <div class="card shadow mb-0 bg-light">
                         <div class="card m-2">
-                            <div class="table-responsive">
+                            <div class="table-responsive table-bordered">
                                 <table class="table" id="closed_dataTable" width="100%" cellspacing="0">
                                     <thead class="">
                                         <tr class="text-center">
-                                            <th style="table-layout: fixed; width: 40%;"></th>
+                                            <th style="table-layout: fixed; width: 30%;"></th>
                                             <th style="table-layout: fixed; width: 20%;">Findings</th>
                                             <th style="table-layout: fixed; width: 20%;">Remarks</th>
-                                            <th style="table-layout: fixed; width: 10%;">Auditor</th>
-                                            <th style="table-layout: fixed; width: 10%;">Date</th>
+                                            <th style="table-layout: fixed; width: 15%;">Auditor</th>
+                                            <th style="table-layout: fixed; width: 15%;">Date</th>
                                         </tr>
                                     </thead>
 
