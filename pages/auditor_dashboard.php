@@ -258,13 +258,10 @@
                                 $result = mysqli_query($conn, "SELECT tbl_request.date, tbl_request.model, tbl_request.dept_id, tbl_request.qty, tbl_audit.id FROM tbl_audit INNER JOIN tbl_response ON tbl_audit.response_id=tbl_response.id INNER JOIN tbl_request ON tbl_response.request_id=tbl_request.id WHERE tbl_audit.status=2");
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
-                            ?>!empty(
+                            ?>                                 
 
                                 <tr>
- )                                   <t 
-
-                                <tr>
-  : style="table-layout: fixed; width: 20%;"><?php echo !empty($row['date']) ? $row['date'] : '' ?></td>
+                                    <td style="table-layout: fixed; width: 20%;"><?php echo !empty($row['date']) ? $row['date'] : '' ?></td>
                                     <td style="table-layout: fixed; width: 25%;"><?php echo !empty($row['model']) ? $row['model'] : '' ?></td>
                                     <td style="table-layout: fixed; width: 25%;"><?php echo !empty($row['dept_id']) ? getUser($row['dept_id']) : '' ?></td>
                                     <td style="table-layout: fixed; width: 20%;"><?php echo !empty($row['qty']) ? $row['qty'] : '' ?></td>
