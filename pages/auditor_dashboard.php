@@ -1010,7 +1010,7 @@
                         <div class="card shadow mb-4 bg-light">
                             <div class="card m-2">
                                 <div class="table-responsive">
-                                    <table class="table" id="closed_dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" id="closed_dataTable" width="100%" cellspacing="0">
                                         <thead class="">
                                             <tr class="text-center">
                                                 <th style="table-layout: fixed; width: 30%;"></th>
@@ -1026,7 +1026,7 @@
                                                 <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
                                                 
                                                 <td onclick="document.getElementById('au_findings').focus();">
-                                                    <textarea name="au_findings" id="au_findings" class="form-control border-0" style="width: 100%; height: auto; color: black;" required><?php echo !empty($response_request['auditor_findings']) ? $response_request['auditor_findings'] : '' ?></textarea>
+                                                    <textarea name="au_findings" id="au_findings" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_findings']) ? $response_request['auditor_findings'] : '' ?></textarea>
                                                 </td>
 
                                                 <td onclick="document.getElementById('au_remarks').focus();">
@@ -1038,7 +1038,7 @@
                                                 </td>
 
                                                 <td onclick="document.getElementById('au_date').focus();">
-                                                    <input type="date" name="au_date" id="au_date" class="form-control border-0" value="<?php echo !empty($response_request['auditor_date']) ? $response_request['auditor_date'] : '' ?>">
+                                                    <input type="date" name="au_date" id="au_date" class="form-control border-0" value="<?php echo !empty($response_request['auditor_date']) ? $response_request['auditor_date'] : '' ?>" required>
                                                 </td>
                                             </tr>
 
@@ -1335,51 +1335,39 @@
                         <div class="card shadow mb-4 bg-light">
                             <div class="card m-2">
                                 <div class="table-responsive">
-                                    <table class="table" id="closed_dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" id="closed_dataTable" width="100%" cellspacing="0">
                                         <thead class="">
                                             <tr class="text-center">
                                                 <th style="table-layout: fixed; width: 30%;"></th>
                                                 <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_findings_after').focus();">Findings <span style="color: red;">*</span></b></span></th>
                                                 <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_remarks_after').focus();">Remarks <span style="color: red;">*</span></b></span></th>
                                                 <th style="table-layout: fixed; width: 15%;" onclick="document.getElementById('au_auditor_after').focus();">Auditor <span style="color: red;">*</span></b></span></th>
-                                                <th style="table-layout: fixed; width: 15%;" onclick="document.getElementById('au_date').focus();">Date <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 15%;" onclick="document.getElementById('au_date_after').focus();">Date <span style="color: red;">*</span></b></span></th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
                                             <tr>
                                                 <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
-                                                
-                                                <td>
-                                                    <?php echo !empty($response_request_after['auditor_findings']) ? $response_request_after['auditor_findings'] : '' ?>    
-                                                </td>
-
-                                                <td>
-                                                    <?php echo !empty($response_request_after['auditor_remarks']) ? $response_request_after['auditor_remarks'] : '' ?>    
-                                                </td>
-
-                                                <td>
-                                                    <?php echo !empty($response_request_after['auditor_name']) ? $response_request_after['auditor_name'] : '' ?>    
-                                                </td>
-
-                                                <td>
-                                                    <?php echo !empty($response_request_after['auditor_date']) ? $response_request_after['auditor_date'] : '' ?>    
-                                                </td>
+                                                <td><?php echo !empty($response_request_after['auditor_findings']) ? $response_request_after['auditor_findings'] : '' ?></td>
+                                                <td><?php echo !empty($response_request_after['auditor_remarks']) ? $response_request_after['auditor_remarks'] : '' ?></td>
+                                                <td><?php echo !empty($response_request_after['auditor_name']) ? $response_request_after['auditor_name'] : '' ?></td>
+                                                <td><?php echo !empty($response_request_after['auditor_date']) ? $response_request_after['auditor_date'] : '' ?></td>
                                             </tr>
 
                                             <tr>
                                                 <td>Effectiveness Verification (After 3 months)</td>
                                                 <td onclick="document.getElementById('au_findings_after').focus();">
-                                                    <textarea name="au_findings_after" id="au_findings_after"><?php echo !empty($response_request_after['auditor_findings_after']) ? $response_request_after['auditor_findings_after'] : '' ?></textarea>
+                                                    <textarea name="au_findings_after" id="au_findings_after"  class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request_after['auditor_findings_after']) ? $response_request_after['auditor_findings_after'] : '' ?></textarea>
                                                 </td>
                                                 <td onclick="document.getElementById('au_remarks_after').focus();">
-                                                    <textarea name="au_remarks_after" id="au_remarks_after"><?php echo !empty($response_request_after['auditor_remarks_after']) ? $response_request_after['auditor_remarks_after'] : '' ?></textarea>
+                                                    <textarea name="au_remarks_after" id="au_remarks_after"  class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request_after['auditor_remarks_after']) ? $response_request_after['auditor_remarks_after'] : '' ?></textarea>
                                                 </td>
                                                 <td onclick="document.getElementById('au_auditor_after').focus();">
-                                                    <textarea name="au_auditor_after" id="au_auditor_after"><?php echo !empty($response_request_after['auditor_name_after']) ? $response_request_after['auditor_name_after'] : '' ?></textarea>
+                                                    <textarea name="au_auditor_after" id="au_auditor_after"  class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request_after['auditor_name_after']) ? $response_request_after['auditor_name_after'] : '' ?></textarea>
                                                 </td>
-                                                <td onclick="document.getElementById('au_date').focus();">
-                                                    <textarea name="au_auditor" id="au_auditor"><?php echo !empty($response_request_after['auditor_date_after']) ? $response_request_after['auditor_date_after'] : '' ?></textarea>
+                                                <td onclick="document.getElementById('au_date_after').focus();">
+                                                    <input type="date" name="au_date_after" id="au_date_after" class="form-control border-0" value="<?php echo !empty($response_request['auditor_date']) ? $response_request['auditor_date'] : '' ?>" required>
                                                 </td>
                                             </tr>
                                         </tbody>
