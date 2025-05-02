@@ -288,6 +288,7 @@
                 <option value="5">QC Supervisor</option>
                 <option value="6">Factory Officer</option>
                 <option value="7">Chief Operating Officer</option>
+                <!-- <option value="8">Auditor</option> -->
             </select>
           </div>
         </div>
