@@ -63,7 +63,7 @@
     if(isset($_SESSION['request_id']) && isset($_SESSION['response_id'])){
         $request_id = $_SESSION['request_id'];
         $response_id = $_SESSION['response_id'];
-        $view_request = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.id='$request_id' AND tbl_response.id='$response_id'"));
+        $view_request = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id INNER JOIN tbl_audit ON tbl_audit.response_id=tbl_response.id WHERE tbl_request.id='$request_id' AND tbl_response.id='$response_id'"));
 
         if($_SESSION['viewer_request'] == 'ongoing'){
             echo "<script>
@@ -655,21 +655,21 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody>
+                                    <tbody class="text-justify">
                                         <tr>
                                             <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td><?php echo !empty($view_request['auditor_findings']) ? $view_request['auditor_findings'] : '' ?></td>
+                                            <td><?php echo !empty($view_request['auditor_remarks']) ? $view_request['auditor_remarks'] : '' ?></td>
+                                            <td><?php echo !empty($view_request['auditor_name']) ? $view_request['auditor_name'] : '' ?></td>
+                                            <td><?php echo !empty($view_request['auditor_date']) ? $view_request['auditor_date'] : '' ?></td>
                                         </tr>
 
                                         <tr>
                                             <td>Effectiveness Verification (After 3 months)</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td><?php echo !empty($view_request['auditor_findings_after']) ? $view_request['auditor_findings_after'] : '' ?></td>
+                                            <td><?php echo !empty($view_request['auditor_remarks_after']) ? $view_request['auditor_remarks_after'] : '' ?></td>
+                                            <td><?php echo !empty($view_request['auditor_name_after']) ? $view_request['auditor_name_after'] : '' ?></td>
+                                            <td><?php echo !empty($view_request['auditor_date_after']) ? $view_request['auditor_date_after'] : '' ?></td>
                                         </tr>
                                     </tbody>
                                 </table>
