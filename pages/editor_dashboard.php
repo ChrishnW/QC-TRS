@@ -611,7 +611,7 @@
 
                     <div class="card shadow mb-2 bg-light">
                         <div class="card m-2">
-                            <div class="table-responsive table-bordered">
+                            <div class="table-responsive table-bordered mb-n4">
                                 <table class="table" id="closed_dataTable" width="100%" cellspacing="0">
                                     <thead class="">
                                         <tr class="text-center">
