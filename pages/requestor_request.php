@@ -229,7 +229,7 @@
                         </div>
                     </div>
 
-                    <div class="row mb-3">  
+                    <div class="row mb-2">  
                         <div class="col-md-6">
                             <label for="officer">Factory Officer <span style="color: red;">*</span></label><br>
                             <select name="officer" id="officer" class="form-control" required >
