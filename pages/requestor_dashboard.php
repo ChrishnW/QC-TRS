@@ -961,7 +961,7 @@
             <div class="modal-footer">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                     <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
-                    <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
+                    <input type="hidden" name="response_id" value="<?php echo $view_request['response_id'] ?>">
 
                     <input type="submit" name="delete_account_submit" value="Confirm" class="submit btn btn-danger pr-3"> 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
