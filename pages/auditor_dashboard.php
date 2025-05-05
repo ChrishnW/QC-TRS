@@ -1356,7 +1356,6 @@
 
 <?php 
     include '../include/footer.php'; 
-
     unset($_SESSION['audit_id']);
 ?>
 
@@ -1411,5 +1410,4 @@
         document.getElementById("reponse_report_form_after").style.display = "none";
         document.body.style.overflow = 'auto';
     }
-
 </script>
