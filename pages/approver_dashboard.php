@@ -152,8 +152,10 @@
         global $conn;
         $access = $_SESSION['SESS_LEVEL'] + 1;
 
-        $result = mysqli_query($conn, "SELECT * FROM tbl_response where id='$response_id'  ");
+        $result = mysqli_query($conn, "SELECT * FROM tbl_response WHERE id='$response_id'  ");
         $row = mysqli_fetch_assoc($result);
+
+        $row2 = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_audit WHERE response_id='$response_id' "));
 
         if($access == 5 && $row['supervisor_status'] != 0){
             return "none";
@@ -162,6 +164,9 @@
             return "none";
         }
         elseif($access == 7 && $row['coo_status'] != 0){
+            return "none";
+        }
+        elseif($access == 8 && $row2['auditor_name'] != null){
             return "none";
         }
         else{
