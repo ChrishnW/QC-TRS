@@ -693,41 +693,41 @@
 
                                     <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                         <div class="col-auto">
-                                            <img src="<?php echo $response_request['img_ng'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                            <img src="<?php echo !empty($response_request['img_ng']) ? $response_request['img_ng'] : '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                         </div>                 
                                     </div> <br>
                                     
                                     <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
-                                        <img src="<?php echo $response_request['img_g'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
+                                        <img src="<?php echo !empty($response_request['img_g']) ? $response_request['img_g'] : '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>
                                 </div>
 
                                 <div class="container-fluid mr-n5 col d-flex flex-column align-items-stretch">
                                     <div class="card col mb-2 flex-grow-1">
                                         <div class="p-2">
-                                            <h6><b>Date: </b> <?php echo $response_request['date'] ?? '' ?></h6>                
-                                            <h6><b>Model: </b> <?php echo $response_request['model'] ?? '' ?></h6>
-                                            <h6><b>Department: </b> <?php echo isset($response_request['dept_id']) ? getUsername($response_request['dept_id']) : '' ?></h6>            
-                                            <h6><b>Lot No. </b> <?php echo $response_request['lot'] ?? '' ?></h6>
-                                            <h6><b>Serial No. </b> <?php echo $response_request['serial'] ?? '' ?></h6>
-                                            <h6><b>Temp No. </b> <?php echo $response_request['temp'] ?? '' ?></h6>    
-                                            <h6><b>Quantity: </b> <?php echo $response_request['qty'] ?? '' ?></h6>   
+                                            <h6><b>Date: </b> <?php echo !empty($response_request['date']) ? $response_request['date'] : '' ?></h6>                
+                                            <h6><b>Model: </b> <?php echo !empty($response_request['model']) ? $response_request['model'] : '' ?></h6>
+                                            <h6><b>Department: </b> <?php echo !empty($response_request['dept_id']) ? getUsername($response_request['dept_id']) : '' ?></h6>            
+                                            <h6><b>Lot No. </b> <?php echo !empty($response_request['lot']) ? $response_request['lot'] : '' ?></h6>
+                                            <h6><b>Serial No. </b> <?php echo !empty($response_request['serial']) ? $response_request['serial'] : '' ?></h6>
+                                            <h6><b>Temp No. </b> <?php echo !empty($response_request['temp']) ? $response_request['temp'] : '' ?></h6>    
+                                            <h6><b>Quantity: </b> <?php echo !empty($response_request['qty']) ? $response_request['qty'] : '' ?></h6>   
                                         </div>       
                                     </div>
 
                                     <div class="card col mb-2 flex-grow-1" style="max-height: 120px; overflow-y: auto;">
                                         <div class="p-2">
-                                            <h6><b>Findings: </b> <?php echo $response_request['findings'] ?? '' ?></h6>
+                                            <h6><b>Findings: </b> <?php echo !empty($response_request['findings']) ? $response_request['findings'] : '' ?></h6>
                                         </div>
                                     </div>
 
                                     <div class="card col mb-2 flex-grow-1" style="max-height: 150px;"> 
                                         <div class="p-2">                 
-                                            <h6><b>Trouble Origin (100%): </b><?php echo $response_request['origin1'] ?? '' ?></h6>
-                                            <h6><b>Checked By (200%): </b> <?php echo $response_request['origin2'] ?? '' ?></h6>
-                                            <h6><b>Found by (QC): </b> <?php echo $response_request['finder_qc'] ?? '' ?></h6>
-                                            <h6><b>Found by (AI): </b> <?php echo $response_request['finder_ai'] ?? '' ?></h6>
-                                            <h6><b>Due Date: </b> <?php echo $response_request['due_date'] ?? '' ?></h6>
+                                            <h6><b>Trouble Origin (100%): </b><?php echo !empty($response_request['origin1']) ? $response_request['origin1'] : '' ?></h6>
+                                            <h6><b>Checked By (200%): </b> <?php echo !empty($response_request['origin2']) ? $response_request['origin2'] : '' ?></h6>
+                                            <h6><b>Found by (QC): </b> <?php echo !empty($response_request['finder_qc']) ? $response_request['finder_qc'] : '' ?></h6>
+                                            <h6><b>Found by (AI): </b> <?php echo !empty($response_request['finder_ai']) ? $response_request['finder_ai'] : '' ?></h6>
+                                            <h6><b>Due Date: </b> <?php echo !empty($response_request['due_date']) ? $response_request['due_date'] : '' ?></h6>
                                         </div>
                                     </div>
 
@@ -774,7 +774,7 @@
 
                                     <div class="card " style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="man" id="man" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['man'] ?? '' ?></textarea>
+                                            <textarea name="man" id="man" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['man']) ? $response_request['man'] : '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -788,7 +788,7 @@
 
                                     <div class="card " style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="method" id="method" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['method'] ?? '' ?></textarea>
+                                            <textarea name="method" id="method" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['method']) ? $response_request['method'] : '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -802,7 +802,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="material" id="material" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['material'] ?? '' ?></textarea>
+                                            <textarea name="material" id="material" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['material']) ? $response_request['material'] : '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -816,7 +816,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="machine" id="machine" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['machine'] ?? '' ?></textarea>
+                                            <textarea name="machine" id="machine" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['machine']) ? $response_request['machine'] : '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -832,7 +832,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card " style="width: 98%;">
                                         <div class="m-2">
-                                            <textarea name="correction" id="correction" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['correction'] ?? '' ?></textarea>
+                                            <textarea name="correction" id="correction" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['correction']) ? $response_request['correction'] : '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -854,7 +854,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="ca_man" id="ca_man" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['ca_man'] ?? '' ?></textarea>
+                                            <textarea name="ca_man" id="ca_man" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['ca_man']) ? $response_request['ca_man'] : '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -868,7 +868,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="ca_method" id="ca_method" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['ca_method'] ?? '' ?></textarea>
+                                            <textarea name="ca_method" id="ca_method" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['ca_method']) ? $response_request['ca_method'] : '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -882,7 +882,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="ca_material" id="ca_material" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['ca_material'] ?? '' ?></textarea>
+                                            <textarea name="ca_material" id="ca_material" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['ca_material']) ? $response_request['ca_material'] : '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -896,7 +896,7 @@
 
                                     <div class="card" style="width: 75%;">
                                         <div class="m-2">
-                                            <textarea name="ca_machine" id="ca_machine" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['ca_machine'] ?? '' ?></textarea>
+                                            <textarea name="ca_machine" id="ca_machine" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['ca_machine']) ? $response_request['ca_machine'] : '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -912,7 +912,7 @@
                                 <div class="row mb-2 justify-content-center">
                                     <div class="card " style="width: 98%;">
                                         <div class="m-2">
-                                            <textarea name="remarks" id="remarks" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo $response_request['remarks'] ?? '' ?></textarea>
+                                            <textarea name="remarks" id="remarks" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['remarks']) ? $response_request['remarks'] : '' ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -933,21 +933,21 @@
                                             </tr>
                                         </thead>
 
-                                        <tbody>
+                                        <tbody class="text-justify">
                                             <tr>
                                                 <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><?php echo !empty($response_request['auditor_findings']) ? $response_request['auditor_findings'] : '' ?></td>
+                                                <td><?php echo !empty($response_request['auditor_remarks']) ? $response_request['auditor_remarks'] : '' ?></td>
+                                                <td><?php echo !empty($response_request['auditor_name']) ? $response_request['auditor_name'] : '' ?></td>
+                                                <td><?php echo !empty($response_request['auditor_date']) ? $response_request['auditor_date'] : '' ?></td>
                                             </tr>
 
                                             <tr>
                                                 <td>Effectiveness Verification (After 3 months)</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><?php echo !empty($response_request['auditor_findings_after']) ? $response_request['auditor_findings_after'] : '' ?></td>
+                                                <td><?php echo !empty($response_request['auditor_remarks_after']) ? $response_request['auditor_remarks_after'] : '' ?></td>
+                                                <td><?php echo !empty($response_request['auditor_name_after']) ? $response_request['auditor_name_after'] : '' ?></td>
+                                                <td><?php echo !empty($response_request['auditor_date_after']) ? $response_request['auditor_date_after'] : '' ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -959,7 +959,7 @@
 
             <div class="modal-footer">
                     <div class="mr-4">
-                        <input type="hidden" name="response_id" value="<?php echo $response_request['id'] ?>">
+                        <input type="hidden" name="response_id" value="<?php echo $response_request['response_id'] ?>">
                         <input type="submit" name="save_response" class="btn btn-success" value="Save">
                         <input type="reset" name="close_view" onclick="closeResponse()" value="Close" class="btn btn-secondary ml-2">
                     </div>
