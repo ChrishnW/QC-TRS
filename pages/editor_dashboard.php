@@ -690,25 +690,12 @@
 
                             <div class="container-fluid row">
                                 <div class="card col mb-2">
-                                    <!-- <div class="card mt-2 bg-light">
-                                        <div class="col text-center mt-2">
-                                            <h3><b>Not Good</b></h3>
-                                        </div>  
-                                    </div> -->
 
                                     <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                         <div class="col-auto">
                                             <img src="<?php echo $response_request['img_ng'] ?? '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                         </div>                 
-                                    </div>
-
-                                    <br>
-
-                                    <!-- <div class="card mt-2 bg-light">
-                                        <div class="col text-center mt-2">
-                                            <h3><b>Good</b></h3>
-                                        </div>
-                                    </div> -->
+                                    </div> <br>
                                     
                                     <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                         <img src="<?php echo $response_request['img_g'] ?? '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
@@ -773,7 +760,6 @@
 
                     <div class="container-fluid justify-content-center align-items-center">
                         <div class="card shadow mb-2 bg-light">
-                            <!-- Reason -->
                             <div class="col">
                                 <div class="card text-center my-2">
                                     <span class="my-2" style="font-size: 24px"><b>REASON:</b></span>
@@ -838,7 +824,6 @@
                         </div>
 
                         <div class="card shadow mb-2 bg-light">
-                            <!-- Correction -->
                             <div class="col">
                                 <div class="card text-center my-2">
                                     <label for="correction" class="pt-2"><span class="my-2" style="font-size: 24px"><b>CORRECTION: <span style="color: red;">*</span>  </b></span></label>
@@ -855,7 +840,6 @@
                         </div>
 
                         <div class="card shadow mb-2 bg-light">
-                            <!-- Corrective Action -->
                             <div class="col">
                                 <div class="card text-center my-2">
                                     <span class="my-2" style="font-size: 24px"><b>CORRECTIVE ACTION:</b></span>
@@ -920,7 +904,6 @@
                         </div>
 
                         <div class="card shadow mb-2 bg-light">
-                            <!-- Remarks -->
                             <div class="col">
                                 <div class="card text-center my-2">
                                     <label for="remarks"><span class="my-2 pt-2" style="font-size: 24px"><b>REMARKS: <span style="color: red;">*</span></b></span></label>
