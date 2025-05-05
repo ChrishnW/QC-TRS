@@ -1,4 +1,23 @@
-<?php include 'connect.php'; ?>
+<?php 
+  include 'connect.php'; 
+
+  if(isset($_SESSION['SESS_LEVEL'])){
+    if($_SESSION['SESS_LEVEL'] == 1){
+      // header('location: ../pages/admin_dashboard.php');
+    } elseif($_SESSION['SESS_LEVEL'] == 2){
+      header('location: ../pages/requestor_dashboard.php');
+    } elseif($_SESSION['SESS_LEVEL'] == 3){
+      header('location: ../pages/editor_dashboard.php');
+    } elseif($_SESSION['SESS_LEVEL'] >= 4 && $_SESSION['SESS_LEVEL'] <= 7){
+      header('location: ../pages/approver_dashboard.php');
+    } elseif($_SESSION['SESS_LEVEL'] == 8){
+      header('location: ../pages/auditor_dashboard.php');
+    }
+  } else{
+    header('location: ../index.php');
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
