@@ -643,7 +643,7 @@
                                             <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_findings']) ? $view_request['auditor_findings'] : '' ?></td>
                                             <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_remarks']) ? $view_request['auditor_remarks'] : '' ?></td>
                                             <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_name']) ? $view_request['auditor_name'] : '' ?></td>
-                                            <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_date']) ? $view_request['auditor_date'] : '' ?></td>
+                                            <td class="text-break text-wrap text-center"><?php echo !empty($view_request['auditor_date']) ? $view_request['auditor_date'] : '' ?></td>
                                         </tr>
 
                                         <tr>
@@ -651,7 +651,7 @@
                                             <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_findings_after']) ? $view_request['auditor_findings_after'] : '' ?></td>
                                             <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_remarks_after']) ? $view_request['auditor_remarks_after'] : '' ?></td>
                                             <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_name_after']) ? $view_request['auditor_name_after'] : '' ?></td>
-                                            <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_date_after']) ? $view_request['auditor_date_after'] : '' ?></td>
+                                            <td class="text-break text-wrap text-center"><?php echo !empty($view_request['auditor_date_after']) ? $view_request['auditor_date_after'] : '' ?></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -942,8 +942,8 @@
                                                 <th style="table-layout: fixed; width: 30%;"></th>
                                                 <th style="table-layout: fixed; width: 20%;">Findings</th>
                                                 <th style="table-layout: fixed; width: 20%;">Remarks</th>
-                                                <th style="table-layout: fixed; width: 10%;">Auditor</th>
-                                                <th style="table-layout: fixed; width: 10%;">Date</th>
+                                                <th style="table-layout: fixed; width: 15%;">Auditor</th>
+                                                <th style="table-layout: fixed; width: 15%;">Date</th>
                                             </tr>
                                         </thead>
 
@@ -953,7 +953,7 @@
                                                 <td class="text-break text-wrap"><?php echo !empty($response_request['auditor_findings']) ? $response_request['auditor_findings'] : '' ?></td>
                                                 <td class="text-break text-wrap"><?php echo !empty($response_request['auditor_remarks']) ? $response_request['auditor_remarks'] : '' ?></td>
                                                 <td class="text-break text-wrap"><?php echo !empty($response_request['auditor_name']) ? $response_request['auditor_name'] : '' ?></td>
-                                                <td class="text-break text-wrap"><?php echo !empty($response_request['auditor_date']) ? $response_request['auditor_date'] : '' ?></td>
+                                                <td class="text-break text-wrap text-center"><?php echo !empty($response_request['auditor_date']) ? $response_request['auditor_date'] : '' ?></td>
                                             </tr>
 
                                             <tr>
@@ -961,7 +961,7 @@
                                                 <td class="text-break text-wrap"><?php echo !empty($response_request['auditor_findings_after']) ? $response_request['auditor_findings_after'] : '' ?></td>
                                                 <td class="text-break text-wrap"><?php echo !empty($response_request['auditor_remarks_after']) ? $response_request['auditor_remarks_after'] : '' ?></td>
                                                 <td class="text-break text-wrap"><?php echo !empty($response_request['auditor_name_after']) ? $response_request['auditor_name_after'] : '' ?></td>
-                                                <td class="text-break text-wrap"><?php echo !empty($response_request['auditor_date_after']) ? $response_request['auditor_date_after'] : '' ?></td>
+                                                <td class="text-break text-wrap text-center"><?php echo !empty($response_request['auditor_date_after']) ? $response_request['auditor_date_after'] : '' ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
