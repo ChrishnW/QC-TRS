@@ -199,6 +199,7 @@
         // Submit response request ........................................................................
         if(isset($_POST['save_response_after'])){
             $id = $_POST['response_id'];
+            $request_id = $_POST['request_id'];
 
             $findings = filter_input(INPUT_POST, "au_findings_after", FILTER_SANITIZE_SPECIAL_CHARS);
             $remarks = filter_input(INPUT_POST, "au_remarks_after", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -207,6 +208,8 @@
             $status = 3;
 
             mysqli_query($conn, "UPDATE tbl_audit SET auditor_name_after='$auditor', auditor_findings_after='$findings', auditor_remarks_after='$remarks', auditor_date_after='$date', status='$status' WHERE id='$id'");
+
+            mysqli_query($conn, "UPDATE tbl_request SET status='1' WHERE id='$request_id'");
 
             header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
             ob_end_flush();
@@ -1091,7 +1094,7 @@
     </div>
 </div>
 
-<!-- Response / Edit Trouble Report Request Form after 3 months -->
+<!-- Response Trouble Report Request Form after 3 months -->
 <div class="modal" tabindex="-1" id="reponse_report_form_after" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
@@ -1396,6 +1399,7 @@
             <div class="modal-footer">
                     <div class="mr-4">
                         <input type="hidden" name="response_id" value="<?php echo !empty($response_request_after['id']) ? $response_request_after['id'] : '' ?>">
+                        <input type="hidden" name="request_id" value="<?php echo !empty($response_request_after['request_id']) ? $response_request_after['request_id'] : '' ?>">
                         <input type="submit" name="save_response_after" class="btn btn-success" value="Save">
                         <input type="reset" name="close_view" onclick="closeResponse_after()" value="Close" class="btn btn-secondary ml-2">
                     </div>
