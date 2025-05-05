@@ -106,7 +106,7 @@
     if(isset($_SESSION['update_request_id']) && isset($_SESSION['update_response_id'])){
         $request_id = $_SESSION['update_request_id'];
         $response_id = $_SESSION['update_response_id'];
-        $response_request = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.id='$request_id' AND tbl_response.id='$response_id'"));
+        $response_request = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id INNER JOIN tbl_audit ON tbl_audit.response_id=tbl_response.id WHERE tbl_request.id='$request_id' AND tbl_response.id='$response_id'"));
 
         echo "<script>     
                 document.addEventListener('DOMContentLoaded', function() {
