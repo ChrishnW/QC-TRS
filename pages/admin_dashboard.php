@@ -227,7 +227,7 @@
                 <td style="table-layout: fixed; width: 15%;">
                   <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
                     <input type="hidden" name="id_account" value="<?php echo $id ?>">
-                    <input type="submit" class="edit btn btn-sm btn-primary mr-1" value="Edit" name="edit_account">
+                    <input type="submit" class="edit btn btn-sm btn-primary mr-2" value="Edit" name="edit_account">
                     <input type="submit" class="delete btn btn-sm btn-danger" value="Delete" name="delete_account">
                   </form>
                 </td>
