@@ -632,8 +632,8 @@
                                             <th style="table-layout: fixed; width: 30%;"></th>
                                             <th style="table-layout: fixed; width: 20%;">Findings</th>
                                             <th style="table-layout: fixed; width: 20%;">Remarks</th>
-                                            <th style="table-layout: fixed; width: 15%;">Auditor</th>
-                                            <th style="table-layout: fixed; width: 15%;">Date</th>
+                                            <th style="table-layout: fixed; width: 17%;">Auditor</th>
+                                            <th style="table-layout: fixed; width: 13%;">Date</th>
                                         </tr>
                                     </thead>
 
@@ -942,8 +942,8 @@
                                                 <th style="table-layout: fixed; width: 30%;"></th>
                                                 <th style="table-layout: fixed; width: 20%;">Findings</th>
                                                 <th style="table-layout: fixed; width: 20%;">Remarks</th>
-                                                <th style="table-layout: fixed; width: 15%;">Auditor</th>
-                                                <th style="table-layout: fixed; width: 15%;">Date</th>
+                                                <th style="table-layout: fixed; width: 17%;">Auditor</th>
+                                                <th style="table-layout: fixed; width: 13%;">Date</th>
                                             </tr>
                                         </thead>
 

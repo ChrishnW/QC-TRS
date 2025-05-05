@@ -733,8 +733,8 @@
                                             <th style="table-layout: fixed; width: 30%;"></th>
                                             <th style="table-layout: fixed; width: 20%;">Findings</th>
                                             <th style="table-layout: fixed; width: 20%;">Remarks</th>
-                                            <th style="table-layout: fixed; width: 15%;">Auditor</th>
-                                            <th style="table-layout: fixed; width: 15%;">Date</th>
+                                            <th style="table-layout: fixed; width: 17%;">Auditor</th>
+                                            <th style="table-layout: fixed; width: 13%;">Date</th>
                                         </tr>
                                     </thead>
 
@@ -1040,8 +1040,8 @@
                                                 <th style="table-layout: fixed; width: 30%;"></th>
                                                 <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_findings').focus();">Findings <span style="color: red;">*</span></b></span></th>
                                                 <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_remarks').focus();">Remarks <span style="color: red;">*</span></b></span></th>
-                                                <th style="table-layout: fixed; width: 15%;" onclick="document.getElementById('au_auditor').focus();">Auditor <span style="color: red;">*</span></b></span></th>
-                                                <th style="table-layout: fixed; width: 15%;" onclick="document.getElementById('au_date').focus();">Date <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 17%;" onclick="document.getElementById('au_auditor').focus();">Auditor <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 13%;" onclick="document.getElementById('au_date').focus();">Date <span style="color: red;">*</span></b></span></th>
                                             </tr>
                                         </thead>
 
@@ -1359,8 +1359,8 @@
                                                 <th style="table-layout: fixed; width: 30%;"></th>
                                                 <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_findings_after').focus();">Findings <span style="color: red;">*</span></b></span></th>
                                                 <th style="table-layout: fixed; width: 20%;" onclick="document.getElementById('au_remarks_after').focus();">Remarks <span style="color: red;">*</span></b></span></th>
-                                                <th style="table-layout: fixed; width: 15%;" onclick="document.getElementById('au_auditor_after').focus();">Auditor <span style="color: red;">*</span></b></span></th>
-                                                <th style="table-layout: fixed; width: 15%;" onclick="document.getElementById('au_date_after').focus();">Date <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 17%;" onclick="document.getElementById('au_auditor_after').focus();">Auditor <span style="color: red;">*</span></b></span></th>
+                                                <th style="table-layout: fixed; width: 13%;" onclick="document.getElementById('au_date_after').focus();">Date <span style="color: red;">*</span></b></span></th>
                                             </tr>
                                         </thead>
 
