@@ -1,7 +1,6 @@
 <?php 
     include '../include/header_auditor.php'; 
 
-    // mali to
     $pending_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_audit WHERE status = 1");
     $pending_count = mysqli_fetch_assoc($pending_count_result)['count'] ?? 0;
 

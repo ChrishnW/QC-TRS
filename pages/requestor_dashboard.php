@@ -1,7 +1,6 @@
 <?php 
     include '../include/header_requestor.php'; 
 
-    // mali pa rin to  (╯‵□′)╯︵┻━┻ jhvjxsdzxj,mvgh
     $ongoing_count = 0;
     $finished_count = 0;
 
