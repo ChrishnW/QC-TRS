@@ -25,6 +25,19 @@
     function getApprovalStatus($status) {
         switch ($status) {
             case 0:
+                return '<span class="badge badge-warning"><i class="fas fa-clock"></i> Pending</span>';
+            case 1:
+                return '<span class="badge badge-success"><i class="fas fa-check"></i> Approved</span>';
+            case 2:
+                return '<span class="badge badge-danger"><i class="fas fa-times"></i> Rejected</span>';
+            default:
+                return '<span class="badge badge-secondary"><i class="fas fa-question"></i> Unknown</span>';
+        }
+    }
+
+    function getApprovalStatusTable($status) {
+        switch ($status) {
+            case 0:
                 return "Pending";
             case 1:
                 return "Approved";
