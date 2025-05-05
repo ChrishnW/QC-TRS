@@ -7,8 +7,8 @@
             $department = $_POST['department'];
             $model = filter_input(INPUT_POST, 'model', FILTER_SANITIZE_SPECIAL_CHARS);
             $quantity = filter_input(INPUT_POST, 'quantity', FILTER_SANITIZE_NUMBER_INT);
-            $lot = filter_input(INPUT_POST, 'lot', FILTER_SANITIZE_NUMBER_INT);
-            $serial = filter_input(INPUT_POST, 'serial', FILTER_SANITIZE_NUMBER_INT);
+            $lot = filter_input(INPUT_POST, 'lot', FILTER_SANITIZE_SPECIAL_CHARS);
+            $serial = filter_input(INPUT_POST, 'serial', FILTER_SANITIZE_SPECIAL_CHARS);
             $temp = filter_input(INPUT_POST, 'temp', FILTER_SANITIZE_NUMBER_INT);
             $findings = filter_input(INPUT_POST, 'findings', FILTER_SANITIZE_SPECIAL_CHARS);
             $origin = filter_input(INPUT_POST, 'origin', FILTER_SANITIZE_SPECIAL_CHARS);
