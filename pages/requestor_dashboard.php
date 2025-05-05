@@ -933,7 +933,6 @@
                     <input type="hidden" name="update_request_id" value="<?php echo $response_request['request_id'] ?>">
                     <input type="submit" name="update_request_submit" value="Submit" class="btn btn-primary">
                     <input type="reset" value="Cancel" onclick="close_edit_modal()" class="btn btn-secondary mr-3">
-                    
                 </form>
             </div>
         </div>
