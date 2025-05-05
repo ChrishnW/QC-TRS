@@ -741,18 +741,18 @@
                                     <tbody class="text-justify">
                                         <tr>
                                             <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
-                                            <td><?php echo !empty($view_request['auditor_findings']) ? $view_request['auditor_findings'] : '' ?></td>
-                                            <td><?php echo !empty($view_request['auditor_remarks']) ? $view_request['auditor_remarks'] : '' ?></td>
-                                            <td><?php echo !empty($view_request['auditor_name']) ? $view_request['auditor_name'] : '' ?></td>
-                                            <td><?php echo !empty($view_request['auditor_date']) ? $view_request['auditor_date'] : '' ?></td>
+                                            <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_findings']) ? $view_request['auditor_findings'] : '' ?></td>
+                                            <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_remarks']) ? $view_request['auditor_remarks'] : '' ?></td>
+                                            <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_name']) ? $view_request['auditor_name'] : '' ?></td>
+                                            <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_date']) ? $view_request['auditor_date'] : '' ?></td>
                                         </tr>
 
                                         <tr>
                                             <td>Effectiveness Verification (After 3 months)</td>
-                                            <td><?php echo !empty($view_request['auditor_findings_after']) ? $view_request['auditor_findings_after'] : '' ?></td>
-                                            <td><?php echo !empty($view_request['auditor_remarks_after']) ? $view_request['auditor_remarks_after'] : '' ?></td>
-                                            <td><?php echo !empty($view_request['auditor_name_after']) ? $view_request['auditor_name_after'] : '' ?></td>
-                                            <td><?php echo !empty($view_request['auditor_date_after']) ? $view_request['auditor_date_after'] : '' ?></td>
+                                            <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_findings_after']) ? $view_request['auditor_findings_after'] : '' ?></td>
+                                            <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_remarks_after']) ? $view_request['auditor_remarks_after'] : '' ?></td>
+                                            <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_name_after']) ? $view_request['auditor_name_after'] : '' ?></td>
+                                            <td class="text-break text-wrap"><?php echo !empty($view_request['auditor_date_after']) ? $view_request['auditor_date_after'] : '' ?></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1048,26 +1048,26 @@
                                         <tbody>
                                             <tr>
                                                 <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
-                                                <td onclick="document.getElementById('au_findings').focus();">
+                                                <td class="text-break text-wrap" onclick="document.getElementById('au_findings').focus();">
                                                     <textarea name="au_findings" id="au_findings" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_findings']) ? $response_request['auditor_findings'] : '' ?></textarea>
                                                 </td>
-                                                <td onclick="document.getElementById('au_remarks').focus();">
+                                                <td class="text-break text-wrap" onclick="document.getElementById('au_remarks').focus();">
                                                     <textarea name="au_remarks" id="au_remarks" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_remarks']) ? $response_request['auditor_remarks'] : '' ?></textarea>
                                                 </td>
-                                                <td onclick="document.getElementById('au_auditor').focus();">
+                                                <td class="text-break text-wrap" onclick="document.getElementById('au_auditor').focus();">
                                                     <textarea name="au_auditor" id="au_auditor" class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request['auditor_name']) ? $response_request['auditor_name'] : '' ?></textarea>
                                                 </td>
-                                                <td onclick="document.getElementById('au_date').focus();">
+                                                <td class="text-break text-wrap" onclick="document.getElementById('au_date').focus();">
                                                     <input type="date" name="au_date" id="au_date" class="form-control border-0" value="<?php echo !empty($response_request['auditor_date']) ? $response_request['auditor_date'] : '' ?>" required>
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <td>Effectiveness Verification (After 3 months)</td>
-                                                <td><?php echo !empty($response_request['auditor_findings_after']) ? $response_request['auditor_findings_after'] : '' ?></td>
-                                                <td><?php echo !empty($response_request['auditor_remarks_after']) ? $response_request['auditor_remarks_after'] : '' ?></td>
-                                                <td><?php echo !empty($response_request['auditor_name_after']) ? $response_request['auditor_name_after'] : '' ?></td>
-                                                <td><?php echo !empty($response_request['auditor_date_after']) ? $response_request['auditor_date_after'] : '' ?></td>
+                                                <td class="text-break text-wrap"><?php echo !empty($response_request['auditor_findings_after']) ? $response_request['auditor_findings_after'] : '' ?></td>
+                                                <td class="text-break text-wrap"><?php echo !empty($response_request['auditor_remarks_after']) ? $response_request['auditor_remarks_after'] : '' ?></td>
+                                                <td class="text-break text-wrap"><?php echo !empty($response_request['auditor_name_after']) ? $response_request['auditor_name_after'] : '' ?></td>
+                                                <td class="text-break text-wrap"><?php echo !empty($response_request['auditor_date_after']) ? $response_request['auditor_date_after'] : '' ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -1367,24 +1367,24 @@
                                         <tbody>
                                             <tr>
                                                 <td>Implementation Verification (as stated in the corrective action or after received the Root cause analysis report)</td>
-                                                <td><?php echo !empty($response_request_after['auditor_findings']) ? $response_request_after['auditor_findings'] : '' ?></td>
-                                                <td><?php echo !empty($response_request_after['auditor_remarks']) ? $response_request_after['auditor_remarks'] : '' ?></td>
-                                                <td><?php echo !empty($response_request_after['auditor_name']) ? $response_request_after['auditor_name'] : '' ?></td>
-                                                <td><?php echo !empty($response_request_after['auditor_date']) ? $response_request_after['auditor_date'] : '' ?></td>
+                                                <td class="text-break text-wrap"><?php echo !empty($response_request_after['auditor_findings']) ? $response_request_after['auditor_findings'] : '' ?></td>
+                                                <td class="text-break text-wrap"><?php echo !empty($response_request_after['auditor_remarks']) ? $response_request_after['auditor_remarks'] : '' ?></td>
+                                                <td class="text-break text-wrap"><?php echo !empty($response_request_after['auditor_name']) ? $response_request_after['auditor_name'] : '' ?></td>
+                                                <td class="text-break text-wrap"><?php echo !empty($response_request_after['auditor_date']) ? $response_request_after['auditor_date'] : '' ?></td>
                                             </tr>
 
                                             <tr>
                                                 <td>Effectiveness Verification (After 3 months)</td>
-                                                <td onclick="document.getElementById('au_findings_after').focus();">
+                                                <td class="text-break text-wrap" onclick="document.getElementById('au_findings_after').focus();">
                                                     <textarea name="au_findings_after" id="au_findings_after"  class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request_after['auditor_findings_after']) ? $response_request_after['auditor_findings_after'] : '' ?></textarea>
                                                 </td>
-                                                <td onclick="document.getElementById('au_remarks_after').focus();">
+                                                <td class="text-break text-wrap" onclick="document.getElementById('au_remarks_after').focus();">
                                                     <textarea name="au_remarks_after" id="au_remarks_after"  class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request_after['auditor_remarks_after']) ? $response_request_after['auditor_remarks_after'] : '' ?></textarea>
                                                 </td>
-                                                <td onclick="document.getElementById('au_auditor_after').focus();">
+                                                <td class="text-break text-wrap" onclick="document.getElementById('au_auditor_after').focus();">
                                                     <textarea name="au_auditor_after" id="au_auditor_after"  class="form-control border-0" style="width: 100%; height: 100%; color: black;" required><?php echo !empty($response_request_after['auditor_name_after']) ? $response_request_after['auditor_name_after'] : '' ?></textarea>
                                                 </td>
-                                                <td onclick="document.getElementById('au_date_after').focus();">
+                                                <td class="text-break text-wrap" onclick="document.getElementById('au_date_after').focus();">
                                                     <input type="date" name="au_date_after" id="au_date_after" class="form-control border-0" value="<?php echo !empty($response_request_after['auditor_date_after']) ? $response_request_after['auditor_date_after'] : '' ?>" required>
                                                 </td>
                                             </tr>
