@@ -710,7 +710,7 @@
 
                     <div class="card shadow mb-4 bg-light">
                         <div class="card m-2">
-                            <div class="table-responsive">
+                            <div class="table-responsive mb-n4">
                                 <table class="table table-bordered" id="closed_dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr class="text-center">
@@ -1017,7 +1017,7 @@
 
                         <div class="card shadow mb-4 bg-light">
                             <div class="card m-2">
-                                <div class="table-responsive">
+                                <div class="table-responsive mb-n4">
                                     <table class="table table-bordered" id="closed_dataTable" width="100%" cellspacing="0">
                                         <thead class="">
                                             <tr class="text-center">
@@ -1336,7 +1336,7 @@
 
                         <div class="card shadow mb-4 bg-light">
                             <div class="card m-2">
-                                <div class="table-responsive">
+                                <div class="table-responsive mb-n4">
                                     <table class="table table-bordered" id="closed_dataTable" width="100%" cellspacing="0">
                                         <thead class="">
                                             <tr class="text-center">
