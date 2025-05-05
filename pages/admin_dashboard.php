@@ -279,7 +279,7 @@
             <input type="email" size="30" name="email" id="email" class="form-control" value="<?php echo $row['email'] ?? '' ?>" required title="Enter a valid email address in the format of user@example.com" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
           </div>
             
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="role" class="form-label">Role <span style="color: red;">*</span></label>
             <select name="role" id="role" class="form-control" required >
                 <option value="" hidden></option>
@@ -374,7 +374,7 @@
             </select>
           </div>
 
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="status" class="form-label">Status <span style="color: red;">*</span></label>
             <select name="status" id="status" class="form-control" required >
                 <option value="<?php echo $status ?>" hidden><?php echo $statusName ?></option>
