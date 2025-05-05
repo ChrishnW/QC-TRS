@@ -220,65 +220,6 @@
 
 ?>
 
-<!-- Dashboard Cards -->
-<!-- <div class="container-fluid">
-    <div class="row">
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Temporary</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">40</div>
-                        </div>
-
-                        <div class="col-auto">
-                            <i class="fa fa-clock fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Temporary</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
-                        </div>
-
-                        <div class="col-auto">
-                            <i class="fa fa-check-circle fa-2x text-gray-300"></i> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-danger shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                Temporary</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
-                        </div>
-
-                        <div class="col-auto">
-                            <i class="fa fa-times-circle fa-2x text-gray-300"></i> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <!-- Pending Audits -->
 <div class="container-fluid" id="pending_audits" style="display: block;">
     <div class="pending_dashboard">
