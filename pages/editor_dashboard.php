@@ -64,7 +64,7 @@
     if(isset($_SESSION['request_id']) && isset($_SESSION['response_id'])){
         $request_id = $_SESSION['request_id'];
         $response_id = $_SESSION['response_id'];
-        $view_request = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_request.id='$request_id' AND tbl_response.id='$response_id'"));
+        $view_request = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id INNER JOIN tbl_audit ON tbl_audit.response_id=tbl_response.id WHERE tbl_request.id='$request_id' AND tbl_response.id='$response_id'"));
 
         if($_SESSION['viewer_request'] == 'ongoing'){
             echo "<script>
@@ -650,7 +650,7 @@
             <div class="modal-footer">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center mr-2">
                     <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
-                    <input type="hidden" name="response_id" value="<?php echo $view_request['id'] ?>">
+                    <input type="hidden" name="response_id" value="<?php echo $view_request['response_id'] ?>">
                 
                     <input type="submit" name="edit_request_btn" class="btn btn-warning" value="Edit" style="display: <?php echo $_SESSION['viewer_request'] == 'ongoing' && ($view_request['dept_status'] == 1 || $view_request['dept_status'] == 2) ? 'block' : 'none' ?>;">
                     <input type="submit" name="response_request_btn" class="btn btn-primary" value="Response" style="display: <?php echo $_SESSION['viewer_request'] == 'ongoing' && $view_request['dept_status'] == 0 ? 'block' : 'none' ?>;">
