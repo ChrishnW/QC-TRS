@@ -720,210 +720,212 @@
             <div class="modal-body">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" enctype="multipart/form-data">
                     <div class="container-fluid">
-                        <div class="card-body mx-3">
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <label for="date">Date <span style="color: red;">*</span></label><br>
-                                    <input type="date" name="date" id="date" class="form-control" value="<?php echo !empty($response_request['date']) ? $response_request['date'] : '' ?>" required>
-                                </div>
+                        <div class="card shadow">
+                            <div class="card-body mx-3">
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <label for="date">Date <span style="color: red;">*</span></label><br>
+                                        <input type="date" name="date" id="date" class="form-control" value="<?php echo !empty($response_request['date']) ? $response_request['date'] : '' ?>" required>
+                                    </div>
 
-                                <div class="col-md-4">
-                                    <label for="model">Model <span style="color: red;">*</span></label><br>
-                                    <input type="text" name="model" id="model" class="form-control" value="<?php echo !empty($response_request['model']) ? $response_request['model'] : '' ?>" required>
-                                </div>
+                                    <div class="col-md-4">
+                                        <label for="model">Model <span style="color: red;">*</span></label><br>
+                                        <input type="text" name="model" id="model" class="form-control" value="<?php echo !empty($response_request['model']) ? $response_request['model'] : '' ?>" required>
+                                    </div>
 
-                                <div class="col-md-4">
-                                    <label for="department">Department <span style="color: red;">*</span></label><br>
-                                    <select name="department"  id="department" class="form-control" required >
+                                    <div class="col-md-4">
+                                        <label for="department">Department <span style="color: red;">*</span></label><br>
+                                        <select name="department"  id="department" class="form-control" required >
 
-                                        <option value="<?php echo !empty($response_request['dept_id']) ? $response_request['dept_id']: '' ?>" hidden><?php echo !empty($response_request['dept_id']) ? getUsername($response_request['dept_id']) : '' ?></option>
+                                            <option value="<?php echo !empty($response_request['dept_id']) ? $response_request['dept_id']: '' ?>" hidden><?php echo !empty($response_request['dept_id']) ? getUsername($response_request['dept_id']) : '' ?></option>
 
-                                        <?php 
-                                            $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=3 AND status=1");
-                                            if($result) {    
-                                                while($row = mysqli_fetch_assoc($result)) {
-                                        ?>
-                                        
-                                        <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
+                                            <?php 
+                                                $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=3 AND status=1");
+                                                if($result) {    
+                                                    while($row = mysqli_fetch_assoc($result)) {
+                                            ?>
+                                            
+                                            <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['lastname'] ?></option>
 
-                                        <?php 
+                                            <?php 
+                                                    }
                                                 }
-                                            }
-                                        ?>
+                                            ?>
 
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-3">
-                                    <label for="lot">Lot No. <span style="color: red;">*</span></label>
-                                    <input type="text" name="lot" id="lot" class="form-control" value="<?php echo !empty($response_request['lot']) ? $response_request['lot'] : '' ?>" required>
+                                        </select>
+                                    </div>
                                 </div>
 
-                                <div class="col-md-3">
-                                    <label for="serial">Serial No. <span style="color: red;">*</span></label><br>
-                                    <input type="text" name="serial" id="serial" class="form-control" value="<?php echo !empty($response_request['serial']) ? $response_request['serial'] : '' ?>" required>
-                                </div>  
+                                <div class="row mb-3">
+                                    <div class="col-md-3">
+                                        <label for="lot">Lot No. <span style="color: red;">*</span></label>
+                                        <input type="text" name="lot" id="lot" class="form-control" value="<?php echo !empty($response_request['lot']) ? $response_request['lot'] : '' ?>" required>
+                                    </div>
 
-                                <div class="col-md-3">
-                                    <label for="temp">Temp No. <span style="color: red;">*</span></label><br>
-                                    <input type="number" name="temp" id="temp" class="form-control" value="<?php echo !empty($response_request['temp']) ? $response_request['temp'] : '' ?>" required>
+                                    <div class="col-md-3">
+                                        <label for="serial">Serial No. <span style="color: red;">*</span></label><br>
+                                        <input type="text" name="serial" id="serial" class="form-control" value="<?php echo !empty($response_request['serial']) ? $response_request['serial'] : '' ?>" required>
+                                    </div>  
+
+                                    <div class="col-md-3">
+                                        <label for="temp">Temp No. <span style="color: red;">*</span></label><br>
+                                        <input type="number" name="temp" id="temp" class="form-control" value="<?php echo !empty($response_request['temp']) ? $response_request['temp'] : '' ?>" required>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label for="quantity">Quantity <span style="color: red;">*</span></label><br>
+                                        <input type="number" name="quantity" id="quantity"  class="form-control" value="<?php echo !empty($response_request['qty']) ? $response_request['qty'] : '' ?>" required min="0">
+                                    </div>  
                                 </div>
 
-                                <div class="col-md-3">
-                                    <label for="quantity">Quantity <span style="color: red;">*</span></label><br>
-                                    <input type="number" name="quantity" id="quantity"  class="form-control" value="<?php echo !empty($response_request['qty']) ? $response_request['qty'] : '' ?>" required min="0">
-                                </div>  
-                            </div>
+                                <hr class="mt-4">
 
-                            <hr class="mt-4">
-
-                            <div class="row mb-3">
-                                <div class="col-md-12">
-                                    <label for="findings">Findings <span style="color: red;">*</span></label><br>
-                                    <textarea name="findings" id="findings" class="form-control" rows="5" required><?php echo !empty($response_request['findings']) ? $response_request['findings'] : '' ?></textarea>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="origin">Trouble Origin (100%) <span style="color: red;">*</span></label><br>
-                                    <input type="text" name="origin" id="origin" class="form-control" value="<?php echo !empty($response_request['origin1']) ? $response_request['origin1'] : '' ?>" required>
+                                <div class="row mb-3">
+                                    <div class="col-md-12">
+                                        <label for="findings">Findings <span style="color: red;">*</span></label><br>
+                                        <textarea name="findings" id="findings" class="form-control" rows="5" required><?php echo !empty($response_request['findings']) ? $response_request['findings'] : '' ?></textarea>
+                                    </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label for="check">Checked by (200%) <span style="color: red;">*</span></label><br>
-                                    <input type="text" name="check" id="check" class="form-control" value="<?php echo !empty($response_request['origin2']) ? $response_request['origin2'] : '' ?>" required>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="origin">Trouble Origin (100%) <span style="color: red;">*</span></label><br>
+                                        <input type="text" name="origin" id="origin" class="form-control" value="<?php echo !empty($response_request['origin1']) ? $response_request['origin1'] : '' ?>" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="check">Checked by (200%) <span style="color: red;">*</span></label><br>
+                                        <input type="text" name="check" id="check" class="form-control" value="<?php echo !empty($response_request['origin2']) ? $response_request['origin2'] : '' ?>" required>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="found_qc">Found by (QC) <span style="color: red;">*</span></label><br>
-                                    <input type="text" name="found_qc" id="found_qc" class="form-control" value="<?php echo !empty($response_request['finder_qc']) ? $response_request['finder_qc'] : '' ?>" required>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="found_qc">Found by (QC) <span style="color: red;">*</span></label><br>
+                                        <input type="text" name="found_qc" id="found_qc" class="form-control" value="<?php echo !empty($response_request['finder_qc']) ? $response_request['finder_qc'] : '' ?>" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="found_ai">Found by (AI) <span style="color: red;">*</span></label><br>
+                                        <input type="text" name="found_ai" id="found_ai" class="form-control" value="<?php echo !empty($response_request['finder_ai']) ? $response_request['finder_ai'] : '' ?>" required>
+                                    </div>
+                                </div>                   
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="image_not_good">Image (Not Good) <span style="color: red;">*</span></label><br>
+                                        <input type="file" name="image_not_good" id="image_not_good" class="form-control" style="height: auto;" required accept=".jpg,.jpeg,.png,.pdf">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="image_good">Image (Good) <span style="color: red;">*</span></label><br>
+                                        <input type="file" name="image_good" id="image_good" class="form-control" style="height: auto;" required accept=".jpg,.jpeg,.png,.pdf">
+                                    </div>                               
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label for="found_ai">Found by (AI) <span style="color: red;">*</span></label><br>
-                                    <input type="text" name="found_ai" id="found_ai" class="form-control" value="<?php echo !empty($response_request['finder_ai']) ? $response_request['finder_ai'] : '' ?>" required>
-                                </div>
-                            </div>                   
-
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="image_not_good">Image (Not Good) <span style="color: red;">*</span></label><br>
-                                    <input type="file" name="image_not_good" id="image_not_good" class="form-control" style="height: auto;" required accept=".jpg,.jpeg,.png,.pdf">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="due_date">Due Date <span style="color: red;">*</span></label><br>
+                                        <input type="date" name="due_date" id="due_date" class="form-control" value="<?php echo !empty($response_request['due_date']) ? $response_request['due_date'] : '' ?>" required>
+                                    </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label for="image_good">Image (Good) <span style="color: red;">*</span></label><br>
-                                    <input type="file" name="image_good" id="image_good" class="form-control" style="height: auto;" required accept=".jpg,.jpeg,.png,.pdf">
-                                </div>                               
-                            </div>
+                                <hr class="mt-4">
 
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="due_date">Due Date <span style="color: red;">*</span></label><br>
-                                    <input type="date" name="due_date" id="due_date" class="form-control" value="<?php echo !empty($response_request['due_date']) ? $response_request['due_date'] : '' ?>" required>
-                                </div>
-                            </div>
+                                <h5 class="mb-2">Approval</h5>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="leader">Department Head <span style="color: red;">*</span></label><br>
+                                        <select name="leader" id="leader" class="form-control" required >
 
-                            <hr class="mt-4">
+                                            <option value="<?php echo !empty($response_request['dept_head_id']) ? $response_request['dept_head_id'] : '' ?>" hidden><?php echo !empty($response_request['dept_head_id']) ? getUsername($response_request['dept_head_id']) : '' ?></option>
 
-                            <h5 class="mb-2">Approval</h5>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="leader">Department Head <span style="color: red;">*</span></label><br>
-                                    <select name="leader" id="leader" class="form-control" required >
+                                            <?php 
+                                                $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=4 AND status=1");
+                                                if($result) {    
+                                                    while($row = mysqli_fetch_assoc($result)) {
+                                            ?>
+                                            
+                                            <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
 
-                                        <option value="<?php echo !empty($response_request['dept_head_id']) ? $response_request['dept_head_id'] : '' ?>" hidden><?php echo !empty($response_request['dept_head_id']) ? getUsername($response_request['dept_head_id']) : '' ?></option>
-
-                                        <?php 
-                                            $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=4 AND status=1");
-                                            if($result) {    
-                                                while($row = mysqli_fetch_assoc($result)) {
-                                        ?>
-                                        
-                                        <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
-
-                                        <?php 
+                                            <?php 
+                                                    }
                                                 }
-                                            }
-                                        ?>
-                                        
-                                    </select>
+                                            ?>
+                                            
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="head">QC Supervisor <span style="color: red;">*</span></label><br>
+                                        <select name="head" id="head" class="form-control" required >
+                                            
+                                            <option value="<?php echo !empty($response_request['supervisor_id']) ? $response_request['supervisor_id'] : '' ?>" hidden><?php echo !empty($response_request['supervisor_id']) ? getUsername($response_request['supervisor_id']) : '' ?></option>
+                                            
+                                            <?php 
+                                                $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=5 AND status=1");
+                                                if($result) {    
+                                                    while($row = mysqli_fetch_assoc($result)) {
+                                            ?>
+                                            
+                                            <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+
+                                            <?php 
+                                                    }
+                                                }
+                                            ?>
+
+                                        </select>
+                                    </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label for="head">QC Supervisor <span style="color: red;">*</span></label><br>
-                                    <select name="head" id="head" class="form-control" required >
-                                        
-                                        <option value="<?php echo !empty($response_request['supervisor_id']) ? $response_request['supervisor_id'] : '' ?>" hidden><?php echo !empty($response_request['supervisor_id']) ? getUsername($response_request['supervisor_id']) : '' ?></option>
-                                        
-                                        <?php 
-                                            $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=5 AND status=1");
-                                            if($result) {    
-                                                while($row = mysqli_fetch_assoc($result)) {
-                                        ?>
-                                        
-                                        <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+                                <div class="row mb-3">  
+                                    <div class="col-md-6">
+                                        <label for="officer">Factory Officer <span style="color: red;">*</span></label><br>
+                                        <select name="officer" id="officer" class="form-control" required >
+                                            
+                                            <option value="<?php echo !empty($response_request['fac_officer_id']) ? $response_request['fac_officer_id'] : '' ?>" hidden><?php echo !empty($response_request['fac_officer_id']) ? getUsername($response_request['fac_officer_id']) : '' ?></option>
 
-                                        <?php 
+                                            <?php 
+                                                $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=6 AND status=1");
+                                                if($result) {    
+                                                    while($row = mysqli_fetch_assoc($result)) {
+                                            ?>
+                                            
+                                            <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+
+                                            <?php 
+                                                    }
                                                 }
-                                            }
-                                        ?>
+                                            ?>
 
-                                    </select>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="coo">Chief Operating Officer (COO) <span style="color: red;">*</span></label><br>
+                                        <select name="coo" id="coo" class="form-control" required >
+                                            
+                                            <option value="<?php echo !empty($response_request['coo_id']) ? $response_request['coo_id'] : '' ?>" hidden><?php echo !empty($response_request['coo_id']) ? getUsername($response_request['coo_id']) : '' ?></option>
+
+                                            <?php 
+                                                $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=7 AND status=1");
+                                                if($result) {    
+                                                    while($row = mysqli_fetch_assoc($result)) {
+                                            ?>
+                                            
+                                            <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
+
+                                            <?php 
+                                                    }
+                                                }
+                                            ?>
+
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="row mb-3">  
-                                <div class="col-md-6">
-                                    <label for="officer">Factory Officer <span style="color: red;">*</span></label><br>
-                                    <select name="officer" id="officer" class="form-control" required >
-                                        
-                                        <option value="<?php echo !empty($response_request['fac_officer_id']) ? $response_request['fac_officer_id'] : '' ?>" hidden><?php echo !empty($response_request['fac_officer_id']) ? getUsername($response_request['fac_officer_id']) : '' ?></option>
-
-                                        <?php 
-                                            $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=6 AND status=1");
-                                            if($result) {    
-                                                while($row = mysqli_fetch_assoc($result)) {
-                                        ?>
-                                        
-                                        <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
-
-                                        <?php 
-                                                }
-                                            }
-                                        ?>
-
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="coo">Chief Operating Officer (COO) <span style="color: red;">*</span></label><br>
-                                    <select name="coo" id="coo" class="form-control" required >
-                                        
-                                        <option value="<?php echo !empty($response_request['coo_id']) ? $response_request['coo_id'] : '' ?>" hidden><?php echo !empty($response_request['coo_id']) ? getUsername($response_request['coo_id']) : '' ?></option>
-
-                                        <?php 
-                                            $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=7 AND status=1");
-                                            if($result) {    
-                                                while($row = mysqli_fetch_assoc($result)) {
-                                        ?>
-                                        
-                                        <option value="<?php echo $row['id'] ?>"><?php echo $row['username'] ?></option>
-
-                                        <?php 
-                                                }
-                                            }
-                                        ?>
-
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                        </div>               
                     </div>
             </div>
 
