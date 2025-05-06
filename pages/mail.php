@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader (created by composer, not included with PHPMailer)
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
@@ -34,12 +34,12 @@ try {
     $mail->addAddress('supervisor@glory.com', 'Supervisor'); 
     $mail->addAddress('coo@glory.com', 'COO'); 
 
-    $mail->addCC('requestor@example.com');
-    $mail->addCC('editor@example.com');
-    $mail->addCC('head@example.com');
-    $mail->addCC('factory@example.com');
-    $mail->addCC('supervisor@example.com');
-    $mail->addCC('coo@example.com');
+    $mail->addCC('requestor@glory.com');
+    $mail->addCC('editor@glory.com');
+    $mail->addCC('head@glory.com');
+    $mail->addCC('factory@glory.com');
+    $mail->addCC('supervisor@glory.com');
+    $mail->addCC('coo@glory.com');
 
     //Recipients
     // $mail->setFrom('from@example.com', 'Mailer');
@@ -50,7 +50,7 @@ try {
     // $mail->addBCC('bcc@example.com');
 
     //Attachments
-    $mail->addAttachment('/assets/img/logo.png', 'test.png');    //Add attachments, Optional name
+    $mail->addAttachment('../assets/img/logo.png', 'test.png');    //Add attachments, Optional name
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
