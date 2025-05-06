@@ -49,7 +49,7 @@ try {
     // $mail->addBCC('bcc@example.com');
 
     //Attachments
-    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Add attachments, Optional name
+    $mail->addAttachment('/assets/img/logo.png', 'test.png');    //Add attachments, Optional name
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
