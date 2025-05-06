@@ -15,13 +15,13 @@
         $approved_condition = "dept_head_status = 1";
         $rejected_condition = "dept_head_status = 2";
     } elseif ($userAccess == 5) {
-        $pending_condition = "dept_head_status = 1 AND supervisor_status = 0";
-        $approved_condition = "supervisor_status = 1";
-        $rejected_condition = "supervisor_status = 2";
-    } elseif ($userAccess == 6) {
         $pending_condition = "supervisor_status = 1 AND fac_officer_status = 0";
         $approved_condition = "fac_officer_status = 1";
         $rejected_condition = "fac_officer_status = 2";
+    } elseif ($userAccess == 6) {
+        $pending_condition = "dept_head_status = 1 AND supervisor_status = 0";
+        $approved_condition = "supervisor_status = 1";
+        $rejected_condition = "supervisor_status = 2";
     } elseif ($userAccess == 7) {
         $pending_condition = "fac_officer_status = 1 AND coo_status = 0";
         $approved_condition = "coo_status = 1";
@@ -40,13 +40,13 @@
 
     function checkPendingStatus($access){
         if ($access == 4){
-            return ['dept_status' => 1, 'dept_head_status' => 0, 'supervisor_status' => 0, 'fac_officer_status' => 0, 'coo_status' => 0];
+            return ['dept_status' => 1, 'dept_head_status' => 0, 'fac_officer_status' => 0, 'supervisor_status' => 0, 'coo_status' => 0];
         } elseif ($access == 5){
-            return ['dept_status' => 1, 'dept_head_status' => 1, 'supervisor_status' => 0, 'fac_officer_status' => 0, 'coo_status' => 0];
+            return ['dept_status' => 1, 'dept_head_status' => 1, 'fac_officer_status' => 0, 'supervisor_status' => 0, 'coo_status' => 0];
         } elseif ($access == 6){
-            return ['dept_status' => 1, 'dept_head_status' => 1, 'supervisor_status' => 1, 'fac_officer_status' => 0, 'coo_status' => 0];
+            return ['dept_status' => 1, 'dept_head_status' => 1, 'fac_officer_status' => 1, 'supervisor_status' => 0, 'coo_status' => 0];
         } elseif ($access == 7){
-            return ['dept_status' => 1, 'dept_head_status' => 1, 'supervisor_status' => 1, 'fac_officer_status' => 1, 'coo_status' => 0];
+            return ['dept_status' => 1, 'dept_head_status' => 1, 'fac_officer_status' => 1, 'supervisor_status' => 1, 'coo_status' => 0];
         }
     }
 
@@ -130,9 +130,9 @@
         if ($access == 4){
             mysqli_query($conn, "UPDATE tbl_response SET dept_head_status='$status' WHERE id='$response_id'");
         } elseif ($access == 5){
-            mysqli_query($conn, "UPDATE tbl_response SET supervisor_status='$status' WHERE id='$response_id'");
-        } elseif ($access == 6){
             mysqli_query($conn, "UPDATE tbl_response SET fac_officer_status='$status' WHERE id='$response_id'");
+        } elseif ($access == 6){
+            mysqli_query($conn, "UPDATE tbl_response SET supervisor_status='$status' WHERE id='$response_id'");
         } elseif ($access == 7){
             mysqli_query($conn, "UPDATE tbl_response SET coo_status='$status' WHERE id='$response_id'");
 
@@ -157,10 +157,10 @@
 
         $row2 = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_audit WHERE response_id='$response_id' "));
 
-        if($access == 5 && $row['supervisor_status'] != 0){
+        if($access == 5 && $row['fac_officer_status'] != 0){
             return "none";
         }
-        elseif($access == 6 && $row['fac_officer_status'] != 0){
+        elseif($access == 6 && $row['supervisor_status'] != 0){
             return "none";
         }
         elseif($access == 7 && $row['coo_status'] != 0){
@@ -337,9 +337,9 @@
                                 if($userAccess == 4){
                                     $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_response.dept_head_status=$approvedStatus AND tbl_request.dept_head_id=$userId");
                                 } elseif ($userAccess == 5){
-                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_response.supervisor_status=$approvedStatus AND tbl_request.supervisor_id=$userId");
-                                } elseif ($userAccess == 6){
                                     $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_response.fac_officer_status=$approvedStatus AND tbl_request.fac_officer_id=$userId");
+                                } elseif ($userAccess == 6){
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_response.supervisor_status=$approvedStatus AND tbl_request.supervisor_id=$userId");
                                 } elseif ($userAccess == 7){
                                     $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_response.coo_status=$approvedStatus AND tbl_request.coo_id=$userId");
                                 }
@@ -414,9 +414,9 @@
                                 if($userAccess == 4){
                                     $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_response.dept_head_status=$rejectedStatus AND tbl_request.dept_head_id=$userId");
                                 } elseif ($userAccess == 5){
-                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_response.supervisor_status=$rejectedStatus AND tbl_request.supervisor_id=$userId");
-                                } elseif ($userAccess == 6){
                                     $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_response.fac_officer_status=$rejectedStatus AND tbl_request.fac_officer_id=$userId");
+                                } elseif ($userAccess == 6){
+                                    $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_response.supervisor_status=$rejectedStatus AND tbl_request.supervisor_id=$userId");
                                 } elseif ($userAccess == 7){
                                     $result = mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_response ON tbl_request.id=tbl_response.request_id WHERE tbl_response.coo_status=$rejectedStatus AND tbl_request.coo_id=$userId");
                                 }
@@ -524,15 +524,15 @@
                                             <h6 class="ml-3 <?php echo isset($view_request['dept_head_id']) ? getApprovalStatusColor($view_request['dept_head_status']) : '' ?>"><i><?php echo isset($view_request['dept_head_id']) ? getApprovalStatus($view_request['dept_head_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
-                                            <h6><b>QC Supervisor: </b> <?php echo isset($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
-                                            <h6 class="ml-3 <?php echo isset($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['supervisor_status']) : '' ?>"><i><?php echo isset($view_request['supervisor_id']) ? getApprovalStatus($view_request['supervisor_status']) : '' ?></i></h6>
-                                        </div>
-                                        <div class="row px-2">
                                             <h6><b>Factory Officer: </b> <?php echo isset($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo isset($view_request['fac_officer_id']) ? getApprovalStatusColor($view_request['fac_officer_status']) : '' ?>"><i><?php echo isset($view_request['fac_officer_id']) ? getApprovalStatus($view_request['fac_officer_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
-                                            <h6><b>COO: </b> <?php echo isset($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
+                                            <h6><b>QC Supervisor: </b> <?php echo isset($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
+                                            <h6 class="ml-3 <?php echo isset($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['supervisor_status']) : '' ?>"><i><?php echo isset($view_request['supervisor_id']) ? getApprovalStatus($view_request['supervisor_status']) : '' ?></i></h6>
+                                        </div>
+                                        <div class="row px-2">
+                                            <h6><b>Chief Operating Officer: </b> <?php echo isset($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo isset($view_request['coo_id']) ? getApprovalStatusColor($view_request['coo_status']) : '' ?>"><i><?php echo isset($view_request['coo_id']) ? getApprovalStatus($view_request['coo_status']) : '' ?></i></h6>
                                         </div>
                                     </div>

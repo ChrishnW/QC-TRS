@@ -271,7 +271,8 @@
 
           <div class="mb-3">
             <label for="lastname" class="form-label">Last Name <span style="color: red;">*</span></label>
-            <input type="text" name="lastname" id="lastname" class="form-control" required title="Last name should only contain letters and spaces." pattern="[A-Za-z\s]{1,50}">
+            <input type="text" name="lastname" id="lastname" class="form-control" required title="Last name should only contain letters and spaces.">
+            <!-- pattern="[A-Za-z\s]{1,50}" -->
           </div>
 
           <div class="mb-3">
