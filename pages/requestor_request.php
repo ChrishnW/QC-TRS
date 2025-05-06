@@ -208,8 +208,8 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="head">QC Supervisor <span style="color: red;">*</span></label><br>
-                            <select name="head" id="head" class="form-control" required >
+                            <label for="officer">Factory Officer <span style="color: red;">*</span></label><br>
+                            <select name="officer" id="officer" class="form-control" required >
                                 <option value="" hidden></option>
 
                                 <?php 
@@ -231,8 +231,8 @@
 
                     <div class="row mb-2">  
                         <div class="col-md-6">
-                            <label for="officer">Factory Officer <span style="color: red;">*</span></label><br>
-                            <select name="officer" id="officer" class="form-control" required >
+                            <label for="head">QC Supervisor <span style="color: red;">*</span></label><br>
+                            <select name="head" id="head" class="form-control" required >
                                 <option value="" hidden></option>
 
                                 <?php 
