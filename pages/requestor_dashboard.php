@@ -23,6 +23,16 @@
         }
     }
 
+    function checkIfEditorResponse($response_id) {
+        global $conn;
+        $result = mysqli_query($conn, "SELECT * FROM tbl_response WHERE id='$response_id'");
+        if(mysqli_num_rows($result) > 0){
+            $row = mysqli_fetch_assoc($result);
+            return empty($row['man']) ? '' : 'none';
+        }
+        return 'none';
+    }
+
     function getApprovalStatusTable($status) {
         switch ($status) {
             case 0:
@@ -691,7 +701,7 @@
                 </div>
             </div>
 
-            <div class="modal-footer">
+            <div class="modal-footer" style="display: <?php echo checkIfEditorResponse($view_request['response_id']) ?>;">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center mr-2">
                     <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
                     <input type="hidden" name="response_id" value="<?php echo $view_request['response_id'] ?>">
