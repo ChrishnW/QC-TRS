@@ -57,7 +57,7 @@
                 $_SESSION["message"] = "Failed to upload images. Please try again.";
             }
 
-            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            header("Refresh: .3; url = requestor_dashboard.php");
             ob_end_flush();
             exit;
         }
