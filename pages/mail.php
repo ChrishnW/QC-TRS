@@ -27,7 +27,7 @@ try {
     $mail->setFrom('noreply@glory.com.ph', 'Glory Philippines Inc.'); 
 
     //Add a recipient (Recipient's email and name)
-    $mail->addAddress('requestor@glory.ph', 'Requestor'); 
+    $mail->addAddress('requestor@glory.com', 'Requestor'); 
     $mail->addAddress('editor@glory.com', 'Editor'); 
     $mail->addAddress('head@glory.com', 'Department Head'); 
     $mail->addAddress('factory@glory.com', 'Factory Officer'); 
