@@ -286,8 +286,8 @@
                 <option value="2">Requestor</option>
                 <option value="3">Editor</option>
                 <option value="4">Department Head</option>
-                <option value="5">QC Supervisor</option>
-                <option value="6">Factory Officer</option>
+                <option value="5">Factory Officer</option>
+                <option value="6">QC Supervisor</option>
                 <option value="7">Chief Operating Officer</option>
                 <!-- <option value="8">Auditor</option> ksama ba to?-->
             </select>
