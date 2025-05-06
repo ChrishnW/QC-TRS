@@ -28,10 +28,10 @@ try {
     //Add a recipient (Recipient's email and name)
     $mail->addAddress('requestor@glory.ph', 'Requestor'); 
     $mail->addAddress('editor@glory.com', 'Editor'); 
-    $mail->addAddress('head@glory.com'); 
-    $mail->addAddress('factory@glory.com'); 
-    $mail->addAddress('supervisor@glory.com'); 
-    $mail->addAddress('coo@glory.com'); 
+    $mail->addAddress('head@glory.com', 'Department Head'); 
+    $mail->addAddress('factory@glory.com', 'Factory Officer'); 
+    $mail->addAddress('supervisor@glory.com', 'Supervisor'); 
+    $mail->addAddress('coo@glory.com', 'COO'); 
 
     $mail->addCC('requestor@example.com');
     $mail->addCC('editor@example.com');
