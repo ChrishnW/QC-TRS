@@ -12,12 +12,15 @@
     $finished_count_result = mysqli_query($conn, "SELECT COUNT(*) AS count FROM tbl_request WHERE status = 1 AND dept_id = '$dept_id'");
     $finished_count = mysqli_fetch_assoc($finished_count_result)['count'] ?? 0;
 
-    // function checkIfApproverResponse($response_id) {
-    //     global $conn;
-    //     $query = "SELECT * FROM tbl_response WHERE id='$response_id'";
-    //     $result = mysqli_query($conn, $query);
-    //     return mysqli_num_rows($result) > 0;
-    // }
+    function checkIfApproverResponse($response_id) {
+        global $conn;
+        $result = mysqli_query($conn, "SELECT * FROM tbl_response WHERE id='$response_id'");
+        if(mysqli_num_rows($result) > 0){
+            $row = mysqli_fetch_assoc($result);
+            return $row['dept_head_status'] == 0 ? 'block' : 'none';
+        }
+        return 'none';
+    }
 
     function getApprovalStatus($status) {
         switch ($status) {
@@ -978,7 +981,7 @@
                     </div>
             </div>
 
-            <div class="modal-footer">
+            <div class="modal-footer" >
                     <div class="mr-4">
                         <input type="hidden" name="response_id" value="<?php echo $response_request['response_id'] ?>">
                         <input type="submit" name="save_response" class="btn btn-success" value="Save">
