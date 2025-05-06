@@ -259,8 +259,8 @@
                             </tr>
                             <tr> 
                                 <th class="text-center align-middle border-top-0">Department Head</th>
-                                <th class="text-center align-middle border-top-0">QC Supervisor</th>
                                 <th class="text-center align-middle border-top-0">Factory Officer</th>
+                                <th class="text-center align-middle border-top-0">QC Supervisor</th>
                                 <th class="text-center align-middle border-top-0">COO</th>
                             </tr>
                         </thead>
@@ -293,8 +293,8 @@
                                     <td class="text-center align-middle" style="table-layout: fixed; width: 15%;"><?php echo $model ?></td>
                                     <td class="text-center align-middle" style="table-layout: fixed; width: 12%;"><?php echo $department_status ?></td>
                                     <td class="text-center align-middle" style="table-layout: fixed; width: 15%;"><?php echo $line_leader_status ?></td>
-                                    <td class="text-center align-middle" style="table-layout: fixed; width: 20%;"><?php echo $department_head_status ?></td>
                                     <td class="text-center align-middle" style="table-layout: fixed; width: 20%;"><?php echo $factory_officer_status ?></td>
+                                    <td class="text-center align-middle" style="table-layout: fixed; width: 20%;"><?php echo $department_head_status ?></td>
                                     <td class="text-center align-middle" style="table-layout: fixed; width: 8%;"><?php echo $coo_status ?></td>
                                     <td style="table-layout: fixed; width: 8%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
@@ -347,8 +347,8 @@
                             </tr>
                             <tr>
                                 <th class="text-center align-middle border-top-0">Department Head</th>
-                                <th class="text-center align-middle border-top-0">QC Supervisor</th>
                                 <th class="text-center align-middle border-top-0">Factory Officer</th>
+                                <th class="text-center align-middle border-top-0">QC Supervisor</th>
                                 <th class="text-center align-middle border-top-0">COO</th>
                             </tr>
                         </thead>
@@ -381,8 +381,8 @@
                                     <td class="text-center align-middle" style="table-layout: fixed; width: 15%;"><?php echo $model ?></td>
                                     <td class="text-center align-middle" style="table-layout: fixed; width: 12%;"><?php echo $department_status ?></td>
                                     <td class="text-center align-middle" style="table-layout: fixed; width: 15%;"><?php echo $line_leader_status ?></td>
-                                    <td class="text-center align-middle" style="table-layout: fixed; width: 20%;"><?php echo $department_head_status ?></td>
                                     <td class="text-center align-middle" style="table-layout: fixed; width: 20%;"><?php echo $factory_officer_status ?></td>
+                                    <td class="text-center align-middle" style="table-layout: fixed; width: 20%;"><?php echo $department_head_status ?></td>
                                     <td class="text-center align-middle" style="table-layout: fixed; width: 8%;"><?php echo $coo_status ?></td>
                                     <td style="table-layout: fixed; width: 8%;">
                                         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center">
@@ -480,12 +480,12 @@
                                             <h6 class="ml-3 <?php echo !empty($view_request['dept_head_id']) ? getApprovalStatusColor($view_request['dept_head_status']) : '' ?>"><i><?php echo !empty($view_request['dept_head_id']) ? getApprovalStatus($view_request['dept_head_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
-                                            <h6><b>QC Supervisor: </b> <?php echo !empty($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
-                                            <h6 class="ml-3 <?php echo !empty($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['supervisor_status']) : '' ?>"><i><?php echo !empty($view_request['supervisor_id']) ? getApprovalStatus($view_request['supervisor_status']) : '' ?></i></h6>
-                                        </div>
-                                        <div class="row px-2">
                                             <h6><b>Factory Officer: </b> <?php echo !empty($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo !empty($view_request['fac_officer_id']) ? getApprovalStatusColor($view_request['fac_officer_status']) : '' ?>"><i><?php echo !empty($view_request['fac_officer_id']) ? getApprovalStatus($view_request['fac_officer_status']) : '' ?></i></h6>
+                                        </div>
+                                        <div class="row px-2">
+                                            <h6><b>QC Supervisor: </b> <?php echo !empty($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
+                                            <h6 class="ml-3 <?php echo !empty($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['supervisor_status']) : '' ?>"><i><?php echo !empty($view_request['supervisor_id']) ? getApprovalStatus($view_request['supervisor_status']) : '' ?></i></h6>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>COO: </b> <?php echo !empty($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
@@ -866,13 +866,13 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="head">QC Supervisor <span style="color: red;">*</span></label><br>
-                                        <select name="head" id="head" class="form-control" required >
+                                        <label for="officer">Factory Officer <span style="color: red;">*</span></label><br>
+                                        <select name="officer" id="officer" class="form-control" required >
                                             
-                                            <option value="<?php echo !empty($response_request['supervisor_id']) ? $response_request['supervisor_id'] : '' ?>" hidden><?php echo !empty($response_request['supervisor_id']) ? getUsername($response_request['supervisor_id']) : '' ?></option>
-                                            
+                                            <option value="<?php echo !empty($response_request['fac_officer_id']) ? $response_request['fac_officer_id'] : '' ?>" hidden><?php echo !empty($response_request['fac_officer_id']) ? getUsername($response_request['fac_officer_id']) : '' ?></option>
+
                                             <?php 
-                                                $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=5 AND status=1");
+                                                $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=6 AND status=1");
                                                 if($result) {    
                                                     while($row = mysqli_fetch_assoc($result)) {
                                             ?>
@@ -890,13 +890,13 @@
 
                                 <div class="row mb-3">  
                                     <div class="col-md-6">
-                                        <label for="officer">Factory Officer <span style="color: red;">*</span></label><br>
-                                        <select name="officer" id="officer" class="form-control" required >
+                                        <label for="head">QC Supervisor <span style="color: red;">*</span></label><br>
+                                        <select name="head" id="head" class="form-control" required >
                                             
-                                            <option value="<?php echo !empty($response_request['fac_officer_id']) ? $response_request['fac_officer_id'] : '' ?>" hidden><?php echo !empty($response_request['fac_officer_id']) ? getUsername($response_request['fac_officer_id']) : '' ?></option>
-
+                                            <option value="<?php echo !empty($response_request['supervisor_id']) ? $response_request['supervisor_id'] : '' ?>" hidden><?php echo !empty($response_request['supervisor_id']) ? getUsername($response_request['supervisor_id']) : '' ?></option>
+                                            
                                             <?php 
-                                                $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=6 AND status=1");
+                                                $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=5 AND status=1");
                                                 if($result) {    
                                                     while($row = mysqli_fetch_assoc($result)) {
                                             ?>
