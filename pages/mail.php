@@ -25,7 +25,8 @@ try {
     //Recipients
     $mail->setFrom('noreply@glory.com.ph', 'Glory Philippines Inc.'); //Sender's email and name
 
-    $mail->addAddress('requestor@glory.ph', 'Requestor'); //Add a recipient (Recipient's email and name)
+    //Add a recipient (Recipient's email and name)
+    $mail->addAddress('requestor@glory.ph', 'Requestor'); 
     $mail->addAddress('editor@glory.com', 'Editor'); 
     $mail->addAddress('head@glory.com'); 
     $mail->addAddress('factory@glory.com'); 
@@ -48,8 +49,7 @@ try {
     // $mail->addBCC('bcc@example.com');
 
     //Attachments
-    $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Add attachments, Optional name
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
