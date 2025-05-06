@@ -17,7 +17,7 @@
         $result = mysqli_query($conn, "SELECT * FROM tbl_response WHERE id='$response_id'");
         if(mysqli_num_rows($result) > 0){
             $row = mysqli_fetch_assoc($result);
-            return $row['dept_head_status'] == 0 ? 'block' : 'none';
+            return $row['dept_head_status'] == 0 ? '' : 'none';
         }
         return 'none';
     }
@@ -671,7 +671,7 @@
                 </div>
             </div>
 
-            <div class="modal-footer">
+            <div class="modal-footer" style="display: <?php echo checkIfApproverResponse($view_request['response_id']) ?>;">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form_table d-flex justify-content-center align-items-center mr-2">
                     <input type="hidden" name="request_id" value="<?php echo $view_request['request_id'] ?>">
                     <input type="hidden" name="response_id" value="<?php echo $view_request['response_id'] ?>">
