@@ -981,7 +981,7 @@
                     </div>
             </div>
 
-            <div class="modal-footer" >
+            <div class="modal-footer">
                     <div class="mr-4">
                         <input type="hidden" name="response_id" value="<?php echo $response_request['response_id'] ?>">
                         <input type="submit" name="save_response" class="btn btn-success" value="Save">
