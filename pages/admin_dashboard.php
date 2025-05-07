@@ -16,6 +16,8 @@
         return "Factory Officer";
       case 7:
         return "Chief Operating Officer";
+        case 8:
+          return "Auditor";
       default:
         return "Unknown Role";
     }

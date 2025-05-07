@@ -213,8 +213,16 @@
             // Include mailer and send email
             include 'mail.php';
 
+            // $qwe = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_account ON tbl_request.dept_id=tbl_account.id WHERE tbl_request.id='$request_id'"));
+
+            // $asd = $qwe['email'] . $qwe['email'];
+            // echo "<script>console.log('$asd')</script>";
+
+            
+
+
             // Test Recipient
-            $mail->addAddress('requestor@example.com', 'Requestor'); 
+            $mail->addAddress('b.solomon@glory.com.ph', 'Test'); 
             $mail->addCC('requestor@example.com');
 
             // Remove when ready to send
