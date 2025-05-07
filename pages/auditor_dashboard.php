@@ -222,8 +222,8 @@
 
 
             // Test Recipient
-            $mail->addAddress('b.solomon@glory.com.ph', 'Test'); 
-            $mail->addCC('requestor@example.com');
+            // $mail->addAddress('b.solomon@glory.com.ph', 'Test'); 
+            // $mail->addCC('requestor@example.com');
 
             // Remove when ready to send
             // $mail->addAddress('requestor@glory.com', 'Requestor'); 
@@ -240,21 +240,21 @@
             // $mail->addCC('supervisor@glory.com');
             // $mail->addCC('coo@glory.com');
 
-            $mail->Subject = 'Audit Review Completed';
-            $mail->Body = "The audit review has been completed by $auditor on $date. <br> Findings: $findings <br> Remarks: $remarks";
+            // $mail->Subject = 'Audit Review Completed';
+            // $mail->Body = "The audit review has been completed by $auditor on $date. <br> Findings: $findings <br> Remarks: $remarks";
 
-            try {
-                if ($mail->send()) {
-                    $_SESSION['message'] = "Email sent successfully.";
-                    echo "<script>alert('Email sent successfully.');</script>";
-                } else {
-                    $_SESSION['message'] = "Failed to send email.";
-                    echo "<script>alert('Failed to send email.');</script>";
-                }
-            } catch (Exception $e) {
-                $_SESSION['message'] = "Mailer Error: " . $mail->ErrorInfo;
-                echo "<script>alert('Mailer Error: " . $mail->ErrorInfo . "');</script>";
-            }
+            // try {
+            //     if ($mail->send()) {
+            //         $_SESSION['message'] = "Email sent successfully.";
+            //         echo "<script>alert('Email sent successfully.');</script>";
+            //     } else {
+            //         $_SESSION['message'] = "Failed to send email.";
+            //         echo "<script>alert('Failed to send email.');</script>";
+            //     }
+            // } catch (Exception $e) {
+            //     $_SESSION['message'] = "Mailer Error: " . $mail->ErrorInfo;
+            //     echo "<script>alert('Mailer Error: " . $mail->ErrorInfo . "');</script>";
+            // }
             
             header("Refresh: 15; url=".$_SERVER['PHP_SELF']);    //pabago nalang ng refresh Refresh: .3
             ob_end_flush();
