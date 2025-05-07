@@ -30,14 +30,14 @@
             // $mail->addAddress($email_address, $name); 
 
             // Content
-            $mail->isHTML(true);                                        
-            $mail->Subject = '[REQUEST]: TROUBLE REPORT';
-            $mail->Body    = 'Dear <strong> . $name . </strong>, <br><br>
-                            You have PENDING Trouble Report Request [Trouble Report No.] for approval.  <br>
-                            Please check by logging in your account at [link of QCTRS]                  <br><br>
-                            <i>This is a system generated email. Please do not reply.</i>               <br><br>
-                            QC Trouble Report System';
-            $mail->send();
+            // $mail->isHTML(true);                                        
+            // $mail->Subject = '[Role]: TROUBLE REPORT';
+            // $mail->Body    = 'Dear <strong> . $name . </strong>, <br><br>
+            //                 You have PENDING Trouble Report Request [Trouble Report No.] for approval.  <br>
+            //                 Please check by logging in your account at [link of QCTRS]                  <br><br>
+            //                 <i>This is a system generated email. Please do not reply.</i>               <br><br>
+            //                 QC Trouble Report System';
+            // $mail->send();
 
             echo 'Message has been sent.';
         } catch (Exception $e) {

@@ -190,10 +190,41 @@
             if($result){
                 $_SESSION['message'] = "Response successfully submitted!";
 
-                // $head_email = getUsername($response_request['dept_head_id']);
-                // $subject = "QC Trouble Report Response Submitted";
-                // $body = "Dear $head_email, <br><br> A response has been submitted for the Trouble Report.";
-                // mail($head_email, $subject, $body);
+                // Send email notification
+                $email_query = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
+                FROM tbl_request 
+                INNER JOIN tbl_account ON tbl_request.dept_id = tbl_account.id 
+                WHERE tbl_request.id = '$request_id'");
+
+                if ($email_query && mysqli_num_rows($email_query) > 0) {
+                    $email_data = mysqli_fetch_assoc($email_query);
+                    $email_address = $email_data['email'];
+                    $name = $email_data['firstname'] . ' ' . $email_data['lastname'];
+
+                    // Include mail.php and send email
+                    include "../pages/mail.php";
+
+                    // Recipient's email and name
+                    $mail->addAddress($email_address, $name);
+
+                    // Content
+                    $mail->isHTML(true);
+                    $mail->Subject = 'EDITOR: TROUBLE REPORT';
+                    $mail->Body    = 'Dear <strong>' . $name . '</strong>, <br><br>
+                                    You have PENDING Trouble Report Request [Trouble Report No.] for approval.  <br>
+                                    Please check by logging in your account at [link of QCTRS].                 <br><br>
+                                    <i>This is a system generated email. Please do not reply.</i>               <br><br>
+                                    QC Trouble Report System';
+
+                    // Send the email
+                    if ($mail->send()) {
+                        $_SESSION["message"] = "Request submitted successfully, and email notification sent.";
+                    } else {
+                        $_SESSION["message"] = "Request submitted successfully, but email notification failed.";
+                    }
+                } else {
+                    $_SESSION["message"] = "Request submitted successfully, but recipient email not found.";
+                }
 
             }else{
                 $_SESSION['message'] = "Failed to submit response!";

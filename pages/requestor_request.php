@@ -50,6 +50,7 @@
 
                     $_SESSION["message"] = "Request submitted successfully.";
 
+                    // Send email notification
                     $email_query = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
                                     FROM tbl_request 
                                     INNER JOIN tbl_account ON tbl_request.dept_id = tbl_account.id 
@@ -62,7 +63,21 @@
 
                         // Include mail.php and send email
                         include "../pages/mail.php";
-                        if (sendEmail($email_address, $name)) {
+
+                        // Recipient's email and name
+                        $mail->addAddress($email_address, $name);
+
+                        // Content
+                        $mail->isHTML(true);
+                        $mail->Subject = 'REQUESTOR: TROUBLE REPORT';
+                        $mail->Body    = 'Dear <strong>' . $name . '</strong>, <br><br>
+                                          You have PENDING Trouble Report Request [Trouble Report No.] for approval.  <br>
+                                          Please check by logging in your account at [link of QCTRS].                 <br><br>
+                                          <i>This is a system generated email. Please do not reply.</i>               <br><br>
+                                          QC Trouble Report System';
+
+                        // Send the email
+                        if ($mail->send()) {
                             $_SESSION["message"] = "Request submitted successfully, and email notification sent.";
                         } else {
                             $_SESSION["message"] = "Request submitted successfully, but email notification failed.";
