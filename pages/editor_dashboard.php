@@ -189,6 +189,12 @@
 
             if($result){
                 $_SESSION['message'] = "Response successfully submitted!";
+
+                // $head_email = getUsername($response_request['dept_head_id']);
+                // $subject = "QC Trouble Report Response Submitted";
+                // $body = "Dear $head_email, <br><br> A response has been submitted for the Trouble Report.";
+                // mail($head_email, $subject, $body);
+
             }else{
                 $_SESSION['message'] = "Failed to submit response!";
             }

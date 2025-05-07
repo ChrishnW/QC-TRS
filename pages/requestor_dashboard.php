@@ -217,6 +217,12 @@
 
                 if($result) {
                     $_SESSION["message"] = "Request updated successfully.";
+
+                    // $editor_email = getUsername($department);
+                    // $subject = "QC Trouble Report Request";
+                    // $body = "A new trouble report has been submitted. Please review it.";
+                    // mail($editor_email, $subject, $body,);
+
                 } else {
                     $_SESSION["message"] = "Failed to update request. Please try again.";
                 }

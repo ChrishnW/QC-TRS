@@ -216,6 +216,11 @@
             $status = '1';
 
             updateRequest($response_id, $status);
+
+            // $next_approver_email = getUsername($view_request['dept_id']);
+            // $subject = "QC Trouble Report Approved";
+            // $body = "A trouble report has been approved by " . getUsername($userId) . ". Please review it.";
+            // mail($next_approver_email, $subject, $body);
         }
 
         // Reject request submit ..............................................................................
@@ -223,7 +228,13 @@
             $request_id = $_POST['request_id_answered'];
             $response_id = $_POST['response_id_answered'];
             $status = '2';
+            
             updateRequest($response_id, $status);
+
+            // $requestor_email = getUsername($view_request['dept_id']);
+            // $subject = "QC Trouble Report Rejected";
+            // $body = "A trouble report has been rejected by " . getUsername($userId) . ". Please review it.";
+            // mail($requestor_email, $subject, $body);
         }
     }
 ?>
