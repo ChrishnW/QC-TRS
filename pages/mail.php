@@ -63,17 +63,3 @@
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}.";
     }
-
-    // function sendEmail($to, $subject, $body) {
-    //     global $mail;
-
-    //     try {
-    //         $mail->clearAddresses();
-    //         $mail->addAddress($to);
-    //         $mail->Subject = $subject;
-    //         $mail->Body = $body;
-    //         $mail->send();
-    //     } catch (Exception $e) {
-    //         error_log("Email could not be sent. Error: {$mail->ErrorInfo}");
-    //     }
-    // }
