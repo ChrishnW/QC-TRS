@@ -213,9 +213,24 @@
             // Include mailer and send email
             include 'mail.php';
 
-            // Add a recipient (Recipient's email and name)
+            // Test Recipient
             $mail->addAddress('requestor@example.com', 'Requestor'); 
             $mail->addCC('requestor@example.com');
+
+            // Remove when ready to send
+            // $mail->addAddress('requestor@glory.com', 'Requestor'); 
+            // $mail->addAddress('editor@glory.com', 'Editor'); 
+            // $mail->addAddress('head@glory.com', 'Department Head'); 
+            // $mail->addAddress('factory@glory.com', 'Factory Officer'); 
+            // $mail->addAddress('supervisor@glory.com', 'Supervisor'); 
+            // $mail->addAddress('coo@glory.com', 'COO'); 
+    
+            // $mail->addCC('requestor@glory.com');
+            // $mail->addCC('editor@glory.com');
+            // $mail->addCC('head@glory.com');
+            // $mail->addCC('factory@glory.com');
+            // $mail->addCC('supervisor@glory.com');
+            // $mail->addCC('coo@glory.com');
 
             $mail->Subject = 'Audit Review Completed';
             $mail->Body = "The audit review has been completed by $auditor on $date. <br> Findings: $findings <br> Remarks: $remarks";
@@ -233,7 +248,7 @@
                 echo "<script>alert('Mailer Error: " . $mail->ErrorInfo . "');</script>";
             }
             
-            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            header("Refresh: 15; url=".$_SERVER['PHP_SELF']);    //pabago nalang ng refresh Refresh: .3
             ob_end_flush();
             exit();
         }
