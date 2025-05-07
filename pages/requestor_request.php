@@ -49,6 +49,27 @@
                     mysqli_query($conn, "INSERT INTO tbl_audit (response_id, status) VALUES ('$response_id', '$approver_status')");
 
                     $_SESSION["message"] = "Request submitted successfully.";
+
+                    $email_query = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
+                                    FROM tbl_request 
+                                    INNER JOIN tbl_account ON tbl_request.dept_id = tbl_account.id 
+                                    WHERE tbl_request.id = '$request_id'");
+
+                    if ($email_query && mysqli_num_rows($email_query) > 0) {
+                        $email_data = mysqli_fetch_assoc($email_query);
+                        $email_address = $email_data['email'];
+                        $name = $email_data['firstname'] . ' ' . $email_data['lastname'];
+
+                        // Include mail.php and send email
+                        include "../pages/mail.php";
+                        if (sendEmail($email_address, $name)) {
+                            $_SESSION["message"] = "Request submitted successfully, and email notification sent.";
+                        } else {
+                            $_SESSION["message"] = "Request submitted successfully, but email notification failed.";
+                        }
+                    } else {
+                        $_SESSION["message"] = "Request submitted successfully, but recipient email not found.";
+                    }
                 } else {
                     $_SESSION["message"] = "Failed to submit request. Please try again.";
                 }

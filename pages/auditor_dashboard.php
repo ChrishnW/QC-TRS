@@ -220,7 +220,6 @@
 
             // $mail->addAddress($asd, 'Test'); 
 
-
             // Test Recipient
             // $mail->addAddress('b.solomon@glory.com.ph', 'Test'); 
             // $mail->addCC('requestor@example.com');
@@ -260,10 +259,7 @@
             ob_end_flush();
             exit();
         }
-
-
     }
-
 ?>
 
 <!-- Pending Audits -->
