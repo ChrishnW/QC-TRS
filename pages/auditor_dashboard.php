@@ -209,8 +209,54 @@
             mysqli_query($conn, "UPDATE tbl_audit SET auditor_name_after='$auditor', auditor_findings_after='$findings', auditor_remarks_after='$remarks', auditor_date_after='$date', status='$status' WHERE id='$id'");
 
             mysqli_query($conn, "UPDATE tbl_request SET status='1' WHERE id='$request_id'");
+
+            // Include mailer and send email
+            include 'mail.php';
+
+            // $qwe = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_account ON tbl_request.dept_id=tbl_account.id WHERE tbl_request.id='$request_id'"));
+
+            // $asd = $qwe['email'] . $qwe['email'];
+            // echo "<script>console.log('$asd')</script>";
+
+            // $mail->addAddress($asd, 'Test'); 
+
+
+            // Test Recipient
+            $mail->addAddress('b.solomon@glory.com.ph', 'Test'); 
+            $mail->addCC('requestor@example.com');
+
+            // Remove when ready to send
+            // $mail->addAddress('requestor@glory.com', 'Requestor'); 
+            // $mail->addAddress('editor@glory.com', 'Editor'); 
+            // $mail->addAddress('head@glory.com', 'Department Head'); 
+            // $mail->addAddress('factory@glory.com', 'Factory Officer'); 
+            // $mail->addAddress('supervisor@glory.com', 'Supervisor'); 
+            // $mail->addAddress('coo@glory.com', 'COO'); 
+    
+            // $mail->addCC('requestor@glory.com');
+            // $mail->addCC('editor@glory.com');
+            // $mail->addCC('head@glory.com');
+            // $mail->addCC('factory@glory.com');
+            // $mail->addCC('supervisor@glory.com');
+            // $mail->addCC('coo@glory.com');
+
+            $mail->Subject = 'Audit Review Completed';
+            $mail->Body = "The audit review has been completed by $auditor on $date. <br> Findings: $findings <br> Remarks: $remarks";
+
+            try {
+                if ($mail->send()) {
+                    $_SESSION['message'] = "Email sent successfully.";
+                    echo "<script>alert('Email sent successfully.');</script>";
+                } else {
+                    $_SESSION['message'] = "Failed to send email.";
+                    echo "<script>alert('Failed to send email.');</script>";
+                }
+            } catch (Exception $e) {
+                $_SESSION['message'] = "Mailer Error: " . $mail->ErrorInfo;
+                echo "<script>alert('Mailer Error: " . $mail->ErrorInfo . "');</script>";
+            }
             
-            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);   
+            header("Refresh: 15; url=".$_SERVER['PHP_SELF']);    //pabago nalang ng refresh Refresh: .3
             ob_end_flush();
             exit();
         }
