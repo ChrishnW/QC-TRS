@@ -189,47 +189,7 @@
             $status = 2;
 
             mysqli_query($conn, "UPDATE tbl_audit SET auditor_name='$auditor', auditor_findings='$findings', auditor_remarks='$remarks', auditor_date='$date', status='$status' WHERE id='$id'");
-
-            // Include mailer and send email
-            include 'mail.php';
-
-            //Recipient
-            $mail->addAddress('requestor@glory.com', 'Requestor'); 
-            // $mail->addAddress('editor@glory.com', 'Editor'); 
-            // $mail->addAddress('head@glory.com', 'Department Head'); 
-            // $mail->addAddress('factory@glory.com', 'Factory Officer'); 
-            // $mail->addAddress('supervisor@glory.com', 'Supervisor'); 
-            // $mail->addAddress('coo@glory.com', 'COO'); 
-
-            $mail->addCC('requestor@glory.com');
-            // $mail->addCC('editor@glory.com');
-            // $mail->addCC('head@glory.com');
-            // $mail->addCC('factory@glory.com');
-            // $mail->addCC('supervisor@glory.com');
-            // $mail->addCC('coo@glory.com');
-
-            //Subject and body content
-            $mail->Subject = 'Audit Review Completed';
-            $mail->Body = "The audit review has been completed by $auditor on $date. <br> Findings: $findings <br> Remarks: $remarks";
-            $mail->send();
             
-            // Include mailer and send email
-            // include 'mail.php';
-            // $mail->addAddress('recipient@example.com', 'Recipient Name'); // Replace with actual recipient
-            // $mail->Subject = 'Audit Review Completed';
-            // $mail->Body = "The audit review has been completed by $auditor on $date. <br> Findings: $findings <br> Remarks: $remarks";
-
-            // if ($mail->send()) {
-            //     $_SESSION['message'] = "Email sent successfully.";
-            // } else {
-            //     $_SESSION['message'] = "Failed to send email. Error: " . $mail->ErrorInfo;
-            // }
-
-            // $requestor_email = getUsername($view_request['dept_id']);
-            // $subject = "Trouble Report Audit Completed";
-            // $body = "The audit review has been completed by $auditor on $date. <br> Findings: $findings <br> Remarks: $remarks";
-            // mail($requestor_email, $subject, $body);
-
             header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
             ob_end_flush();
             exit();
@@ -250,6 +210,29 @@
 
             mysqli_query($conn, "UPDATE tbl_request SET status='1' WHERE id='$request_id'");
 
+            // Include mailer and send email
+            include 'mail.php';
+
+            // Add a recipient (Recipient's email and name)
+            $mail->addAddress('requestor@example.com', 'Requestor'); 
+            $mail->addCC('requestor@example.com');
+
+            $mail->Subject = 'Audit Review Completed';
+            $mail->Body = "The audit review has been completed by $auditor on $date. <br> Findings: $findings <br> Remarks: $remarks";
+
+            try {
+                if ($mail->send()) {
+                    $_SESSION['message'] = "Email sent successfully.";
+                    echo "<script>alert('Email sent successfully.');</script>";
+                } else {
+                    $_SESSION['message'] = "Failed to send email.";
+                    echo "<script>alert('Failed to send email.');</script>";
+                }
+            } catch (Exception $e) {
+                $_SESSION['message'] = "Mailer Error: " . $mail->ErrorInfo;
+                echo "<script>alert('Mailer Error: " . $mail->ErrorInfo . "');</script>";
+            }
+            
             header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
             ob_end_flush();
             exit();
