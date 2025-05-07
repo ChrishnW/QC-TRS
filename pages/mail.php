@@ -25,10 +25,29 @@
         //Sender's email and name
         $mail->setFrom('noreply@glory.com.ph', 'Glory Philippines Inc.'); 
 
+        //$qwe = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tbl_request INNER JOIN tbl_account ON tbl_request.dept_id=tbl_account.id WHERE tbl_request.id='$request_id'"));
+        // $asd = $qwe['email'] . $qwe['email'];
+        // echo "<script>console.log('$asd')</script>";
+        // $mail->addAddress($asd, 'Test'); 
+
+        //Recipient
+        $mail->addAddress('');
+
+        // $mail->addAddress('requestor@glory.com', 'Requestor'); 
+        // $mail->addAddress('editor@glory.com', 'Editor'); 
+        // $mail->addAddress('head@glory.com', 'Department Head'); 
+        // $mail->addAddress('factory@glory.com', 'Factory Officer'); 
+        // $mail->addAddress('supervisor@glory.com', 'Supervisor'); 
+        // $mail->addAddress('coo@glory.com', 'COO'); 
+
         //Content
-        $mail->isHTML(true);                                        //Set email format to HTML
-        $mail->Subject = 'Quality Control Trouble Report';
-        $mail->Body    = 'Attached here is the <b>Quality Control Trouble Report</b> for your reference.';
+        $mail->isHTML(true);                                        
+        $mail->Subject = 'REQUEST: TROUBLE REPORT';
+        $mail->Body    = 'Dear <strong>[Account Name]</strong>, <br><br>
+                          You have PENDING Trouble Report Request [Trouble Report No.] for approval.  <br>
+                          Please check by logging in your account at [link of QCTRS]                  <br><br>
+                          <i>This is a system generated email. Please do not reply.</i>               <br><br>
+                          QC Trouble Report System';
 
         $mail->send();
 
