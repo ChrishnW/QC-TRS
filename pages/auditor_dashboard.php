@@ -211,7 +211,7 @@
             mysqli_query($conn, "UPDATE tbl_request SET status='1' WHERE id='$request_id'");
 
             $_SESSION['email_request_id'] = $request_id;
-            $_SESSION['email_access'] = 3;
+            $_SESSION['email_access'] = 8;
 
             include 'mail_auditor.php';
             
