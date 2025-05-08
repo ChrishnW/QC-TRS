@@ -26,40 +26,32 @@
         $mail->setFrom('noreply@glory.com.ph', 'Glory Philippines Inc.'); 
 
         $id = $_SESSION['email_request_id'];
-        $access = $_SESSION['email_access'];
         $query = "";
 
-        if($access == 3){
-            $query = "tbl_request.dept_id";
-        }
-        elseif($access == 4){
-            $query = "tbl_request.dept_head_id";
-        }
-        elseif($access == 5){
-            $query = "tbl_request.fac_officer_id";
-        }
-        elseif($access == 6){
-            $query = "tbl_request.supervisor_id";
-        }
-        elseif($access == 7){
-            $query = "tbl_request.coo_id";
-        }
-
-        $result = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname FROM tbl_request INNER JOIN tbl_account ON $query=tbl_account.id WHERE tbl_request.id=$id");
+        $result = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname FROM tbl_request INNER JOIN tbl_account ON tbl_request.req_id=tbl_account.id WHERE tbl_request.id=$id");
         $details = mysqli_fetch_assoc($result);
 
         $email = $details['email'];
         $name = $details['firstname'] . " " . $details['lastname'];
         $tr_number = "QCTRS-" . $id;
 
+        // CC Fetch
+        $result1 = mysqli_query($conn, "SELECT tbl_account.email FROM tbl_request INNER JOIN tbl_account ON tbl_request.dept_id=tbl_account.id WHERE tbl_request.id=$id");
+        $req_details = mysqli_fetch_assoc($result1);
+
+        $cc_mail = $req_details['email'];
+        
+        // m.ilagan@glory.com.ph
+
         //Recipients
         $mail->addAddress($email, $name);
+        $mail->addCC($cc_mail);
 
         // Content
         $mail->isHTML(true);
         $mail->Subject = 'REQUEST: TROUBLE REPORT';
         $mail->Body    = 'Dear <strong>' . $name . '</strong>,<br><br>
-                        You have a PENDING Trouble Report Request <strong>' . $tr_number . '</strong> for approval.<br>
+                        You have a CANCELLED Trouble Report Request <strong>' . $tr_number . '</strong>.<br>
                         Please check by logging in to your account at <a href="http://localhost/qc-trs" target="_blank">Trouble Report System</a>.<br><br>
                         <i>This is a system-generated email. Please do not reply.</i><br><br>
                         QC Trouble Report System';
