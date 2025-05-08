@@ -209,11 +209,6 @@
             mysqli_query($conn, "UPDATE tbl_audit SET auditor_name_after='$auditor', auditor_findings_after='$findings', auditor_remarks_after='$remarks', auditor_date_after='$date', status='$status' WHERE id='$id'");
 
             mysqli_query($conn, "UPDATE tbl_request SET status='1' WHERE id='$request_id'");
-
-            $_SESSION['email_request_id'] = $request_id;
-            $_SESSION['email_access'] = 8;
-
-            include 'mail_auditor.php';
             
             header("Refresh: .3; url=".$_SERVER['PHP_SELF']);   
             ob_end_flush();

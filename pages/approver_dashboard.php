@@ -215,15 +215,12 @@
             updateRequest($response_id, $status);
 
             if($access == 7){
-                // $_SESSION['email_request_id'] = $request_id;
-                // $_SESSION['email_access'] = 1 + intval($access);
-                
-                // include 'mail_reject.php';
+                $_SESSION['email_request_id'] = $request_id;
+                include 'mail_auditor.php';
             }
             else{
                 $_SESSION['email_request_id'] = $request_id;
                 $_SESSION['email_access'] = 1 + intval($access);
-                
                 include 'mail_approve.php';
             }
             

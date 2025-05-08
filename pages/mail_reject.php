@@ -26,7 +26,6 @@
         $mail->setFrom('noreply@glory.com.ph', 'Glory Philippines Inc.'); 
 
         $id = $_SESSION['email_request_id'];
-        $query = "";
 
         $result = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname FROM tbl_request INNER JOIN tbl_account ON tbl_request.req_id=tbl_account.id WHERE tbl_request.id=$id");
         $details = mysqli_fetch_assoc($result);
@@ -40,8 +39,6 @@
         $req_details = mysqli_fetch_assoc($result1);
 
         $cc_mail = $req_details['email'];
-        
-        // m.ilagan@glory.com.ph
 
         //Recipients
         $mail->addAddress($email, $name);
