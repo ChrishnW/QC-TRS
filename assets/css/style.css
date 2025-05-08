@@ -2,6 +2,28 @@
     text-align: justify;
 }
 
+#ongoingBtn:hover {
+    background-color: #ffc107; 
+    color: #FFFFFF; 
+    border-color: #0275d8; 
+}
+
+#finishedBtn:hover {
+    background-color: #28a745; 
+    color: #FFFFFF; 
+    border-color: #0275d8; 
+}
+/* Change badge color when the button is hovered */
+#ongoingBtn:hover .badge {
+    background-color: #FFFFFF; 
+    color: #ffc107; 
+}
+
+#finishedBtn:hover .badge {
+    background-color: #FFFFFF; 
+    color: #28a745; 
+}
+
 /* Change hover color for Pending Approval button */
 #display_pending:hover {
     background-color: #ffc107; /* Bootstrap Yellow */
@@ -23,17 +45,6 @@
     border-color: #0275d8; 
 }
 
-/* Change badge color when the button is hovered */
-#ongoingBtn:hover .badge {
-    background-color: #FFFFFF; 
-    color: #0275d8; 
-}
-
-#finishedBtn:hover .badge {
-    background-color: #FFFFFF; 
-    color: #0275d8; 
-}
-
 #display_pending:hover .badge{
     background-color: #FFFFFF;
     color: #ffc107;
@@ -41,7 +52,7 @@
 
 #display_approved:hover .badge{
     background-color: #FFFFFF;
-    color: #28a745;
+    color: #198754;
 }
 
 #display_rejected:hover .badge{
