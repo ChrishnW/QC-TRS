@@ -230,7 +230,7 @@
                 $_SESSION['message'] = "Failed to submit response!";
             }
 
-            header("Refresh: 30; url=".$_SERVER['PHP_SELF']);
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
             ob_end_flush();
             exit();
         }
