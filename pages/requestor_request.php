@@ -50,41 +50,10 @@
 
                     $_SESSION["message"] = "Request submitted successfully.";
 
-                    // Send email notification
-                    $email_query = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
-                                                        FROM tbl_request 
-                                                        INNER JOIN tbl_account ON tbl_request.dept_id = tbl_account.id 
-                                                        WHERE tbl_request.id = '$request_id'");
+                    $_SESSION['request_id'] = $request_id;
+                    
+                    include 'mail_approve.php';
 
-                    if ($email_query && mysqli_num_rows($email_query) > 0) {
-                        $email_data = mysqli_fetch_assoc($email_query);
-                        $email_address = $email_data['email'];
-                        $name = $email_data['firstname'] . ' ' . $email_data['lastname'];
-
-                        // Include mail.php and send email
-                        include "../pages/mail.php";
-
-                        // Recipient's email and name
-                        $mail->addAddress($email_address, $name);
-
-                        // Content
-                        $mail->isHTML(true);
-                        $mail->Subject = 'REQUEST: TROUBLE REPORT';
-                        $mail->Body    = 'Dear <strong>' . $name . '</strong>,<br><br>
-                                        You have a PENDING Trouble Report Request <strong>' . $request_id . '</strong> for approval.<br>
-                                        Please check by logging in to your account at <a href="link">QC Trouble Report System</a>.<br><br>
-                                        <i>This is a system-generated email. Please do not reply.</i><br><br>
-                                        QC Trouble Report System';
-
-                        // Send the email
-                        if ($mail->send()) {
-                            $_SESSION["message"] = "Request submitted successfully, and email notification sent.";
-                        } else {
-                            $_SESSION["message"] = "Request submitted successfully, but email notification failed.";
-                        }
-                    } else {
-                        $_SESSION["message"] = "Request submitted successfully, but recipient email not found.";
-                    }
                 } else {
                     $_SESSION["message"] = "Failed to submit request. Please try again.";
                 }
@@ -93,7 +62,7 @@
                 $_SESSION["message"] = "Failed to upload images. Please try again.";
             }
 
-            header("Refresh: .1; url = requestor_dashboard.php");
+            header("Refresh: .3; url = requestor_dashboard.php");
             ob_end_flush();
             exit;
         }

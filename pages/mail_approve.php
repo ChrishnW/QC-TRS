@@ -25,21 +25,52 @@
         //Sender's email and name
         $mail->setFrom('noreply@glory.com.ph', 'Glory Philippines Inc.'); 
 
+        $id = $_SESSION['request_id'];
+        $access = $_SESSION['access'];
+        $query = "";
+
+        if($access == 3){
+            $query = "tbl_request.dept_id";
+        }
+        elseif($access == 4){
+            $query = "tbl_request.dept_head_id";
+        }
+        elseif($access == 5){
+            $query = "tbl_request.fac_officer_id";
+        }
+        elseif($access == 6){
+            $query = "tbl_request.supervisor_id";
+        }
+        elseif($access == 6){
+            $query = "tbl_request.coo_id";
+        }
+
+
+
+        $result = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname, tbl_request.date FROM tbl_request INNER JOIN tbl_account ON $query=tbl_account.id WHERE tbl_request.id=$id");
+        $details = mysqli_fetch_assoc($result);
+
+        $email = $details['email'];
+        $name = $details['firstname'] . " " . $details['lastname'];
+        $date = explode('-' , $details['date']);
+        $tr_number = "QTRS-" . $date[1] . $date[2] . $date[0];
+
         //Recipients
-        // $mail->addAddress($email_address, $name); 
+        $mail->addAddress($email, $name);
 
         // Content
-        // $mail->isHTML(true);                                        
-        // $mail->Subject = '[Role]: TROUBLE REPORT';
-        // $mail->Body    = 'Dear <strong> . $name . </strong>, <br><br>
-        //                 You have PENDING Trouble Report Request [Trouble Report No.] for approval.  <br>
-        //                 Please check by logging in your account at [link of QCTRS]                  <br><br>
-        //                 <i>This is a system generated email. Please do not reply.</i>               <br><br>
-        //                 QC Trouble Report System';
-        // $mail->send();
+        $mail->isHTML(true);
+        $mail->Subject = 'REQUEST: TROUBLE REPORT';
+        $mail->Body    = 'Dear <strong>' . $name . '</strong>,<br><br>
+                        You have a PENDING Trouble Report Request <strong>' . $tr_number . '</strong> for approval.<br>
+                        Please check by logging in to your account at <a href="http://localhost/qc-trs" target="_blank">Trouble Report System</a>.<br><br>
+                        <i>This is a system-generated email. Please do not reply.</i><br><br>
+                        QC Trouble Report System';
+        $mail->send();
 
 
         echo "<script>console.log('Message has been sent')</script>";
     } catch (Exception $e) {
         echo "<script>console.log(Message could not be sent. Mailer Error: {$mail->ErrorInfo})</script>";
     }
+?>
