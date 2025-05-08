@@ -20,12 +20,12 @@
 
 #display_approved:hover .badge{
     background-color: #FFFFFF;
-    color: #0275d8;
+    color: #198754;
 }
 
 #display_rejected:hover .badge{
     background-color: #FFFFFF;
-    color: #0275d8;
+    color: #dc3545;
 }
 
 .pull-right {
