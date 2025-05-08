@@ -38,17 +38,17 @@
         $ccRequestor = mysqli_fetch_assoc($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
                 FROM tbl_request 
                 INNER JOIN tbl_account ON $query=tbl_account.id 
-                WHERE tbl_request.id=$id");
+                WHERE tbl_request.id = $id");
 
         $ccEditor = mysqli_fetch_assoc($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
                 FROM tbl_request 
                 INNER JOIN tbl_account ON tbl_request.dept_id = tbl_account.id 
                 WHERE tbl_response.id = '$response_id'");
-
+                            
         $email = $details['email'];
         $name = $details['firstname'] . " " . $details['lastname'];
         $date = explode('-' , $details['date']);
-        $tr_number = "QTRS-" . $date[1] . $date[2] . $date[0];
+        $tr_number = "QCTRS-" . $id;
 
         //Recipients
         $mail->addAddress($email, $name);
@@ -56,7 +56,7 @@
 
         // Content
         $mail->isHTML(true);
-        $mail->Subject = 'REQUEST: TROUBLE REPORT';
+        $mail->Subject = 'APPROVAL: TROUBLE REPORT';
         $mail->Body    = 'Dear <strong>' . $name . '</strong>,<br><br>
                         You have a PENDING Trouble Report Request <strong>' . $tr_number . '</strong> for approval.<br>
                         Please check by logging in to your account at <a href="http://localhost/qc-trs" target="_blank">Trouble Report System</a>.<br><br>
