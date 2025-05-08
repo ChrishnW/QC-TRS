@@ -37,8 +37,8 @@
 
         $ccRequestor = mysqli_fetch_assoc($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
                 FROM tbl_request 
-                INNER JOIN tbl_account ON $query=tbl_account.id 
-                WHERE tbl_request.id = $id");
+                INNER JOIN tbl_account ON tbl_request.dept_id = tbl_account.id 
+                WHERE tbl_request.id = '$request_id'");
 
         $ccEditor = mysqli_fetch_assoc($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
                 FROM tbl_request 
@@ -47,7 +47,6 @@
                             
         $email = $details['email'];
         $name = $details['firstname'] . " " . $details['lastname'];
-        $date = explode('-' , $details['date']);
         $tr_number = "QCTRS-" . $id;
 
         //Recipients
