@@ -218,7 +218,7 @@
                 // $_SESSION['email_request_id'] = $request_id;
                 // $_SESSION['email_access'] = 1 + intval($access);
                 
-                // include 'mail_approve.php';
+                // include 'mail_reject.php';
             }
             else{
                 $_SESSION['email_request_id'] = $request_id;
@@ -240,6 +240,12 @@
             
             updateRequest($response_id, $status);
 
+            $_SESSION['email_request_id'] = $request_id;
+            include 'mail_reject.php';
+
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
+            ob_end_flush();
+            exit();
         }
     }
 ?>
