@@ -51,7 +51,7 @@
                     $_SESSION["message"] = "Request submitted successfully.";
 
                     $_SESSION['email_request_id'] = $request_id;
-                    $_SESSION['email_access'] = '';
+                    $_SESSION['email_access'] = 3;
                     
                     include 'mail_approve.php';
 
