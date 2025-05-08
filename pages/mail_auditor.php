@@ -26,38 +26,30 @@
         $mail->setFrom('noreply@glory.com.ph', 'Glory Philippines Inc.'); 
 
         $id = $_SESSION['email_request_id'];
-        $access = $_SESSION['email_access'];
 
-        $result = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname, tbl_request.date 
-                FROM tbl_request 
-                INNER JOIN tbl_account ON tbl_request.auditor_id = tbl_account.id 
-                WHERE tbl_request.id = $id AND tbl_request.access = '$access'");
-
+        $result = mysqli_query($conn, "SELECT * FROM tbl_account WHERE access=8");
         $details = mysqli_fetch_assoc($result);
 
-        $ccRequestor = mysqli_fetch_assoc($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
-                FROM tbl_request 
-                INNER JOIN tbl_account ON tbl_request.dept_id = tbl_account.id 
-                WHERE tbl_request.id = '$request_id'");
-
-        $ccEditor = mysqli_fetch_assoc($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
-                FROM tbl_request 
-                INNER JOIN tbl_account ON tbl_request.dept_id = tbl_account.id 
-                WHERE tbl_response.id = '$response_id'");
-                            
         $email = $details['email'];
         $name = $details['firstname'] . " " . $details['lastname'];
         $tr_number = "QCTRS-" . $id;
 
+        $details_requestor = mysqli_fetch_assoc($conn, "SELECT tbl_account.email FROM tbl_request INNER JOIN tbl_account ON tbl_request.req_id=tbl_account.id WHERE tbl_request.id = $id");
+        $cc_requestor = $details_requestor['email'];
+
+        $details_editor = mysqli_fetch_assoc($conn, "SELECT tbl_account.email FROM tbl_request INNER JOIN tbl_account ON tbl_request.dept_id=tbl_account.id WHERE tbl_request.id = $id");
+        $cc_editor = $details_requestor['email'];
+
         //Recipients
         $mail->addAddress($email, $name);
-        $mail->addCC($ccRequestor, $ccEditor);
+        $mail->addCC($cc_requestor);
+        $mail->addCC($cc_editor);
 
         // Content
         $mail->isHTML(true);
         $mail->Subject = 'APPROVAL: TROUBLE REPORT';
         $mail->Body    = 'Dear <strong>' . $name . '</strong>,<br><br>
-                        You have a PENDING Trouble Report Request <strong>' . $tr_number . '</strong> for approval.<br>
+                        You have a PENDING Trouble Report Request <strong>' . $tr_number . '</strong> for audit.<br>
                         Please check by logging in to your account at <a href="http://localhost/qc-trs" target="_blank">Trouble Report System</a>.<br><br>
                         <i>This is a system-generated email. Please do not reply.</i><br><br>
                         QC Trouble Report System';
