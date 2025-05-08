@@ -25,8 +25,8 @@
         //Sender's email and name
         $mail->setFrom('noreply@glory.com.ph', 'Glory Philippines Inc.'); 
 
-        $id = $_SESSION['request_id'];
-        $access = $_SESSION['access'];
+        $id = $_SESSION['email_request_id'];
+        $access = $_SESSION['email_access'];
         $query = "";
 
         if($access == 3){
@@ -44,8 +44,6 @@
         elseif($access == 6){
             $query = "tbl_request.coo_id";
         }
-
-
 
         $result = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname, tbl_request.date FROM tbl_request INNER JOIN tbl_account ON $query=tbl_account.id WHERE tbl_request.id=$id");
         $details = mysqli_fetch_assoc($result);
