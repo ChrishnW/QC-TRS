@@ -191,7 +191,7 @@
             $email_query = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
                                             FROM tbl_request 
                                             INNER JOIN tbl_account ON tbl_request.dept_id = tbl_account.id 
-                                            WHERE tbl_request.id = '$response_id'");
+                                            WHERE tbl_response.id = '$response_id'");
 
             if ($email_query && mysqli_num_rows($email_query) > 0) {
                 $email_data = mysqli_fetch_assoc($email_query);
