@@ -52,9 +52,9 @@
 
                     // Send email notification
                     $email_query = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
-                                    FROM tbl_request 
-                                    INNER JOIN tbl_account ON tbl_request.dept_id = tbl_account.id 
-                                    WHERE tbl_request.id = '$request_id'");
+                                                        FROM tbl_request 
+                                                        INNER JOIN tbl_account ON tbl_request.dept_id = tbl_account.id 
+                                                        WHERE tbl_request.id = '$request_id'");
 
                     if ($email_query && mysqli_num_rows($email_query) > 0) {
                         $email_data = mysqli_fetch_assoc($email_query);
@@ -70,14 +70,19 @@
                         // Content
                         $mail->isHTML(true);
                         $mail->Subject = 'REQUESTOR: TROUBLE REPORT';
-                        $mail->Body    = 'Dear <strong>' . $name . '</strong>, <br><br>
-                                          You have PENDING Trouble Report Request [Trouble Report No.] for approval.  <br>
-                                          Please check by logging in your account at [link of QCTRS].                 <br><br>
-                                          <i>This is a system generated email. Please do not reply.</i>               <br><br>
-                                          QC Trouble Report System';
+                        $mail->Body    = 'Dear <strong>' . $name . '</strong>,<br><br>
+                                        You have a PENDING Trouble Report Request <strong>' . $request_id . '</strong> for approval.<br>
+                                        Please check by logging in to your account at <a href="link">QC Trouble Report System</a>.<br><br>
+                                        <i>This is a system-generated email. Please do not reply.</i><br><br>
+                                        QC Trouble Report System';
 
+                    
                         // Send the email
                         if ($mail->send()) {
+
+                            echo "<script>console.log('Email Subject: " . $mail->Subject . "');</script>";
+                            echo "<script>console.log('Email Body: " . htmlspecialchars($mail->Body) . "');</script>";
+
                             $_SESSION["message"] = "Request submitted successfully, and email notification sent.";
                         } else {
                             $_SESSION["message"] = "Request submitted successfully, but email notification failed.";
@@ -93,7 +98,7 @@
                 $_SESSION["message"] = "Failed to upload images. Please try again.";
             }
 
-            header("Refresh: .3; url = requestor_dashboard.php");
+            header("Refresh: .1; url = requestor_dashboard.php");
             ob_end_flush();
             exit;
         }
