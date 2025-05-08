@@ -142,10 +142,6 @@
                 mysqli_query($conn, "UPDATE tbl_audit SET status='0' WHERE response_id='$response_id'");
             }
         }
-
-        header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
-        ob_end_flush();
-        exit();
     }
 
     function checkStatusApproveNext($response_id){
@@ -214,67 +210,24 @@
             $request_id = $_POST['request_id_answered'];
             $response_id = $_POST['response_id_answered'];
             $status = '1';
+            $access = $_SESSION['SESS_LEVEL'];
 
             updateRequest($response_id, $status);
+
+            if($access == 7){
+                // $_SESSION['email_request_id'] = $request_id;
+                // $_SESSION['email_access'] = 1 + intval($access);
+                
+                // include 'mail_approve.php';
+            }
+            else{
+                $_SESSION['email_request_id'] = $request_id;
+                $_SESSION['email_access'] = 1 + intval($access);
+                
+                include 'mail_approve.php';
+            }
             
-            // Get the approver's email address based on user access level
-            // $approver_query = "";
-            // if ($userAccess == 4) {
-            //     $approver_query = "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
-            //                     FROM tbl_response 
-            //                     INNER JOIN tbl_account ON tbl_response.dept_head_id = tbl_account.id 
-            //                     WHERE tbl_response.id = '$response_id'";
-            // } elseif ($userAccess == 5) {
-            //     $approver_query =  "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
-            //                     FROM tbl_response 
-            //                     INNER JOIN tbl_account ON tbl_response.supervisor_id = tbl_account.id 
-            //                     WHERE tbl_response.id = '$response_id'";
-            // } elseif ($userAccess == 6) {
-            //     $approver_query = "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
-            //                     FROM tbl_response 
-            //                     INNER JOIN tbl_account ON tbl_response.coo_id = tbl_account.id 
-            //                     WHERE tbl_response.id = '$response_id'";         
-            // } elseif ($userAccess == 7) {
-            //     $approver_query = "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
-            //                     FROM tbl_response 
-            //                     INNER JOIN tbl_account ON tbl_response.coo_id = tbl_account.id 
-            //                     WHERE tbl_response.id = '$response_id'";
-            // }
-            
-            // // Send email notification
-            // $email_query = mysqli_query($conn, $approver_query);
-
-            // if ($email_query && mysqli_num_rows($email_query) > 0) {
-            //     $email_data = mysqli_fetch_assoc($email_query);
-            //     $email_address = $email_data['email'];
-            //     $name = $email_data['firstname'] . ' ' . $email_data['lastname'];
-
-            //     // Include mail.php and send email
-            //     include "../pages/mail.php";
-
-            //     // Recipient's email and name
-            //     $mail->addAddress($email_address, $name);
-
-            //     // Content
-            //     $mail->isHTML(true);
-            //     $mail->Subject = 'APPROVAL: TROUBLE REPORT';
-            //     $mail->Body    = 'Dear <strong>' . $name . '</strong>,<br><br>
-            //                     You have a PENDING Trouble Report Request <strong>' . $request_id . '</strong> for approval.<br>
-            //                     Please check by logging in to your account at <a href="link">QC Trouble Report System</a>.<br><br>
-            //                     <i>This is a system-generated email. Please do not reply.</i><br><br>
-            //                     QC Trouble Report System';
-
-            //     // Send the email
-            //     if ($mail->send()) {
-            //         $_SESSION["message"] = "Request submitted successfully, and email notification sent.";
-            //     } else {
-            //         $_SESSION["message"] = "Request submitted successfully, but email notification failed.";
-            //     }
-            // } else {    
-            //     $_SESSION["message"] = "Request submitted successfully, but recipient email not found.";
-            // }
-
-            header("Refresh: 15; url=".$_SERVER['PHP_SELF']);
+            header("Refresh: .3; url=".$_SERVER['PHP_SELF']);
             ob_end_flush();
             exit();
         }

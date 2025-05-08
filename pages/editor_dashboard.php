@@ -172,6 +172,7 @@
         // Update submit form ........................................................................
         if(isset($_POST['save_response'])){
             $response_id = $_POST['response_id'];
+            $request_id = $_POST['request_id'];
 
             $man = filter_input(INPUT_POST, "man", FILTER_SANITIZE_SPECIAL_CHARS);
             $method = filter_input(INPUT_POST, "method", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -187,41 +188,10 @@
 
             $result = mysqli_query($conn, "UPDATE tbl_response SET man='$man', method='$method', material='$material', machine='$machine', correction='$correction', ca_man='$ca_man', ca_method='$ca_method', ca_material='$ca_material', ca_machine='$ca_machine', remarks='$remarks', dept_status='$dept_status' WHERE id='$response_id'");
 
-            // Send email notification
-            $email_query = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname 
-                                            FROM tbl_request 
-                                            INNER JOIN tbl_account ON tbl_request.dept_id = tbl_account.id 
-                                            WHERE tbl_response.id = '$response_id'");
-
-            if ($email_query && mysqli_num_rows($email_query) > 0) {
-                $email_data = mysqli_fetch_assoc($email_query);
-                $email_address = $email_data['email'];
-                $name = $email_data['firstname'] . ' ' . $email_data['lastname'];
-
-                // Include mail.php and send email
-                include "../pages/mail.php";
-
-                // Recipient's email and name
-                $mail->addAddress($email_address, $name);
-
-                // Content
-                $mail->isHTML(true);
-                $mail->Subject = 'APPROVAL: TROUBLE REPORT';
-                $mail->Body    = 'Dear <strong>' . $name . '</strong>,<br><br>
-                                You have a PENDING Trouble Report Request <strong>' . $request_id . '</strong> for approval.<br>
-                                Please check by logging in to your account at <a href="link">QC Trouble Report System</a>.<br><br>
-                                <i>This is a system-generated email. Please do not reply.</i><br><br>
-                                QC Trouble Report System';
-
-                // Send the email
-                if ($mail->send()) {
-                    $_SESSION["message"] = "Request submitted successfully, and email notification sent.";
-                } else {
-                    $_SESSION["message"] = "Request submitted successfully, but email notification failed.";
-                }
-            } else {
-                $_SESSION["message"] = "Request submitted successfully, but recipient email not found.";
-            }
+            $_SESSION['email_request_id'] = $request_id;
+            $_SESSION['email_access'] = 4;
+            
+            include 'mail_approve.php';
 
             if($result){
                 $_SESSION['message'] = "Response successfully submitted!";
@@ -1021,6 +991,7 @@
             <div class="modal-footer">
                     <div class="mr-4">
                         <input type="hidden" name="response_id" value="<?php echo $response_request['response_id'] ?>">
+                        <input type="hidden" name="request_id" value="<?php echo $response_request['request_id'] ?>">
                         <input type="submit" name="save_response" class="btn btn-success" value="Save">
                         <input type="reset" name="close_view" onclick="closeResponse()" value="Close" class="btn btn-secondary ml-2">
                     </div>

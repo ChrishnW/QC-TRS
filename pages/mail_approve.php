@@ -41,17 +41,16 @@
         elseif($access == 6){
             $query = "tbl_request.supervisor_id";
         }
-        elseif($access == 6){
+        elseif($access == 7){
             $query = "tbl_request.coo_id";
         }
 
-        $result = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname, tbl_request.date FROM tbl_request INNER JOIN tbl_account ON $query=tbl_account.id WHERE tbl_request.id=$id");
+        $result = mysqli_query($conn, "SELECT tbl_account.email, tbl_account.firstname, tbl_account.lastname FROM tbl_request INNER JOIN tbl_account ON $query=tbl_account.id WHERE tbl_request.id=$id");
         $details = mysqli_fetch_assoc($result);
 
         $email = $details['email'];
         $name = $details['firstname'] . " " . $details['lastname'];
-        $date = explode('-' , $details['date']);
-        $tr_number = "QTRS-" . $date[1] . $date[2] . $date[0];
+        $tr_number = "QCTRS-" . $id;
 
         //Recipients
         $mail->addAddress($email, $name);
