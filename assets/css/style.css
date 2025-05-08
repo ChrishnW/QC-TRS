@@ -2,47 +2,15 @@
     text-align: justify;
 }
 
-#ongoingBtn:hover {
-    background-color: #ffc107; 
-    color: #FFFFFF; 
-    border-color: #0275d8; 
-}
-
-#finishedBtn:hover {
-    background-color: #28a745; 
-    color: #FFFFFF; 
-    border-color: #0275d8; 
-}
 /* Change badge color when the button is hovered */
 #ongoingBtn:hover .badge {
-    background-color: #FFFFFF; 
-    color: #ffc107; 
+    background-color: #FFFFFF; /* Bootstrap primary blue */
+    color: #0275d8; /* White text */
 }
 
 #finishedBtn:hover .badge {
-    background-color: #FFFFFF; 
-    color: #28a745; 
-}
-
-/* Change hover color for Pending Approval button */
-#display_pending:hover {
-    background-color: #ffc107; /* Bootstrap Yellow */
-    color: #fff; 
-    border-color: #0275d8; 
-}
-
-/* Change hover color for Approved Reports button */
-#display_approved:hover {
-    background-color: #28a745; /* Bootstrap Green */
-    color: #fff; 
-    border-color: #0275d8; 
-}
-
-/* Change hover color for Rejected Reports button */
-#display_rejected:hover {
-    background-color: #dc3545; /* Bootstrap Red */
-    color: #fff;
-    border-color: #0275d8; 
+    background-color: #FFFFFF; /* Bootstrap primary blue */
+    color: #0275d8; /* White text */
 }
 
 #display_pending:hover .badge{
