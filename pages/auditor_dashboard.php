@@ -226,9 +226,9 @@
                 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
                     <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-warning active" onclick="display_pending()">Pending Reports <span class="badge badge-light text-warning rounded-circle ml-1"><?php echo $pending_count; ?></span></button>
-                        <button id="display_approved" type="button" class="btn btn-outline-success" onclick="display_approved()">Audited Reports <span class="badge badge-success rounded-circle ml-1"><?php echo $approved_count; ?></span></button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-danger" onclick="display_closed()">Closed Reports <span class="badge badge-danger rounded-circle ml-1"><?php echo $closed_count; ?></span></button>
+                        <button id="display_pending" type="button" class="btn btn-outline-primary active" onclick="display_pending()">Pending Reports <span class="badge badge-light text-warning rounded-circle ml-1"><?php echo $pending_count; ?></span></button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited Reports <span class="badge badge-success rounded-circle ml-1"><?php echo $approved_count; ?></span></button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed Reports <span class="badge badge-danger rounded-circle ml-1"><?php echo $closed_count; ?></span></button>
                     </div>
                 </div>
             </div>
@@ -289,9 +289,9 @@
                 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
                     <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-warning" onclick="display_pending()">Pending Reports <span class="badge badge-warning rounded-circle ml-1"><?php echo $pending_count; ?></span></button>
-                        <button id="display_approved" type="button" class="btn btn-outline-success active" onclick="display_approved()">Audited Reports <span class="badge badge-light text-success rounded-circle ml-1"><?php echo $approved_count; ?></span></button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-danger" onclick="display_closed()">Closed Reports <span class="badge badge-danger rounded-circle ml-1"><?php echo $closed_count; ?></span></button>
+                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending  Reports <span class="badge badge-warning rounded-circle ml-1"><?php echo $pending_count; ?></span></button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary active" onclick="display_approved()">Audited Reports <span class="badge badge-light text-success rounded-circle ml-1"><?php echo $approved_count; ?></span></button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary" onclick="display_closed()">Closed Reports <span class="badge badge-danger rounded-circle ml-1"><?php echo $closed_count; ?></span></button>
                     </div>
                 </div>
             </div>
@@ -353,9 +353,9 @@
                 
                 <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
                     <div class="btn-group float-right" role="group" aria-label="Switch Buttons">
-                        <button id="display_pending" type="button" class="btn btn-outline-warning" onclick="display_pending()">Pending Reports <span class="badge badge-warning rounded-circle ml-1"><?php echo $pending_count; ?></span></button>
-                        <button id="display_approved" type="button" class="btn btn-outline-success" onclick="display_approved()">Audited Reports <span class="badge badge-success rounded-circle ml-1"><?php echo $approved_count; ?></span></button>
-                        <button id="display_rejected" type="button" class="btn btn-outline-danger active" onclick="display_closed()">Closed Reports <span class="badge badge-light text-danger rounded-circle ml-1"><?php echo $closed_count; ?></span></button>
+                        <button id="display_pending" type="button" class="btn btn-outline-primary" onclick="display_pending()">Pending Reports <span class="badge badge-warning rounded-circle ml-1"><?php echo $pending_count; ?></span></button>
+                        <button id="display_approved" type="button" class="btn btn-outline-primary" onclick="display_approved()">Audited Reports <span class="badge badge-success rounded-circle ml-1"><?php echo $approved_count; ?></span></button>
+                        <button id="display_rejected" type="button" class="btn btn-outline-primary active" onclick="display_closed()">Closed Reports <span class="badge badge-light text-danger rounded-circle ml-1"><?php echo $closed_count; ?></span></button>
                     </div>
                 </div>
             </div>
@@ -476,22 +476,18 @@
                                         <div class="row px-2">
                                             <h6><b>Department Head: </b> <?php echo !empty($view_request['dept_head_id']) ? getUsername($view_request['dept_head_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo !empty($view_request['dept_head_id']) ? getApprovalStatusColor($view_request['dept_head_status']) : '' ?>"><i><?php echo !empty($view_request['dept_head_id']) ? getApprovalStatus($view_request['dept_head_status']) : '' ?></i></h6>
-                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"fas fa-info-circle pl-1\" data-toggle=\"tooltip\" data-placement=\"top\" title=\" ". $view_request['reject_reason'] ." \"></span>" : "" ?>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>Factory Officer: </b> <?php echo !empty($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo !empty($view_request['fac_officer_id']) ? getApprovalStatusColor($view_request['fac_officer_status']) : '' ?>"><i><?php echo !empty($view_request['fac_officer_id']) ? getApprovalStatus($view_request['fac_officer_status']) : '' ?></i></h6>
-                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"fas fa-info-circle pl-1\" data-toggle=\"tooltip\" data-placement=\"top\" title=\" ". $view_request['reject_reason'] ." \"></span>" : "" ?>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>QC Supervisor: </b> <?php echo !empty($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo !empty($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['supervisor_status']) : '' ?>"><i><?php echo !empty($view_request['supervisor_id']) ? getApprovalStatus($view_request['supervisor_status']) : '' ?></i></h6>
-                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"fas fa-info-circle pl-1\" data-toggle=\"tooltip\" data-placement=\"top\" title=\" ". $view_request['reject_reason'] ." \"></span>" : "" ?>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>Chief Operating Officer: </b> <?php echo !empty($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo !empty($view_request['coo_id']) ? getApprovalStatusColor($view_request['coo_status']) : '' ?>"><i><?php echo !empty($view_request['coo_id']) ? getApprovalStatus($view_request['coo_status']) : '' ?></i></h6>
-                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"fas fa-info-circle pl-1\" data-toggle=\"tooltip\" data-placement=\"top\" title=\" ". $view_request['reject_reason'] ." \"></span>" : "" ?>
                                         </div>
                                     </div>
                                 </div>
