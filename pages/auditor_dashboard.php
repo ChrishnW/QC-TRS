@@ -476,18 +476,22 @@
                                         <div class="row px-2">
                                             <h6><b>Department Head: </b> <?php echo !empty($view_request['dept_head_id']) ? getUsername($view_request['dept_head_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo !empty($view_request['dept_head_id']) ? getApprovalStatusColor($view_request['dept_head_status']) : '' ?>"><i><?php echo !empty($view_request['dept_head_id']) ? getApprovalStatus($view_request['dept_head_status']) : '' ?></i></h6>
+                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"fas fa-info-circle pl-1\" data-toggle=\"tooltip\" data-placement=\"top\" title=\" ". $view_request['reject_reason'] ." \"></span>" : "" ?>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>Factory Officer: </b> <?php echo !empty($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo !empty($view_request['fac_officer_id']) ? getApprovalStatusColor($view_request['fac_officer_status']) : '' ?>"><i><?php echo !empty($view_request['fac_officer_id']) ? getApprovalStatus($view_request['fac_officer_status']) : '' ?></i></h6>
+                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"fas fa-info-circle pl-1\" data-toggle=\"tooltip\" data-placement=\"top\" title=\" ". $view_request['reject_reason'] ." \"></span>" : "" ?>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>QC Supervisor: </b> <?php echo !empty($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo !empty($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['supervisor_status']) : '' ?>"><i><?php echo !empty($view_request['supervisor_id']) ? getApprovalStatus($view_request['supervisor_status']) : '' ?></i></h6>
+                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"fas fa-info-circle pl-1\" data-toggle=\"tooltip\" data-placement=\"top\" title=\" ". $view_request['reject_reason'] ." \"></span>" : "" ?>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>Chief Operating Officer: </b> <?php echo !empty($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo !empty($view_request['coo_id']) ? getApprovalStatusColor($view_request['coo_status']) : '' ?>"><i><?php echo !empty($view_request['coo_id']) ? getApprovalStatus($view_request['coo_status']) : '' ?></i></h6>
+                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"fas fa-info-circle pl-1\" data-toggle=\"tooltip\" data-placement=\"top\" title=\" ". $view_request['reject_reason'] ." \"></span>" : "" ?>
                                         </div>
                                     </div>
                                 </div>
