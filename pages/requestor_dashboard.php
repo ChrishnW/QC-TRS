@@ -417,7 +417,7 @@
 <div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header bg-gradient-primary">
+            <div class="modal-header bg-primary">
                 <h5 class="modal-title text-white">Trouble Report Form</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="closeView()">
                     <span aria-hidden="true">&times;</span>
@@ -725,7 +725,7 @@
 <div class="modal" tabindex="-1" id="edit_ongoing" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header bg-gradient-primary">
+            <div class="modal-header bg-primary">
                 <h5 class="modal-title text-white">Edit Trouble Request</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="close_edit_modal()">
                     <span aria-hidden="true">&times;</span>
@@ -963,7 +963,7 @@
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-gradient-danger">
+            <div class="modal-header bg-danger">
                 <h5 class="modal-title text-white" id="exampleModalLabel">Delete Trouble Report</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>

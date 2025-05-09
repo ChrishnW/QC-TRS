@@ -252,7 +252,7 @@
 <div class="modal" id="modal_add_account" tabindex="-1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header bg-gradient-primary">
+      <div class="modal-header bg-primary">
         <h5 class="modal-title text-white">Add Account</h5>
         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="close_add_account()">
           <span aria-hidden="true">&times;</span>
@@ -310,7 +310,7 @@
 <div class="modal" id="modal_edit_account" tabindex="-1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
-      <div class="modal-header bg-gradient-primary">
+      <div class="modal-header bg-primary">
         <h5 class="modal-title text-white">Edit Account</h5>
         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="close_edit_account()">
           <span aria-hidden="true">&times;</span>
@@ -408,7 +408,7 @@
 <div class="modal" id="modal_delete_account" tabindex="-1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5);">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header bg-gradient-danger">
+      <div class="modal-header bg-danger">
         <h5 class="modal-title text-white">Delete Account</h5>
         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="close_delete_account()">
           <span aria-hidden="true">&times;</span>

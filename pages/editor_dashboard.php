@@ -388,7 +388,7 @@
 <div class="modal" tabindex="-1" id="view_ongoing" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header bg-gradient-primary">
+            <div class="modal-header bg-primary">
                 <h5 class="modal-title text-white">Trouble Report Form</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="closeView()">
                     <span aria-hidden="true">&times;</span>
@@ -702,7 +702,7 @@
 <div class="modal" tabindex="-1" id="reponse_report_form" class="position-fixed" style="display: none; background-color: rgba(0, 0, 0, 0.5); overflow: auto;">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header bg-gradient-primary">
+            <div class="modal-header bg-primary">
                 <h5 class="modal-title text-white">Trouble Report Form</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" onclick="closeResponse()">
                     <span aria-hidden="true">&times;</span>
