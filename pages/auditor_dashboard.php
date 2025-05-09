@@ -429,19 +429,19 @@
 
                         <div class="container-fluid row">
                             <div class="card col mb-2">
-                                <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                <div class="row align-items-center pt-4 mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                     <div class="col-auto">
                                         <img src="<?php echo !empty($view_request['img_ng']) ? $view_request['img_ng'] : '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>                 
                                 </div> <br>
 
-                                <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                <div class="row align-items-center pb-4 mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                     <img src="<?php echo !empty($view_request['img_g']) ? $view_request['img_g'] : '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                 </div>
                             </div>
 
-                            <div class="container-fluid mr-n5 col d-flex flex-column align-items-stretch">
-                                <div class="card col mb-2 flex-grow-1">
+                            <div class="container-fluid mr-n5 col d-flex flex-column align-items-stretch" style="overflow-y: auto;">
+                                <div class="card col mb-2 flex-grow-1" style="max-height: 220px; overflow-y: auto;">
                                     <div class="p-2">
                                         <h6><b>Date: </b> <?php echo !empty($view_request['date']) ? $view_request['date'] : '' ?></h6>                
                                         <h6><b>Model: </b> <?php echo !empty($view_request['model']) ? $view_request['model'] : '' ?></h6>
@@ -453,13 +453,13 @@
                                     </div>       
                                 </div>
 
-                                <div class="card col mb-2 flex-grow-1" style="max-height: 120px; overflow-y: auto;">
+                                <div class="card col mb-2 flex-grow-1" style="max-height: 150px; overflow-y: auto;">
                                     <div class="p-2">
                                         <h6><b>Findings: </b> <?php echo !empty($view_request['findings']) ? $view_request['findings'] : '' ?></h6>
                                     </div>
                                 </div>
 
-                                <div class="card col mb-2 flex-grow-1" style="max-height: 150px;"> 
+                                <div class="card col mb-2 flex-grow-1" style="max-height: 155px; overflow-y: auto;"> 
                                     <div class="p-2">                 
                                         <h6><b>Trouble Origin (100%): </b><?php echo !empty($view_request['origin1']) ? $view_request['origin1'] : '' ?></h6>
                                         <h6><b>Checked By (200%): </b> <?php echo !empty($view_request['origin2']) ? $view_request['origin2'] : '' ?></h6>
@@ -469,7 +469,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card col mb-2 flex-grow-1" style="max-height: 180px;">
+                                <div class="card col mb-2 flex-grow-1" style="max-height: 185px; overflow-y: auto;">
                                     <div class="col p-2">
                                         <h5 class="mt-1 mb-n1"><b>Approval</b></h5>
                                         <hr>
@@ -736,19 +736,19 @@
                             <div class="container-fluid row">
                                 <div class="card col mb-2">
 
-                                    <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                    <div class="row align-items-center pt-4 mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                         <div class="col-auto">
                                             <img src="<?php echo !empty($response_request['img_ng']) ? $response_request['img_ng'] : '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                         </div>                 
                                     </div> <br>
 
-                                    <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                    <div class="row align-items-center pb-4 mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                         <img src="<?php echo !empty($response_request['img_g']) ? $response_request['img_g'] : '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>
                                 </div>
 
-                                <div class="container-fluid mr-n5 col d-flex flex-column align-items-stretch">
-                                    <div class="card col mb-2 flex-grow-1">
+                                <div class="container-fluid mr-n5 col d-flex flex-column align-items-stretch" style="overflow-y: auto;">
+                                    <div class="card col mb-2 flex-grow-1" style="max-height: 220px; overflow-y: auto;">
                                         <div class="p-2">
                                             <h6><b>Date: </b> <?php echo !empty($response_request['date']) ? $response_request['date'] : '' ?></h6>                
                                             <h6><b>Model: </b> <?php echo !empty($response_request['model']) ? $response_request['model'] : '' ?></h6>
@@ -760,14 +760,14 @@
                                         </div>       
                                     </div>
 
-                                    <div class="card col mb-2 flex-grow-1" style="max-height: 120px; overflow-y: auto;">
+                                    <div class="card col mb-2 flex-grow-1" style="max-height: 150px; overflow-y: auto;">
                                         <div class="p-2">
                                             <h6><b>Findings: </b> <?php echo !empty($response_request['findings']) ? $response_request['findings'] : '' ?></h6>
                                         </div>
                                     </div>
 
-                                    <div class="card col mb-2 flex-grow-1" style="max-height: 150px;"> 
-                                        <div class="p-2">                 
+                                    <div class="card col mb-2 flex-grow-1" style="max-height: 155px; overflow-y: auto;">
+                                        <div class="p-2">
                                             <h6><b>Trouble Origin (100%): </b><?php echo !empty($response_request['origin1']) ? $response_request['origin1'] : '' ?></h6>
                                             <h6><b>Checked By (200%): </b> <?php echo !empty($response_request['origin2']) ? $response_request['origin2'] : '' ?></h6>
                                             <h6><b>Found by (QC): </b> <?php echo !empty($response_request['finder_qc']) ? $response_request['finder_qc'] : '' ?></h6>
@@ -776,7 +776,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="card col mb-2 flex-grow-1" style="max-height: 180px;">
+                                    <div class="card col mb-2 flex-grow-1" style="max-height: 185px; overflow-y: auto;">
                                         <div class="col p-2">
                                             <h5 class="mt-1 mb-n1"><b>Approval</b></h5>
                                             <hr>
@@ -1055,19 +1055,19 @@
                             <div class="container-fluid row">
                                 <div class="card col mb-2">
 
-                                    <div class="row align-items-center mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                    <div class="row align-items-center pt-4 mt-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                         <div class="col-auto">
                                             <img src="<?php echo !empty($response_request_after['img_ng']) ? $response_request_after['img_ng'] : '../assets/img/img_not_available.png'; ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                         </div>                 
                                     </div> <br>
 
-                                    <div class="row align-items-center mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                    <div class="row align-items-center pb-4 mb-4" style="flex-grow: 1; display: flex; flex-direction: column;">
                                         <img src="<?php echo !empty($response_request_after['img_g']) ? $response_request_after['img_g'] : '../assets/img/img_not_available.png' ?>" height="300px" width="300px" style="object-fit: contain;" alt="Image is not available">
                                     </div>
                                 </div>
 
-                                <div class="container-fluid mr-n5 col d-flex flex-column align-items-stretch">
-                                    <div class="card col mb-2 flex-grow-1">
+                                <div class="container-fluid mr-n5 col d-flex flex-column align-items-stretch" style="overflow-y: auto;">
+                                    <div class="card col mb-2 flex-grow-1" style="max-height: 220px; overflow-y: auto;">
                                         <div class="p-2">
                                             <h6><b>Date: </b> <?php echo !empty($response_request_after['date']) ? $response_request_after['date'] : '' ?></h6>                
                                             <h6><b>Model: </b> <?php echo !empty($response_request_after['model']) ? $response_request_after['model'] : '' ?></h6>
@@ -1079,13 +1079,13 @@
                                         </div>       
                                     </div>
 
-                                    <div class="card col mb-2 flex-grow-1" style="max-height: 120px; overflow-y: auto;">
+                                    <div class="card col mb-2 flex-grow-1" style="max-height: 150px; overflow-y: auto;">
                                         <div class="p-2">
                                             <h6><b>Findings: </b> <?php echo !empty($response_request_after['findings']) ? $response_request_after['findings'] : '' ?></h6>
                                         </div>
                                     </div>
 
-                                    <div class="card col mb-2 flex-grow-1" style="max-height: 150px;"> 
+                                    <div class="card col mb-2 flex-grow-1" style="max-height: 155px; overflow-y: auto;"> 
                                         <div class="p-2">                 
                                             <h6><b>Trouble Origin (100%): </b><?php echo !empty($response_request_after['origin1']) ? $response_request_after['origin1'] : '' ?></h6>
                                             <h6><b>Checked By (200%): </b> <?php echo !empty($response_request_after['origin2']) ? $response_request_after['origin2'] : '' ?></h6>
@@ -1095,7 +1095,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="card col mb-2 flex-grow-1" style="max-height: 180px;">
+                                    <div class="card col mb-2 flex-grow-1" style="max-height: 185px; overflow-y: auto;">
                                         <div class="col p-2">
                                             <h5 class="mt-1 mb-n1"><b>Approval</b></h5>
                                             <hr>
