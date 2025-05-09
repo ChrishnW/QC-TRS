@@ -25,12 +25,16 @@
     function getApprovalStatus($status) {
         switch ($status) {
             case 0:
+                $_SESSION['status_badge'] = "pending";
                 return '<span class="badge badge-pill badge-warning"><i class="fas fa-clock"></i> Pending</span>';
             case 1:
+                $_SESSION['status_badge'] = "approved";
                 return '<span class="badge badge-pill badge-success"><i class="fas fa-check"></i> Approved</span>';
             case 2:
+                $_SESSION['status_badge'] = "rejected";
                 return '<span class="badge badge-pill badge-danger"><i class="fas fa-times"></i> Rejected</span>';
             default:
+                $_SESSION['status_badge'] = "unknown";
                 return '<span class="badge badge-pill badge-secondary"><i class="fas fa-question"></i> Unknown</span>';
         }
     }
@@ -455,18 +459,22 @@
                                         <div class="row px-2">
                                             <h6><b>Department Head: </b> <?php echo isset($view_request['dept_head_id']) ? getUsername($view_request['dept_head_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo isset($view_request['dept_head_id']) ? getApprovalStatusColor($view_request['dept_head_status']) : '' ?>"><i><?php echo isset($view_request['dept_head_id']) ? getApprovalStatus($view_request['dept_head_status']) : '' ?></i></h6>
+                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"pl-1\"><i class=\"fas fa-info-circle\" title=\" ". $view_request['reject_reason'] ." \"></i></span>" : "" ?>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>Factory Officer: </b> <?php echo isset($view_request['fac_officer_id']) ? getUsername($view_request['fac_officer_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo isset($view_request['fac_officer_id']) ? getApprovalStatusColor($view_request['fac_officer_status']) : '' ?>"><i><?php echo isset($view_request['fac_officer_id']) ? getApprovalStatus($view_request['fac_officer_status']) : '' ?></i></h6>
+                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"pl-1\"><i class=\"fas fa-info-circle\" title=\" ". $view_request['reject_reason'] ." \"></i></span>" : "" ?>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>QC Supervisor: </b> <?php echo isset($view_request['supervisor_id']) ? getUsername($view_request['supervisor_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo isset($view_request['supervisor_id']) ? getApprovalStatusColor($view_request['supervisor_status']) : '' ?>"><i><?php echo isset($view_request['supervisor_id']) ? getApprovalStatus($view_request['supervisor_status']) : '' ?></i></h6>
+                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"pl-1\"><i class=\"fas fa-info-circle\" title=\" ". $view_request['reject_reason'] ." \"></i></span>" : "" ?>
                                         </div>
                                         <div class="row px-2">
                                             <h6><b>Chief Operating Officer: </b> <?php echo isset($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo isset($view_request['coo_id']) ? getApprovalStatusColor($view_request['coo_status']) : '' ?>"><i><?php echo isset($view_request['coo_id']) ? getApprovalStatus($view_request['coo_status']) : '' ?></i></h6>
+                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"pl-1\"><i class=\"fas fa-info-circle\" title=\" ". $view_request['reject_reason'] ." \"></i></span>" : "" ?>
                                         </div>
                                     </div>
                                 </div>
