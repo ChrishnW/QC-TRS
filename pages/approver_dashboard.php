@@ -233,9 +233,12 @@
         if(isset($_POST['reject_request_submit'])){
             $request_id = $_POST['request_id_answered'];
             $response_id = $_POST['response_id_answered'];
+            $reason = filter_input(INPUT_POST, "reject_reason", FILTER_SANITIZE_SPECIAL_CHARS);
             $status = '2';
             
             updateRequest($response_id, $status);
+            mysqli_query($conn, "UPDATE tbl_response SET reject_reason = '$reason' WHERE id = '$response_id'");
+
 
             $_SESSION['email_request_id'] = $request_id;
             include 'mail_reject.php';
@@ -813,19 +816,24 @@
                 </button>
             </div>
 
-            <div class="modal-body">
-                <p class="h5">Are you sure you want to <b>Reject</b> this report?</p> 
-            </div>
+            <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
 
-            <div class="modal-footer">
-                <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                <div class="modal-body">
+                    <p class="h5">Are you sure you want to <b>Reject</b> this report?</p> 
+
+                    <!-- <label for="reject_reason">Reason:</label><br> -->
+                    <textarea name="reject_reason" id="reject_reason" class="form-control" style="width: 100%; height: 100%; color: black;" required></textarea>
+                </div>
+
+                <div class="modal-footer">
                     <input type="hidden" name="request_id_answered" value="<?php echo $view_request['request_id'] ?>">
                     <input type="hidden" name="response_id_answered" value="<?php echo $view_request['response_id'] ?>">
 
                     <input type="submit" name="reject_request_submit" value="Confirm" class="submit btn btn-danger pr-3"> 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                </form>
-            </div>
+                </div>
+
+            </form>
         </div>
     </div>
 </div>
