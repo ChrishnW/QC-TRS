@@ -503,7 +503,7 @@
                                         <div class="row px-2">
                                             <h6><b>Chief Operating Officer: </b> <?php echo !empty($view_request['coo_id']) ? getUsername($view_request['coo_id']) : '' ?></h6>
                                             <h6 class="ml-3 <?php echo !empty($view_request['coo_id']) ? getApprovalStatusColor($view_request['coo_status']) : '' ?>"><i><?php echo !empty($view_request['coo_id']) ? getApprovalStatus($view_request['coo_status']) : '' ?></i></h6>
-                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"pl-1\"><i class=\"fas fa-info-circle\" title=\" ". $view_request['reject_reason'] ." \"></i></span>" : "" ?>
+                                            <?php echo $_SESSION['status_badge'] == "rejected" ? "<span class=\"fas fa-info-circle pl-1\" data-toggle=\"tooltip\" data-placement=\"top\" title=\" ". $view_request['reject_reason'] ." \"></span>" : "" ?>
                                         </div>
                                     </div>
                                 </div>
@@ -1040,6 +1040,11 @@
 <?php include '../include/footer.php'; ?>
 
 <script>
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
     $(document).ready(function() {
         $('#ongoing_dataTable').DataTable();
         $('#finished_dataTable').DataTable();
