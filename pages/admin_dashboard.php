@@ -239,7 +239,6 @@
                   }
                 }
               ?>
-
             </tbody>
           </table>
         </div>        
@@ -399,7 +398,6 @@
           unset($_SESSION["edit_account_id"]);
         }
       ?>
-
     </div>
   </div>
 </div>
@@ -443,7 +441,6 @@
           unset($_SESSION["delete_account_id"]);
         }
       ?>
-
     </div>
   </div>
 </div>
@@ -480,7 +477,6 @@
           unset($_SESSION["message"]);
         }
       ?>
-
     </div>
   </div>
 </div>
