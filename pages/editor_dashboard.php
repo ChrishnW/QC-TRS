@@ -1053,6 +1053,10 @@
 <?php include '../include/footer.php'; ?>
 
 <script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    
     $(document).ready(function() {
         $('#ongoing_dataTable').DataTable();
         $('#finished_dataTable').DataTable();

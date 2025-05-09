@@ -855,6 +855,10 @@
 <?php include '../include/footer.php'; ?>
 
 <script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    
     $(document).ready(function() {
         // Initialize DataTables for all tables
         $('#pending_dataTable').DataTable();
